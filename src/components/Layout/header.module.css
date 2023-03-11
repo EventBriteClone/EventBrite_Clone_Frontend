@@ -15,10 +15,21 @@
   fill: #f05537;
 }
 
+.header-links__container {
+  display: flex;
+  height: 100%;
+}
+
 .header-links {
-  color: #39365f;
+  display: flex;
+  align-items: center;
+  color: #39364f;
   text-decoration: none;
   font-size: 13px;
   font-weight: 600;
   padding: 0 20px;
+}
+
+.header-links:hover {
+  background-color: var(--grey-background);
 }

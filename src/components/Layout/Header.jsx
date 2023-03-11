@@ -39,7 +39,7 @@ export default function Header() {
         </i>
       </a>
       <SearchBar />
-      <div>
+      <div className={styles["header-links__container"]}>
         <a className={styles["header-links"]} href="">
           Organize
         </a>

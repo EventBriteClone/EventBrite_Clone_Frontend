@@ -3,30 +3,38 @@
   display: flex;
   border: none;
   align-items: center;
-  background-color: #f8f7fa;
+  background-color: var(--grey-background);
   border-radius: 1px;
   width: 100%;
   max-width: 472px;
   cursor: pointer;
-  border: 1px solid #f8f7fa;
+  border: 1px solid var(--grey-background);
 }
 
 .search-bar i {
   margin-left: 12px;
+  fill: #a9a8b3;
 }
 
+.search-bar svg {
+  height: 24px;
+  width: 24px;
+}
 .search-bar input {
   width: 100%;
   border: none;
   cursor: pointer;
-  /* max-width: 472px; */
   font-size: 14px;
   line-height: 22px;
   padding: 12px 14px;
   background: transparent;
   font-weight: 600;
-  /* border: 1px solid #f8f7fa; */
-  /* color: #a9a8b3; */
+  outline: none;
+}
+.search-bar input::placeholder {
+  color: #a9a8b3;
+  font-weight: 600;
+  font-size: 13px;
 }
 
 .search-bar__container {
