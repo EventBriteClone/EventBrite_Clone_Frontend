@@ -1,18 +1,8 @@
 .header {
-  height: 72px;
+  height: 72rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.main-icon {
-  padding: 0 24px;
-}
-
-.main-icon svg {
-  height: 20px;
-  width: 110px;
-  fill: #f05537;
 }
 
 .header-links__container {
@@ -23,11 +13,11 @@
 .header-links {
   display: flex;
   align-items: center;
-  color: #39364f;
+  color: var(--dark-font-color);
   text-decoration: none;
-  font-size: 13px;
+  font-size: 13rem;
   font-weight: 600;
-  padding: 0 20px;
+  padding: 0 20rem;
 }
 
 .header-links:hover {

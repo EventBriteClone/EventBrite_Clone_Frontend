@@ -1,8 +1,21 @@
+import styles from "./SearchBarIcon.module.css";
+
 export default function SearchBarIcon() {
   return (
     <>
-      <i data-spec="icon" data-testid="icon" aria-hidden="true">
-        <svg x="0" y="0" viewBox="0 0 24 24" xmlSpace="preserve">
+      <i
+        data-spec="icon"
+        className={styles["search-icon"]}
+        data-testid="icon"
+        aria-hidden="true"
+      >
+        <svg
+          className={styles["search-svg"]}
+          x="0"
+          y="0"
+          viewBox="0 0 24 24"
+          xmlSpace="preserve"
+        >
           <path
             id="magnifying-glass-chunky_svg__eds-icon--magnifying-glass-chunky_base"
             fillRule="evenodd"

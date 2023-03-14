@@ -1,0 +1,11 @@
+.main-icon {
+  height: "20px";
+  width: "110px";
+  padding: 0 24rem;
+}
+
+.main-icon svg {
+  height: 20rem;
+  width: 110rem;
+  fill: var(--primary-orange);
+}
