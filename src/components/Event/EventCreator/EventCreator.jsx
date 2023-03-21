@@ -4,7 +4,7 @@ import styles from "./EventCreator.module.css";
 function EventCreator() {
   return (
     <>
-      <header>
+      <div className={styles["header"]}>
         <a href="https://www.eventbrite.com/organizations/home">eventbrite</a>
         <div className={styles["profile"]}>
           <div className={styles["sign-in-info"]}>
@@ -13,9 +13,9 @@ function EventCreator() {
             <i className={styles["ri-arrow-down-s-line"]}></i>
           </div>
         </div>
-      </header>
+      </div>
 
-      <div className="section">
+      <div className={styles["section"]}>
         <div className={styles["events"]}>
           <div className={styles["event-info"]}>
             <h1>Events</h1>
@@ -32,9 +32,9 @@ function EventCreator() {
               </div>
               <h1>List</h1>
             </div>
-            <span>
-              <hr />
-            </span>
+            <div className={styles["span"]}>
+              <div className={styles["hr"]} />
+            </div>
             <div className={styles["All-events"]}>
               <div className={styles["all-events"]}>
                 <select
@@ -49,9 +49,9 @@ function EventCreator() {
                 </select>
               </div>
             </div>
-            <span>
-              <hr />
-            </span>
+            <div className={styles["span"]}>
+              <div className={styles["hr"]} />
+            </div>
             <div className={styles["Create-Event"]}>
               <div className={styles["create-event"]}>
                 <h1>Create Event</h1>
