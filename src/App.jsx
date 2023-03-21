@@ -15,6 +15,8 @@ function App() {
           <EventCard></EventCard>
           <EventCard></EventCard>
           <EventCard></EventCard>
+          <EventCard></EventCard>
+          <EventCard></EventCard>
         </EventCardContainer>
       </Section>
     </>
