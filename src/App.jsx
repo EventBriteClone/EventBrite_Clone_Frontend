@@ -1,3 +1,4 @@
+import EventCreator from "./components/Event/EventCreator/EventCreator";
 import Header from "./components/Layout/Header";
 import EventCard from "./components/EventCardContainer/EventCard";
 import EventCardContainer from "./components/EventCardContainer/EventCardContainer";
@@ -19,8 +20,10 @@ function App() {
           <EventCard></EventCard>
         </EventCardContainer>
       </Section>
+      <EventCreator />
     </>
   );
 }
+//=======
 
 export default App;
