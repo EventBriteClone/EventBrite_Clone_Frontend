@@ -1,7 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./EventCreator.module.css";
+import EventCard from "../../EventCardContainer/EventCard";
 
 function EventCreator() {
+  const events = [
+    { date: new Date("3/3/2024") },
+    { date: new Date("1/3/2006") },
+    { date: new Date("12/12/2023") },
+    { date: new Date("11/6/2004") },
+    { date: new Date("6/20/2025") },
+    { date: new Date("7/7/2005") },
+  ];
+  const defaultDate = new Date().toLocaleDateString("en-US");
+
+  const pastEvents = events.filter(
+    (event) => new Date(event.date) < new Date(defaultDate)
+  );
+
+  const upcomingEvents = events.filter(
+    (event) => new Date(event.date) > new Date(defaultDate)
+  );
+
+  const [selectedOption, setSelectedOption] = useState("All Events");
+
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
+  const filteredEvents =
+    selectedOption === "past"
+      ? pastEvents
+      : selectedOption === "upcoming"
+      ? upcomingEvents
+      : events;
+
   return (
     <>
       <div className={styles["header"]}>
@@ -40,15 +71,25 @@ function EventCreator() {
                 <select
                   id="event-filter"
                   style={{ backgroundColor: "#3659e3", color: "#fff" }}
+                  onChange={handleOptionChange}
                 >
                   <option value="All Events" defaultValue>
                     All events
                   </option>
-                  <option value="due">Due events</option>
-                  <option value="upcoming">Upcoming events</option>
+                  {pastEvents.length > 0 && (
+                    <option key="past" value="past">
+                      Past events
+                    </option>
+                  )}
+                  {upcomingEvents.length > 0 && (
+                    <option key="upcoming" value="upcoming">
+                      Upcoming events
+                    </option>
+                  )}
                 </select>
               </div>
             </div>
+
             <div className={styles["span"]}>
               <div className={styles["hr"]} />
             </div>
@@ -59,6 +100,14 @@ function EventCreator() {
             </div>
           </div>
         </div>
+      </div>
+      <div className={styles["section"]}>
+        {filteredEvents.map((event, index) => (
+          <EventCard
+            key={index}
+            date={event.date.toLocaleDateString("en-US")}
+          />
+        ))}
       </div>
     </>
   );
