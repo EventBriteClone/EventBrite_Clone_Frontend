@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./EventCreator.module.css";
 import EventCard from "../../EventCardContainer/EventCard";
+import "remixicon/fonts/remixicon.css";
 
 function EventCreator() {
   const events = [
@@ -59,7 +60,7 @@ function EventCreator() {
             </div>
             <div className={styles["list-icon"]}>
               <div className={styles["icon"]}>
-                <i className={styles["ri-list-check"]}></i>
+                <i className="ri-list-check"></i>
               </div>
               <h1>List</h1>
             </div>
