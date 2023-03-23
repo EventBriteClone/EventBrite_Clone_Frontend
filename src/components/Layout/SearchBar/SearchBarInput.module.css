@@ -1,0 +1,17 @@
+.search-bar__input {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  font-size: 14rem;
+  line-height: 22rem;
+  padding: 12px 14rem;
+  background: transparent;
+  font-weight: 600;
+  outline: none;
+}
+.search-bar__input::placeholder {
+  color: #a9a8b3;
+  font-weight: 600;
+  font-size: 13rem;
+  line-height: 22rem;
+}

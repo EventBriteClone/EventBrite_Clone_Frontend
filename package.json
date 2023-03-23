@@ -25,8 +25,12 @@
     "@mui/x-date-pickers": "^6.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+<<<<<<< HEAD
     "react-router-dom": "^6.9.0",
     "styled-components": "^5.3.9"
+=======
+    "remixicon": "^2.5.0"
+>>>>>>> 20e20d598f175607bd99b22242599afd6e16a30b
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
