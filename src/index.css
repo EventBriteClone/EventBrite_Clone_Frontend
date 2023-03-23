@@ -9,3 +9,15 @@ body {
     Helvetica Neue, Helvetica, Tahoma, Arial, sans-serif;
   font-weight: 400;
 }
+
+option {
+  font-size: 16px;
+  line-height: 23px;
+  color: #39364f;
+  padding: 0px 2px 1px;
+}
+
+.test {
+  /* border: 1px solid rgb(118, 118, 118); */
+  padding: 18px 12px 6px;
+}
