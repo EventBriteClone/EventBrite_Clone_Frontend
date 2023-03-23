@@ -43,6 +43,19 @@ body {
   font-weight: 400;
 }
 
+<<<<<<< HEAD
+option {
+  font-size: 16px;
+  line-height: 23px;
+  color: #39364f;
+  padding: 0px 2px 1px;
+}
+
+.test {
+  /* border: 1px solid rgb(118, 118, 118); */
+  padding: 18px 12px 6px;
+}
+=======
 :root {
   --grey-background: #f8f7fa;
   --primary-orange: #f05537;
@@ -119,3 +132,4 @@ For large desktop
 //CSS Code
 
 } */
+>>>>>>> 20e20d598f175607bd99b22242599afd6e16a30b
