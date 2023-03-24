@@ -2,7 +2,7 @@ import styles from "./EventCard.module.css";
 import LikeButton from "../UI/LikeButton";
 import PersonIcon from "../Icons/PersonIcon";
 
-export default function EventCard() {
+export default function EventCard(props) {
   return (
     <div className={styles["event-card__response"]}>
       <article className={styles["event-card__container"]}>
@@ -25,7 +25,7 @@ export default function EventCard() {
               </h3>
             </a>
             <p className={`${styles["event-card__time"]} truncate-text`}>
-              Tomorrow at 9:00
+              {props.date}
             </p>
           </div>
           <div className={styles["event-card__secondary-info"]}>
