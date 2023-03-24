@@ -1,7 +1,8 @@
-import SignUp from "./components/Users/SignUp";
-import BasicInfo from "./components/Event/BasicInfo";
-import Input from "./components/UI/Input";
+import EventCreator from "./components/Event/EventCreator/EventCreator";
+import Header from "./components/Layout/Header";
+
 function App() {
+  return <SignUP></SignUP>;
   return (
     <>
       <SignUp></SignUp>
