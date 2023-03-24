@@ -5,8 +5,9 @@ import EventCardContainer from "./components/EventCardContainer/EventCardContain
 import Section from "./components/Layout/Section";
 import React from "react";
 import SignUP from "./components/Users/SignUp";
+import New from "./components/Users/New";
 function App() {
-  return <SignUP></SignUP>;
+  return <New></New>;
   return (
     <>
       <Header></Header>
