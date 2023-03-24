@@ -1,10 +1,10 @@
+import { useState } from "react";
 import Style from "./Style.module.css";
-import React from "react";
 
 export default function SignUP() {
-  let [email, setEmail] = React.useState("");
-  let [invalidEmail, setInvalid] = React.useState(false);
-
+  let [email, setEmail] = useState("");
+  // let [invalidEmail, setInvalid] = useState(false);
+  let emailMessage;
   const getInputValue = (event) => {
     // show the user input value to console
     let userValue = event.target.value;
@@ -14,26 +14,19 @@ export default function SignUP() {
     const validRegex =
       /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     if (!email) {
-      setInvalid("Field required");
+      emailMessage = "Please enter a valid email address";
+      // setInvalid("Please enter a valid email address");
     } else if (email.match(validRegex)) {
-      setInvalid("");
+      emailMessage = "";
+      // setInvalid("");
     } else {
-      setInvalid("Invalid email");
+      emailMessage = "Invalid email";
+      // setInvalid("Invalid email");
     }
   }
 
   return (
-    <div>
-      <meta charSet="UTF-8" />
-      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" />
-      <link rel="stylesheet" href="Style.css" />
-      <link
-        href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
-        rel="stylesheet"
-      ></link>
-      <title>Eventbrite</title>
+    <>
       <div className={Style["main"]}>
         <div className={Style["container"]}>
           <div className={Style["first-container"]}>
@@ -53,19 +46,18 @@ export default function SignUP() {
                 </div>
               </div>
               <div className={Style["email"]}>
-                <form action="#">
+                <form className="form" action="#">
                   <input
                     onChange={getInputValue}
                     type="email"
                     placeholder="Email address"
-                    className={invalidEmail ? Style["error"] : Style["input"]}
+                    className={emailMessage ? Style["error"] : Style["input"]}
                   />
                 </form>
               </div>
               <div className={Style["cont"]}>
                 <div className={Style["invalidEmail"]}>
-                  <h2 className={Style["invalidEmail"]}>{invalidEmail}</h2>
-
+                  <h2 className={Style["invalidEmail"]}>{emailMessage}</h2>
                   <button className={Style["cont "]} onClick={AddEmail}>
                     Continue
                   </button>
@@ -76,11 +68,6 @@ export default function SignUP() {
               </div>
               <div className={Style["cont2"]}>
                 <button>
-                  {/* <a
-                  className="ri-google-fill"
-                  href="https://accounts.google.com/"
-                  title="Go to google account"
-                ></a> */}
                   <i
                     className="ri-google-fill"
                     href="https://accounts.google.com/"
@@ -106,6 +93,6 @@ export default function SignUP() {
         </div>
       </div>
       <footer></footer>
-    </div>
+    </>
   );
 }

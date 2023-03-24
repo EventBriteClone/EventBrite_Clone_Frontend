@@ -72,9 +72,15 @@ body {
 }
 
 .input {
-  padding: 15rem 94rem;
-  border-color: rgba(0, 0, 0, 0.08);
+  padding: 18px 12px 6px;
+  width: 100%;
+  border-color: #dbdae3;
 }
+/* .form:focus-within {
+  border-color: #3659e3;
+  outline: none; */
+/* } */
+
 /* .google {
   font-size: 50 px;
 } */

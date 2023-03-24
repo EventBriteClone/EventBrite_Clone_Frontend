@@ -18,21 +18,22 @@ import Autocomplete from "@mui/material/Autocomplete";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import { red } from "@mui/material/colors";
+import { KeyboardReturnSharp } from "@mui/icons-material";
 export default function BasicInfo() {
   const mySelectors = {
     width: 220,
     height: 50,
-    fontSize: "14px",
-    lineHeight: "22px",
+    fontSize: "14rem",
+    lineHeight: "22rem",
     fontWeight: 400,
     boxSizing: "border-box",
     verticalAlign: "top",
     position: "relative",
     display: "flex",
-    marginBottom: "16px",
-    paddingTop: "1px",
+    marginBottom: "16rem",
+    paddingTop: "1rem",
     flexDirection: "row",
-    borderRadius: "1px",
+    borderRadius: "1rem",
   };
   const timezone = [
     {
@@ -129,21 +130,22 @@ export default function BasicInfo() {
     "11:30 PM",
   ];
   const [color, setColor] = useState("red");
-  const [eventtilevalue, setEventTitle] = useState("");
-  const [isrequired, setTitle] = useState(false);
+  const [eventTileValue, setEventTitle] = useState("");
+  const [isRequired, setIsRequired] = useState(false);
   function eventTitleChange(event) {
+    if (event.target.value.length > 25) return;
     setEventTitle(event.target.value);
     if (event.target.value.length === 0) {
       setColor("red");
-      setTitle(true);
+      setIsRequired(true);
     } else {
       setColor("blue");
-      setTitle(false);
+      setIsRequired(false);
     }
   }
-  const [addbutton, setAddButton] = useState(0);
-  function addButtonClick(event) {
-    setAddButton(addbutton + 1);
+  const [addButton, setAddButton] = useState(0);
+  function addButtonClick() {
+    setAddButton(addButton + 1);
   }
   const conditions = [
     ";",
@@ -180,12 +182,18 @@ export default function BasicInfo() {
     "£",
     "¬",
   ];
-  const [addnumber, setAddNumber] = useState(0);
+
+  function addTagHandler(event) {
+    addTagChange(event);
+    addNumberText(event);
+  }
+  const [charLength, setCharLength] = useState(0);
   function addNumberText(event) {
-    setAddNumber(addnumber + 1);
+    setCharLength(event.target.value.length);
   }
   const [iserror, setErrorText] = useState(false);
   const [addtag, setAddTag] = useState("");
+
   function addTagChange(event) {
     setAddTag(event.target.value);
     if (event.target.value.includes(conditions)) {
@@ -230,27 +238,32 @@ export default function BasicInfo() {
               details that hightlight what makes it unique.
             </p>
           </div>
-          {/* input field */}
           <TextField
             required
             id="outlined-required"
             className={styles.EventTitle}
             label="Event Title"
             defaultValue=""
-            value={eventtilevalue}
-            placeholder="Be clear and descriptive"
+            value={eventTileValue}
+            placeholder="Be clear and descriptive."
             onChange={eventTitleChange}
-            // variant="filled"
             sx={{
               width: 1,
-              padding: "1px",
-              marginBottom: "4px",
-              marginTop: "12px",
-              borderRadius: "2px",
-              fontSize: "14px",
+              padding: "1rem",
+              marginBottom: "4rem",
+              marginTop: "12rem",
+              borderRadius: "2rem",
               fontWeight: 400,
+              borderRadius: "1rem",
+              "& input": {
+                fontSize: "14rem",
+              },
+              "& label": {
+                fontSize: "12rem",
+              },
               "& label.Mui-focused": {
                 color: { color },
+                fontSize: "12rem",
               },
               "& .MuiOutlinedInput-root": {
                 "& fieldset": {
@@ -263,7 +276,7 @@ export default function BasicInfo() {
             }}
           />
           <div className={styles.aside}>
-            {isrequired && (
+            {isRequired && (
               <p className={styles.letterRequired}>This is required.</p>
             )}
             <div className={styles.letterNumberBorder}>
@@ -281,12 +294,12 @@ export default function BasicInfo() {
             // variant="filled"
             sx={{
               width: 1,
-              marginBottom: "8px",
-              fontSize: "14px",
-              lineHeight: "22px",
+              marginBottom: "8rem",
+              fontSize: "14rem",
+              lineHeight: "22rem",
               fontWeight: 400,
-              borderRadius: "2px",
-              padding: "1px",
+              borderRadius: "2rem",
+              padding: "1rem",
             }}
           />
           <p className={styles.text1}>
@@ -299,7 +312,7 @@ export default function BasicInfo() {
               defaultValue="Type"
               placeholder="Type"
               // className={styles.TypeLayout}
-              sx={{ ...mySelectors, marginRight: "8px" }}
+              sx={{ ...mySelectors, marginRight: "8rem" }}
             >
               <Option value="appearance or singing">
                 Appearance or Singing
@@ -319,7 +332,7 @@ export default function BasicInfo() {
             <Select
               defaultValue="Category"
               placeholder="Category"
-              sx={{ ...mySelectors, marginRight: "8px", marginLeft: "8px" }}
+              sx={{ ...mySelectors, marginRight: "8rem", marginLeft: "8rem" }}
             >
               <Option value="auto, boat & air">Auto, Boat & Air</Option>
               <Option value="business & professional">
@@ -345,18 +358,17 @@ export default function BasicInfo() {
                   label="Press Enter to add a tag"
                   defaultValue=""
                   placeholder="Add search keywords to your event"
-                  onChange={addTagChange}
-                  onChangeText={addNumberText}
+                  onChange={addTagHandler}
                   // variant="filled"
                   sx={{
-                    fontSize: "14px",
-                    lineHeight: "22px",
+                    fontSize: "14rem",
+                    lineHeight: "22rem",
                     fontWeight: 400,
-                    paddingTop: "1px",
+                    paddingTop: "1rem",
                     // width: 522,
                     height: 50,
                     width: "83.3333333333%",
-                    paddingRight: "8px",
+                    paddingRight: "8rem",
                     font: "inherit",
                     "& label.Mui-focused": {
                       color: { color },
@@ -378,8 +390,10 @@ export default function BasicInfo() {
                   Add
                 </button>
                 <div className={styles.addtaglimit}>
-                  <aside>{addbutton}/10 tags.</aside>
-                  <aside className={styles.letternumber1}>{addnumber}/25</aside>
+                  <aside>{addButton}/10 tags.</aside>
+                  <aside className={styles.letternumber1}>
+                    {charLength}/25
+                  </aside>
                 </div>
               </div>
             </div>
@@ -406,23 +420,23 @@ export default function BasicInfo() {
                   <Paper
                     component="form"
                     sx={{
-                      p: "2px 4px",
+                      p: "2rem 4rem",
                       display: "flex",
                       alignItems: "center",
                       width: 564,
                       height: 50,
-                      marginBottom: "20px",
+                      marginBottom: "20rem",
                       position: "relative",
-                      fontSize: "14px",
-                      lineHeight: "22px",
+                      fontSize: "14rem",
+                      lineHeight: "22rem",
                       fontWeight: 400,
-                      padding: "1px",
-                      borderRadius: "1px",
-                      border: "1px",
+                      padding: "1rem",
+                      borderRadius: "1rem",
+                      border: "1rem",
                     }}
                   >
                     <IconButton
-                      sx={{ p: "14px", marginLeft: "12px", height: "24px" }}
+                      sx={{ p: "14rem", marginLeft: "12rem", height: "24rem" }}
                       aria-label="menu"
                     >
                       <SearchIcon />
@@ -476,12 +490,12 @@ export default function BasicInfo() {
                       // }
                       sx={{
                         width: 275,
-                        paddingRight: "8px",
+                        paddingRight: "8rem",
                         height: 50,
                         verticalAlign: "top",
-                        fontSize: "14px",
-                        marginLeft: "8px",
-                        marginTop: "8px",
+                        fontSize: "14rem",
+                        marginLeft: "8rem",
+                        marginTop: "8rem",
                       }}
                       renderInput={(params) => (
                         <TextField {...params} label="Start Time" />
@@ -506,12 +520,12 @@ export default function BasicInfo() {
                       // }
                       sx={{
                         width: 275,
-                        paddingRight: "8px",
+                        paddingRight: "8rem",
                         height: 50,
                         verticalAlign: "top",
-                        fontSize: "14px",
-                        marginLeft: "8px",
-                        marginTop: "8px",
+                        fontSize: "14rem",
+                        marginLeft: "8rem",
+                        marginTop: "8rem",
                       }}
                       renderInput={(params) => (
                         <TextField {...params} label="End Time" />

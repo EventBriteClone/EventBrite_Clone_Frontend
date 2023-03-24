@@ -1,19 +1,19 @@
 .container {
   width: 60%;
-  margin: 20px auto;
+  margin: 20rem auto;
   display: flex;
 }
 .Routing {
-  font-size: 14px;
+  font-size: 14rem;
   font-weight: 400;
   color: #3659e3;
   /* text-align: left; */
   font: inherit;
-  padding-top: 3.5px;
+  padding-top: 3.5rem;
 }
 .RoutingContainer {
   display: flex;
-  padding-top: 40px;
+  padding-top: 40rem;
 }
 .container img {
   width: 4em;
@@ -26,6 +26,10 @@
   flex-grow: 1;
   /* vertical-align: middle; */
 }
+.ImageContainer svg,
+img {
+  margin-left: auto;
+}
 
 .containerCol {
   display: flex;
@@ -33,8 +37,8 @@
   flex-grow: 1;
 }
 .mapImage {
-  margin-top: 569px;
-  margin-bottom: 265px;
+  margin-top: 569rem;
+  margin-bottom: 265rem;
 }
 .CalenderImage img {
   width: 3.15em;
@@ -50,24 +54,24 @@
   flex-direction: row;
 } */
 .arrow img {
-  padding-left: 160px;
+  padding-left: 160rem;
   display: flex;
   /* text-align: left; */
 }
 
 .h1 {
   color: #1e0a3c;
-  font-size: 1.75rem;
-  letter-spacing: 0.75px;
+  font-size: 28rem;
+  letter-spacing: 0.75rem;
   font-weight: 700;
   margin: 0;
-  padding-bottom: 0.5rem;
+  padding-bottom: 8rem;
 }
 
 .text {
   color: #39364f;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
+  font-size: 14rem;
+  line-height: 24rem;
   font-weight: 400;
   letter-spacing: 0;
   margin: 0;
@@ -81,100 +85,100 @@
 }
 
 .EventTitle {
-  margin-top: 16px;
+  margin-top: 16rem;
   display: block;
-  margin-bottom: 12px;
-  padding: 1px;
+  margin-bottom: 12rem;
+  padding: 1rem;
 }
 
 .Organizer {
-  margin-bottom: 8px;
+  margin-bottom: 8rem;
 }
 .text1 {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: 14rem;
+  line-height: 20rem;
   font-weight: 400;
   display: block;
 }
 .Selectors {
-  margin-top: 16px;
+  margin-top: 16rem;
   display: flex;
   /* border: 0; */
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 14rem;
+  line-height: 22rem;
   font-weight: 400;
-  padding-right: 8px;
+  padding-right: 8rem;
 }
 .TagsBorder {
-  margin-top: 16px;
-  font-size: 14px;
-  line-height: 22px;
+  margin-top: 16rem;
+  font-size: 14rem;
+  line-height: 22rem;
   font-weight: 400;
 }
 /* .TypeLayout {
   width: 220;
   height: 50;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 14rem;
+  line-height: 22rem;
   font-weight: 400;
   box-sizing: border-box;
   vertical-align: top;
   position: relative;
   display: flex;
-  margin-bottom: 16px;
-  padding-top: 1px;
+  margin-bottom: 16rem;
+  padding-top: 1rem;
   flex-direction: row;
-  border-radius: 1px;
+  border-radius: 1rem;
 } */
 .LabelTag {
-  font-size: 1.2rem;
-  line-height: 1.75rem;
-  letter-spacing: 0.25px;
-  margin-right: -0.25px;
+  font-size: 19.2rem;
+  line-height: 28rem;
+  letter-spacing: 0.25rem;
+  margin-right: -0.25rem;
   font-weight: 400;
-  margin-bottom: 8px;
+  margin-bottom: 8rem;
 }
 .textTag {
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 16rem;
+  line-height: 24rem;
   font-weight: 400;
-  margin-bottom: 16px;
+  margin-bottom: 16rem;
   color: #39364f;
 }
 .AddTagDiv {
-  margin-bottom: 16px;
+  margin-bottom: 16rem;
   display: block;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 14rem;
+  line-height: 22rem;
   font-weight: 400;
 }
 .AddTagButton {
-  width: 90px;
-  height: 44px;
+  width: 90rem;
+  height: 44rem;
   position: relative;
-  padding: 0 30px 1px;
-  line-height: 24px;
+  padding: 0 30rem 1rem;
+  line-height: 24rem;
   font-weight: 600;
-  letter-spacing: 0.2px;
-  border-radius: 4px;
-  border: 2px solid #a9a8b3;
+  letter-spacing: 0.2rem;
+  border-radius: 4rem;
+  border: 2rem solid #a9a8b3;
   border-color: #a9a8b3;
   color: #39364f;
   background-color: #fff;
 }
 .h1Location {
   color: #1e0a3c;
-  font-size: 1.75rem;
-  line-height: 2.25rem;
-  margin-right: -0.75px;
+  font-size: 28rem;
+  line-height: 36rem;
+  margin-right: -0.75rem;
   font-weight: 750;
-  margin-top: 35px;
-  /* margin-bottom: 32px; */
+  margin-top: 35rem;
+  /* margin-bottom: 32rem; */
 }
 .textLocation {
   /* width: 75%; */
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 14rem;
+  line-height: 22rem;
   font-weight: 400;
   vertical-align: top;
   display: inline-block;
@@ -183,215 +187,215 @@
 .Buttons {
   margin-left: auto;
   margin-right: auto;
-  line-height: 22px;
+  line-height: 22rem;
   font-weight: 400;
   display: flex;
   vertical-align: top;
   width: 100%;
   /* align-items: center; */
   /* box-sizing: border-box; */
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin-bottom: 20rem;
+  margin-top: 20rem;
 }
 .VenueButton {
-  font-size: 0.875rem;
-  line-height: 1.5rem;
+  font-size: 14rem;
+  line-height: 24rem;
   font-weight: 400;
   background-color: rgba(54, 89, 227, 0.1);
-  border: 1px solid #3659e3;
+  border: 1rem solid #3659e3;
   color: #3659e3;
   text-align: center;
-  border-radius: 4px;
-  width: 125px;
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  border-radius: 4rem;
+  width: 125rem;
+  padding-left: 8rem;
+  padding-right: 8rem;
+  padding-top: 12rem;
+  padding-bottom: 12rem;
   /* flex-grow: 1; */
   /* display: flex; */
-  margin-right: 16px;
+  margin-right: 16rem;
 }
 .OnlineEventButton {
-  margin-right: 16px;
+  margin-right: 16rem;
   color: #1e0a3c;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
+  font-size: 14rem;
+  line-height: 24rem;
   font-weight: 400;
   background-color: #fff;
-  border-radius: 4px;
-  border: 1px solid #dbdae3;
+  border-radius: 4rem;
+  border: 1rem solid #dbdae3;
   text-align: center;
-  width: 155px;
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  width: 155rem;
+  padding-left: 8rem;
+  padding-right: 8rem;
+  padding-top: 12rem;
+  padding-bottom: 12rem;
 }
 .TobeAnnounced {
   color: #1e0a3c;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
+  font-size: 14rem;
+  line-height: 24rem;
   font-weight: 400;
   background-color: #fff;
-  border-radius: 4px;
-  border: 1px solid #dbdae3;
+  border-radius: 4rem;
+  border: 1rem solid #dbdae3;
   text-align: center;
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-top: 12px;
-  width: 200px;
-  padding-bottom: 12px;
+  padding-left: 8rem;
+  padding-right: 8rem;
+  padding-top: 12rem;
+  width: 200rem;
+  padding-bottom: 12rem;
 }
 .DateTimeButtons {
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 14rem;
+  line-height: 22rem;
   font-weight: 400;
   display: flex;
   vertical-align: top;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 20rem;
+  margin-bottom: 20rem;
   width: 100%;
   box-sizing: border-box;
   /* display: inline-block; */
 }
 .SingleEventButton {
-  margin-right: 16px;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-  width: 160px;
+  margin-right: 16rem;
+  font-size: 14rem;
+  line-height: 24rem;
+  width: 160rem;
   font-weight: 400;
   background-color: rgba(54, 89, 227, 0.1);
-  border: 1px solid #3659e3;
+  border: 1rem solid #3659e3;
   color: #3659e3;
-  border-radius: 4px;
+  border-radius: 4rem;
   text-align: center;
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-left: 8rem;
+  padding-right: 8rem;
+  padding-top: 12rem;
+  padding-bottom: 12rem;
   box-sizing: border-box;
 }
 .RecurringEventButton {
-  margin-right: 16px;
+  margin-right: 16rem;
   color: #1e0a3c;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
+  font-size: 14rem;
+  line-height: 24rem;
   font-weight: 400;
   background-color: #fff;
-  border-radius: 4px;
-  border: 1px solid #dbdae3;
+  border-radius: 4rem;
+  border: 1rem solid #dbdae3;
   text-align: center;
-  width: 180px;
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  width: 180rem;
+  padding-left: 8rem;
+  padding-right: 8rem;
+  padding-top: 12rem;
+  padding-bottom: 12rem;
 }
 .textDateTime2 {
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 16rem;
+  line-height: 24rem;
   font-weight: 400;
 }
 .searchVenueLocation {
   width: 100%;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 14rem;
+  line-height: 22rem;
   font-weight: 400;
   box-sizing: border-box;
   display: inline-block;
   overflow: hidden;
   vertical-align: top;
-  padding-bottom: 35px;
+  padding-bottom: 35rem;
 }
 .pVenue {
   font-weight: 550;
-  margin-bottom: 8px;
-  font-size: 13px;
-  line-height: 22px;
+  margin-bottom: 8rem;
+  font-size: 13rem;
+  line-height: 22rem;
   color: #39364f;
 }
 .CheckboxLabel {
   display: block;
   position: relative;
-  margin-top: 16px;
+  margin-top: 16rem;
 }
 .CheckboxBorder {
   position: relative;
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
-  font-size: 14px;
-  line-height: 22px;
+  margin-bottom: 20rem;
+  font-size: 14rem;
+  line-height: 22rem;
   font-weight: 400;
 }
 .Checkbox {
-  left: -12px;
+  left: -12rem;
   border-color: #3659e3;
   color: #3659e3;
   display: inline-block;
-  border-radius: 2px;
-  /* height: 20px;
-  width: 20px; */
+  border-radius: 2rem;
+  /* height: 20rem;
+  width: 20rem; */
   font-weight: 400;
 }
 .DisplayTimeLabel {
-  /* margin-left: 16px;
-  margin-right: 12px; */
+  /* margin-left: 16rem;
+  margin-right: 12rem; */
   color: #39364f;
-  font-size: 14px;
+  font-size: 14rem;
   display: block;
-  line-height: 22px;
+  line-height: 22rem;
   font-weight: 400;
 }
 .Labeltext {
   color: #4b4d63;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: 14rem;
+  line-height: 20rem;
 }
 .StartPicker {
   display: flex;
-  margin-bottom: 8px;
-  margin-top: 8px;
+  margin-bottom: 8rem;
+  margin-top: 8rem;
   margin-left: auto;
   margin-right: auto;
 }
 .EndPicker {
   display: flex;
-  margin-bottom: 8px;
-  margin-top: 8px;
+  margin-bottom: 8rem;
+  margin-top: 8rem;
   margin-left: auto;
   margin-right: auto;
 }
 .TimeZone {
-  margin-top: 24px;
-  font-size: 14px;
-  line-height: 22px;
+  margin-top: 24rem;
+  font-size: 14rem;
+  line-height: 22rem;
   font-weight: 400;
   color: #39364f;
   width: 50%;
   vertical-align: top;
   box-sizing: border-box;
-  margin-bottom: 8px;
+  margin-bottom: 8rem;
   background: #fff;
-  padding: 1px;
-  border-radius: 1px;
-  border: 1px solid #dbdae3;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1rem solid #dbdae3;
   flex: 1;
 }
 .Language {
-  margin-top: 24px;
-  font-size: 14px;
-  line-height: 22px;
+  margin-top: 24rem;
+  font-size: 14rem;
+  line-height: 22rem;
   font-weight: 400;
   color: #39364f;
   width: 50%;
   vertical-align: top;
   box-sizing: border-box;
-  margin-bottom: 8px;
+  margin-bottom: 8rem;
   background: #fff;
-  padding: 1px;
-  border-radius: 1px;
-  border: 1px solid #dbdae3;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1rem solid #dbdae3;
   flex: 1;
 }
 .aside {
@@ -402,9 +406,9 @@
   text-align: right;
   font: inherit;
   color: #4b4d63;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  margin-bottom: 10px;
+  font-size: 12rem;
+  line-height: 16rem;
+  margin-bottom: 10rem;
 }
 .letterNumberBorder {
   text-align: right;
@@ -413,24 +417,24 @@
 .letterRequired {
   font: inherit;
   color: red;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  margin-bottom: 10px;
+  font-size: 12rem;
+  line-height: 16rem;
+  margin-bottom: 10rem;
   animation-name: fadeIn;
 }
 .letternumber1 {
-  padding-left: 448px;
+  padding-left: 448rem;
 }
 .addtaglimit {
   display: flex;
   font: inherit;
   color: #4b4d63;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  padding-top: 10px;
-  padding-bottom: 50px;
+  font-size: 12rem;
+  line-height: 16rem;
+  padding-top: 10rem;
+  padding-bottom: 50rem;
 }
 .containerDataTime {
-  margin-top: 40px;
-  margin-bottom: 32px;
+  margin-top: 40rem;
+  margin-bottom: 32rem;
 }
