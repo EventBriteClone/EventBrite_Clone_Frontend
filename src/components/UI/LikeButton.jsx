@@ -1,8 +1,17 @@
+import { useState } from "react";
 import styles from "./LikeButton.module.css";
 
 export default function LikeButton() {
+  const [liked, setLiked] = useState(false);
   return (
-    <button className={styles["like-button"]} type="button">
+    <button
+      onClick={() => {
+        setLiked((prevState) => !prevState);
+        console.log(liked);
+      }}
+      className={`${styles["like-button"]} ${liked ? `${styles.clicked}` : ""}`}
+      type="button"
+    >
       <span>
         <i
           className="eds-vector-image eds-icon--small eds-vector-image--block"
@@ -16,6 +25,7 @@ export default function LikeButton() {
             y="0"
             viewBox="0 0 24 24"
             xmlSpace="preserve"
+            className={liked ? "clicked" : ""}
           >
             <path
               id="heart-chunky_svg__eds-icon--heart-chunky_base"

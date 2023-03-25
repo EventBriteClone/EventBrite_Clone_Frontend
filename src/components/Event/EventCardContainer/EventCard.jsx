@@ -1,6 +1,6 @@
 import styles from "./EventCard.module.css";
-import LikeButton from "../UI/LikeButton";
-import PersonIcon from "../Icons/PersonIcon";
+import LikeButton from "../../UI/LikeButton";
+import PersonIcon from "../../Icons/PersonIcon";
 
 export default function EventCard(props) {
   return (

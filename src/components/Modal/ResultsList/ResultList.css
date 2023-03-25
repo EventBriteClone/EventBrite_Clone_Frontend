@@ -1,0 +1,24 @@
+.result-container {
+  margin: 8px 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.result-item {
+  padding-left: 0.25em;
+  width: 25.625em;
+  cursor: pointer;
+}
+.result-item-element {
+  height: 3.5em;
+  padding: 0 5px;
+  display: flex;
+  align-items: center;
+}
+.result-item-element:hover {
+  background-color: #f8f7fa;
+}
+
+.result-item-element-icon {
+  margin-right: 0.5rem;
+}

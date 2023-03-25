@@ -39,7 +39,6 @@ body {
 
 .main-text {
   margin-bottom: 40px;
-  padding-top: 50px;
 }
 
 .text a {
@@ -55,7 +54,7 @@ h1 {
   color: #1e0a3c;
   padding-top: 30px;
   font-weight: 900;
-  font-size: 40px;
+  font-size: 54px;
 }
 
 .input {
@@ -95,7 +94,7 @@ button:hover {
 }
 
 .hero {
-  width: 80%;
+  width: 360rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -103,6 +102,9 @@ button:hover {
 
 form {
   max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 12rem;
 }
 
 .input-group {
@@ -128,6 +130,7 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16rem;
 }
 
 .row .input-group {

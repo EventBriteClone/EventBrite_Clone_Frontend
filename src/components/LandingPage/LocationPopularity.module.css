@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  padding-top: 16rem;
+  letter-spacing: 0.5px;
+  line-height: 40px;
+}
+
+.h1 {
+  color: #39364f;
+  font-weight: 900;
+  font-size: 30rem;
+}
+
+.location-dropdown {
+  display: flex;
+}
+.input {
+  color: #3659e3;
+  font-size: 30rem;
+  border: none;
+  outline: none;
+  font-weight: 800;
+}
+.input::placeholder {
+  font-size: 29rem;
+  font-weight: 800;
+  color: #b0afb6;
+}
+
+.input-container {
+  font-size: 39rem;
+  position: relative;
+}
+
+.input-container::after {
+  content: attr(data-val);
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  height: 2px;
+  background: #a9a8b3;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  width: auto;
+  left: 2px;
+  color: transparent;
+}
+
+.container .input-container::after {
+  bottom: 6px;
+}

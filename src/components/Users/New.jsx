@@ -1,8 +1,13 @@
-import React from "react";
+import { padding } from "@mui/system";
+import { useState } from "react";
+import MainIcon from "../Icons/MainIcon";
+
+import Input from "../UI/Input";
+
 import Style from "./Style.module.css";
 const New = (props) => {
-  let [email, setEmail] = React.useState("");
-  let [invalidEmail, setInvalid] = React.useState(false);
+  let [email, setEmail] = useState("");
+  let [invalidEmail, setInvalid] = useState(false);
 
   const getInputValue = (event) => {
     // show the user input value to console
@@ -22,12 +27,6 @@ const New = (props) => {
   }
   return (
     <div>
-      <meta charSet="UTF-8" />
-      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" />
-      <link rel="stylesheet" href="Style.css" />
-      <title>Eventbrite</title>
       <div className={Style["main"]}>
         <div className={Style["container"]}>
           <div className={Style["first-container"]}>
@@ -39,7 +38,14 @@ const New = (props) => {
                     rel="noopener noreferrer"
                     title="Go to homepage"
                   >
-                    eventbrite
+                    <MainIcon
+                      style={{
+                        padding: 0,
+                        maxWidth: "120px",
+                        maxHeight: "22px",
+                        width: "100%",
+                      }}
+                    />
                   </a>
                   <h1>
                     Create an <br /> account
@@ -48,24 +54,53 @@ const New = (props) => {
               </div>
               <div className={Style["hero"]}>
                 <form>
-                  <div className={Style["input-group"]}>
-                    <input type="email" placeholder="Email Address" required />
-                  </div>
-                  <div className={Style["input-group"]}>
-                    <input type="email" placeholder="Confirm email" required />
-                  </div>
+                  <Input
+                    label="Email address"
+                    input={{
+                      type: "email",
+                      required: true,
+                      id: "email",
+                    }}
+                  />
+                  <Input
+                    label="Confirm Email"
+                    input={{
+                      type: "email",
+                      invalidText:
+                        "Email address doesn't match. Please try again.",
+                      required: true,
+                      id: "confirm-email",
+                    }}
+                  />
                   <div className={Style["row"]}>
-                    <div className={Style["input-group"]}>
-                      <input type="text" placeholder="First Name" required />
-                    </div>
-                    <div className={Style["input-group"]}>
-                      <input type="text" placeholder="Last Name" required />
-                    </div>
+                    <Input
+                      label="First Name"
+                      input={{
+                        id: "fname",
+                        type: "text",
+                        invalidText: "Please enter a valid first name",
+                        required: true,
+                      }}
+                    />
+                    <Input
+                      label="Last Name"
+                      input={{
+                        id: "lname",
+                        type: "text",
+                        invalidText: "Please enter a valid last name",
+                        required: true,
+                      }}
+                    />
                   </div>
-                  <div className={Style["input-group"]}>
-                    <input type="password" placeholder="Password" required />
-                    <h1>Your password must be at least 8 characters</h1>
-                  </div>
+                  <Input
+                    label="Password"
+                    input={{
+                      id: "password",
+                      type: "password",
+                      // invalidText: "Please enter a valid last name",
+                      required: true,
+                    }}
+                  />
                   <button>Create account</button>
                 </form>
               </div>

@@ -1,0 +1,56 @@
+.h3 {
+  font-size: 24rem;
+  line-height: 32rem;
+  font-weight: 700;
+  color: #1e0a3c;
+  letter-spacing: 0.25px;
+  margin-right: -0.25px;
+  font-weight: 700;
+  padding-bottom: 16rem;
+}
+
+.category {
+  border: 1px solid #eeedf2;
+  display: flex;
+  align-items: center;
+  height: 54px;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.category aside {
+  display: flex;
+  width: 54px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  /* border: 1px solid #eeedf2; */
+  background: #fdf7f5;
+}
+.category i {
+  width: 24rem;
+  height: 24rem;
+}
+.category svg {
+  fill: #f05537 !important;
+  width: 24rem;
+  height: 24rem;
+}
+
+.category [data-title] {
+  flex: 1 1 0;
+  font-weight: 600;
+  display: flex;
+  padding-left: 16px;
+  background: #f8f7fa;
+  height: 100%;
+  color: #39364f;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1.2fr);
+  grid-column-gap: 12px;
+  grid-row-gap: 12px;
+}

@@ -1,0 +1,14 @@
+.badge-container {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  list-style: none;
+  margin-left: 8px;
+  padding: 0;
+  width: 80%;
+}
+.badge-item {
+  padding-right: 16px;
+  padding-top: 16px;
+}
