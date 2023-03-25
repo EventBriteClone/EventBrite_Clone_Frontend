@@ -28,7 +28,6 @@ export default function GetSignUpEmail(props) {
   function submitHandler(e) {
     e.preventDefault();
     if (emailMessage) return;
-    console.log(email, "hena");
     props.submitHandler(email);
   }
 

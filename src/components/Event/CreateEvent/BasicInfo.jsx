@@ -3,7 +3,7 @@ import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 import styles from "./BasicInfo.module.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Select from "@mui/joy/Select";
@@ -21,20 +21,25 @@ import { red } from "@mui/material/colors";
 import { KeyboardReturnSharp } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 export default function BasicInfo() {
+  useEffect(() => {
+    const [html] = document.getElementsByTagName("html");
+    html.style.fontSize = "100%";
+    return () => (html.style.fontSize = "6.25%");
+  }, []);
   const mySelectors = {
     width: 220,
     height: 50,
-    fontSize: "14rem",
-    lineHeight: "22rem",
+    fontSize: "14px",
+    lineHeight: "22px",
     fontWeight: 400,
     boxSizing: "border-box",
     verticalAlign: "top",
     position: "relative",
     display: "flex",
-    marginBottom: "16rem",
-    paddingTop: "1rem",
+    marginBottom: "16px",
+    paddingTop: "1px",
     flexDirection: "row",
-    borderRadius: "1rem",
+    borderRadius: "1px",
   };
   const timezone = [
     {
@@ -250,20 +255,20 @@ export default function BasicInfo() {
             onChange={eventTitleChange}
             sx={{
               width: 1,
-              padding: "1rem",
-              marginBottom: "4rem",
-              marginTop: "12rem",
-              borderRadius: "2rem",
+              padding: "1px",
+              marginBottom: "4px",
+              marginTop: "12px",
+              borderRadius: "2px",
               fontWeight: 400,
               "& input": {
-                fontSize: "14rem",
+                fontSize: "14px",
               },
               "& label": {
-                fontSize: "12rem",
+                fontSize: "12px",
               },
               "& label.Mui-focused": {
                 color: { color },
-                fontSize: "12rem",
+                fontSize: "12px",
               },
               "& .MuiOutlinedInput-root": {
                 "& fieldset": {
@@ -294,12 +299,12 @@ export default function BasicInfo() {
             // variant="filled"
             sx={{
               width: 1,
-              marginBottom: "8rem",
-              fontSize: "14rem",
-              lineHeight: "22rem",
+              marginBottom: "8px",
+              fontSize: "14px",
+              lineHeight: "22px",
               fontWeight: 400,
-              borderRadius: "2rem",
-              padding: "1rem",
+              borderRadius: "2px",
+              padding: "1px",
             }}
           />
           <p className={styles.text1}>
@@ -312,7 +317,7 @@ export default function BasicInfo() {
               defaultValue="Type"
               placeholder="Type"
               // className={styles.TypeLayout}
-              sx={{ ...mySelectors, marginRight: "8rem" }}
+              sx={{ ...mySelectors, marginRight: "8px" }}
             >
               <Option value="appearance or singing">
                 Appearance or Singing
@@ -332,7 +337,7 @@ export default function BasicInfo() {
             <Select
               defaultValue="Category"
               placeholder="Category"
-              sx={{ ...mySelectors, marginRight: "8rem", marginLeft: "8rem" }}
+              sx={{ ...mySelectors, marginRight: "8px", marginLeft: "8px" }}
             >
               <Option value="auto, boat & air">Auto, Boat & Air</Option>
               <Option value="business & professional">
@@ -361,14 +366,14 @@ export default function BasicInfo() {
                   onChange={addTagHandler}
                   // variant="filled"
                   sx={{
-                    fontSize: "14rem",
-                    lineHeight: "22rem",
+                    fontSize: "14px",
+                    lineHeight: "22px",
                     fontWeight: 400,
-                    paddingTop: "1rem",
+                    paddingTop: "1px",
                     // width: 522,
                     height: 50,
                     width: "83.3333333333%",
-                    paddingRight: "8rem",
+                    paddingRight: "8px",
                     font: "inherit",
                     "& label.Mui-focused": {
                       color: { color },
@@ -420,23 +425,23 @@ export default function BasicInfo() {
                   <Paper
                     component="form"
                     sx={{
-                      p: "2rem 4rem",
+                      p: "2px 4px",
                       display: "flex",
                       alignItems: "center",
                       width: 564,
                       height: 50,
-                      marginBottom: "20rem",
+                      marginBottom: "20px",
                       position: "relative",
-                      fontSize: "14rem",
-                      lineHeight: "22rem",
+                      fontSize: "14px",
+                      lineHeight: "22px",
                       fontWeight: 400,
-                      padding: "1rem",
-                      borderRadius: "1rem",
-                      border: "1rem",
+                      padding: "1px",
+                      borderRadius: "1px",
+                      border: "1px",
                     }}
                   >
                     <IconButton
-                      sx={{ p: "14rem", marginLeft: "12rem", height: "24rem" }}
+                      sx={{ p: "14px", marginLeft: "12px", height: "24px" }}
                       aria-label="menu"
                     >
                       <SearchIcon />
@@ -490,12 +495,12 @@ export default function BasicInfo() {
                       // }
                       sx={{
                         width: 275,
-                        paddingRight: "8rem",
+                        paddingRight: "8px",
                         height: 50,
                         verticalAlign: "top",
-                        fontSize: "14rem",
-                        marginLeft: "8rem",
-                        marginTop: "8rem",
+                        fontSize: "14px",
+                        marginLeft: "8px",
+                        marginTop: "8px",
                       }}
                       renderInput={(params) => (
                         <TextField {...params} label="Start Time" />
@@ -520,12 +525,12 @@ export default function BasicInfo() {
                       // }
                       sx={{
                         width: 275,
-                        paddingRight: "8rem",
+                        paddingRight: "8px",
                         height: 50,
                         verticalAlign: "top",
-                        fontSize: "14rem",
-                        marginLeft: "8rem",
-                        marginTop: "8rem",
+                        fontSize: "14px",
+                        marginLeft: "8px",
+                        marginTop: "8px",
                       }}
                       renderInput={(params) => (
                         <TextField {...params} label="End Time" />

@@ -7,7 +7,6 @@ export default function LikeButton() {
     <button
       onClick={() => {
         setLiked((prevState) => !prevState);
-        console.log(liked);
       }}
       className={`${styles["like-button"]} ${liked ? `${styles.clicked}` : ""}`}
       type="button"

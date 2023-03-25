@@ -1,6 +1,5 @@
 export default function Tabs(props) {
   let selected = props.selected;
-  console.log(selected);
   return (
     <li
       data-select={selected}
