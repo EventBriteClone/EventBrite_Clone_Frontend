@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import styles from "./EventCreator.module.css";
-import EventCard from "../../EventCardContainer/EventCard";
+import EventCard from "../EventCardContainer/EventCard";
 import "remixicon/fonts/remixicon.css";
+import EventCardContainer from "../EventCardContainer/EventCardContainer";
+import { Link } from "react-router-dom";
+import MainIcon from "../../Icons/MainIcon";
 
 function EventCreator() {
   const events = [
@@ -37,7 +40,9 @@ function EventCreator() {
   return (
     <>
       <div className={styles["header"]}>
-        <a href="https://www.eventbrite.com/organizations/home">eventbrite</a>
+        <Link to="/">
+          <MainIcon></MainIcon>
+        </Link>
         <div className={styles["profile"]}>
           <div className={styles["sign-in-info"]}>
             <h2>Ma</h2>
@@ -103,12 +108,14 @@ function EventCreator() {
         </div>
       </div>
       <div className={styles["section"]}>
-        {filteredEvents.map((event, index) => (
-          <EventCard
-            key={index}
-            date={event.date.toLocaleDateString("en-US")}
-          />
-        ))}
+        <EventCardContainer>
+          {filteredEvents.map((event, index) => (
+            <EventCard
+              key={index}
+              date={event.date.toLocaleDateString("en-US")}
+            />
+          ))}
+        </EventCardContainer>
       </div>
     </>
   );

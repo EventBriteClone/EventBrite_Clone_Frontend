@@ -19,6 +19,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import { red } from "@mui/material/colors";
 import { KeyboardReturnSharp } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 export default function BasicInfo() {
   const mySelectors = {
     width: 220,
@@ -214,9 +215,9 @@ export default function BasicInfo() {
         <div className={styles.arrow}>
           <img src="/images/arrow.PNG"></img>
         </div>
-        <a className={styles.Routing} href="">
+        <Link to="/my-events" className={styles.Routing} href="">
           Events
-        </a>
+        </Link>
       </div>
       <div className={styles.container}>
         {/* icon */}

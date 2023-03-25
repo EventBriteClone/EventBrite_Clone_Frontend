@@ -7,6 +7,7 @@ import BasicInfo from "./Pages/BasicInfo";
 import LandingPage from "./Pages/LandingPage";
 import EventPage from "./Pages/EventPage";
 import SignUp from "./Pages/Signup";
+import EventCreator from "./Pages/CreatorEvent";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "/event/:id",
     element: <EventPage />,
+  },
+  {
+    path: "/my-events",
+    element: <EventCreator />,
   },
 ]);
 

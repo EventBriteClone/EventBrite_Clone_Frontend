@@ -16,7 +16,7 @@ body {
 }
 
 a {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: , Geneva, Tahoma, sans-serif;
   text-decoration: none;
   font-size: 1.3rem;
   color: #f05537;
@@ -55,7 +55,7 @@ header {
 
 .create h1 {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    "Lucida Sans Unicode", Geneva, , sans-serif;
   font-size: 12px;
 }
 
