@@ -112,7 +112,7 @@ function EventCreator() {
           {filteredEvents.map((event, index) => (
             <EventCard
               key={index}
-              date={event.date.toLocaleDateString("en-US")}
+              startDate={event.date.toLocaleDateString("en-US")}
             />
           ))}
         </EventCardContainer>

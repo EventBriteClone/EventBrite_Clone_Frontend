@@ -5,9 +5,12 @@ import { Link } from "react-router-dom";
 
 export default function EventCard(props) {
   const { event } = props;
-
+  console.log(event);
   return (
-    <div className={styles["event-card__response"]}>
+    <div
+      className={`${styles["event-card__response"]} event__card`}
+      data-testid="event-card"
+    >
       <article className={styles["event-card__container"]}>
         <aside>
           <Link to="/event/1">
@@ -24,24 +27,24 @@ export default function EventCard(props) {
           <div>
             <Link to="/event/1">
               <h3 className={`${styles["event-card__title"]} truncate-text`}>
-                {event.title || "Title"}
+                {event?.title || "Title"}
               </h3>
             </Link>
             <p className={`${styles["event-card__time"]} truncate-text`}>
-              {event.startDate || "Tomorrow at 9PM"}
+              {event?.startDate || props.startDate || "Tomorrow at 9PM"}
             </p>
           </div>
           <div className={styles["event-card__secondary-info"]}>
             <p className=" truncate-text">
-              {event.location || "City • City, City Full"}
+              {event?.location || "City • City, City Full"}
             </p>
-            <p>{event.price || "Free"}</p>
+            <p>{event?.price || "Free"}</p>
           </div>
           <div className={styles["event-card__organizer-info"]}>
-            <p className="truncate-text">{event.organizer || "Organizer"}</p>
+            <p className="truncate-text">{event?.organizer || "Organizer"}</p>
             <p className={styles["event-card__followers"]}>
               <PersonIcon />
-              {event.followersNum || "600"} followers
+              {event?.followersNum || "600"} followers
             </p>
           </div>
         </main>

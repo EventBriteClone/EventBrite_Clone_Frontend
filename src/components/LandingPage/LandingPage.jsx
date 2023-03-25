@@ -16,7 +16,6 @@ export default function LandingPage(props) {
       });
     return () => controller.abort();
   }, []);
-  console.log(events);
 
   return (
     <>
