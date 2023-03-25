@@ -1,0 +1,35 @@
+.share-button {
+    cursor: pointer;
+    position: absolute;
+    /* display: inline; */
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    border-radius: 50%;
+    border: 1px solid #dbdae3;
+    top: 0;
+    right: 8px;
+    transform: translateY(-50%);
+    background: white;
+    right: 160px;
+    top:665px;
+  }
+  
+  .share-button i {
+    display: block;
+    height: 24px;
+    width: 24px;
+  }
+  
+  .share-button svg {
+    height: 24px;
+    width: 24px;
+  }
+  
+  .share-button.clicked svg {
+    fill: var(--lighter-orange);
+  }
+  
