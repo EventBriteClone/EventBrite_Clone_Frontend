@@ -1,5 +1,5 @@
-import { padding } from "@mui/system";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import MainIcon from "../Icons/MainIcon";
 
 import Input from "../UI/Input";
@@ -33,11 +33,7 @@ const New = (props) => {
             <div className={Style["block1"]}>
               <div className={Style["main-text"]}>
                 <div className={Style["text"]}>
-                  <a
-                    href="https://www.eventbrite.com/"
-                    rel="noopener noreferrer"
-                    title="Go to homepage"
-                  >
+                  <Link to="/" title="Go to homepage">
                     <MainIcon
                       style={{
                         padding: 0,
@@ -46,8 +42,8 @@ const New = (props) => {
                         width: "100%",
                       }}
                     />
-                  </a>
-                  <h1>
+                  </Link>
+                  <h1 className={`${Style.h1}`}>
                     Create an <br /> account
                   </h1>
                 </div>
@@ -102,11 +98,11 @@ const New = (props) => {
                       required: true,
                     }}
                   />
-                  <button>Create account</button>
+                  <button className={`${Style.button}`}>Create account</button>
                 </form>
               </div>
               <div className={Style["log-in"]}>
-                <a href>log in</a>
+                <Link to="/">log in</Link>
               </div>
             </div>
           </div>

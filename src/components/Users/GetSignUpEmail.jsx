@@ -1,4 +1,3 @@
-import { PropaneSharp } from "@mui/icons-material";
 import { useState } from "react";
 import Style from "./Style.module.css";
 
@@ -26,9 +25,10 @@ export default function GetSignUpEmail(props) {
     }
   }
 
-  function submitHandler() {
-    console.log(emailMessage, "hena");
-    if (!emailMessage) return;
+  function submitHandler(e) {
+    e.preventDefault();
+    if (emailMessage) return;
+    console.log(email, "hena");
     props.submitHandler(email);
   }
 
@@ -53,7 +53,12 @@ export default function GetSignUpEmail(props) {
                 </div>
               </div>
               <div className={Style["email"]}>
-                <form onSubmit={submitHandler} className="form">
+                <form
+                  onSubmit={submitHandler}
+                  //   method="post"
+                  //   action="#"
+                  className="form"
+                >
                   <input
                     onChange={getInputValue}
                     type="email"
@@ -65,7 +70,7 @@ export default function GetSignUpEmail(props) {
                       <h2 className={Style["invalidEmail"]}>{emailMessage}</h2>
                       <button
                         type="submit"
-                        className={Style["cont "]}
+                        className={`${Style["cont"]} ${Style["button"]}`}
                         onClick={AddEmail}
                       >
                         Continue

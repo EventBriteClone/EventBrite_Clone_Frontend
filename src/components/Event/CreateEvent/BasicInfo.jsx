@@ -254,7 +254,6 @@ export default function BasicInfo() {
               marginTop: "12rem",
               borderRadius: "2rem",
               fontWeight: 400,
-              borderRadius: "1rem",
               "& input": {
                 fontSize: "14rem",
               },

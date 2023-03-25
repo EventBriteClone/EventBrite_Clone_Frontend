@@ -1,4 +1,4 @@
-// import styles from "./EventInfo.css";
+import styles from "./EventInfo.css";
 // import LikeButton from "../../UI/LikeButton";
 // import PriceTag from "./PriceTag";
 export default function EventInfo() {

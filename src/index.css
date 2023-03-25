@@ -77,8 +77,8 @@ a {
 }
 
 button {
-  cursor: pointer;
-  border: none;
+  cursor: pointer !important;
+  border: none !important;
 }
 
 /* For typical mobile devices

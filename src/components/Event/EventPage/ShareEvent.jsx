@@ -1,29 +1,38 @@
-// import styles from "./ShareEvent.css";
+import styles from "./ShareEvent.module.css";
 
 export default function ShareEvent() {
   return (
-    <section class="share-inline" aria-labelledby="share-inline-heading">
-      <div class="l-sm-mar-bot-4">
-        <div class="event-details__section-title">
+    <section
+      className={styles["share-inline"]}
+      aria-labelledby="share-inline-heading"
+    >
+      <div className={styles["l-sm-mar-bot-4"]}>
+        <div className={styles["event-details__section-title"]}>
           <h2>Share with friends</h2>
         </div>
-        <div className="share-box-container">
-          <div className="media">
-            <div data-spec="share-box-container">
+        <div className={styles["share-box-container"]}>
+          <div className={styles.media}>
+            <div data-spec={styles["share-box-container"]}>
               <span
-                class="eds-l-pad-right-1"
-                data-spec="facebook-share-box-container"
+                className={styles["eds-l-pad-right-1"]}
+                data-spec={"facebook-share-box-container"}
               >
                 <span
-                  class="eds-icon-button eds-icon-button--neutral"
+                  className={`${styles["eds-icon-button"]} ${styles["eds-icon-button--neutral"]}`}
                   data-spec="icon-button"
                 >
                   <button
-                    class="eds-btn--button eds-btn--none eds-btn--icon-only"
+                    className={`
+                      ${styles["eds-btn--button"]} ${styles["eds-btn--none"]} ${styles["eds-btn--icon-only"]}
+                    `}
                     type="button"
                   >
                     <i
-                      class="eds-vector-image eds-icon--small eds-vector-image--block"
+                      className={
+                        styles[
+                          "eds-vector-image eds-icon--small eds-vector-image--block"
+                        ]
+                      }
                       title=""
                       data-spec="icon"
                       data-testid="icon"
@@ -36,19 +45,23 @@ export default function ShareEvent() {
                 </span>
               </span>
               <span
-                class="eds-l-pad-right-1"
+                className={styles["eds-l-pad-right-1"]}
                 data-spec="facebook-messenger-share-box-container"
               >
                 <span
-                  class="eds-icon-button eds-icon-button--neutral"
+                  className={`${styles["eds-icon-button"]} ${styles["eds-icon-button--neutral"]}`}
                   data-spec="icon-button"
                 >
                   <button
-                    class="eds-btn--button eds-btn--none eds-btn--icon-only"
+                    className={`
+                      ${styles["eds-btn--button"]} ${styles["eds-btn--none"]} ${styles["eds-btn--icon-only"]}
+                    `}
                     type="button"
                   >
                     <i
-                      class="eds-vector-image eds-icon--small eds-vector-image--block"
+                      className={`
+                          ${styles["eds-vector-image"]} ${styles["eds-icon--small"]} ${styles["eds-vector-image--block"]}
+                        `}
                       title=""
                       data-spec="icon"
                       data-testid="icon"
@@ -65,19 +78,23 @@ export default function ShareEvent() {
                 </span>
               </span>
               <span
-                class="eds-l-pad-right-1"
+                className={styles["eds-l-pad-right-1"]}
                 data-spec="linkedin-share-box-container"
               >
                 <span
-                  class="eds-icon-button eds-icon-button--neutral"
+                  className={styles["eds-icon-button eds-icon-button--neutral"]}
                   data-spec="icon-button"
                 >
                   <button
-                    class="eds-btn--button eds-btn--none eds-btn--icon-only"
+                    className={`
+                      ${styles["eds-btn--button"]} ${styles["eds-btn--none"]} ${styles["eds-btn--icon-only"]}
+                    `}
                     type="button"
                   >
                     <i
-                      class="eds-vector-image eds-icon--small eds-vector-image--block"
+                      className={`
+                          ${styles["eds-vector-image"]} ${styles["eds-icon--small"]} ${styles["eds-vector-image--block"]}
+                      `}
                       title=""
                       data-spec="icon"
                       data-testid="icon"
@@ -94,19 +111,23 @@ export default function ShareEvent() {
                 </span>
               </span>
               <span
-                class="eds-l-pad-right-1"
+                className={styles["eds-l-pad-right-1"]}
                 data-spec="twitter-share-box-container"
               >
                 <span
-                  class="eds-icon-button eds-icon-button--neutral"
+                  className={styles["eds-icon-button eds-icon-button--neutral"]}
                   data-spec="icon-button"
                 >
                   <button
-                    class="eds-btn--button eds-btn--none eds-btn--icon-only"
+                    className={`
+                      ${styles["eds-btn--button"]} ${styles["eds-btn--none"]} ${styles["eds-btn--icon-only"]}
+                    `}
                     type="button"
                   >
                     <i
-                      class="eds-vector-image eds-icon--small eds-vector-image--block"
+                      className={`${styles["eds-vector-image eds-icon--small"]} ${styles["eds-vector-image--block"]}"
+                        ]
+                      `}
                       title=""
                       data-spec="icon"
                       data-testid="icon"
@@ -123,19 +144,23 @@ export default function ShareEvent() {
                 </span>
               </span>
               <span
-                class="eds-l-pad-right-1"
+                className={styles["eds-l-pad-right-1"]}
                 data-spec="email-share-box-container"
               >
                 <span
-                  class="eds-icon-button eds-icon-button--neutral"
+                  className={`${styles["eds-icon-button"]} ${styles["eds-icon-button--neutral"]}`}
                   data-spec="icon-button"
                 >
                   <button
-                    class="eds-btn--button eds-btn--none eds-btn--icon-only"
+                    className={`
+                      ${styles["eds-btn--button"]} ${styles["eds-btn--none"]} ${styles["eds-btn--icon-only"]}
+                    `}
                     type="button"
                   >
                     <i
-                      class="eds-vector-image eds-icon--small eds-vector-image--block"
+                      className={`
+                        ${styles["eds-vector-image"]} ${styles["eds-icon--small"]} ${styles["eds-vector-image--block"]}
+                      `}
                       title=""
                       data-spec="icon"
                       data-testid="icon"

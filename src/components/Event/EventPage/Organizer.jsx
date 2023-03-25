@@ -1,4 +1,4 @@
-// import styles from "./Organizer.css";
+import styles from "./Organizer.css";
 
 export default function Organizer() {
   return (

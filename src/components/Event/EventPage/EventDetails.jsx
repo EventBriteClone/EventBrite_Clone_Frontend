@@ -1,10 +1,10 @@
-// import styles from "./EventDetails.css";
+import styles from "./EventDetails.css";
 export default function EventDetails() {
   return (
     <div className="event-details">
       <div className="date-and-location">
         <div className="date-time">
-          <h2>When and Where</h2>
+          <h2 className="h2">When and Where</h2>
           {/* <div class="detail-icon">
           <i
             class="eds-vector-image eds-icon--small eds-vector-image--block"
@@ -28,18 +28,13 @@ export default function EventDetails() {
         </div> */}
           <div className="date-and-time">
             <div class="detail__icon">
-              <i
-                class="eds-vector-image eds-icon--small eds-vector-image--block"
-                data-spec="icon"
-                data-testid="icon"
-                aria-hidden="true"
-              >
+              <i data-spec="icon" data-testid="icon" aria-hidden="true">
                 <svg
                   id="calendar-chunky_svg__eds-icon--calendar-chunky_svg"
                   x="0"
                   y="0"
                   viewBox="0 0 24 24"
-                  xml:space="preserve"
+                  xmSpace="preserve"
                 >
                   <path
                     id="calendar-chunky_svg__eds-icon--calendar-chunky_base"
@@ -50,7 +45,7 @@ export default function EventDetails() {
             </div>
             <div className="date-time-heading">
               <h3>Date and Time</h3>
-              <p>
+              <p className="p">
                 <span class="appointment">
                   Saturday, March 25 · 5:30 - 6:30pm EET
                 </span>
@@ -106,7 +101,7 @@ export default function EventDetails() {
             </div>
             <div className="date-time-heading">
               <h3>Location</h3>
-              <p>
+              <p className="p">
                 <div class="address">Online</div>
               </p>
             </div>
@@ -115,12 +110,12 @@ export default function EventDetails() {
       </div>
       <div className="about">
         <div className="refund-policy">
-          <h2>Refund Policy</h2>
-          <p>Contact the organizer to request a refund.</p>
-          <p>Eventbrite's fee is nonrefundable.</p>
+          <h2 className="h2">Refund Policy</h2>
+          <p className="p">Contact the organizer to request a refund.</p>
+          <p className="p">Eventbrite's fee is nonrefundable.</p>
         </div>
         <div className="about-event">
-          <h2>About this event</h2>
+          <h2 className="h2">About this event</h2>
           <div className="about-icons">
             <div className="time">
               <div class="detail__icon">
@@ -152,7 +147,7 @@ export default function EventDetails() {
                   </svg>
                 </i>
               </div>
-              <h2 className="period">1 hour</h2>
+              <h2 className="period h2">1 hour</h2>
             </div>
 
             <div className="ticket">
@@ -179,7 +174,7 @@ export default function EventDetails() {
                   </svg>
                 </i>
               </div>
-              <h2 className="ticket-info">Mobile eTicket</h2>
+              <h2 className="ticket-info h2">Mobile eTicket</h2>
             </div>
           </div>
         </div>
