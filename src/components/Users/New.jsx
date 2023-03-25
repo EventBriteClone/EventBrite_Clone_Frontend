@@ -60,6 +60,7 @@ const New = (props) => {
                       type: "email",
                       required: true,
                       id: "email",
+                      value: props.email,
                     }}
                   />
                   <Input

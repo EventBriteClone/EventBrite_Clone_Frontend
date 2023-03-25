@@ -1,4 +1,4 @@
-import styles from "./ShareEvent.css";
+// import styles from "./ShareEvent.css";
 
 export default function ShareEvent() {
   return (

@@ -1,5 +1,5 @@
-import styles from "./PriceTag.css";
-import LikeButton from "../UI/LikeButton";
+// import styles from "./PriceTag.css";
+import LikeButton from "../../UI/LikeButton";
 export default function PriceTag() {
   return (
     <div>
@@ -11,7 +11,7 @@ export default function PriceTag() {
           data-testid="checkout-link"
           data-tracking-label="Tickets"
           data-heap-id="Conversion Bar - Checkout Button"
-          class="eds-btn eds-btn--button eds-btn--fill js-embed-ticket-modal-btn"
+          className="eds-btn eds-btn--button eds-btn--fill js-embed-ticket-modal-btn"
           type="button"
         >
           Get tickets

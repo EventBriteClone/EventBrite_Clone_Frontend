@@ -1,6 +1,6 @@
-import styles from "./EventInfo.css";
-import LikeButton from "../UI/LikeButton";
-import PriceTag from "./PriceTag";
+// import styles from "./EventInfo.css";
+// import LikeButton from "../../UI/LikeButton";
+// import PriceTag from "./PriceTag";
 export default function EventInfo() {
   return (
     <div className="event-info">

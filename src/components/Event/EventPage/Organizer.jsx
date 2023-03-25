@@ -1,22 +1,8 @@
-import styles from "./Organizer.css";
+// import styles from "./Organizer.css";
 
 export default function Organizer() {
   return (
     <section className="organizer-container">
-      {/* <svg
-        class="eds-avatar__background eds-avatar__background--has-border"
-        height="80"
-        width="80"
-        data-spec="spec-avatar"
-      >
-        <image
-          xlink:href="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F91185097%2F185909912123%2F2%2Foriginal.png?w=225&amp;auto=format%2Ccompress&amp;q=75&amp;sharp=10&amp;s=38fc579067a3abd9dae8f1b8a8626ccb"
-          href="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F91185097%2F185909912123%2F2%2Foriginal.png?w=225&amp;auto=format%2Ccompress&amp;q=75&amp;sharp=10&amp;s=38fc579067a3abd9dae8f1b8a8626ccb"
-          height="80"
-          width="80"
-          preserveAspectRatio="xMidYMin slice"
-        ></image>
-      </svg> */}
       <div className="organizer-profile">
         <div className="organizer-avatar">
           <svg
@@ -26,7 +12,7 @@ export default function Organizer() {
             data-spec="spec-avatar"
           >
             <image
-              xlink:href="https://th.bing.com/th/id/OIP.pojdgurvupTdsabLJIaZ1wAAAA?pid=ImgDet&rs=1"
+              xlinkHref="https://th.bing.com/th/id/OIP.pojdgurvupTdsabLJIaZ1wAAAA?pid=ImgDet&rs=1"
               href="https://th.bing.com/th/id/OIP.pojdgurvupTdsabLJIaZ1wAAAA?pid=ImgDet&rs=1"
               height="56"
               width="56"

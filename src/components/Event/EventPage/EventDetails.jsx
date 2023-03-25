@@ -1,4 +1,4 @@
-import styles from "./EventDetails.css";
+// import styles from "./EventDetails.css";
 export default function EventDetails() {
   return (
     <div className="event-details">
@@ -59,7 +59,6 @@ export default function EventDetails() {
           </div>
         </div>
 
-        
         <div className="location">
           <div className="date-and-time">
             <div class="detail__icon2">
@@ -74,10 +73,33 @@ export default function EventDetails() {
                     id="map-pin-fill_svg__24_small_map_pin_fill-a"
                     d="M7 0a7 7 0 00-7 7c0 2.015 1.016 3.985 2 5.5.985 1.515 5 7.5 5 7.5s3.985-5.985 5-7.5c1.015-1.515 2-3.485 2-5.5a7 7 0 00-7-7m0 9.5c1.378 0 2.5-1.122 2.5-2.5S8.378 4.5 7 4.5A2.503 2.503 0 004.5 7c0 1.378 1.122 2.5 2.5 2.5"
                   ></path>
-                  <g fill="none" fill-rule="evenodd" transform="translate(5 2)"><mask id="map-pin-fill_svg__24_small_map_pin_fill-b" fill="#fff"><use xlink:href="#map-pin-fill_svg__24_small_map_pin_fill-a"></use></mask><use fill="#45494E" xlink:href="#map-pin-fill_svg__24_small_map_pin_fill-a"></use><g mask="url(#map-pin-fill_svg__24_small_map_pin_fill-b)"><path fill="#000" d="M-5-2h24v24H-5z"></path></g>
-                  <mask id="map-pin-fill_svg__24_small_map_pin_fill-b" fill="#fff"><use xlink:href="#map-pin-fill_svg__24_small_map_pin_fill-a"></use></mask>
-                  <use fill="#45494E" xlink:href="#map-pin-fill_svg__24_small_map_pin_fill-a"></use>
-                  <g mask="url(#map-pin-fill_svg__24_small_map_pin_fill-b)"><path fill="#000" d="M-5-2h24v24H-5z"></path></g>
+                  <g fill="none" fill-rule="evenodd" transform="translate(5 2)">
+                    <mask
+                      id="map-pin-fill_svg__24_small_map_pin_fill-b"
+                      fill="#fff"
+                    >
+                      <use xlinkHref="#map-pin-fill_svg__24_small_map_pin_fill-a"></use>
+                    </mask>
+                    <use
+                      fill="#45494E"
+                      xlinkHref="#map-pin-fill_svg__24_small_map_pin_fill-a"
+                    ></use>
+                    <g mask="url(#map-pin-fill_svg__24_small_map_pin_fill-b)">
+                      <path fill="#000" d="M-5-2h24v24H-5z"></path>
+                    </g>
+                    <mask
+                      id="map-pin-fill_svg__24_small_map_pin_fill-b"
+                      fill="#fff"
+                    >
+                      <use xlinkHref="#map-pin-fill_svg__24_small_map_pin_fill-a"></use>
+                    </mask>
+                    <use
+                      fill="#45494E"
+                      xlinkHref="#map-pin-fill_svg__24_small_map_pin_fill-a"
+                    ></use>
+                    <g mask="url(#map-pin-fill_svg__24_small_map_pin_fill-b)">
+                      <path fill="#000" d="M-5-2h24v24H-5z"></path>
+                    </g>
                   </g>
                 </svg>{" "}
               </i>
