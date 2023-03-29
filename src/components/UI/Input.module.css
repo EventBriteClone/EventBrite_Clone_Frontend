@@ -46,7 +46,6 @@
 }
 
 .invalid-text {
-  position: absolute;
   margin-top: 4rem;
   color: var(--error-red);
   cursor: default;
@@ -67,4 +66,12 @@
   color: var(--error-red);
   font-size: 12rem;
   line-height: 16rem;
+}
+
+.feedback-container {
+  display: flex;
+  justify-content: space-between;
+  background: transparent;
+  position: absolute;
+  width: 100%;
 }

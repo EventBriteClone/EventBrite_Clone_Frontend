@@ -1,10 +1,11 @@
 import { useState } from "react";
+import Input from "../UI/Input";
 import Style from "./Style.module.css";
 
 export default function GetSignUpEmail(props) {
   let [email, setEmail] = useState("");
   // let [invalidEmail, setInvalid] = useState(false);
-  let emailMessage;
+  let emailInvalidMessage;
   const getInputValue = (event) => {
     // show the user input value to console
     let userValue = event.target.value;
@@ -14,20 +15,20 @@ export default function GetSignUpEmail(props) {
     const validRegex =
       /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     if (!email) {
-      emailMessage = "Please enter a valid email address";
+      emailInvalidMessage = "Please enter a valid email address";
       // setInvalid("Please enter a valid email address");
     } else if (email.match(validRegex)) {
-      emailMessage = "";
+      emailInvalidMessage = "";
       // setInvalid("");
     } else {
-      emailMessage = "Invalid email";
+      emailInvalidMessage = "Invalid email";
       // setInvalid("Invalid email");
     }
   }
 
   function submitHandler(e) {
     e.preventDefault();
-    if (emailMessage) return;
+    if (emailInvalidMessage) return;
     props.submitHandler(email);
   }
 
@@ -58,15 +59,22 @@ export default function GetSignUpEmail(props) {
                   //   action="#"
                   className="form"
                 >
-                  <input
+                  <Input
+                    requiredAst={true}
+                    label="Email Address"
+                    invalidText={"Please enter a valid email address"}
+                    invalid={true}
                     onChange={getInputValue}
-                    type="email"
-                    placeholder="Email address"
-                    className={emailMessage ? Style["error"] : Style["input"]}
+                    input={{
+                      id: "email",
+                      required: true,
+                    }}
                   />
                   <div className={Style["cont"]}>
                     <div className={Style["invalidEmail"]}>
-                      <h2 className={Style["invalidEmail"]}>{emailMessage}</h2>
+                      <h2 className={Style["invalidEmail"]}>
+                        {emailInvalidMessage}
+                      </h2>
                       <button
                         type="submit"
                         className={`${Style["cont"]} ${Style["button"]}`}

@@ -1,10 +1,12 @@
 import { useState } from "react";
 import styles from "./LikeButton.module.css";
 
-export default function LikeButton() {
+export default function LikeButton({ position = "absolute", transform }) {
+  const style = { position, transform };
   const [liked, setLiked] = useState(false);
   return (
     <button
+      style={style}
       onClick={() => {
         setLiked((prevState) => !prevState);
       }}

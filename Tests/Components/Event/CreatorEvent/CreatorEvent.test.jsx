@@ -11,10 +11,6 @@ test("Creator's Event page should have 6 Events", async () => {
       <CreatorEvent />
     </MemoryRouter>
   );
-  // const eventCards = await waitForElement(() => {
-  //   return screen.getAllByTestId("event-card");
-  // });
-  // console.log(screen.getAllByTestId("event-card"));
   const eventCards = document.querySelectorAll(".event__card");
   expect(eventCards.length).toBe(6);
 });

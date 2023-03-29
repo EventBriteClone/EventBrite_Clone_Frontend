@@ -1,7 +1,10 @@
-export default function PersonIcon() {
+export default function PersonIcon({ height, width }) {
+  const style = { height, width };
+  console.log(style);
   return (
     <>
       <i
+        style={style}
         className="icon--xsmall"
         data-spec="icon"
         data-testid="icon"

@@ -4,7 +4,6 @@ import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 import styles from "./BasicInfo.module.css";
 import React, { useEffect, useState } from "react";
-import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Select from "@mui/joy/Select";
 import Option from "@mui/joy/Option";
@@ -16,9 +15,6 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import Autocomplete from "@mui/material/Autocomplete";
 import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import { red } from "@mui/material/colors";
-import { KeyboardReturnSharp } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 export default function BasicInfo() {
   useEffect(() => {
