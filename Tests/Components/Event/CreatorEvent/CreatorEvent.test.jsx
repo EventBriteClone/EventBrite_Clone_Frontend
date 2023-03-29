@@ -1,7 +1,6 @@
 import { test, expect, describe } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { waitForElement } from "@testing-library/dom";
-import CreatorEvent from "../src/Pages/CreatorEvent";
+import CreatorEvent from "../../../../src/Pages/CreatorEvent";
 import { MemoryRouter } from "react-router-dom";
 
 test("Creator's Event page should have 6 Events", async () => {

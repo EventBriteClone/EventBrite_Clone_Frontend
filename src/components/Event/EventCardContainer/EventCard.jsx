@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 export default function EventCard(props) {
   const { event } = props;
-  console.log(event);
   return (
     <div
       className={`${styles["event-card__response"]} event__card`}
