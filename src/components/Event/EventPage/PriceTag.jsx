@@ -1,4 +1,4 @@
-import styles from "./PriceTag.css";
+import styles from "./PriceTag.module.css";
 import LikeButton from "../../UI/LikeButton";
 export default function PriceTag() {
   return (

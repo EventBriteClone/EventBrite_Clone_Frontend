@@ -1,4 +1,4 @@
-import styles from "./EventDetails.css";
+import styles from "./EventDetails.module.css";
 export default function EventDetails() {
   return (
     <div className="event-details">

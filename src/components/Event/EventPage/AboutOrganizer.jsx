@@ -1,4 +1,4 @@
-import styles from "./AboutOrganizer.css";
+import styles from "./AboutOrganizer.module.css";
 
 export default function AboutOrganizer() {
   return (

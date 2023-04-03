@@ -1,4 +1,4 @@
-import styles from "./EventHeader.css";
+import styles from "./EventHeader.module.css";
 export default function EventHeader(props) {
   return (
     <div className="event-header">
