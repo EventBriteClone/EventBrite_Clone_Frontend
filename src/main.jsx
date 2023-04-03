@@ -12,6 +12,7 @@ import LandingPage from "./Pages/LandingPage";
 import EventPage from "./Pages/EventPage";
 import SignUp from "./Pages/Signup";
 import EventCreator from "./Pages/CreatorEvent";
+import configuration from "./utils/config";
 
 const router = createBrowserRouter([
   {
@@ -38,8 +39,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {/* <BrowserRouter> */}
     <RouterProvider router={router} />
-    {/* </BrowserRouter> */}
   </React.StrictMode>
 );

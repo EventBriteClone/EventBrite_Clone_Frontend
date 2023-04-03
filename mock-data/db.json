@@ -1,0 +1,84 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "first_name": "Admin",
+      "last_name": "Admona",
+      "email": "admin@gmail.com",
+      "password": "adminadmin"
+    },
+    {
+      "id": 2,
+      "first_name": "Odilia",
+      "last_name": "Noraway",
+      "email": "onoraway1@ucoz.ru",
+      "password": "H35s1Qu"
+    },
+    {
+      "id": 3,
+      "first_name": "Seamus",
+      "last_name": "Roft",
+      "email": "sroft2@ehow.com",
+      "password": "3flWuoU"
+    },
+    {
+      "id": 4,
+      "first_name": "Kakalina",
+      "last_name": "Matskiv",
+      "email": "kmatskiv3@utexas.edu",
+      "password": "IdOLkeEtg5w1"
+    },
+    {
+      "id": 5,
+      "first_name": "Garwood",
+      "last_name": "Valentetti",
+      "email": "gvalentetti4@springer.com",
+      "password": "s1LMBLJu5eM"
+    },
+    {
+      "id": 6,
+      "first_name": "Nora",
+      "last_name": "Birkhead",
+      "email": "nbirkhead5@cnet.com",
+      "password": "iUsP6ayPOM"
+    },
+    {
+      "id": 7,
+      "first_name": "Brucie",
+      "last_name": "Ewdale",
+      "email": "bewdale6@hexun.com",
+      "password": "ouUefFisX4"
+    },
+    {
+      "id": 8,
+      "first_name": "Catina",
+      "last_name": "Groveham",
+      "email": "cgroveham7@yahoo.co.jp",
+      "password": "HIejMH9rd"
+    },
+    {
+      "id": 9,
+      "first_name": "Reed",
+      "last_name": "Glasser",
+      "email": "rglasser8@4shared.com",
+      "password": "kulOkH"
+    },
+    {
+      "id": 10,
+      "first_name": "Hamlen",
+      "last_name": "Bladesmith",
+      "email": "hbladesmith9@istockphoto.com",
+      "password": "F1yOOF14K"
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

@@ -13,10 +13,12 @@
   ],
   "scripts": {
     "dev": "vite",
+    "dev:mocking": "start npm run server:mocking && set VITE_MOCKING=true && start npm run dev",
+    "server:mocking": "node ./mock-data/server.cjs",
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "npx start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
@@ -27,7 +29,9 @@
     "@mui/material": "^5.11.14",
     "@mui/styled-engine-sc": "^5.11.11",
     "@mui/x-date-pickers": "^6.0.2",
+    "@vitejs/plugin-basic-ssl": "^1.0.1",
     "dayjs": "^1.11.7",
+    "json-server": "^0.17.3",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
