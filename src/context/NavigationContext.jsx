@@ -6,10 +6,12 @@ export const NavigationContext = createContext(navigationInitialValue);
 
 export default function NavigationContextProvider(props) {
   const [city, setCity] = useState("");
-  useEffect(() => {
-    getCurrentCity().then((c) => setCity(c));
-  }, []);
 
+  useEffect(() => {
+    getCurrentCity().then((c) => {
+      setCity(c);
+    });
+  }, []);
   return (
     <NavigationContext.Provider value={{ city, setCity }}>
       {props.children}

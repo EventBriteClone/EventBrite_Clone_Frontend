@@ -45,6 +45,7 @@
   width: auto;
   left: 2px;
   color: transparent;
+  padding: 0 30rem;
 }
 
 .container .input-container::after {
