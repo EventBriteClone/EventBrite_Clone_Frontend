@@ -13,11 +13,16 @@ import EventPage from "./Pages/EventPage";
 import SignUp from "./Pages/Signup";
 import EventCreator from "./Pages/CreatorEvent";
 import configuration from "./utils/config";
+import NavigationContextProvider from "./context/NavigationContext";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LandingPage />,
+    element: (
+      <NavigationContextProvider>
+        <LandingPage />
+      </NavigationContextProvider>
+    ),
   },
   {
     path: "/signup",

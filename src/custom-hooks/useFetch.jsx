@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useCallback } from "react";
+import { useEffect, useReducer } from "react";
 import config from "../utils/config";
 
 const initialState = {
@@ -26,38 +26,38 @@ function reducerFunction(state, action) {
   }
 }
 
-export default function useFetch(
-  city,
+function fetchData({ endpoint, configurationOpt, dispatch }) {
+  const controller = new AbortController();
+  const signal = controller.signal;
+  fetch(`${config.baseURL}${endpoint}`, { ...configurationOpt, signal })
+    .then((response) => {
+      if (!response.ok) {
+        dispatch({ type: "error", message: response.statusText });
+        return;
+      }
+      return response.json();
+    })
+    .then((data) => {
+      if (!data) return;
+      dispatch({ type: "complete", res: data });
+    })
+    .catch((err) => {
+      dispatch({ type: "error", message: err.message });
+    });
+  return () => controller.abort();
+}
+
+export default function useFetch({
   endpoint,
   configurationOpt = {},
-  callback
-) {
+  callback,
+  dependOn = [],
+}) {
   const [fetchState, dispatch] = useReducer(reducerFunction, initialState);
   let modifiedFetchState;
-  const fetchData = () => {
-    const controller = new AbortController();
-    const signal = controller.signal;
-    fetch(`${config.baseURL}${endpoint}`, { ...configurationOpt, signal })
-      .then((response) => {
-        if (!response.ok) {
-          dispatch({ type: "error", message: response.statusText });
-          return;
-        }
-        return response.json();
-      })
-      .then((data) => {
-        if (!data) return;
-        dispatch({ type: "complete", res: data });
-      })
-      .catch((err) => {
-        dispatch({ type: "error", message: err.message });
-      });
-    return () => controller.abort();
-  };
-  console.log(endpoint, city);
   useEffect(() => {
-    fetchData();
-  }, [callback]);
+    fetchData({ endpoint, configurationOpt, dispatch });
+  }, [endpoint, ...dependOn]);
 
   if (callback && fetchState.response) {
     const newData = callback(fetchState.response);

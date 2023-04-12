@@ -6,10 +6,8 @@ import useFetch from "../../custom-hooks/useFetch";
 
 export default function LocationPopularity(props) {
   const ctx = useContext(NavigationContext);
-  const [location, setLocation] = useState("");
   const { city, setCity, response } = ctx;
-  // console.log(response);
-  // const cityRef = useRef(null);
+  console.log(response);
   return (
     <div className={styles.container}>
       <h1 className={styles.h1}>Popular in</h1>
@@ -23,18 +21,9 @@ export default function LocationPopularity(props) {
             type="text"
             className={styles.input}
             placeholder={"Choose a location"}
-            value={city}
-            onChange={(e) => setLocation(e.target.value)}
           />
-          {/* {ctx ? ctx : "nwjdkdncmndcsjknmcwdcbnjk"} */}
         </div>
       </div>
     </div>
   );
-}
-
-export function loader(params) {
-  const fetchState = useFetch(city, "eventsPreview");
-  console.log(params);
-  return fetchState;
 }
