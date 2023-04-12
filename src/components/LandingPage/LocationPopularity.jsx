@@ -1,19 +1,32 @@
-import { useContext, useState, useRef } from "react";
+import { useContext, useState, useEffect } from "react";
 import { NavigationContext } from "../../context/NavigationContext";
 import Arrow from "../Icons/Arrow";
 import styles from "./LocationPopularity.module.css";
 import useFetch from "../../custom-hooks/useFetch";
+import DropdownMenuOption from "./DropdownMenuOption";
+import DropDown from "./DropDown";
 
 export default function LocationPopularity(props) {
   const ctx = useContext(NavigationContext);
+  const [hideDropDown, setHideDropDown] = useState(true);
   const { city, setCity, response } = ctx;
-  console.log(response);
   function clickHandler(e) {
-    console.log(e);
+    setHideDropDown(false);
   }
-  function changeHandler(e) {
-    console.log(e);
-  }
+  function changeHandler(e) {}
+
+  useEffect(() => {
+    function globalClickHandler(e) {
+      if (
+        !e.target.closest('[data-role="dropdownOption"]') &&
+        !e.target.closest('[data-role="input"')
+      ) {
+        setHideDropDown(true);
+      }
+    }
+    document.addEventListener("click", globalClickHandler);
+    return () => document.removeEventListener("click", globalClickHandler);
+  }, []);
   return (
     <div className={styles.container}>
       <h1 className={styles.h1}>Popular in</h1>
@@ -30,7 +43,9 @@ export default function LocationPopularity(props) {
             type="text"
             className={styles.input}
             placeholder={"Choose a location"}
+            data-role="input"
           />
+          <DropDown hideDropDown={hideDropDown} />
         </div>
       </div>
     </div>

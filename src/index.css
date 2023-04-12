@@ -65,8 +65,18 @@ section {
   height: 16rem;
 }
 
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 a {
   text-decoration: none;
+}
+
+.hide {
+  display: none;
 }
 
 .truncate-text {

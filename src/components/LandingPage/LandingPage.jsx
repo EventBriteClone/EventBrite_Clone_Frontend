@@ -10,7 +10,6 @@ import { Suspense, useContext, useState } from "react";
 export default function LandingPage(props) {
   const [events, setEvents] = useState(null);
   const ctx = useContext(NavigationContext);
-  console.log(ctx);
   // useContext()
   // useEffect(() => {
   //   const controller = new AbortController();
