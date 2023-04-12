@@ -33,3 +33,13 @@ function getLocationCoords() {
 export function filterMockDataByCity(events, city) {
   return events.filter((event) => event.location.includes(city));
 }
+
+export async function fetchDataFromAPI({ endpoint, configurationOpt = {} }) {
+  try {
+    const res = await fetch(`${config.baseURL}${endpoint}}`, configurationOpt);
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}

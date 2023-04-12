@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { getCurrentCity, filterMockDataByCity } from "../utils";
-import { mocking } from "../utils/config";
+import config from "../utils/config";
 import useFetch from "../custom-hooks/useFetch";
 
 const navigationInitialValue = "";
@@ -8,12 +8,12 @@ export const NavigationContext = createContext(navigationInitialValue);
 
 export default function NavigationContextProvider(props) {
   const [city, setCity] = useState("");
-  const endpoint = mocking ? "eventsPreview" : "";
+  const endpoint = config.mocking ? "eventsPreview" : "";
   const { response } = useFetch({
     endpoint,
   });
   let filteredResponse;
-  if (city && response && mocking) {
+  if (city && response && config.mocking) {
     filteredResponse = filterMockDataByCity(response, city);
   }
   useEffect(() => {

@@ -8,6 +8,12 @@ export default function LocationPopularity(props) {
   const ctx = useContext(NavigationContext);
   const { city, setCity, response } = ctx;
   console.log(response);
+  function clickHandler(e) {
+    console.log(e);
+  }
+  function changeHandler(e) {
+    console.log(e);
+  }
   return (
     <div className={styles.container}>
       <h1 className={styles.h1}>Popular in</h1>
@@ -18,6 +24,9 @@ export default function LocationPopularity(props) {
           data-val={city || "Choose a location"}
         >
           <input
+            onClick={clickHandler}
+            onChange={changeHandler}
+            value={city}
             type="text"
             className={styles.input}
             placeholder={"Choose a location"}
