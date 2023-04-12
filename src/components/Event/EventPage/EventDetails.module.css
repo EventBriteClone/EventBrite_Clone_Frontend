@@ -1,5 +1,5 @@
 .h2 {
-  font-size: 23px;
+  font-size: 2\0px;
 }
 
 .event-details {
@@ -108,7 +108,7 @@
 }
 
 .period {
-  font-size: 15px;
+  font-size: 10px;
   margin-top: 25px;
 }
 

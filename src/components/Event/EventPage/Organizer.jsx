@@ -2,11 +2,11 @@ import styles from "./Organizer.module.css";
 
 export default function Organizer() {
   return (
-    <section className="organizer-container">
-      <div className="organizer-profile">
-        <div className="organizer-avatar">
+    <section className={styles["organizer-container"]}>
+      <div className={styles["organizer-profile"]}>
+        <div className={styles["organizer-avatar"]}>
           <svg
-            class="eds-avatar__background eds-avatar__background--has-border"
+            class={`${styles["eds-avatar__background"]} ${styles["eds-avatar__background--has-border"]}`}
             height="56"
             width="56"
             data-spec="spec-avatar"
@@ -21,24 +21,24 @@ export default function Organizer() {
           </svg>
         </div>
 
-        <div className="simplified-organizer-info__details">
-          <div class="simplified-organizer-info__name-by">
+        <div className={styles["simplified-organizer-info__details"]}>
+          <div class={styles["simplified-organizer-info__name-by"]}>
             By{" "}
-            <strong class="simplified-organizer-info__name-link">
+            <strong class={styles["simplified-organizer-info__name-link"]}>
               Cloudflight GmbH
             </strong>
           </div>
-          <div class="organizer-stats">
-            <div class="followers-count">
-              <span class="organizer-followers">208</span>{" "}
+          <div class={styles["organizer-stats"]}>
+            <div class={styles["followers-count"]}>
+              <span class={styles["organizer-followers"]}>208</span>{" "}
               <span style={{ color: "#6f7287" }}>followers</span>
             </div>
           </div>
         </div>
       </div>
-      <div class="organizer-follow">
+      <div class={styles["organizer-follow"]}>
         <button
-          class="eds-btn eds-btn--button eds-btn--follow follow-button-listing-page"
+          class={`${styles["eds-btn eds-btn--button"]} ${styles["eds-btn--follow"]} ${styles["follow-button-listing-page"]}`}
           type="button"
         >
           Follow
