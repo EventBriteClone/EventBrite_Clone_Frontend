@@ -62,7 +62,7 @@ export default function GetSignUpEmail(props) {
                   <Input
                     requiredAst={true}
                     label="Email Address"
-                    // invalidText={"Please enter a valid email address"}
+                    invalidText={"Please enter a valid email address"}
                     invalid={true}
                     onChange={getInputValue}
                     className={
