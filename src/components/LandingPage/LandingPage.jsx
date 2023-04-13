@@ -3,12 +3,13 @@ import Footer from "../Layout/Footer";
 import Hero from "./Hero";
 import MainContent from "./MainContent";
 
-import NavigationContextProvider from "../../context/NavigationContext";
+import { NavigationContext } from "../../context/NavigationContext";
 
-import { useState } from "react";
+import { Suspense, useContext, useState } from "react";
 
 export default function LandingPage(props) {
   const [events, setEvents] = useState(null);
+  const ctx = useContext(NavigationContext);
   // useContext()
   // useEffect(() => {
   //   const controller = new AbortController();
@@ -23,11 +24,13 @@ export default function LandingPage(props) {
   // }, []);
 
   return (
-    <NavigationContextProvider>
+    <>
       <Header />
       <Hero />
-      <MainContent events={events} />
+      <Suspense>
+        <MainContent events={events} />
+      </Suspense>
       <Footer />
-    </NavigationContextProvider>
+    </>
   );
 }

@@ -1,0 +1,164 @@
+.h1 {
+  color: #1e0a3c;
+  font-size: 1.75rem;
+  letter-spacing: 0.75px;
+  font-weight: 700;
+  margin: 0;
+  padding-bottom: 0.5rem;
+}
+.containerEventTitle {
+  display: flex;
+  flex-direction: column;
+}
+.aside {
+  display: flex;
+  justify-content: space-between;
+}
+.addtaglimit {
+  display: flex;
+  justify-content: space-between;
+  font: inherit;
+  color: #4b4d63;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  padding-top: 10px;
+  padding-bottom: 50px;
+}
+.letterNumberBorder {
+  text-align: right;
+  flex: 1 1 auto;
+}
+.letterRequired {
+  font: inherit;
+  color: red;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  margin-bottom: 10px;
+  animation-name: fadeIn;
+}
+.letterNumber {
+  text-align: right;
+  font: inherit;
+  color: #4b4d63;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  margin-bottom: 10px;
+}
+.text {
+  color: #39364f;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  margin: 0;
+  padding-left: 0.5em;
+  text-rendering: optimizeLegibility;
+}
+
+.pBasic {
+  width: 75%;
+  vertical-align: top;
+}
+
+.EventTitle {
+  margin-top: 16px;
+  display: block;
+  margin-bottom: 12px;
+  padding: 1px;
+  width: 100% !important;
+}
+
+.Organizer {
+  margin-bottom: 8px;
+}
+.text1 {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  display: block;
+}
+
+@media (max-width: 50em) {
+  .text1 {
+    max-width: 60vw;
+  }
+}
+
+.Selectors {
+  margin-top: 16px;
+  display: flex;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  padding-right: 5px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+@media screen and (max-width: 72em) {
+  .Selectors {
+    width: 100% !important;
+  }
+}
+
+.TagsBorder {
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+}
+.LabelTag {
+  font-size: 1.2rem;
+  line-height: 1.75rem;
+  letter-spacing: 0.25px;
+  margin-right: -0.25px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.textTag {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 16px;
+  color: #39364f;
+}
+@media (max-width: 47em) {
+  .textTag {
+    max-width: 60vw;
+  }
+}
+.AddTagDiv {
+  margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+}
+.tagTextContainer {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: flex-start;
+}
+.AddTagButton {
+  width: 90px;
+  height: 44px;
+  position: relative;
+  padding: 0 30px 1px;
+  line-height: 24px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  border-radius: 8px;
+  border: 2px solid #a9a8b3 !important;
+  border-color: #a9a8b3;
+  color: #39364f;
+  background-color: #fff;
+}
+@media (max-width: 37em) {
+  .AddTagButton {
+    display: block;
+  }
+}

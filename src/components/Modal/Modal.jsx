@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar/SearchBar";
 import LocationBar from "./LocationBar/LocationBar";
 import Suggested from "./Suggested/Suggested";
 import RecentAndPopular from "./RecentAndPopular/RecentAndPopular";
-import { FaTimes } from "react-icons/fa";
+import { FaTimes, FaArrowDown } from "react-icons/fa";
 
 import "./Modal.css";
 import Carousel from "./Carousel/Carousel";
@@ -52,23 +52,32 @@ function Modal() {
       { term: "sharm el sheikh", score: 2 },
       { term: "royal maxim palace", score: 2 },
     ]);
+
+    window.addEventListener("keydown", (e) => {
+      if (e.keyCode == 27) {
+        handleCloseModal();
+      }
+    });
   }, []);
   const handleQueryChange = (event) => {
     setQuery(event.target.value);
   };
+  const handleCloseModal = () => {
+    setCloseAnimation(true);
+    setTimeout(() => {
+      searchDispatch(false);
+    }, 1000);
+  };
   return (
     <div className={`modalBackground ${closeAnimation ? "hide" : ""}`}>
       <div className="modalContainer">
-        <span
-          className="closeBtn"
-          onClick={() => {
-            setCloseAnimation(true);
-            setTimeout(() => {
-              searchDispatch(false);
-            }, 1000);
-          }}
-        >
-          <FaTimes />
+        <span className="closeBtn" onClick={handleCloseModal}>
+          <div className="times">
+            <FaTimes />
+          </div>
+          <div className="arrow">
+            <FaArrowDown />
+          </div>
         </span>
         <div className="sections">
           <div className="searchSection">
@@ -77,25 +86,31 @@ function Modal() {
               handleQueryChange={handleQueryChange}
             ></SearchBar>
             <LocationBar></LocationBar>
-            {query ? (
-              <SearchResult
-                recent={recent}
-                trends={trends}
-                char={query}
-              ></SearchResult>
+            {!query ? (
+              <Suggested></Suggested>
             ) : (
               <div>
-                <Suggested></Suggested>
-                <RecentAndPopular
+                <SearchResult
                   recent={recent}
                   trends={trends}
-                ></RecentAndPopular>
+                  char={query}
+                ></SearchResult>
               </div>
             )}
           </div>
-          <div className="carouselSection">
-            <Carousel />
-          </div>
+          {!query && (
+            <div className="carouselSection">
+              <Carousel />
+            </div>
+          )}
+          {!query && (
+            <div className="resultSection">
+              <RecentAndPopular
+                recent={recent}
+                trends={trends}
+              ></RecentAndPopular>
+            </div>
+          )}
         </div>
       </div>
     </div>

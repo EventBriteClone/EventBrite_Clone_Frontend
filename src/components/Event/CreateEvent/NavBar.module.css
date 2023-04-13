@@ -1,0 +1,54 @@
+.navbar {
+  border-top: 1px solid #eeedf2;
+  height: 4.813em;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  background-color: #fff;
+  padding-inline: 1rem;
+  flex-direction: row;
+  /* text-align: right; */
+  justify-content: flex-end;
+  display: flex;
+}
+.discardButtom {
+  width: 114px;
+  height: 44px;
+  padding: 0.5rem 30px;
+  margin-right: 16px;
+  border: 2px solid #a9a8b3 !important;
+  color: #39364f;
+  border-radius: 4px;
+  background-color: #fff;
+  text-align: center;
+  position: relative;
+}
+.saveButtom {
+  width: 170px;
+  height: 44px;
+  background-color: #d1410c;
+  color: #fff;
+  border: 2px solid #d1410c;
+  border-radius: 4px;
+  padding: 0.5rem 30px;
+  /* text-align: center; */
+  position: relative;
+}
+@media screen and (max-width: 41em) {
+  .navbar {
+    display: block;
+    justify-content: center;
+    height: 9em;
+  }
+  .discardButtom {
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 0.5em;
+  }
+  .saveButtom {
+    width: 100%;
+  }
+}

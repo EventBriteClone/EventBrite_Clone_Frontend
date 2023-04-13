@@ -1,0 +1,54 @@
+.section {
+  display: flex;
+  max-width: 100vw;
+}
+.right-section {
+  display: flex;
+  align-items: center;
+}
+.list {
+  padding-top: 50rem;
+  display: flex;
+  align-items: center;
+}
+
+.list-icon {
+  display: flex;
+  align-items: center;
+  background-color: #3659e3;
+  color: #ffff;
+  border-radius: 20rem;
+  padding: 8rem 45rem;
+}
+
+.list-icon .icon {
+  font-size: 15rem;
+  margin-left: -25rem;
+  margin-bottom: -5rem;
+  display: contents;
+}
+
+.list-icon h1 {
+  font-size: 14rem;
+  padding-left: 5rem;
+  font-weight: 600;
+}
+@media (max-width: 820rem) {
+  .list-icon {
+    padding: 10rem 49rem;
+  }
+
+  .list-icon .icon {
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .list-icon h1 {
+    display: contents;
+  }
+}
+
+.search {
+  padding-right: 25rem;
+}

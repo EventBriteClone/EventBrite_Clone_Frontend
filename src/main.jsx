@@ -19,7 +19,11 @@ import Login from "./Pages/Login";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LandingPage />,
+    element: (
+      <NavigationContextProvider>
+        <LandingPage />
+      </NavigationContextProvider>
+    ),
   },
   {
     path: "/signup",

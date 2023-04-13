@@ -2,32 +2,32 @@ import styles from "./AboutOrganizer.module.css";
 
 export default function AboutOrganizer() {
   return (
-    <div className="about-organizer">
+    <div className={styles["about-organizer"]}>
       <h2>About the organizer</h2>
-      <div className="about-org">
-        <div className="organized-by">
+      <div className={styles["about-org"]}>
+        <div className={styles["organized-by"]}>
           <p>Organized by</p>
         </div>
-        <div className="organizer">
+        <div className={styles["organizer"]}>
           <h2>Organizer Name</h2>
         </div>
-        <div className="followers-number">
+        <div className={styles["followers-number"]}>
           <h3>78</h3>
         </div>
-        <span className="fol">Followers</span>
+        <span className={styles["fol"]}>Followers</span>
 
-        <div className="reach">
-          <div className="contact-btn">
+        <div className={styles["reach"]}>
+          <div className={styles["contact-btn"]}>
             <button
-              class="eds-btn eds-btn--button eds-btn--contact contact-button-listing-page"
+              class={`${styles["eds-btn"]} ${styles["eds-btn--button"]} ${styles["eds-btn--contact"]} ${styles["contact-button-listing-page"]}`}
               type="button"
             >
               Contact
             </button>
           </div>
-          <div className="follow-btn">
+          <div className={styles["follow-btn"]}>
             <button
-              class="eds-btn eds-btn--button eds-btn--follow follow-button-listing-page"
+              class={`${styles["eds-btn"]} ${styles["eds-btn--button"]} ${styles["eds-btn--follow"]} ${styles["follow-button-listing-page"]}`}
               type="button"
             >
               Follow

@@ -42,3 +42,12 @@
   margin-left: 10px;
   cursor: pointer;
 }
+
+@media only screen and (max-width: 768px) {
+  .search-bar-container {
+    width: 100%;
+  }
+  .search-input-wrapper {
+    width: 80%;
+  }
+}

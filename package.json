@@ -18,7 +18,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest",
-    "storybook": "npx start-storybook -p 6006",
+    "storybook": ".\\node_modules\\.bin\\start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
