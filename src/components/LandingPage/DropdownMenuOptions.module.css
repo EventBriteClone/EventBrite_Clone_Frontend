@@ -1,0 +1,21 @@
+.dropdown-option p {
+  font-size: 14rem;
+}
+.dropdown-option i {
+  width: 24rem;
+}
+.dropdown-option svg {
+  display: flex;
+  align-items: center;
+  fill: #3d64ff;
+}
+
+.dropdown-option {
+  justify-content: start;
+  padding: 16rem 24rem;
+  gap: 16rem;
+  cursor: pointer;
+}
+.dropdown-option:hover {
+  background-color: var(--grey-background);
+}

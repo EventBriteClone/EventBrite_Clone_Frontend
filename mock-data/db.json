@@ -71,13 +71,7 @@
       "password": "F1yOOF14K"
     }
   ],
-  "events": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
+  "events": [],
   "eventsPreview": [
     {
       "title": "Title1",

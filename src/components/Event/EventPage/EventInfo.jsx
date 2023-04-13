@@ -3,10 +3,10 @@ import styles from "./EventInfo.module.css";
 // import PriceTag from "./PriceTag";
 export default function EventInfo() {
   return (
-    <div className="event-info">
-      <div className="event-date">Apr 29</div>
-      <div className="event-title">Free UX Workshop</div>
-      <div className="caption">Caption</div>
+    <div className={styles["event-info"]}>
+      <div className={styles["event-date"]}>Apr 29</div>
+      <div className={styles["event-title"]}>Free UX Workshop</div>
+      <div className={styles["caption"]}>Caption</div>
     </div>
   );
 }
