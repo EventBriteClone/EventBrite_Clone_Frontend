@@ -1,0 +1,320 @@
+// import Paper from "@mui/material/Paper";
+// import IconButton from "@mui/material/IconButton";
+// import SearchIcon from "@mui/icons-material/Search";
+// import InputBase from "@mui/material/InputBase";
+import styles from "./BasicInfoComponents.module.css";
+import React, { useEffect, useState, useContext } from "react";
+import TextField from "@mui/material/TextField";
+import Select from "@mui/joy/Select";
+import Option from "@mui/joy/Option";
+import PropTypes from "prop-types";
+import { grey } from "@mui/material/colors";
+// import Checkbox from "@mui/material/Checkbox";
+// import dayjs, { Dayjs } from "dayjs";
+// import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+// import { LocalizationProvider } from "@mui/x-date-pickers";
+// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+// import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+// import Autocomplete from "@mui/material/Autocomplete";
+// import MenuItem from "@mui/material/MenuItem";
+// import { Link } from "react-router-dom";
+
+function BasicInfoComponents() {
+  const mySelectors = {
+    width: 200,
+    height: 50,
+    fontSize: "14px",
+    lineHeight: "22px",
+    fontWeight: 400,
+    boxSizing: "border-box",
+    verticalAlign: "top",
+    position: "relative",
+    display: "flex",
+    marginBottom: "16px",
+    paddingTop: "1px",
+    flexDirection: "row",
+    borderRadius: "1px",
+    marginRight: "8px",
+  };
+  const [color, setColor] = useState("red");
+  const [eventTileValue, setEventTitle] = useState("");
+  const [isRequired, setIsRequired] = useState(false);
+  const [count, setCount] = useState(0);
+  function eventTitleChange(event) {
+    const length = event.target.value.length;
+    setCount(length);
+    if (event.target.value.length >= 75) return;
+    setEventTitle(event.target.value);
+    if (event.target.value.length === 0) {
+      setColor("red");
+      setIsRequired(true);
+    } else {
+      setColor("blue");
+      setIsRequired(false);
+    }
+  }
+  const [addButton, setAddButton] = useState(0);
+  const [changeColor, setChangeColor] = useState(false);
+  // const [addColor, setAddColor] = useState(white);
+  function handleClick() {
+    setAddButton(addButton + 1);
+    setChangeColor(!changeColor);
+    // if (changeColor === true) {
+    //   setAddColor(grey);
+    // }
+  }
+  const conditions = [
+    ";",
+    "/",
+    "~",
+    "`",
+    "!",
+    "@",
+    "#",
+    "$",
+    "%",
+    "^",
+    "&",
+    "*",
+    "(",
+    ")",
+    "-",
+    "+",
+    "=",
+    "|",
+    "]",
+    "[",
+    "}",
+    "{",
+    '"',
+    ":",
+    ";",
+    "?",
+    "/",
+    ".",
+    "<",
+    ">",
+    ",",
+    "£",
+    "¬",
+  ];
+
+  function addTagHandler(event) {
+    addTagChange(event);
+    addNumberText(event);
+  }
+  const [charLength, setCharLength] = useState(0);
+  function addNumberText(event) {
+    const length = event.target.value.length;
+    setCharLength(length);
+    if (event.target.value.length >= 25) return;
+    // setCharLength(event.target.value.length);
+    // if (event.target.value.length >= 25) return;
+  }
+  const [iserror, setErrorText] = useState(false);
+  const [addtag, setAddTag] = useState("");
+
+  function addTagChange(event) {
+    setAddTag(event.target.value);
+    const includesSymbols = conditions.some((word) =>
+      event.target.value.includes(word)
+    );
+    if (includesSymbols) {
+      setColor("red");
+      setErrorText(true);
+    } else {
+      setColor("blue");
+      setErrorText(false);
+    }
+  }
+  const [organizervalue, setOrganizer] = useState("");
+  function organizervalueChange(event) {
+    setOrganizer(event.target.value);
+  }
+  //handle show sub-Category
+  // const [category, setCategory] = useState(1);
+  const [showSubCategory, setShowSubCategory] = useState(false);
+  function handleShowSubCategory(event) {
+    setShowSubCategory(true);
+  }
+  return (
+    <>
+      <h1 className={styles.h1}>Basic Info</h1>
+      <div className={styles.pBasic}>
+        <p className={styles.text}>
+          Name your event and tell event-goers why they should come. Add details
+          that hightlight what makes it unique.
+        </p>
+      </div>
+      <div className={styles.containerEventTitle}>
+        <TextField
+          required
+          id="outlined-required"
+          className={styles.EventTitle}
+          label="Event Title"
+          defaultValue=""
+          value={eventTileValue}
+          placeholder="Be clear and descriptive."
+          onChange={eventTitleChange}
+          sx={{
+            padding: "1px",
+            marginBottom: "4px",
+            marginTop: "12px",
+            borderRadius: "2px",
+            fontWeight: 400,
+            "& input": {
+              fontSize: "14px",
+            },
+            "& label": {
+              fontSize: "12px",
+            },
+            "& label.Mui-focused": {
+              color: { color },
+              fontSize: "12px",
+            },
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": {
+                borderColor: { color },
+              },
+              "&.Mui-focused fieldset": {
+                borderColor: { color },
+              },
+            },
+          }}
+        />
+        <div className={styles.aside}>
+          {isRequired && (
+            <p className={styles.letterRequired}>This is required.</p>
+          )}
+          <div className={styles.letterNumberBorder}>
+            <aside className={styles.letterNumber}>{count}/75</aside>
+          </div>
+        </div>
+      </div>
+      <TextField
+        required
+        id="outlined-required"
+        className={styles.Organizer}
+        label="Organizer"
+        defaultValue=""
+        placeholder="Tell attendees who is organizing this event."
+        onChange={organizervalueChange}
+        sx={{
+          marginBottom: "8px",
+
+          fontWeight: 400,
+          borderRadius: "2px",
+          padding: "1px",
+        }}
+      />
+      <p className={styles.text1}>
+        This profile describes a unique organizer and shows all of the events on
+        one page.
+        <a href="">View Organizer Info</a>
+      </p>
+      <div className={styles.Selectors}>
+        <Select
+          defaultValue="Type"
+          placeholder="Type"
+          sx={{
+            ...mySelectors,
+          }}
+        >
+          <Option value="appearance or singing">Appearance or Singing</Option>
+          <Option value="attraction">Attraction</Option>
+          <Option value="camp, trip, or retreat">Camp, Trip, or Retreat</Option>
+          <Option value="class, training, or workshop">
+            Class, Training, or Workshop
+          </Option>
+          <Option value="concert or performance">Concert or Performance</Option>
+        </Select>
+        <Select
+          defaultValue="Category"
+          placeholder="Category"
+          onListboxOpenChange={handleShowSubCategory}
+          sx={{
+            ...mySelectors,
+          }}
+        >
+          <Option value="auto, boat & air">Auto, Boat & Air</Option>
+          <Option value="business & professional">
+            Business & Professional
+          </Option>
+          <Option value="charity & causes">Charity & Causes</Option>
+          <Option value="community & culture">Community & Culture</Option>
+          <Option value="family & education">Family & Education</Option>
+        </Select>
+
+        {showSubCategory && (
+          <Select
+            defaultValue="Sub-category"
+            placeholder="Sub-category"
+            sx={{
+              ...mySelectors,
+            }}
+          >
+            <Option value="gaming">Gaming</Option>
+            <Option value="adult">Adult</Option>
+            <Option value="anime/comics">Anime/ Comics</Option>
+            <Option value="DIY">DIY</Option>
+            <Option value="drawing&painting">Drawing & Painting</Option>
+          </Select>
+        )}
+      </div>
+      <div className={styles.TagsBorder}>
+        <div className={styles.LabelTag}>Tags</div>
+        <p className={styles.textTag}>
+          Improve discoverability of your event by adding tags relevant to the
+          subject matter.
+        </p>
+        <div>
+          <div className={styles.AddTagDiv}>
+            <div className={styles.tagTextContainer}>
+              <TextField
+                required
+                id="outlined-required"
+                className={styles.AddTag}
+                label="Press Enter to add a tag"
+                defaultValue=""
+                placeholder="Add search keywords to your event"
+                onChange={addTagHandler}
+                sx={{
+                  fontSize: "14px",
+                  lineHeight: "22px",
+                  fontWeight: 400,
+                  paddingTop: "1px",
+                  height: 50,
+                  width: "100%",
+                  paddingRight: "8px",
+                  font: "inherit",
+                  "& label.Mui-focused": {
+                    color: { color },
+                  },
+                  "& .MuiOutlinedInput-root": {
+                    "& fieldset": {
+                      borderColor: { color },
+                    },
+                    "&.Mui-focused fieldset": {
+                      borderColor: { color },
+                    },
+                  },
+                }}
+              />
+              <div className={styles.addtaglimit}>
+                <aside>{addButton}/10 tags.</aside>
+                <aside className={styles.letternumber1}>{charLength}/25</aside>
+              </div>
+            </div>
+            <div className={styles.buttonContainer}>
+              <button onClick={handleClick}>Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default BasicInfoComponents;
+
+/// className={`#fff`${(changeColor === true)? '#a9a8b3' : '#fff'}}

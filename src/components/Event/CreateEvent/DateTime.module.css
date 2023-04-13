@@ -1,0 +1,161 @@
+.containerDataTime {
+  margin-top: 40px;
+  margin-bottom: 32px;
+}
+.TimeZone {
+  margin-top: 24px;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  color: #39364f;
+  width: 50%;
+  vertical-align: top;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  background: #fff;
+  padding: 1px;
+  border-radius: 1px;
+  border: 1px solid #dbdae3;
+  flex: 1;
+}
+.Language {
+  margin-top: 24px;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  color: #39364f;
+  width: 50%;
+  vertical-align: top;
+  box-sizing: border-box;
+  margin-bottom: 10rem;
+  background: #fff;
+  padding: 1px;
+  border-radius: 1px;
+  border: 1px solid #dbdae3;
+  flex: 1;
+}
+@media screen and (max-width: 660px) {
+  .Language {
+    width: 100%;
+  }
+  .TimeZone {
+    width: 100%;
+  }
+}
+.Labeltext {
+  color: #4b4d63;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.pickerContainer {
+  display: flex;
+  flex-direction: column;
+}
+.StartPicker {
+  display: flex;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.EndPicker {
+  display: flex;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+/* @media screen and (max-width: 57em) {
+  
+  }
+} */
+.CheckboxLabel {
+  display: block;
+  position: relative;
+  margin-top: 16px;
+}
+.CheckboxBorder {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+}
+.Checkbox {
+  left: -12px;
+  border-color: #3659e3;
+  color: #3659e3;
+  display: inline-block;
+  border-radius: 2px;
+  font-weight: 400;
+}
+.h1 {
+  color: #1e0a3c;
+  font-size: 1.75rem;
+  letter-spacing: 0.75px;
+  font-weight: 700;
+  margin: 0;
+  padding-bottom: 0.5rem;
+}
+.DisplayTimeLabel {
+  color: #39364f;
+  font-size: 14px;
+  display: block;
+  line-height: 22px;
+  font-weight: 400;
+}
+.DateTimeButtons {
+  font-size: 14px;
+  font-weight: 400;
+  display: flex;
+  justify-content: flex-start;
+  vertical-align: top;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 60vw;
+  overflow-x: auto;
+}
+.SingleEventButton {
+  margin-right: 16px;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  width: 160px;
+  font-weight: 400;
+  background-color: rgba(54, 89, 227, 0.1);
+  border: 1px solid #3659e3 !important;
+  color: #3659e3;
+  border-radius: 4px;
+  text-align: center;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.RecurringEventButton {
+  margin-right: 16px;
+  color: #1e0a3c;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid #dbdae3 !important;
+  text-align: center;
+  width: 180px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.textDateTime2 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+}
+
+@media (max-width: 42em) {
+  .textDateTime {
+    max-width: 60vw;
+  }
+}

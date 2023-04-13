@@ -1,221 +1,93 @@
-import Paper from "@mui/material/Paper";
-import IconButton from "@mui/material/IconButton";
-import SearchIcon from "@mui/icons-material/Search";
-import InputBase from "@mui/material/InputBase";
+import React, { useEffect, useState, useContext } from "react";
+import BasicInfoComponents from "./BasicInfoComponents";
+import Location from "./Location";
+import DateTime from "./DateTime";
 import styles from "./BasicInfo.module.css";
-import React, { useEffect, useState } from "react";
-import TextField from "@mui/material/TextField";
-import Select from "@mui/joy/Select";
-import Option from "@mui/joy/Option";
-import Checkbox from "@mui/material/Checkbox";
-import dayjs, { Dayjs } from "dayjs";
-import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
-import { LocalizationProvider } from "@mui/x-date-pickers";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import Autocomplete from "@mui/material/Autocomplete";
-import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
+import NavBar from "./NavBar";
+
 export default function BasicInfo() {
   useEffect(() => {
     const [html] = document.getElementsByTagName("html");
     html.style.fontSize = "100%";
     return () => (html.style.fontSize = "6.25%");
   }, []);
-  const mySelectors = {
-    width: 220,
-    height: 50,
-    fontSize: "14px",
-    lineHeight: "22px",
-    fontWeight: 400,
-    boxSizing: "border-box",
-    verticalAlign: "top",
-    position: "relative",
-    display: "flex",
-    marginBottom: "16px",
-    paddingTop: "1px",
-    flexDirection: "row",
-    borderRadius: "1px",
-  };
-  const timezone = [
-    {
-      value: "Egypt",
-      label: "(GMT+0200) Egypt Time",
-    },
-    {
-      value: "Poland",
-      label: "(GMT+0100) Poland Time",
-    },
-    {
-      value: "France",
-      label: "(GMT+0100) France Time",
-    },
-    {
-      value: "Germany",
-      label: "(GMT+0100) Germany (Berlin) Time",
-    },
-    {
-      value: "Canada",
-      label: "(GMT+0300) Canada (Glace Bay) Time",
-    },
-  ];
-  const language = [
-    {
-      value: "USA",
-      label: "English(US)",
-    },
-    {
-      value: "Poland",
-      label: "Swedish",
-    },
-    {
-      value: "Spain",
-      label: "Spanish(Spain)",
-    },
-    {
-      value: "France",
-      label: "French(France)",
-    },
-    {
-      value: "Brazil",
-      label: "Portuguese(Brazil)",
-    },
-  ];
-  const timeSlots = [
-    "12:00 AM",
-    "12:30 AM",
-    "1:00 AM",
-    "1:30 AM",
-    "2:00 AM",
-    "2:30 AM",
-    "3:00 AM",
-    "3:30 AM",
-    "4:00 AM",
-    "4:30 AM",
-    "5:00 AM",
-    "5:30 AM",
-    "6:00 AM",
-    "6:30 AM",
-    "7:00 AM",
-    "7:30 AM",
-    "8:00 AM",
-    "8:30 AM",
-    "9:00 AM",
-    "9:30 AM",
-    "10:00 AM",
-    "10:30 AM",
-    "11:00 AM",
-    "11:30 AM",
-    "12:00 PM",
-    "12:30 PM",
-    "1:00 PM",
-    "1:30 PM",
-    "2:00 PM",
-    "2:30 PM",
-    "3:00 PM",
-    "3:30 PM",
-    "4:00 PM",
-    "4:30 PM",
-    "5:00 PM",
-    "5:30 PM",
-    "6:00 PM",
-    "6:30 PM",
-    "7:00 PM",
-    "7:30 PM",
-    "8:00 PM",
-    "8:30 PM",
-    "9:00 PM",
-    "9:30 PM",
-    "10:00 PM",
-    "10:30 PM",
-    "11:00 PM",
-    "11:30 PM",
-  ];
-  const [color, setColor] = useState("red");
-  const [eventTileValue, setEventTitle] = useState("");
-  const [isRequired, setIsRequired] = useState(false);
-  function eventTitleChange(event) {
-    if (event.target.value.length > 25) return;
-    setEventTitle(event.target.value);
-    if (event.target.value.length === 0) {
-      setColor("red");
-      setIsRequired(true);
-    } else {
-      setColor("blue");
-      setIsRequired(false);
+  /// show and hide search bar
+  const [showHideSearchBar, setShowHideSearchBar] = useState(false);
+  const [HideSearchBar, setHideSearchBar] = useState(true);
+
+  // Venue Button Hide and -_`
+  const [showVenue, setshowVenue] = useState(true);
+  function handleShowVenue(event) {
+    setshowVenue(true);
+    setshowOnlineEvent(false);
+    if (HideSearchBar) {
+      setShowHideSearchBar(false);
     }
   }
-  const [addButton, setAddButton] = useState(0);
-  function addButtonClick() {
-    setAddButton(addButton + 1);
+  // Online Event Button Hide and Show
+  const [showOnlineEvent, setshowOnlineEvent] = useState(false);
+  function handleShowOnlineEvent(event) {
+    setshowVenue(false);
+    setshowOnlineEvent(true);
+    setShowHideSearchBar(true);
   }
-  const conditions = [
-    ";",
-    "/",
-    "~",
-    "`",
-    "!",
-    "@",
-    "#",
-    "$",
-    "%",
-    "^",
-    "&",
-    "*",
-    "(",
-    ")",
-    "-",
-    "+",
-    "=",
-    "|",
-    "]",
-    "[",
-    "}",
-    "{",
-    '"',
-    ":",
-    ";",
-    "?",
-    "/",
-    ".",
-    "<",
-    ">",
-    ",",
-    "£",
-    "¬",
-  ];
+  // Online Event Button Hide and Show
+  const [showToBeAnnounced, setshowToBeAnnounced] = useState(false);
+  function handleShowToBeAnnounced(event) {
+    setshowVenue(false);
+    setshowOnlineEvent(false);
+    setShowHideSearchBar(true);
+  }
 
-  function addTagHandler(event) {
-    addTagChange(event);
-    addNumberText(event);
+  // Online Event Button Hide and Show
+  const [showSingleEvent, setshowSingleEvent] = useState(true);
+  function handleShowSingleEvent(event) {
+    setshowSingleEvent(true);
+    setshowRecurringEvent(false);
+    setShowHideSearchBar(true);
   }
-  const [charLength, setCharLength] = useState(0);
-  function addNumberText(event) {
-    setCharLength(event.target.value.length);
-  }
-  const [iserror, setErrorText] = useState(false);
-  const [addtag, setAddTag] = useState("");
 
-  function addTagChange(event) {
-    setAddTag(event.target.value);
-    if (event.target.value.includes(conditions)) {
-      setColor("red");
-      setErrorText(true);
-    } else {
-      setColor("blue");
-      setErrorText(false);
-    }
+  // Recurring Event Button Hide and Show
+  const [showRecurringEvent, setshowRecurringEvent] = useState(false);
+  function handleShowRecurringEvent(event) {
+    setshowRecurringEvent(true);
+    setshowSingleEvent(false);
+    setShowHideSearchBar(true);
+    setHideSearchBar(false);
   }
-  const [organizervalue, setOrganizer] = useState("");
-  function organizervalueChange(event) {
-    setOrganizer(event.target.value);
-  }
+
+  const [isVisible, setIsVisible] = useState(false);
+
+  // const ctx = useContext;
+  /// change color of the button
+  // const [active, setActive] = useState(false);
+  // const handleClick = () => {
+  //   setActive(!active);
+  // };
+  // function handleClick(event) {
+  //   const click = () => {
+  //     setActive(!active);
+  //   };
+  //   handleShowSingleEvent(event);
+  //   handleShowRecurringEvent(event);
+  // }
   return (
-    <>
+    <div className={styles.mainContainer}>
       <div className={styles.RoutingContainer}>
-        <div className={styles.arrow}>
-          <img src="/images/arrow.PNG"></img>
-        </div>
+        <svg
+          id="chevron-left-chunky_svg__eds-icon--chevron-left-chunky_svg"
+          x="0"
+          y="0"
+          className={styles.arrow}
+          viewBox="0 0 24 24"
+          // xml:space="preserve"
+        >
+          <path
+            id="chevron-left-chunky_svg__eds-icon--chevron-left-chunky_base"
+            d="M13.8 7l-5 5 5 5 1.4-1.4-3.6-3.6 3.6-3.6z"
+          ></path>
+        </svg>
         <Link to="/my-events" className={styles.Routing} href="">
           Events
         </Link>
@@ -223,380 +95,79 @@ export default function BasicInfo() {
       <div className={styles.container}>
         {/* icon */}
         <div className={styles.ImageContainer}>
-          <img src="/images/basicInfoIcon.PNG"></img>
+          <div className={styles.basicInfoImg}>
+            <svg
+              id="title-edit_svg__eds-icon--title-edit_svg"
+              x="0"
+              y="0"
+              viewBox="0 0 24 24"
+              // xml:space="preserve"
+            >
+              <path
+                id="title-edit_svg__eds-icon--title-edit_base"
+                d="M2 2v3h1V3h5v10H6v1h5v-1H9V3h5v2h1V2H2z"
+              ></path>
+              <g id="title-edit_svg__eds-icon--title-edit_lines">
+                <path d="M15 9h7v1h-7zM15 13h7v1h-7zM6 17h16v1H6zM6 21h16v1H6z"></path>
+              </g>
+            </svg>
+          </div>
           <div className={styles.mapImage}>
-            <img src="/images/MapIcon.PNG"></img>
+            <svg
+              id="map_svg__eds-icon--map_svg"
+              x="0"
+              y="0"
+              viewBox="0 0 24 24"
+              // xml:space="preserve"
+            >
+              <path d="M20 3c-1.1 0-2 .9-2 2H2v16h17.8c1.1 0 2.1-.9 2.1-2V5c.1-1.1-.8-2-1.9-2zm-.2 17H3V6h15v13h1c0-.6.4-1 1-1 .5 0 .9.4 1 .9-.1.6-.6 1.1-1.2 1.1zm1.2-2.7c-.3-.2-.6-.3-1-.3s-.7.1-1 .3V5c0-.6.4-1 1-1s1 .4 1 1v12.3z"></path>
+              <path
+                id="map_svg__eds-icon--map_cross"
+                d="M8.8 12.7l.7-.7-1.1-1 1.1-1-.7-.7-1.1 1-1-1-.7.7 1 1-1 1 .7.7 1-1z"
+              ></path>
+              <path
+                id="map_svg__eds-icon--map_dash_3_"
+                d="M12 10h2v1h-2z"
+              ></path>
+              <path
+                id="map_svg__eds-icon--map_dash_2_"
+                d="M15 12h1v2h-1z"
+              ></path>
+              <path
+                id="map_svg__eds-icon--map_dash_1_"
+                d="M12 15h2v1h-2z"
+              ></path>
+              <path id="map_svg__eds-icon--map_dash" d="M8 15h2v1H8z"></path>
+            </svg>
           </div>
           <div className={styles.CalenderImage}>
-            <img src="/images/CalenderIcon.PNG"></img>
+            <svg
+              id="calendar_svg__eds-icon--calendar_svg"
+              x="0"
+              y="0"
+              viewBox="0 0 24 24"
+              // xml:space="preserve"
+            >
+              <path
+                id="calendar_svg__eds-icon--calendar_base"
+                d="M17 4V2h-1v2H8V2H7v2H2v18h20V4h-5zm4 17H3V9h18v12zM3 8V5h4v1h1V5h8v1h1V5h4v3H3z"
+              ></path>
+              <g id="calendar_svg__eds-icon--calendar_squares">
+                <path d="M15 16h2v2h-2zM11 16h2v2h-2zM7 16h2v2H7zM15 12h2v2h-2zM11 12h2v2h-2zM7 12h2v2H7z"></path>
+              </g>
+            </svg>
           </div>
         </div>
-        {/* data */}
         <div className={styles.containerCol}>
-          <h1 className={styles.h1}>Basic Info</h1>
-          <div className={styles.pBasic}>
-            <p className={styles.text}>
-              Name your event and tell event-goers why they should come. Add
-              details that hightlight what makes it unique.
-            </p>
-          </div>
-          <TextField
-            required
-            id="outlined-required"
-            className={styles.EventTitle}
-            label="Event Title"
-            defaultValue=""
-            value={eventTileValue}
-            placeholder="Be clear and descriptive."
-            onChange={eventTitleChange}
-            sx={{
-              width: 1,
-              padding: "1px",
-              marginBottom: "4px",
-              marginTop: "12px",
-              borderRadius: "2px",
-              fontWeight: 400,
-              "& input": {
-                fontSize: "14px",
-              },
-              "& label": {
-                fontSize: "12px",
-              },
-              "& label.Mui-focused": {
-                color: { color },
-                fontSize: "12px",
-              },
-              "& .MuiOutlinedInput-root": {
-                "& fieldset": {
-                  borderColor: { color },
-                },
-                "&.Mui-focused fieldset": {
-                  borderColor: { color },
-                },
-              },
-            }}
-          />
-          <div className={styles.aside}>
-            {isRequired && (
-              <p className={styles.letterRequired}>This is required.</p>
-            )}
-            <div className={styles.letterNumberBorder}>
-              <aside className={styles.letterNumber}>0/75</aside>
-            </div>
-          </div>
-          <TextField
-            required
-            id="outlined-required"
-            className={styles.Organizer}
-            label="Organizer"
-            defaultValue=""
-            placeholder="Tell attendees who is organizing this event."
-            onChange={organizervalueChange}
-            // variant="filled"
-            sx={{
-              width: 1,
-              marginBottom: "8px",
-              fontSize: "14px",
-              lineHeight: "22px",
-              fontWeight: 400,
-              borderRadius: "2px",
-              padding: "1px",
-            }}
-          />
-          <p className={styles.text1}>
-            This profile describes a unique organizer and shows all of the
-            events on one page.
-            <a href="">View Organizer Info</a>
-          </p>
-          <div className={styles.Selectors}>
-            <Select
-              defaultValue="Type"
-              placeholder="Type"
-              // className={styles.TypeLayout}
-              sx={{ ...mySelectors, marginRight: "8px" }}
-            >
-              <Option value="appearance or singing">
-                Appearance or Singing
-              </Option>
-              <Option value="attraction">Attraction</Option>
-              <Option value="camp, trip, or retreat">
-                Camp, Trip, or Retreat
-              </Option>
-              <Option value="class, training, or workshop">
-                Class, Training, or Workshop
-              </Option>
-              <Option value="concert or performance">
-                Concert or Performance
-              </Option>
-            </Select>
-
-            <Select
-              defaultValue="Category"
-              placeholder="Category"
-              sx={{ ...mySelectors, marginRight: "8px", marginLeft: "8px" }}
-            >
-              <Option value="auto, boat & air">Auto, Boat & Air</Option>
-              <Option value="business & professional">
-                Business & Professional
-              </Option>
-              <Option value="charity & causes">Charity & Causes</Option>
-              <Option value="community & culture">Community & Culture</Option>
-              <Option value="family & education">Family & Education</Option>
-            </Select>
-          </div>
-          <div className={styles.TagsBorder}>
-            <div className={styles.LabelTag}>Tags</div>
-            <p className={styles.textTag}>
-              Improve discoverability of your event by adding tags relevant to
-              the subject matter.
-            </p>
-            <div>
-              <div className={styles.AddTagDiv}>
-                <TextField
-                  required
-                  id="outlined-required"
-                  className={styles.AddTag}
-                  label="Press Enter to add a tag"
-                  defaultValue=""
-                  placeholder="Add search keywords to your event"
-                  onChange={addTagHandler}
-                  // variant="filled"
-                  sx={{
-                    fontSize: "14px",
-                    lineHeight: "22px",
-                    fontWeight: 400,
-                    paddingTop: "1px",
-                    // width: 522,
-                    height: 50,
-                    width: "83.3333333333%",
-                    paddingRight: "8px",
-                    font: "inherit",
-                    "& label.Mui-focused": {
-                      color: { color },
-                    },
-                    "& .MuiOutlinedInput-root": {
-                      "& fieldset": {
-                        borderColor: { color },
-                      },
-                      "&.Mui-focused fieldset": {
-                        borderColor: { color },
-                      },
-                    },
-                  }}
-                />
-                <button
-                  className={styles.AddTagButton}
-                  onClick={addButtonClick}
-                >
-                  Add
-                </button>
-                <div className={styles.addtaglimit}>
-                  <aside>{addButton}/10 tags.</aside>
-                  <aside className={styles.letternumber1}>
-                    {charLength}/25
-                  </aside>
-                </div>
-              </div>
-            </div>
-            <hr />
-            <div>
-              {/* <img src="/images/MapIcon.PNG"></img> */}
-              <h1 className={styles.h1Location}>Location</h1>
-              <p className={styles.textLocation}>
-                Help people in the area discover your event and let attendees
-                know where to show up.
-              </p>
-              <div className={styles.Buttons}>
-                <button className={styles.VenueButton}>Venue</button>
-                <button className={styles.OnlineEventButton}>
-                  Online event
-                </button>
-                <button className={styles.TobeAnnounced}>
-                  To be announced
-                </button>
-              </div>
-              <div className={styles.searchVenueLocation}>
-                <p className={styles.pVenue}>Venue location</p>
-                <div>
-                  <Paper
-                    component="form"
-                    sx={{
-                      p: "2px 4px",
-                      display: "flex",
-                      alignItems: "center",
-                      width: 564,
-                      height: 50,
-                      marginBottom: "20px",
-                      position: "relative",
-                      fontSize: "14px",
-                      lineHeight: "22px",
-                      fontWeight: 400,
-                      padding: "1px",
-                      borderRadius: "1px",
-                      border: "1px",
-                    }}
-                  >
-                    <IconButton
-                      sx={{ p: "14px", marginLeft: "12px", height: "24px" }}
-                      aria-label="menu"
-                    >
-                      <SearchIcon />
-                    </IconButton>
-                    <InputBase
-                      sx={{ ml: 1, flex: 1 }}
-                      placeholder="Search for a venue or address."
-                      // inputProps={{ 'aria-label': 'search google maps' }}
-                    />
-                  </Paper>
-                </div>
-              </div>
-            </div>
-            <hr />
-            <div className={styles.containerDataTime}>
-              <div className={styles.containerDateTimeCol}>
-                <h1 className={styles.h1}>Date and time</h1>
-                <div className={styles.pDateandTime}>
-                  <p className={styles.textDateTime}>
-                    Tell event-goers when your event starts and ends so they can
-                    make plans to attend.
-                  </p>
-                </div>
-                <div className={styles.DateTimeButtons}>
-                  <button className={styles.SingleEventButton}>
-                    Single Event
-                  </button>
-                  <button className={styles.RecurringEventButton}>
-                    Recurring Event
-                  </button>
-                </div>
-                <p className={styles.textDateTime2}>
-                  Single event happens once and can last multiple days
-                </p>
-                <div>
-                  <div className={styles.StartPicker}>
-                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                      <DemoContainer components={["DatePicker", "DatePicker"]}>
-                        <DatePicker
-                          label="Event Starts *"
-                          defaultValue={dayjs("2023-04-30")}
-                        />
-                      </DemoContainer>
-                    </LocalizationProvider>
-                    <Autocomplete
-                      id="disabled-options-demo"
-                      options={timeSlots}
-                      defaultValue="7:00 PM"
-                      // getOptionDisabled={(option) =>
-                      // option === timeSlots[0] || option === timeSlots[2]
-                      // }
-                      sx={{
-                        width: 275,
-                        paddingRight: "8px",
-                        height: 50,
-                        verticalAlign: "top",
-                        fontSize: "14px",
-                        marginLeft: "8px",
-                        marginTop: "8px",
-                      }}
-                      renderInput={(params) => (
-                        <TextField {...params} label="Start Time" />
-                      )}
-                    />
-                  </div>
-                  <div className={styles.EndPicker}>
-                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                      <DemoContainer components={["DatePicker", "DatePicker"]}>
-                        <DatePicker
-                          label="Event Ends *"
-                          defaultValue={dayjs("2023-04-30")}
-                        />
-                      </DemoContainer>
-                    </LocalizationProvider>
-                    <Autocomplete
-                      id="disabled-options-demo"
-                      options={timeSlots}
-                      defaultValue="10:00 PM"
-                      // getOptionDisabled={(option) =>
-                      // option === timeSlots[0] || option === timeSlots[2]
-                      // }
-                      sx={{
-                        width: 275,
-                        paddingRight: "8px",
-                        height: 50,
-                        verticalAlign: "top",
-                        fontSize: "14px",
-                        marginLeft: "8px",
-                        marginTop: "8px",
-                      }}
-                      renderInput={(params) => (
-                        <TextField {...params} label="End Time" />
-                      )}
-                    />
-                  </div>
-                </div>
-                <div className={styles.CheckboxLabel}>
-                  <div className={styles.CheckboxBorder}>
-                    <Checkbox className={styles.Checkbox}></Checkbox>
-                    <label className={styles.DisplayTimeLabel}>
-                      <span>
-                        <p>Display start time.</p>
-                        <p className={styles.Labeltext}>
-                          The start time of your event will be displayed to
-                          attendees.
-                        </p>
-                      </span>
-                    </label>
-                  </div>
-                  <div className={styles.CheckboxBorder}>
-                    <Checkbox className={styles.Checkbox}></Checkbox>
-                    <label className={styles.DisplayTimeLabel}>
-                      <span>
-                        <p>Display end time.</p>
-                        <p className={styles.Labeltext}>
-                          The end time of your event will be displayed to
-                          attendees.
-                        </p>
-                      </span>
-                    </label>
-                  </div>
-                </div>
-                <div>
-                  <div className={styles.TimeZone}>
-                    <TextField
-                      id="standard-select-timezone"
-                      select
-                      label="Time Zone"
-                      defaultValue="Egypt"
-                      variant="standard"
-                    >
-                      {timezone.map((option) => (
-                        <MenuItem key={option.value} value={option.value}>
-                          {option.label}
-                        </MenuItem>
-                      ))}
-                    </TextField>
-                  </div>
-                  <div className={styles.Language}>
-                    <TextField
-                      id="standard-select-language"
-                      select
-                      label="Event Page Language"
-                      defaultValue="USA"
-                      variant="standard"
-                    >
-                      {language.map((option) => (
-                        <MenuItem key={option.value} value={option.value}>
-                          {option.label}
-                        </MenuItem>
-                      ))}
-                    </TextField>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <BasicInfoComponents />
+          <hr />
+          <Location changeButton={(value) => setIsVisible(value)} />
+          <hr />
+          <DateTime />
         </div>
+
+        {isVisible && <NavBar changeButton={(value) => setIsVisible(value)} />}
       </div>
-    </>
+    </div>
   );
 }
