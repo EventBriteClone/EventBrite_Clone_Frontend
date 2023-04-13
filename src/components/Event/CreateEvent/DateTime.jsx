@@ -19,7 +19,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
 import { element } from "prop-types";
 
-function DateTime({ onClick }) {
+function DateTime({ changeButton }) {
   const timezone = [
     {
       value: "Egypt",
@@ -123,6 +123,7 @@ function DateTime({ onClick }) {
     child.classList.remove(styles.SingleEventButton);
     child.classList.add(styles.RecurringEventButton);
     setshowSingleEvent(true);
+    changeButton(true);
     setshowRecurringEvent(false);
     // setShowHideSearchBar(true);
   }
@@ -132,6 +133,7 @@ function DateTime({ onClick }) {
   function handleShowRecurringEvent(event) {
     setshowRecurringEvent(true);
     setshowSingleEvent(false);
+    changeButton(true);
     const child = event.target.parentNode.childNodes[0];
     event.target.classList.remove(styles.RecurringEventButton);
     event.target.classList.add(styles.SingleEventButton);
@@ -311,7 +313,7 @@ function DateTime({ onClick }) {
   );
 }
 DateTime.propTypes = {
-  onClick: PropTypes.func,
+  changeButton: PropTypes.func,
 };
 
 export default DateTime;

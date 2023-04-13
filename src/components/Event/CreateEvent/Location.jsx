@@ -31,6 +31,11 @@ function Location({ changeButton }) {
       setShowHideSearchBar(false);
     }
     changeButton(true);
+    const child = event.target.parentNode.childNodes[1];
+    event.target.classList.remove(styles.OnlineEventButton);
+    event.target.classList.add(styles.VenueButton);
+    child.classList.remove(styles.VenueButton);
+    child.classList.add(styles.OnlineEventButton);
   }
   // Online Event Button Hide and Show
   const [showOnlineEvent, setshowOnlineEvent] = useState(false);
@@ -38,6 +43,12 @@ function Location({ changeButton }) {
     setshowVenue(false);
     setshowOnlineEvent(true);
     setShowHideSearchBar(true);
+    changeButton(true);
+    const child = event.target.parentNode.childNodes[0];
+    event.target.classList.remove(styles.OnlineEventButton);
+    event.target.classList.add(styles.VenueButton);
+    child.classList.remove(styles.VenueButton);
+    child.classList.add(styles.OnlineEventButton);
   }
   // Online Event Button Hide and Show
   const [showToBeAnnounced, setshowToBeAnnounced] = useState(false);

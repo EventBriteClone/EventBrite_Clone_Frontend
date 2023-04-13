@@ -140,6 +140,10 @@
   width: 80%;
 }
 .buttonContainer {
+  display: flex;
+  justify-content: flex-start;
+}
+.AddTagButton {
   width: 90px;
   height: 44px;
   position: relative;
@@ -152,13 +156,9 @@
   border-color: #a9a8b3;
   color: #39364f;
   background-color: #fff;
-  display: flex;
-  justify-content: flex-start;
 }
-/* .AddTagButton {
-} */
 @media (max-width: 37em) {
-  .buttonContainer {
+  .AddTagButton {
     display: block;
   }
 }

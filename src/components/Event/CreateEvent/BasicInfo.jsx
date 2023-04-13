@@ -163,7 +163,7 @@ export default function BasicInfo() {
           <hr />
           <Location changeButton={(value) => setIsVisible(value)} />
           <hr />
-          <DateTime />
+          <DateTime changeButton={(value) => setIsVisible(value)} />
         </div>
 
         {isVisible && <NavBar changeButton={(value) => setIsVisible(value)} />}

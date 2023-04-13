@@ -306,7 +306,9 @@ function BasicInfoComponents() {
               </div>
             </div>
             <div className={styles.buttonContainer}>
-              <button onClick={handleClick}>Add</button>
+              <button className={styles.AddTagButton} onClick={handleClick}>
+                Add
+              </button>
             </div>
           </div>
         </div>
