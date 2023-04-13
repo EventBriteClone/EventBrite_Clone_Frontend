@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 import styles from "./Carousel.module.css";
@@ -39,6 +39,21 @@ const event = [
   },
 ];
 function Carousel() {
+  const carouselRef = useRef(null);
+  const handleLeft = () => {
+    const container = carouselRef.current;
+    container.scrollBy({
+      left: -container.offsetWidth,
+      behavior: "smooth",
+    });
+  };
+  const handleRight = () => {
+    const container = carouselRef.current;
+    container.scrollBy({
+      left: container.offsetWidth,
+      behavior: "smooth",
+    });
+  };
   return (
     <div className={styles["carousel-container"]}>
       <div className={styles["carousel-title"]}>
@@ -46,11 +61,11 @@ function Carousel() {
           Our favorite online event collections
         </p>
         <div className={styles["carousel-title-arrows"]}>
-          <FaArrowLeft />
-          <FaArrowRight />
+          <FaArrowLeft onClick={handleLeft} />
+          <FaArrowRight onClick={handleRight} />
         </div>
       </div>
-      <div className={styles["carousel-body"]}>
+      <div ref={carouselRef} className={styles["carousel-body"]}>
         {event.map((e, i) => (
           <div key={i} className={styles["slider"]}>
             <img

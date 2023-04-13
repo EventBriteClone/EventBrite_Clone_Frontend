@@ -5,7 +5,10 @@
 }
 .carousel-title-arrows {
   display: flex;
-  gap: 1rem;
+  gap: 5px;
+}
+.carousel-title-arrows * {
+  cursor: pointer;
 }
 .carousel-title-text {
   font-size: 24px;
