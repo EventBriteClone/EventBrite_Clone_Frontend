@@ -1,14 +1,12 @@
 import React, { useState } from "react";
-import styles from "./EventCreator.module.css";
-import EventCard from "../EventCardContainer/EventCard";
+import styles from "./AllEvents.module.css";
+import EventCard from "../../EventCardContainer/EventCard";
 import "remixicon/fonts/remixicon.css";
-import EventCardContainer from "../EventCardContainer/EventCardContainer";
-import { Link } from "react-router-dom";
-import MainIcon from "../../Icons/MainIcon";
+import EventCardContainer from "../../EventCardContainer/EventCardContainer";
 
-function EventCreator() {
+function AllEvents() {
   const events = [
-    { date: new Date("3/3/2024") },
+    { date: new Date("3/4/2024") },
     { date: new Date("1/3/2006") },
     { date: new Date("12/12/2023") },
     { date: new Date("11/6/2004") },
@@ -39,19 +37,6 @@ function EventCreator() {
 
   return (
     <>
-      <div className={styles["header"]}>
-        <Link to="/">
-          <MainIcon></MainIcon>
-        </Link>
-        <div className={styles["profile"]}>
-          <div className={styles["sign-in-info"]}>
-            <h2>Ma</h2>
-            <h1>Muhammad Ahmad</h1>
-            <i className={styles["ri-arrow-down-s-line"]}></i>
-          </div>
-        </div>
-      </div>
-
       <div className={styles["section"]}>
         <div className={styles["events"]}>
           <div className={styles["event-info"]}>
@@ -69,9 +54,7 @@ function EventCreator() {
               </div>
               <h1>List</h1>
             </div>
-            <div className={styles["span"]}>
-              <div className={styles["hr"]} />
-            </div>
+
             <div className={styles["All-events"]}>
               <div className={styles["all-events"]}>
                 <select
@@ -121,4 +104,4 @@ function EventCreator() {
   );
 }
 
-export default EventCreator;
+export default AllEvents;

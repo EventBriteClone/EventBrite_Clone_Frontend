@@ -1,10 +1,10 @@
 import styles from "./EventDetails.module.css";
 export default function EventDetails() {
   return (
-    <div className="event-details">
-      <div className="date-and-location">
-        <div className="date-time">
-          <h2 className="h2">When and Where</h2>
+    <div className={styles["event-details"]}>
+      <div className={styles["date-and-location"]}>
+        <div className={styles["date-time"]}>
+          <h2 className={styles["h2"]}>When and Where</h2>
           {/* <div class="detail-icon">
           <i
             class="eds-vector-image eds-icon--small eds-vector-image--block"
@@ -26,27 +26,27 @@ export default function EventDetails() {
             </svg>
           </i>
         </div> */}
-          <div className="date-and-time">
-            <div class="detail__icon">
+          <div className={styles["date-and-time"]}>
+            <div class={styles["detail__icon"]}>
               <i data-spec="icon" data-testid="icon" aria-hidden="true">
                 <svg
-                  id="calendar-chunky_svg__eds-icon--calendar-chunky_svg"
+                  id={styles["calendar-chunky_svg__eds-icon--calendar-chunky_svg"]}
                   x="0"
                   y="0"
                   viewBox="0 0 24 24"
                   xmSpace="preserve"
                 >
                   <path
-                    id="calendar-chunky_svg__eds-icon--calendar-chunky_base"
+                    id={styles["calendar-chunky_svg__eds-icon--calendar-chunky_base"]}
                     d="M16.9 6.5v-2h-2v2h-6v-2h-2v2h-2v13h14v-13h-2zm0 11h-10v-7h10v7z"
                   ></path>
                 </svg>
               </i>
             </div>
-            <div className="date-time-heading">
+            <div className={styles["date-time-heading"]}>
               <h3>Date and Time</h3>
-              <p className="p">
-                <span class="appointment">
+              <p className={styles["p"]}>
+                <span class={styles["appointment"]}>
                   Saturday, March 25 · 5:30 - 6:30pm EET
                 </span>
               </p>
@@ -54,11 +54,11 @@ export default function EventDetails() {
           </div>
         </div>
 
-        <div className="location">
-          <div className="date-and-time">
-            <div class="detail__icon2">
+        <div className={styles["location"]}>
+          <div className={styles["date-and-time"]}>
+            <div class={styles["detail__icon2"]}>
               <i
-                class="eds-vector-image eds-icon--small"
+                class={`${styles["eds-vector-image"]} ${styles["eds-icon--small"]}`}
                 data-spec="icon"
                 data-testid="icon"
                 aria-hidden="true"
@@ -99,28 +99,28 @@ export default function EventDetails() {
                 </svg>{" "}
               </i>
             </div>
-            <div className="date-time-heading">
+            <div className={styles["date-time-heading"]}>
               <h3>Location</h3>
-              <p className="p">
+              <p className={styles["p"]}>
                 <div class="address">Online</div>
               </p>
             </div>
           </div>
         </div>
       </div>
-      <div className="about">
-        <div className="refund-policy">
-          <h2 className="h2">Refund Policy</h2>
-          <p className="p">Contact the organizer to request a refund.</p>
-          <p className="p">Eventbrite's fee is nonrefundable.</p>
+      <div className={styles["about"]}>
+        <div className={styles["refund-policy"]}>
+          <h2 className={styles["h2"]}>Refund Policy</h2>
+          <p className={styles["p"]}>Contact the organizer to request a refund.</p>
+          <p className={styles["p"]}>Eventbrite's fee is nonrefundable.</p>
         </div>
-        <div className="about-event">
-          <h2 className="h2">About this event</h2>
-          <div className="about-icons">
-            <div className="time">
-              <div class="detail__icon">
+        <div className={styles["about-event"]}>
+          <h2 className={styles["h2"]}>About this event</h2>
+          <div className={styles["about-icons"]}>
+            <div className={styles["time"]}>
+              <div class={styles["detail__icon"]}>
                 <i
-                  class="eds-vector-image eds-icon--small eds-vector-image--block"
+                  class={`${styles["eds-vector-image"]} ${styles["eds-icon--small eds-vector-image--block"]}`}
                   data-spec="icon"
                   data-testid="icon"
                   aria-hidden="true"
@@ -147,13 +147,13 @@ export default function EventDetails() {
                   </svg>
                 </i>
               </div>
-              <h2 className="period h2">1 hour</h2>
+              <h2 className={styles["period h2"]}>1 hour</h2>
             </div>
 
-            <div className="ticket">
-              <div class="detail__icon">
+            <div className={styles["ticket"]}>
+              <div class={styles["detail__icon"]}>
                 <i
-                  class="eds-vector-image eds-icon--small eds-vector-image--block"
+                  class={`${styles["eds-vector-image"]} ${styles["eds-icon--small"]} ${styles["eds-vector-image--block"]}`}
                   data-spec="icon"
                   data-testid="icon"
                   aria-hidden="true"
@@ -174,12 +174,12 @@ export default function EventDetails() {
                   </svg>
                 </i>
               </div>
-              <h2 className="ticket-info h2">Mobile eTicket</h2>
+              <h2 className={styles["ticket-info h2"]}>Mobile eTicket</h2>
             </div>
           </div>
         </div>
       </div>
-      <div className="event-content">
+      <div className={styles["event-content"]}>
         Whether you are a beginner, intermediate or advanced player, join our
         League. We are a community of squash enthusiasts, who love the game.Will
         be organizing games to train, excel and most important, for the love of
