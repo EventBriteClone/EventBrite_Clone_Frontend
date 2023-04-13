@@ -95,7 +95,9 @@ function AllEvents() {
           {filteredEvents.map((event, index) => (
             <EventCard
               key={index}
-              startDate={event.date.toLocaleDateString("en-US")}
+              startDate={
+                event.date ? event.date.toLocaleDateString("en-US") : ""
+              }
             />
           ))}
         </EventCardContainer>
