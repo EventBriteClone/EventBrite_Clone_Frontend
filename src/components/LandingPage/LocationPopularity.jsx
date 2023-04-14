@@ -11,7 +11,7 @@ export default function LocationPopularity(props) {
   const [hideDropDown, setHideDropDown] = useState(true);
   const [hideInput, setHideInput] = useState(false);
   const [value, setValue] = useState("");
-  const { city, setCity, response } = ctx;
+  const { initialCity, city, setCity, response } = ctx;
   // if (city && city !== value && !hideInput) {
   //   setValue(city);
   // }
@@ -30,10 +30,10 @@ export default function LocationPopularity(props) {
   // fetch("https://event-us.me:8000").then((res) => console.log(res));
 
   function onDropdownOptionClick({ city, text }) {
-    console.log(city);
+    if (city === "initialCity") setCity(initialCity);
+    else setCity(city);
     setHideDropDown(true);
     setHideInput(false);
-    setCity(city);
     setValue(text);
   }
 
