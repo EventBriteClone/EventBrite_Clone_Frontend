@@ -1,5 +1,18 @@
 import styles from "./DropDown.module.css";
 import DropdownMenuOption from "./DropdownMenuOption";
+
+function parseGovName(gov) {
+  const index = gov.indexOf("(");
+  if (index === -1) return gov;
+  return gov.slice(0, index);
+}
+function parseGovValue(gov) {
+  const pattern = /\((.*?)\)/g;
+  const result = gov.match(pattern);
+  if (result) return result[0].slice(1, -1);
+  return gov;
+}
+
 export default function DropDown(props) {
   const egyptGovernorates = [
     "Ad Daqahliyah",
@@ -32,20 +45,20 @@ export default function DropDown(props) {
   const filteredGovList =
     props.input &&
     egyptGovernorates
-      .filter((gov) =>
-        gov.toLocaleLowerCase().startsWith(props.input.toLocaleLowerCase())
-      )
+      .filter((gov) => {
+        const regex = new RegExp(props.input, "i"); // "i" flag makes the regex case-insensitive
+        return regex.test(gov);
+      })
       .map((gov, i) => (
         <DropdownMenuOption
           key={i}
           city={true}
-          value={gov}
+          value={parseGovValue(gov)}
           icon={"clock"}
-          text={gov}
+          text={parseGovName(gov)}
           onClick={props.clickHandler}
         />
       ));
-
   return (
     <div className={`${styles.dropdown}`}>
       <DropdownMenuOption
@@ -58,7 +71,7 @@ export default function DropDown(props) {
       <DropdownMenuOption
         onClick={props.clickHandler}
         primary={true}
-        value="Online events"
+        value="online"
         icon="onlineEvents"
         text="Browse online events"
       />
