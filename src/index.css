@@ -54,12 +54,6 @@ body {
   --error-red: #c5162e;
 }
 
-section {
-  max-width: 1372rem;
-  margin: 0 auto;
-  padding: 0 78rem;
-}
-
 .icon--xsmall {
   width: 16rem;
   height: 16rem;

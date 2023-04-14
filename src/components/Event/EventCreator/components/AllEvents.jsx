@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./AllEvents.module.css";
 import EventCard from "../../EventCardContainer/EventCard";
 import "remixicon/fonts/remixicon.css";
 import EventCardContainer from "../../EventCardContainer/EventCardContainer";
+import { fetchDataFromAPI } from "../../../../utils";
+import config from "../../../../utils/config";
 
 function AllEvents() {
+  const [data, setData] = useState(null);
+  const [selectedOption, setSelectedOption] = useState("All Events");
+  const eventsList = Array.isArray(data) && data.map();
   const events = [
     { date: new Date("3/4/2024") },
     { date: new Date("1/3/2006") },
@@ -23,8 +28,6 @@ function AllEvents() {
     (event) => new Date(event.date) > new Date(defaultDate)
   );
 
-  const [selectedOption, setSelectedOption] = useState("All Events");
-
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
   };
@@ -34,6 +37,22 @@ function AllEvents() {
       : selectedOption === "upcoming"
       ? upcomingEvents
       : events;
+
+  useEffect(() => {
+    let endpoint, configurationOpt;
+    if (config.mocking === "true") {
+      endpoint = "eventsPreview";
+    } else {
+      let user_id = "";
+      endpoint = `eventmanagement/userevents ${user_id}`;
+      configurationOpt = {
+        method: "GET",
+      };
+    }
+    fetchDataFromAPI({ endpoint, configurationOpt }).then((data) =>
+      setData(data)
+    );
+  }, []);
 
   return (
     <>
@@ -92,14 +111,9 @@ function AllEvents() {
       </div>
       <div className={styles["section"]}>
         <EventCardContainer>
-          {filteredEvents.map((event, index) => (
-            <EventCard
-              key={index}
-              startDate={
-                event.date ? event.date.toLocaleDateString("en-US") : ""
-              }
-            />
-          ))}
+          {data &&
+            Array.isArray(data) &&
+            data.map((e) => <EventCard event={e} />)}
         </EventCardContainer>
       </div>
     </>

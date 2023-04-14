@@ -26,9 +26,7 @@ function reducerFunction(state, action) {
   }
 }
 
-function fetchData({ endpoint, configurationOpt, dispatch }) {
-  const controller = new AbortController();
-  const signal = controller.signal;
+function fetchData({ endpoint, configurationOpt, dispatch, signal }) {
   fetch(`${config.baseURL}${endpoint}`, { ...configurationOpt, signal })
     .then((response) => {
       if (!response.ok) {
@@ -44,7 +42,6 @@ function fetchData({ endpoint, configurationOpt, dispatch }) {
     .catch((err) => {
       dispatch({ type: "error", message: err.message });
     });
-  return () => controller.abort();
 }
 
 export default function useFetch({
@@ -56,8 +53,12 @@ export default function useFetch({
   const [fetchState, dispatch] = useReducer(reducerFunction, initialState);
   let modifiedFetchState;
   useEffect(() => {
-    fetchData({ endpoint, configurationOpt, dispatch });
-  }, [endpoint, ...dependOn]);
+    console.log(endpoint);
+    const controller = new AbortController();
+    const signal = controller.signal;
+    fetchData({ endpoint, configurationOpt, dispatch, signal });
+    return () => controller.abort();
+  }, [endpoint]);
 
   if (callback && fetchState.response) {
     const newData = callback(fetchState.response);
