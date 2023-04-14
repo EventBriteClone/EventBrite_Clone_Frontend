@@ -116,32 +116,58 @@ function DateTime({ changeButton }) {
   ];
   // Online Event Button Hide and Show
   const [showSingleEvent, setshowSingleEvent] = useState(true);
+  const [isSingleEventOpen, setIsSingleEventOpen] = useState(true);
   function handleShowSingleEvent(event) {
-    const child = event.target.parentNode.childNodes[1];
-    event.target.classList.remove(styles.RecurringEventButton);
-    event.target.classList.add(styles.SingleEventButton);
-    child.classList.remove(styles.SingleEventButton);
-    child.classList.add(styles.RecurringEventButton);
-    setshowSingleEvent(true);
-    changeButton(true);
-    setshowRecurringEvent(false);
-    // setShowHideSearchBar(true);
+    if (isSingleEventOpen === true && isRecurringEventOpen === false) {
+      setshowSingleEvent(true);
+      changeButton(true);
+      setshowRecurringEvent(false);
+    } else {
+      setshowSingleEvent(true);
+      changeButton(true);
+      setshowRecurringEvent(false);
+      const child = event.target.parentNode.childNodes[1];
+      event.target.classList.remove(styles.RecurringEventButton);
+      event.target.classList.add(styles.SingleEventButton);
+      child.classList.remove(styles.SingleEventButton);
+      child.classList.add(styles.RecurringEventButton);
+      setIsSingleEventOpen(true);
+      setRecurringEventOpen(false);
+    }
   }
 
   // Recurring Event Button Hide and Show
+  const [isRecurringEventOpen, setRecurringEventOpen] = useState(false);
   const [showRecurringEvent, setshowRecurringEvent] = useState(false);
   function handleShowRecurringEvent(event) {
-    setshowRecurringEvent(true);
-    setshowSingleEvent(false);
-    changeButton(true);
-    const child = event.target.parentNode.childNodes[0];
-    event.target.classList.remove(styles.RecurringEventButton);
-    event.target.classList.add(styles.SingleEventButton);
-    child.classList.remove(styles.SingleEventButton);
-    child.classList.add(styles.RecurringEventButton);
-    // setShowHideSearchBar(true);
-    // setHideSearchBar(false);
+    if (isRecurringEventOpen === true && isSingleEventOpen === false) {
+      setshowRecurringEvent(true);
+      setshowSingleEvent(false);
+      changeButton(true);
+    } else {
+      setshowRecurringEvent(true);
+      setshowSingleEvent(false);
+      changeButton(true);
+      const child = event.target.parentNode.childNodes[0];
+      event.target.classList.remove(styles.RecurringEventButton);
+      event.target.classList.add(styles.SingleEventButton);
+      child.classList.remove(styles.SingleEventButton);
+      child.classList.add(styles.RecurringEventButton);
+      setIsSingleEventOpen(false);
+      setRecurringEventOpen(true);
+    }
   }
+
+  const [checkedOne, setCheckedOne] = useState(true);
+  const [checkedTwo, setCheckedTwo] = useState(true);
+
+  const handleChangeOne = (event) => {
+    setCheckedOne(event.target.checked);
+  };
+
+  const handleChangeTwo = (event) => {
+    setCheckedTwo(event.target.checked);
+  };
   return (
     <>
       <div className={styles.containerDataTime}>
@@ -157,7 +183,6 @@ function DateTime({ changeButton }) {
             <button
               onClick={handleShowSingleEvent}
               className={styles.SingleEventButton}
-              // style={{ background: active ? "white" : "blue" }}
             >
               Single Event
             </button>
@@ -165,14 +190,14 @@ function DateTime({ changeButton }) {
               type="button"
               onClick={handleShowRecurringEvent}
               className={styles.RecurringEventButton}
-              // style={{ backgroundColor: active ? "black" : "white" }}
+              aria-label="RecurringEventButton"
             >
               Recurring Event
             </button>
           </div>
           {showRecurringEvent && (
             <p className={styles.textDateTime2}>
-              You’ll be able to set a schedule for your recurring event in the
+              You will be able to set a schedule for your recurring event in the
               next step. Event details and ticket types will apply to all
               instances.
             </p>
@@ -249,7 +274,12 @@ function DateTime({ changeButton }) {
           <div className={styles.CheckboxLabel}>
             <div className={styles.CheckboxBorder}>
               {showSingleEvent && (
-                <Checkbox className={styles.Checkbox}></Checkbox>
+                <Checkbox
+                  checked={checkedOne}
+                  onChange={handleChangeOne}
+                  inputProps={{ "aria-label": "timeStart" }}
+                  className={styles.Checkbox}
+                ></Checkbox>
               )}
               <label className={styles.DisplayTimeLabel}>
                 <span>
@@ -264,7 +294,14 @@ function DateTime({ changeButton }) {
               </label>
             </div>
             <div className={styles.CheckboxBorder}>
-              <Checkbox className={styles.Checkbox}></Checkbox>
+              <Checkbox
+                // defaultChecked
+                checked={checkedTwo}
+                onChange={handleChangeTwo}
+                inputProps={{ "aria-label": "timeEnd" }}
+                // aria-label="timeEnd"
+                className={styles.Checkbox}
+              ></Checkbox>
               <label className={styles.DisplayTimeLabel}>
                 <span>
                   <p>Display end time.</p>

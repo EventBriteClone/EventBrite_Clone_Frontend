@@ -16,7 +16,7 @@ export default function BasicInfo() {
   const [showHideSearchBar, setShowHideSearchBar] = useState(false);
   const [HideSearchBar, setHideSearchBar] = useState(true);
 
-  // Venue Button Hide and -_`
+  // Venue Button Hide
   const [showVenue, setshowVenue] = useState(true);
   function handleShowVenue(event) {
     setshowVenue(true);
@@ -39,7 +39,6 @@ export default function BasicInfo() {
     setshowOnlineEvent(false);
     setShowHideSearchBar(true);
   }
-
   // Online Event Button Hide and Show
   const [showSingleEvent, setshowSingleEvent] = useState(true);
   function handleShowSingleEvent(event) {
@@ -47,7 +46,6 @@ export default function BasicInfo() {
     setshowRecurringEvent(false);
     setShowHideSearchBar(true);
   }
-
   // Recurring Event Button Hide and Show
   const [showRecurringEvent, setshowRecurringEvent] = useState(false);
   function handleShowRecurringEvent(event) {
@@ -56,22 +54,7 @@ export default function BasicInfo() {
     setShowHideSearchBar(true);
     setHideSearchBar(false);
   }
-
   const [isVisible, setIsVisible] = useState(false);
-
-  // const ctx = useContext;
-  /// change color of the button
-  // const [active, setActive] = useState(false);
-  // const handleClick = () => {
-  //   setActive(!active);
-  // };
-  // function handleClick(event) {
-  //   const click = () => {
-  //     setActive(!active);
-  //   };
-  //   handleShowSingleEvent(event);
-  //   handleShowRecurringEvent(event);
-  // }
   return (
     <div className={styles.mainContainer}>
       <div className={styles.RoutingContainer}>
@@ -81,7 +64,6 @@ export default function BasicInfo() {
           y="0"
           className={styles.arrow}
           viewBox="0 0 24 24"
-          // xml:space="preserve"
         >
           <path
             id="chevron-left-chunky_svg__eds-icon--chevron-left-chunky_base"
@@ -101,7 +83,6 @@ export default function BasicInfo() {
               x="0"
               y="0"
               viewBox="0 0 24 24"
-              // xml:space="preserve"
             >
               <path
                 id="title-edit_svg__eds-icon--title-edit_base"
@@ -118,7 +99,6 @@ export default function BasicInfo() {
               x="0"
               y="0"
               viewBox="0 0 24 24"
-              // xml:space="preserve"
             >
               <path d="M20 3c-1.1 0-2 .9-2 2H2v16h17.8c1.1 0 2.1-.9 2.1-2V5c.1-1.1-.8-2-1.9-2zm-.2 17H3V6h15v13h1c0-.6.4-1 1-1 .5 0 .9.4 1 .9-.1.6-.6 1.1-1.2 1.1zm1.2-2.7c-.3-.2-.6-.3-1-.3s-.7.1-1 .3V5c0-.6.4-1 1-1s1 .4 1 1v12.3z"></path>
               <path
@@ -146,7 +126,6 @@ export default function BasicInfo() {
               x="0"
               y="0"
               viewBox="0 0 24 24"
-              // xml:space="preserve"
             >
               <path
                 id="calendar_svg__eds-icon--calendar_base"
