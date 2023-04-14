@@ -64,7 +64,7 @@ export default function DropDown(props) {
       <DropdownMenuOption
         onClick={props.clickHandler}
         primary={true}
-        value="currentLocation"
+        value="initialCity"
         icon="getLocation"
         text="Use my current location"
       />
