@@ -61,12 +61,12 @@
 }
 .mapImage {
   margin-top: 583px;
-  margin-bottom: 277px;
+  margin-bottom: 275px;
 }
 @media screen and (max-width: 64em) {
   .mapImage {
     margin-top: 590px !important;
-    margin-bottom: 290px;
+    /* margin-bottom: 290px; */
   }
 }
 .CalenderImage {
