@@ -15,6 +15,7 @@ import EventCreator from "./Pages/CreatorEvent";
 import configuration from "./utils/config";
 import New from "./Pages/New";
 import Login from "./Pages/Login";
+import NavigationContextProvider from "./context/NavigationContext";
 
 const router = createBrowserRouter([
   {

@@ -42,6 +42,7 @@ export default function DropDown(props) {
           value={gov}
           icon={"clock"}
           text={gov}
+          onClick={props.clickHandler}
         />
       ));
 

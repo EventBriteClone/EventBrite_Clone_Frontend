@@ -14,8 +14,12 @@ export default function DropdownMenuOptions(props) {
   if (props.icon === "clock") {
     icon = <ClockIcon />;
   }
+  function clickHandler() {
+    console.log(props);
+  }
   return (
     <div
+      onClick={clickHandler}
       data-role="dropdownOption"
       className={`${styles["dropdown-option"]} flex ${
         props.primary ? "primary" : ""

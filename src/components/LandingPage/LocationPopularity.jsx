@@ -26,6 +26,10 @@ export default function LocationPopularity(props) {
     setValue(e.target.value);
   }
 
+  function onDropdownOptionClick({ value }) {
+    setCity(value);
+  }
+
   useEffect(() => {
     function globalClickHandler(e) {
       if (
@@ -33,7 +37,6 @@ export default function LocationPopularity(props) {
         !e.target.closest('[data-role="input"')
       ) {
         setHideDropDown(true);
-        console.log({ city, value });
         if (city && value === "") setValue(city);
       }
     }
@@ -56,13 +59,14 @@ export default function LocationPopularity(props) {
             value={value}
             type="text"
             className={styles.input}
-            placeholder={"Choose a location"}
+            placeholder={city || "Choose a location"}
             data-role="input"
           />
           {!hideDropDown && (
             <DropDown
               hideDropDown={hideDropDown}
               input={inputRef?.current?.value}
+              clickHandler={onDropdownOptionClick}
             />
           )}
         </div>
