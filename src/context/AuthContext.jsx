@@ -32,8 +32,8 @@ export default function AuthContextProvider(props) {
   );
 
   function setAuthData(authData) {
-    const { email, password, id: userId } = authData;
-    dispatch({ action: "login", payload: { email, password, userId } });
+    const { email, password, id: userId, token } = authData;
+    dispatch({ action: "login", payload: { email, password, userId, token } });
   }
   function removeAuthData() {
     dispatch({ action: "logout" });

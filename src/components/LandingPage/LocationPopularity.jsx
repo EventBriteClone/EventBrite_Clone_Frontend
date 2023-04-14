@@ -12,11 +12,8 @@ export default function LocationPopularity(props) {
   const [hideInput, setHideInput] = useState(false);
   const [value, setValue] = useState("");
   const { initialCity, city, setCity, response } = ctx;
-  // if (city && city !== value && !hideInput) {
-  //   setValue(city);
-  // }
+  console.log(value);
   function clickHandler(e) {
-    console.log(city, value);
     setHideDropDown(false);
     if (city === value) {
       setValue("");
@@ -34,7 +31,6 @@ export default function LocationPopularity(props) {
     else setCity(city);
     setHideDropDown(true);
     setHideInput(false);
-    setValue(text);
   }
 
   useEffect(() => {
@@ -50,7 +46,7 @@ export default function LocationPopularity(props) {
     }
     document.addEventListener("click", globalClickHandler);
     return () => document.removeEventListener("click", globalClickHandler);
-  }, [city, value]);
+  }, [city, value, hideInput]);
   return (
     <div className={styles.container}>
       <h1 className={styles.h1}>Popular in</h1>
