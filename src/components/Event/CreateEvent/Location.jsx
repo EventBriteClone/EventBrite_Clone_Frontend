@@ -19,45 +19,117 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 function Location({ changeButton }) {
-  const [showHideSearchBar, setShowHideSearchBar] = useState(false);
-  const [HideSearchBar, setHideSearchBar] = useState(true);
-
-  // Venue Button Hide and -_`
-  const [showVenue, setshowVenue] = useState(true);
-  function handleShowVenue(event) {
-    setshowVenue(true);
-    setshowOnlineEvent(false);
-    if (HideSearchBar) {
-      setShowHideSearchBar(false);
-    }
-    changeButton(true);
-    const child = event.target.parentNode.childNodes[1];
-    event.target.classList.remove(styles.OnlineEventButton);
-    event.target.classList.add(styles.VenueButton);
-    child.classList.remove(styles.VenueButton);
-    child.classList.add(styles.OnlineEventButton);
-  }
-  // Online Event Button Hide and Show
+  const [isOnlineEventOpen, setIsOnlineEventOpen] = useState(false);
   const [showOnlineEvent, setshowOnlineEvent] = useState(false);
-  function handleShowOnlineEvent(event) {
-    setshowVenue(false);
-    setshowOnlineEvent(true);
-    setShowHideSearchBar(true);
-    changeButton(true);
-    const child = event.target.parentNode.childNodes[0];
-    event.target.classList.remove(styles.OnlineEventButton);
-    event.target.classList.add(styles.VenueButton);
-    child.classList.remove(styles.VenueButton);
-    child.classList.add(styles.OnlineEventButton);
+  const [showHideSearchBar, setShowHideSearchBar] = useState(false);
+  const [isVenueOpen, setIsVenueOpen] = useState(true);
+  const [showVenue, setshowVenue] = useState(true);
+  const [HideSearchBar, setHideSearchBar] = useState(true);
+  const [isToBeAnnouncedOpen, setIsToBeAnnouncedOpen] = useState(false);
+  const [showToBeAnnounced, setshowToBeAnnounced] = useState(false);
+
+  function handleShowVenue(event) {
+    if (
+      isVenueOpen === true &&
+      isOnlineEventOpen === false &&
+      isToBeAnnouncedOpen === false
+    ) {
+      changeButton(true);
+      setshowVenue(true);
+      setshowOnlineEvent(false);
+      if (HideSearchBar) {
+        setShowHideSearchBar(false);
+      }
+    } else {
+      changeButton(true);
+      setshowVenue(true);
+      setshowOnlineEvent(false);
+      if (HideSearchBar) {
+        setShowHideSearchBar(false);
+      }
+      const child1 = event.target.parentNode.childNodes[1];
+      const child2 = event.target.parentNode.childNodes[2];
+      event.target.classList.remove(styles.OnlineEventButton);
+      event.target.classList.add(styles.VenueButton);
+      if (isOnlineEventOpen === true) {
+        child1.classList.remove(styles.VenueButton);
+        child1.classList.add(styles.OnlineEventButton);
+      } else if (isToBeAnnouncedOpen === true) {
+        child2.classList.remove(styles.VenueButton);
+        child2.classList.add(styles.TobeAnnounced);
+      }
+      setIsVenueOpen(true);
+      setIsOnlineEventOpen(false);
+      setIsToBeAnnouncedOpen(false);
+    }
   }
   // Online Event Button Hide and Show
-  const [showToBeAnnounced, setshowToBeAnnounced] = useState(false);
-  function handleShowToBeAnnounced(event) {
-    setshowVenue(false);
-    setshowOnlineEvent(false);
-    setShowHideSearchBar(true);
-    changeButton(true);
+  function handleShowOnlineEvent(event) {
+    if (
+      isVenueOpen === false &&
+      isOnlineEventOpen === true &&
+      isToBeAnnouncedOpen === false
+    ) {
+      setshowVenue(false);
+      setshowOnlineEvent(true);
+      setShowHideSearchBar(true);
+      changeButton(true);
+    } else {
+      setshowVenue(false);
+      setshowOnlineEvent(true);
+      setShowHideSearchBar(true);
+      changeButton(true);
+      const child1 = event.target.parentNode.childNodes[0];
+      const child2 = event.target.parentNode.childNodes[2];
+      event.target.classList.remove(styles.OnlineEventButton);
+      event.target.classList.add(styles.VenueButton);
+      if (isVenueOpen === true) {
+        child1.classList.remove(styles.VenueButton);
+        child1.classList.add(styles.OnlineEventButton);
+      } else if (isToBeAnnouncedOpen === true) {
+        child2.classList.remove(styles.VenueButton);
+        child2.classList.add(styles.TobeAnnounced);
+      }
+      setIsVenueOpen(false);
+      setIsOnlineEventOpen(true);
+      setIsToBeAnnouncedOpen(false);
+    }
   }
+  // Online Event Button Hide and Show
+  function handleShowToBeAnnounced(event) {
+    if (
+      isVenueOpen === false &&
+      isOnlineEventOpen === false &&
+      isToBeAnnouncedOpen === true
+    ) {
+      setshowVenue(false);
+      setshowOnlineEvent(false);
+      setshowToBeAnnounced(true);
+      setShowHideSearchBar(true);
+      changeButton(true);
+    } else {
+      setshowVenue(false);
+      setshowOnlineEvent(false);
+      setShowHideSearchBar(true);
+      setshowToBeAnnounced(true);
+      changeButton(true);
+      const child1 = event.target.parentNode.childNodes[0];
+      const child2 = event.target.parentNode.childNodes[1];
+      event.target.classList.remove(styles.TobeAnnounced);
+      event.target.classList.add(styles.VenueButton);
+      if (isVenueOpen === true) {
+        child1.classList.remove(styles.VenueButton);
+        child1.classList.add(styles.OnlineEventButton);
+      } else if (isOnlineEventOpen === true) {
+        child2.classList.remove(styles.VenueButton);
+        child2.classList.add(styles.OnlineEventButton);
+      }
+      setIsVenueOpen(false);
+      setIsOnlineEventOpen(false);
+      setIsToBeAnnouncedOpen(true);
+    }
+  }
+
   return (
     <>
       <div>

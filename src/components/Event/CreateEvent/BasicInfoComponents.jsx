@@ -1,7 +1,3 @@
-// import Paper from "@mui/material/Paper";
-// import IconButton from "@mui/material/IconButton";
-// import SearchIcon from "@mui/icons-material/Search";
-// import InputBase from "@mui/material/InputBase";
 import styles from "./BasicInfoComponents.module.css";
 import React, { useEffect, useState, useContext } from "react";
 import TextField from "@mui/material/TextField";
@@ -9,15 +5,6 @@ import Select from "@mui/joy/Select";
 import Option from "@mui/joy/Option";
 import PropTypes from "prop-types";
 import { grey } from "@mui/material/colors";
-// import Checkbox from "@mui/material/Checkbox";
-// import dayjs, { Dayjs } from "dayjs";
-// import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
-// import { LocalizationProvider } from "@mui/x-date-pickers";
-// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-// import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-// import Autocomplete from "@mui/material/Autocomplete";
-// import MenuItem from "@mui/material/MenuItem";
-// import { Link } from "react-router-dom";
 
 function BasicInfoComponents() {
   const mySelectors = {
@@ -56,12 +43,13 @@ function BasicInfoComponents() {
   const [addButton, setAddButton] = useState(0);
   const [changeColor, setChangeColor] = useState(false);
   // const [addColor, setAddColor] = useState(white);
+  function addTagHandler(event) {
+    addTagChange(event);
+  }
   function handleClick() {
     setAddButton(addButton + 1);
     setChangeColor(!changeColor);
-    // if (changeColor === true) {
-    //   setAddColor(grey);
-    // }
+    addTagHandler();
   }
   const conditions = [
     ";",
@@ -99,17 +87,11 @@ function BasicInfoComponents() {
     "¬",
   ];
 
-  function addTagHandler(event) {
-    addTagChange(event);
-    addNumberText(event);
-  }
   const [charLength, setCharLength] = useState(0);
   function addNumberText(event) {
     const length = event.target.value.length;
     setCharLength(length);
     if (event.target.value.length >= 25) return;
-    // setCharLength(event.target.value.length);
-    // if (event.target.value.length >= 25) return;
   }
   const [iserror, setErrorText] = useState(false);
   const [addtag, setAddTag] = useState("");
@@ -131,11 +113,25 @@ function BasicInfoComponents() {
   function organizervalueChange(event) {
     setOrganizer(event.target.value);
   }
+
+  // const handleChange = (event: SelectChangeEvent) => {
+  //   setAge(event.target.value);
+  // };
   //handle show sub-Category
   // const [category, setCategory] = useState(1);
   const [showSubCategory, setShowSubCategory] = useState(false);
+  const [hideSubCategory, setHideSubCategory] = useState(true);
+
+  function handleChange(event) {
+    // setOrganizer(event.target.value);
+    if (hideSubCategory) {
+      setShowSubCategory(false);
+      setHideSubCategory(false);
+    } else setShowSubCategory(true);
+  }
   function handleShowSubCategory(event) {
-    setShowSubCategory(true);
+    // setShowSubCategory(true);
+    console.log("ana");
   }
   return (
     <>
@@ -231,7 +227,8 @@ function BasicInfoComponents() {
         <Select
           defaultValue="Category"
           placeholder="Category"
-          onListboxOpenChange={handleShowSubCategory}
+          // onListboxOpenChange={handleShowSubCategory}
+          onChange={handleChange}
           sx={{
             ...mySelectors,
           }}
@@ -277,7 +274,8 @@ function BasicInfoComponents() {
                 label="Press Enter to add a tag"
                 defaultValue=""
                 placeholder="Add search keywords to your event"
-                onChange={addTagHandler}
+                onChange={addNumberText}
+                inputProps={{ maxLength: 25 }}
                 sx={{
                   fontSize: "14px",
                   lineHeight: "22px",
@@ -318,5 +316,3 @@ function BasicInfoComponents() {
 }
 
 export default BasicInfoComponents;
-
-/// className={`#fff`${(changeColor === true)? '#a9a8b3' : '#fff'}}
