@@ -20,6 +20,7 @@ export default function EventHeader(props) {
         <img
           className="poster"
           src="https://image.freepik.com/free-vector/modern-event-banner-background-template_85212-202.jpg"
+          alt="event poster"
           width={940}
           height={470}
         />

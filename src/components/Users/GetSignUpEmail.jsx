@@ -65,6 +65,9 @@ export default function GetSignUpEmail(props) {
                     invalidText={"Please enter a valid email address"}
                     invalid={true}
                     onChange={getInputValue}
+                    className={
+                      emailInvalidMessage ? Style["error"] : Style["input"]
+                    }
                     input={{
                       id: "email",
                       required: true,
