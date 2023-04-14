@@ -1,4 +1,5 @@
 import React from "react";
+import NavigationContextProvider from "./context/NavigationContext";
 import ReactDOM from "react-dom/client";
 import {
   createBrowserRouter,
