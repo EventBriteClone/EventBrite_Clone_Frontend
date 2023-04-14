@@ -63,16 +63,22 @@ export default function GetSignUpEmail(props) {
                     requiredAst={true}
                     label="Email Address"
                     invalidText={"Please enter a valid email address"}
-                    invalid={true}
+                    // invalid={false}
                     onChange={getInputValue}
-                    className={
-                      emailInvalidMessage ? Style["error"] : Style["input"]
-                    }
+                    invalid={emailInvalidMessage ? false : true}
                     input={{
                       id: "email",
                       required: true,
                     }}
                   />
+                  {/* <input
+                    onChange={getInputValue}
+                    type="email"
+                    placeholder="Email address"
+                    className={
+                      emailInvalidMessage ? Style["error"] : Style["input"]
+                    }
+                  /> */}
                   <div className={Style["cont"]}>
                     <div className={Style["invalidEmail"]}>
                       <h2 className={Style["invalidEmail"]}>
