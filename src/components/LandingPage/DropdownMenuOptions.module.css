@@ -1,6 +1,3 @@
-.dropdown-option p {
-  font-size: 14rem;
-}
 .dropdown-option i {
   width: 24rem;
 }
@@ -18,4 +15,24 @@
 }
 .dropdown-option:hover {
   background-color: var(--grey-background);
+}
+.dropdown-option.primary:last-child {
+  border-bottom: 2px solid var(--grey-background);
+}
+
+.dropdown-option__info span {
+  color: var(--lighter-font-color);
+  font-size: 12rem;
+  line-height: 12rem;
+}
+
+.dropdown-option__info p {
+  font-size: 14rem;
+  position: relative;
+  line-height: 22rem;
+}
+
+.dropdown-option__info {
+  display: flex;
+  flex-direction: column;
 }

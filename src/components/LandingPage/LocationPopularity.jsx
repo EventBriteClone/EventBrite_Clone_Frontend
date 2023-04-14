@@ -1,19 +1,30 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import { NavigationContext } from "../../context/NavigationContext";
 import Arrow from "../Icons/Arrow";
 import styles from "./LocationPopularity.module.css";
-import useFetch from "../../custom-hooks/useFetch";
-import DropdownMenuOption from "./DropdownMenuOption";
 import DropDown from "./DropDown";
 
 export default function LocationPopularity(props) {
   const ctx = useContext(NavigationContext);
+  const inputRef = useRef(null);
   const [hideDropDown, setHideDropDown] = useState(true);
+  const [hideInput, setHideInput] = useState(false);
+  const [value, setValue] = useState("");
   const { city, setCity, response } = ctx;
-  function clickHandler(e) {
-    setHideDropDown(false);
+  if (city && city !== value && !hideInput) {
+    setValue(city);
   }
-  function changeHandler(e) {}
+  function clickHandler(e) {
+    console.log(city, value);
+    setHideDropDown(false);
+    if (city === value) {
+      setValue("");
+      setHideInput(true);
+    }
+  }
+  function changeHandler(e) {
+    setValue(e.target.value);
+  }
 
   useEffect(() => {
     function globalClickHandler(e) {
@@ -22,11 +33,13 @@ export default function LocationPopularity(props) {
         !e.target.closest('[data-role="input"')
       ) {
         setHideDropDown(true);
+        console.log({ city, value });
+        if (city && value === "") setValue(city);
       }
     }
     document.addEventListener("click", globalClickHandler);
     return () => document.removeEventListener("click", globalClickHandler);
-  }, []);
+  }, [city, value]);
   return (
     <div className={styles.container}>
       <h1 className={styles.h1}>Popular in</h1>
@@ -34,18 +47,24 @@ export default function LocationPopularity(props) {
         <Arrow direction="down" />
         <div
           className={styles["input-container"]}
-          data-val={city || "Choose a location"}
+          data-val={value || city || "Choose a location"}
         >
           <input
+            ref={inputRef}
             onClick={clickHandler}
             onChange={changeHandler}
-            value={city}
+            value={value}
             type="text"
             className={styles.input}
             placeholder={"Choose a location"}
             data-role="input"
           />
-          <DropDown hideDropDown={hideDropDown} />
+          {!hideDropDown && (
+            <DropDown
+              hideDropDown={hideDropDown}
+              input={inputRef?.current?.value}
+            />
+          )}
         </div>
       </div>
     </div>

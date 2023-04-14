@@ -16,7 +16,9 @@ export default function NavigationContextProvider(props) {
   if (city && response && config.mocking) {
     filteredResponse = filterMockDataByCity(response, city);
   }
+  console.log("hena,NavigationContext", city);
   useEffect(() => {
+    console.log("hena", city);
     getCurrentCity().then((c) => {
       setCity(c);
     });
