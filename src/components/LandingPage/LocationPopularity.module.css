@@ -51,3 +51,7 @@
 .container .input-container::after {
   bottom: 6px;
 }
+
+.container .input-container:focus::after {
+  bottom: 4px;
+}

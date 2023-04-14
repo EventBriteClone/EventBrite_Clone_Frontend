@@ -14,6 +14,7 @@ export default function NavigationContextProvider(props) {
   });
   let filteredResponse;
   if (city && response && config.mocking) {
+    console.log(response, city);
     filteredResponse = filterMockDataByCity(response, city);
   }
   useEffect(() => {

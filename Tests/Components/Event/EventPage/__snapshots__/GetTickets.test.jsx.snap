@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`follow button > renders text 1`] = `
+<div>
+  <div
+    className="_price-tag_601000"
+  >
+    <div
+      className="_price_601000"
+    >
+      €549 – €699
+    </div>
+    <button
+      className="_eds-btn_601000 _eds-btn--button_601000 _eds-btn--fill_601000 _js-embed-ticket-modal-btn_601000"
+      data-heap-id="Conversion Bar - Checkout Button"
+      data-testid="checkout-link"
+      data-tracking-label="Tickets"
+      id="eventbrite-widget-modal-trigger-588359929387"
+      type="button"
+    >
+      Get tickets
+    </button>
+  </div>
+</div>
+`;

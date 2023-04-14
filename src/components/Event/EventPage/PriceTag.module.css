@@ -8,6 +8,12 @@
   border-style: ridge;
   border-radius: 15px 15px 15px 15px;
 }
+@media screen and (max-width: 86em)
+{
+  .price-tag{
+    width: 80% !important;
+  }
+}
 
 .price {
   margin-top: 20px;

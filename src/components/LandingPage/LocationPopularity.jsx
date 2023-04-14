@@ -1,32 +1,56 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import { NavigationContext } from "../../context/NavigationContext";
 import Arrow from "../Icons/Arrow";
 import styles from "./LocationPopularity.module.css";
-import useFetch from "../../custom-hooks/useFetch";
-import DropdownMenuOption from "./DropdownMenuOption";
 import DropDown from "./DropDown";
+import { fetchDataFromAPI } from "../../utils";
 
 export default function LocationPopularity(props) {
   const ctx = useContext(NavigationContext);
+  const inputRef = useRef(null);
   const [hideDropDown, setHideDropDown] = useState(true);
+  const [hideInput, setHideInput] = useState(false);
+  const [value, setValue] = useState("");
   const { city, setCity, response } = ctx;
+  // if (city && city !== value && !hideInput) {
+  //   setValue(city);
+  // }
   function clickHandler(e) {
+    console.log(city, value);
     setHideDropDown(false);
+    if (city === value) {
+      setValue("");
+      setHideInput(true);
+    }
   }
-  function changeHandler(e) {}
+  function changeHandler(e) {
+    setValue(e.target.value);
+  }
+
+  // fetch("https://event-us.me:8000").then((res) => console.log(res));
+
+  function onDropdownOptionClick({ city, text }) {
+    console.log(city);
+    setHideDropDown(true);
+    setHideInput(false);
+    setCity(city);
+    setValue(text);
+  }
 
   useEffect(() => {
+    if (city && !hideInput) setValue(city);
     function globalClickHandler(e) {
       if (
         !e.target.closest('[data-role="dropdownOption"]') &&
         !e.target.closest('[data-role="input"')
       ) {
         setHideDropDown(true);
+        if (city && value === "") setValue(city);
       }
     }
     document.addEventListener("click", globalClickHandler);
     return () => document.removeEventListener("click", globalClickHandler);
-  }, []);
+  }, [city, value]);
   return (
     <div className={styles.container}>
       <h1 className={styles.h1}>Popular in</h1>
@@ -34,18 +58,24 @@ export default function LocationPopularity(props) {
         <Arrow direction="down" />
         <div
           className={styles["input-container"]}
-          data-val={city || "Choose a location"}
+          data-val={value || city || "Choose a location"}
         >
           <input
+            ref={inputRef}
             onClick={clickHandler}
             onChange={changeHandler}
-            value={city}
+            value={value}
             type="text"
             className={styles.input}
-            placeholder={"Choose a location"}
+            placeholder={city || "Choose a location"}
             data-role="input"
           />
-          <DropDown hideDropDown={hideDropDown} />
+          {!hideDropDown && (
+            <DropDown
+              input={inputRef?.current?.value}
+              clickHandler={onDropdownOptionClick}
+            />
+          )}
         </div>
       </div>
     </div>

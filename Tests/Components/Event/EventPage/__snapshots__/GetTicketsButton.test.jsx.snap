@@ -1,0 +1,78 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`follow button > renders text 1`] = `
+<section
+  className="_organizer-container_a48ff5"
+>
+  <div
+    className="_organizer-profile_a48ff5"
+  >
+    <div
+      className="_organizer-avatar_a48ff5"
+    >
+      <svg
+        class="_eds-avatar__background_a48ff5 _eds-avatar__background--has-border_a48ff5"
+        data-spec="spec-avatar"
+        height="56"
+        width="56"
+      >
+        <image
+          height="56"
+          href="https://th.bing.com/th/id/OIP.pojdgurvupTdsabLJIaZ1wAAAA?pid=ImgDet&rs=1"
+          preserveAspectRatio="xMidYMin slice"
+          width="56"
+          xlinkHref="https://th.bing.com/th/id/OIP.pojdgurvupTdsabLJIaZ1wAAAA?pid=ImgDet&rs=1"
+        />
+      </svg>
+    </div>
+    <div
+      className="_simplified-organizer-info__details_a48ff5"
+    >
+      <div
+        class="_simplified-organizer-info__name-by_a48ff5"
+      >
+        By
+         
+        <strong
+          class="_simplified-organizer-info__name-link_a48ff5"
+        >
+          Cloudflight GmbH
+        </strong>
+      </div>
+      <div
+        class="_organizer-stats_a48ff5"
+      >
+        <div
+          class="_followers-count_a48ff5"
+        >
+          <span
+            class="_organizer-followers_a48ff5"
+          >
+            208
+          </span>
+           
+          <span
+            style={
+              {
+                "color": "#6f7287",
+              }
+            }
+          >
+            followers
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="_organizer-follow_a48ff5"
+  >
+    <button
+      class="_eds-btn eds-btn--button_a48ff5 _eds-btn--follow_a48ff5 _follow-button-listing-page_a48ff5"
+      type="button"
+    >
+      Follow
+    </button>
+  </div>
+</section>
+`;

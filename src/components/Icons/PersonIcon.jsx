@@ -1,6 +1,5 @@
 export default function PersonIcon({ height, width }) {
   const style = { height, width };
-  console.log(style);
   return (
     <>
       <i

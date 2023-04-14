@@ -34,6 +34,11 @@ export function filterMockDataByCity(events, city) {
   return events.filter((event) => event.location.includes(city));
 }
 
+//mocking = true
+//config.baseUrl = 'https://localhost:3000/'
+//mocking = false
+//config.baseUrl = 'https://event-us.me:8000/'
+
 export async function fetchDataFromAPI({ endpoint, configurationOpt = {} }) {
   try {
     const res = await fetch(`${config.baseURL}${endpoint}}`, configurationOpt);
@@ -41,5 +46,6 @@ export async function fetchDataFromAPI({ endpoint, configurationOpt = {} }) {
     return data;
   } catch (error) {
     console.error(error);
+    return { error };
   }
 }

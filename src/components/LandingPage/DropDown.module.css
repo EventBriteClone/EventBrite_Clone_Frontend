@@ -4,4 +4,10 @@
   transform: translateY(100%);
   background-color: white;
   width: 100%;
+  max-height: 350rem;
+  overflow-y: scroll;
+}
+
+.dropdown::-webkit-scrollbar {
+  width: 0;
 }
