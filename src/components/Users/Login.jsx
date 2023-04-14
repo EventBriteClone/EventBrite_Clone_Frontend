@@ -1,6 +1,32 @@
 import React from "react";
 import Style from "./Style.module.css";
+import { fetchDataFromAPI } from "../../utils";
+import config from "../../utils/config";
+
 const Login = (props) => {
+  async function submitHandler(e) {
+    e.preventDefault();
+    let endpoint,
+      configurationOpt = {};
+    if (config.mocking === "true") {
+      endpoint = "users";
+    } else {
+      endpoint = "user/login";
+      configurationOpt = {
+        method: "POST",
+        body: JSON.stringify({
+          email: "",
+          password: "",
+        }),
+      };
+    }
+    const response = await fetchDataFromAPI({ endpoint, configurationOpt });
+    console.log(response);
+    if (response.error) {
+    } else {
+      // setAuthData(response);
+    }
+  }
   return (
     <>
       <meta charSet="UTF-8" />
@@ -33,7 +59,7 @@ const Login = (props) => {
                 <form action="#">
                   <input type="email" placeholder="Email address" />
                 </form>
-                <form action="#">
+                <form onSubmit={submitHandler} action="#">
                   <input type="password" placeholder="Password" />
                 </form>
               </div>

@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./AllEvents.module.css";
 import EventCard from "../../EventCardContainer/EventCard";
 import "remixicon/fonts/remixicon.css";
 import EventCardContainer from "../../EventCardContainer/EventCardContainer";
+import { fetchDataFromAPI } from "../../../../utils";
 
 function AllEvents() {
+  const [data, setData] = useState(null);
+  const [selectedOption, setSelectedOption] = useState("All Events");
+  // const eventsList = data&& data.map()
   const events = [
     { date: new Date("3/4/2024") },
     { date: new Date("1/3/2006") },
@@ -23,8 +27,6 @@ function AllEvents() {
     (event) => new Date(event.date) > new Date(defaultDate)
   );
 
-  const [selectedOption, setSelectedOption] = useState("All Events");
-
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
   };
@@ -34,6 +36,13 @@ function AllEvents() {
       : selectedOption === "upcoming"
       ? upcomingEvents
       : events;
+
+  useEffect(() => {
+    let endpoint, configurationOpt;
+    fetchDataFromAPI({ endpoint, configurationOpt }).then((data) =>
+      setData(data)
+    );
+  }, []);
 
   return (
     <>
