@@ -16,7 +16,7 @@ export default function DropdownMenuOptions(props) {
   }
   function clickHandler() {
     console.log(props.value);
-    props.onClick(props.value);
+    props.onClick({ city: props.value, text: props.text });
   }
   return (
     <div

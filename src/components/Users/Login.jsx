@@ -1,37 +1,6 @@
 import React from "react";
 import Style from "./Style.module.css";
-import { useState } from "react";
-import { Password } from "@mui/icons-material";
-
 const Login = (props) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  console.log(email);
-  console.log(password);
-
-  const submitHandler = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await fetch("https://httpbin.org/post", {
-        method: "POST",
-        body: JSON.stringify({
-          User: email,
-          login: password,
-        }),
-      });
-      const resJson = await res.json();
-      if (res.status === 200) {
-        setEmail("");
-        setMessage("User created successfully");
-      } else {
-        setMessage("Some error occured");
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   return (
     <>
       <meta charSet="UTF-8" />
@@ -74,11 +43,7 @@ const Login = (props) => {
                   />
                 </form>
                 <form action="#">
-                  <input
-                    type="password"
-                    placeholder="Password"
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
+                  <input type="password" placeholder="Password" />
                 </form>
               </div>
               <div className={Style["cont"]}>

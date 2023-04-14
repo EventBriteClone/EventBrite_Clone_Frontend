@@ -3,6 +3,7 @@ import { NavigationContext } from "../../context/NavigationContext";
 import Arrow from "../Icons/Arrow";
 import styles from "./LocationPopularity.module.css";
 import DropDown from "./DropDown";
+import { fetchDataFromAPI } from "../../utils";
 
 export default function LocationPopularity(props) {
   const ctx = useContext(NavigationContext);
@@ -11,9 +12,9 @@ export default function LocationPopularity(props) {
   const [hideInput, setHideInput] = useState(false);
   const [value, setValue] = useState("");
   const { city, setCity, response } = ctx;
-  if (city && city !== value && !hideInput) {
-    setValue(city);
-  }
+  // if (city && city !== value && !hideInput) {
+  //   setValue(city);
+  // }
   function clickHandler(e) {
     console.log(city, value);
     setHideDropDown(false);
@@ -26,14 +27,18 @@ export default function LocationPopularity(props) {
     setValue(e.target.value);
   }
 
-  function onDropdownOptionClick(value) {
-    console.log(value);
+  // fetch("https://event-us.me:8000").then((res) => console.log(res));
+
+  function onDropdownOptionClick({ city, text }) {
+    console.log(city);
     setHideDropDown(true);
     setHideInput(false);
-    setCity(value);
+    setCity(city);
+    setValue(text);
   }
 
   useEffect(() => {
+    if (city && !hideInput) setValue(city);
     function globalClickHandler(e) {
       if (
         !e.target.closest('[data-role="dropdownOption"]') &&
