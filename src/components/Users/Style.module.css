@@ -36,23 +36,18 @@
   letter-spacing: -2px;
 }
 
-/* h1 {
+.h1 {
   color: #1e0a3c;
   padding-top: 30px;
   font-weight: 900;
-<<<<<<< HEAD
 }
-input {
-  /* padding: 10px 20px; */
+.input {
+  padding: 10px 20px;
   padding-left: 50px;
   width: 25vw;
   height: 7vh;
   border-color: rgba(0, 0, 0, 0.08);
 }
-=======
-} */
->>>>>>> 06a74a1ae486c019d82b2a7c8b1259516cdd8a9a
-
 .email form {
   padding-top: 10px;
 }
