@@ -24,7 +24,7 @@ const Login = (props) => {
     if (config.mocking === "true") {
       // endpoint = users? email= "admin@gmail.com"&
       // password="adminadmin"
-      endpoint = "users?email=admin@gmail.com & password=adminadmin";
+      endpoint = "users";
     } else {
       endpoint = "user/login";
       configurationOpt = {
