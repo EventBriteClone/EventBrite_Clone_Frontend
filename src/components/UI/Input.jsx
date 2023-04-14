@@ -19,22 +19,24 @@ export default function Input(props) {
   const invalidClass = props.invalid ? `${styles.invalid}` : "";
 
   return (
-    <div
-      style={props.style}
-      className={`${styles["input-container"]} ${invalidClass}`}
-    >
-      <label className={styles.label} htmlFor={props.input.id}>
-        {props.label}
-        {props.input.required && props.requiredAst && (
-          <span className={styles.asterisk}> *</span>
-        )}
-      </label>
-      <input
-        className={styles["input"]}
-        onChange={handleOnChange}
-        ref={inputRef}
-        {...props.input}
-      />
+    <div>
+      <div
+        style={props.style}
+        className={`${styles["input-effect"]} ${invalidClass}`}
+      >
+        <label className={styles.label} htmlFor={props.input.id}>
+          {props.label}
+          {props.input.required && props.requiredAst && (
+            <span className={styles.asterisk}> *</span>
+          )}
+        </label>
+        <input
+          className={styles["input"]}
+          onChange={handleOnChange}
+          ref={inputRef}
+          {...props.input}
+        />
+      </div>
       <div className={styles["feedback-container"]}>
         <p className={styles["invalid-text"]}>
           {props.invalid && props.invalidText && props.invalidText}

@@ -15,7 +15,8 @@ export default function DropdownMenuOptions(props) {
     icon = <ClockIcon />;
   }
   function clickHandler() {
-    console.log(props);
+    console.log(props.value);
+    props.onClick(props.value);
   }
   return (
     <div

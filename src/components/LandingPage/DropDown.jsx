@@ -49,12 +49,14 @@ export default function DropDown(props) {
   return (
     <div className={`${styles.dropdown}`}>
       <DropdownMenuOption
+        onClick={props.clickHandler}
         primary={true}
         value="currentLocation"
         icon="getLocation"
         text="Use my current location"
       />
       <DropdownMenuOption
+        onClick={props.clickHandler}
         primary={true}
         value="Online events"
         icon="onlineEvents"

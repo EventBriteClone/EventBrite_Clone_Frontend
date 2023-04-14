@@ -26,7 +26,10 @@ export default function LocationPopularity(props) {
     setValue(e.target.value);
   }
 
-  function onDropdownOptionClick({ value }) {
+  function onDropdownOptionClick(value) {
+    console.log(value);
+    setHideDropDown(true);
+    setHideInput(false);
     setCity(value);
   }
 
@@ -64,7 +67,6 @@ export default function LocationPopularity(props) {
           />
           {!hideDropDown && (
             <DropDown
-              hideDropDown={hideDropDown}
               input={inputRef?.current?.value}
               clickHandler={onDropdownOptionClick}
             />
