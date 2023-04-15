@@ -1,6 +1,5 @@
-import React, { useState } from "react";
 import "remixicon/fonts/remixicon.css";
-import EventHeader from "./Eventheader";
+import EventHeader from "./EventHeader";
 import AllEvents from "./AllEvents";
 
 function EventCreator() {
