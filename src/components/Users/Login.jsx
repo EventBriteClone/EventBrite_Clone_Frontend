@@ -3,7 +3,8 @@ import Style from "./Style.module.css";
 import { fetchDataFromAPI } from "../../utils";
 import config from "../../utils/config";
 import { AuthContext } from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import MainIcon from "../Icons/MainIcon";
 
 const Login = (props) => {
   const navigate = useNavigate();
@@ -57,13 +58,9 @@ const Login = (props) => {
             <div className={Style["block1"]}>
               <div className={Style["main-text"]}>
                 <div className={Style["text"]}>
-                  <a
-                    href="https://event-us.me:8000/"
-                    rel="noopener noreferrer"
-                    title="Go to homepage"
-                  >
-                    eventus
-                  </a>
+                  <Link to="/">
+                    <MainIcon />
+                  </Link>
                   <h1 className={Style["h1"]}>Log in</h1>
                 </div>
               </div>
