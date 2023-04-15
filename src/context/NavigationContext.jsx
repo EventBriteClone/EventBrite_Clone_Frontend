@@ -9,7 +9,9 @@ export const NavigationContext = createContext(navigationInitialValue);
 export default function NavigationContextProvider(props) {
   const [city, setCity] = useState("");
   const initialCity = useRef(null);
-  const endpoint = config.mocking ? `eventsPreview?location_like=${city}` : "";
+  const endpoint = config.mocking
+    ? `eventsPreview?location_like=${city}`
+    : "events/ALL";
   const { response } = useFetch({
     endpoint,
   });
