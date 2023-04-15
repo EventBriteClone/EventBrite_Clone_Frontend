@@ -11,12 +11,9 @@ export default function LocationPopularity(props) {
   const [hideDropDown, setHideDropDown] = useState(true);
   const [hideInput, setHideInput] = useState(false);
   const [value, setValue] = useState("");
-  const { city, setCity, response } = ctx;
-  // if (city && city !== value && !hideInput) {
-  //   setValue(city);
-  // }
+  const { initialCity, city, setCity, response } = ctx;
+  console.log(value);
   function clickHandler(e) {
-    console.log(city, value);
     setHideDropDown(false);
     if (city === value) {
       setValue("");
@@ -30,11 +27,10 @@ export default function LocationPopularity(props) {
   // fetch("https://event-us.me:8000").then((res) => console.log(res));
 
   function onDropdownOptionClick({ city, text }) {
-    console.log(city);
+    if (city === "initialCity") setCity(initialCity);
+    else setCity(city);
     setHideDropDown(true);
     setHideInput(false);
-    setCity(city);
-    setValue(text);
   }
 
   useEffect(() => {
@@ -50,7 +46,7 @@ export default function LocationPopularity(props) {
     }
     document.addEventListener("click", globalClickHandler);
     return () => document.removeEventListener("click", globalClickHandler);
-  }, [city, value]);
+  }, [city, value, hideInput]);
   return (
     <div className={styles.container}>
       <h1 className={styles.h1}>Popular in</h1>

@@ -1,4 +1,5 @@
 import React from "react";
+import NavigationContextProvider from "./context/NavigationContext";
 import ReactDOM from "react-dom/client";
 import {
   createBrowserRouter,
@@ -15,7 +16,6 @@ import EventCreator from "./Pages/CreatorEvent";
 import configuration from "./utils/config";
 import New from "./Pages/New";
 import Login from "./Pages/Login";
-import NavigationContextProvider from "./context/NavigationContext";
 
 const router = createBrowserRouter([
   {

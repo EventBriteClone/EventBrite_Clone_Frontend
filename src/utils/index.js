@@ -45,7 +45,7 @@ export async function fetchDataFromAPI({ endpoint, configurationOpt = {} }) {
     const data = await res.json();
     return data;
   } catch (error) {
-    console.error(error);
+    // console.error(error);
     return { error };
   }
 }

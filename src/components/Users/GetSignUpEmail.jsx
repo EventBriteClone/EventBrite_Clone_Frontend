@@ -4,8 +4,9 @@ import Style from "./Style.module.css";
 
 export default function GetSignUpEmail(props) {
   let [email, setEmail] = useState("");
-  // let [invalidEmail, setInvalid] = useState(false);
-  let emailInvalidMessage;
+  let [invalidEmail, setInvalid] = useState(false);
+  // let emailInvalidMessage;
+
   const getInputValue = (event) => {
     // show the user input value to console
     let userValue = event.target.value;
@@ -15,20 +16,22 @@ export default function GetSignUpEmail(props) {
     const validRegex =
       /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     if (!email) {
-      emailInvalidMessage = "Please enter a valid email address";
+      // emailInvalidMessage = "Please enter a valid email address";
+      setInvalid("Field required");
+
       // setInvalid("Please enter a valid email address");
     } else if (email.match(validRegex)) {
-      emailInvalidMessage = "";
-      // setInvalid("");
+      // emailInvalidMessage = "";
+      setInvalid("");
     } else {
-      emailInvalidMessage = "Invalid email";
-      // setInvalid("Invalid email");
+      // emailInvalidMessage = "Invalid email";
+      setInvalid("Invalid email");
     }
   }
 
   function submitHandler(e) {
     e.preventDefault();
-    if (emailInvalidMessage) return;
+    if (invalidEmail) return;
     props.submitHandler(email);
   }
 
@@ -57,27 +60,31 @@ export default function GetSignUpEmail(props) {
                   onSubmit={submitHandler}
                   //   method="post"
                   //   action="#"
-                  className="form"
+                  className={Style["form"]}
                 >
                   <Input
                     requiredAst={true}
                     label="Email Address"
                     invalidText={"Please enter a valid email address"}
-                    invalid={true}
+                    //\ invalid={false}
                     onChange={getInputValue}
-                    className={
-                      emailInvalidMessage ? Style["error"] : Style["input"]
-                    }
+                    invalid={invalidEmail ? true : false}
                     input={{
                       id: "email",
                       required: true,
                     }}
                   />
+                  {/* <input
+                    onChange={getInputValue}
+                    type="email"
+                    placeholder="Email address"
+                    className={
+                      emailInvalidMessage ? Style["error"] : Style["input"]
+                    }
+                  /> */}
                   <div className={Style["cont"]}>
                     <div className={Style["invalidEmail"]}>
-                      <h2 className={Style["invalidEmail"]}>
-                        {emailInvalidMessage}
-                      </h2>
+                      <h2 className={Style["invalidEmail"]}></h2>
                       <button
                         type="submit"
                         className={`${Style["cont"]} ${Style["button"]}`}
