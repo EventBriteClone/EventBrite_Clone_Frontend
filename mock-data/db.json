@@ -5,75 +5,86 @@
       "first_name": "Admin",
       "last_name": "Admona",
       "email": "admin@gmail.com",
-      "password": "adminadmin"
+      "password": "testtest",
+      "token": "451263"
     },
     {
       "id": 2,
       "first_name": "Odilia",
       "last_name": "Noraway",
       "email": "onoraway1@ucoz.ru",
-      "password": "H35s1Qu"
+      "password": "H35s1Qu",
+      "token": "451242"
     },
     {
       "id": 3,
       "first_name": "Seamus",
       "last_name": "Roft",
       "email": "sroft2@ehow.com",
-      "password": "3flWuoU"
+      "password": "3flWuoU",
+      "token": "451221"
     },
     {
       "id": 4,
       "first_name": "Kakalina",
       "last_name": "Matskiv",
       "email": "kmatskiv3@utexas.edu",
-      "password": "IdOLkeEtg5w1"
+      "password": "IdOLkeEtg5w1",
+      "token": "451"
     },
     {
       "id": 5,
       "first_name": "Garwood",
       "last_name": "Valentetti",
       "email": "gvalentetti4@springer.com",
-      "password": "s1LMBLJu5eM"
+      "password": "s1LMBLJu5eM",
+      "token": "45128"
     },
     {
       "id": 6,
       "first_name": "Nora",
       "last_name": "Birkhead",
       "email": "nbirkhead5@cnet.com",
-      "password": "iUsP6ayPOM"
+      "password": "iUsP6ayPOM",
+      "token": "45127"
     },
     {
       "id": 7,
       "first_name": "Brucie",
       "last_name": "Ewdale",
       "email": "bewdale6@hexun.com",
-      "password": "ouUefFisX4"
+      "password": "ouUefFisX4",
+      "token": "45126"
     },
     {
       "id": 8,
       "first_name": "Catina",
       "last_name": "Groveham",
       "email": "cgroveham7@yahoo.co.jp",
-      "password": "HIejMH9rd"
+      "password": "HIejMH9rd",
+      "token": "45125"
     },
     {
       "id": 9,
       "first_name": "Reed",
       "last_name": "Glasser",
       "email": "rglasser8@4shared.com",
-      "password": "kulOkH"
+      "password": "kulOkH",
+      "token": "45124"
     },
     {
       "id": 10,
       "first_name": "Hamlen",
       "last_name": "Bladesmith",
       "email": "hbladesmith9@istockphoto.com",
-      "password": "F1yOOF14K"
+      "password": "F1yOOF14K",
+      "token": "45123"
     }
   ],
   "events": [],
   "eventsPreview": [
     {
+      "id": "0",
       "title": "Title1",
       "organizer": "Organizer1",
       "startDate": "Tomorrow at 9PM",
@@ -82,6 +93,7 @@
       "followersNum": "600"
     },
     {
+      "id": "1",
       "title": "Title2",
       "organizer": "Organizer2",
       "startDate": "Tomorrow at 10",
@@ -90,6 +102,7 @@
       "followersNum": "60"
     },
     {
+      "id": "2",
       "title": "Title3",
       "organizer": "Organizer3",
       "startDate": "10/4/2023",
@@ -98,6 +111,7 @@
       "followersNum": "6"
     },
     {
+      "id": "3",
       "title": "Title4",
       "organizer": "Organizer4",
       "startDate": "12 /4/2023",
@@ -106,6 +120,7 @@
       "followersNum": "70"
     },
     {
+      "id": "4",
       "title": "Title5",
       "organizer": "Organizer5",
       "startDate": "11/4/2023",
@@ -114,6 +129,7 @@
       "followersNum": "68"
     },
     {
+      "id": "5",
       "title": "Title6",
       "organizer": "Organizer6",
       "startDate": "26/4/2023",
@@ -122,6 +138,7 @@
       "followersNum": "412"
     },
     {
+      "id": "6",
       "title": "Title7",
       "organizer": "Organizer7",
       "startDate": "24/4/2023",
@@ -130,6 +147,7 @@
       "followersNum": "1235"
     },
     {
+      "id": "7",
       "title": "Title8",
       "organizer": "Organizer8",
       "startDate": "21/4/2023",
@@ -138,6 +156,7 @@
       "followersNum": "451"
     },
     {
+      "id": "8",
       "title": "Title9",
       "organizer": "Organizer9",
       "startDate": "20/4/2023",
@@ -146,6 +165,7 @@
       "followersNum": "532"
     },
     {
+      "id": "9",
       "title": "Title10",
       "organizer": "Organizer10",
       "startDate": "24/4/2023",
@@ -154,6 +174,7 @@
       "followersNum": "4685"
     },
     {
+      "id": "10",
       "title": "Title11",
       "organizer": "Organizer11",
       "startDate": "22/4/2023",
@@ -162,6 +183,7 @@
       "followersNum": "562"
     },
     {
+      "id": "11",
       "title": "Title12",
       "organizer": "Organizer12",
       "startDate": "19/4/2023",

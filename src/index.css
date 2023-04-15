@@ -57,6 +57,9 @@ body {
 .icon--xsmall {
   width: 16rem;
   height: 16rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .flex {
@@ -132,3 +135,7 @@ For large desktop
 //CSS Code
 
 } */
+
+a {
+  color: inherit;
+}

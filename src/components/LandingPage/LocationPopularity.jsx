@@ -3,7 +3,6 @@ import { NavigationContext } from "../../context/NavigationContext";
 import Arrow from "../Icons/Arrow";
 import styles from "./LocationPopularity.module.css";
 import DropDown from "./DropDown";
-import { fetchDataFromAPI } from "../../utils";
 
 export default function LocationPopularity(props) {
   const ctx = useContext(NavigationContext);

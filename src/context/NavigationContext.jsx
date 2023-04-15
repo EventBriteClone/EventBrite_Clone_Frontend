@@ -16,6 +16,7 @@ export default function NavigationContextProvider(props) {
       initialCity.current = c;
     });
   }, []);
+
   return (
     <NavigationContext.Provider
       value={{
