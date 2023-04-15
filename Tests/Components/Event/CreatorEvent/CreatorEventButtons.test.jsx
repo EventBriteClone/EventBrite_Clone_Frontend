@@ -11,7 +11,7 @@ describe("AllEvents component", () => {
       </BrowserRouter>
     );
 
-    const eventCards = screen.getAllByTestId("event-card");
-    expect(eventCards.length).toBe(6);
+    const buttons = screen.getAllByRole('button');
+    expect(buttons.length).toBe(6);
   });
 });

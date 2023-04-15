@@ -1,11 +1,11 @@
 import styles from "./PriceTag.module.css";
 import LikeButton from "../../UI/LikeButton";
-export default function PriceTag() {
+export default function PriceTag(props) {
   return (
     <div>
       {/* <LikeButton /> */}
       <div className={styles["price-tag"]}>
-        <div className={styles["price"]}>€549 – €699</div>
+        <div className={styles["price"]}>{props.price}</div>
         <button
           id="eventbrite-widget-modal-trigger-588359929387"
           data-testid="checkout-link"

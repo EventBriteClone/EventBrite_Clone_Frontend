@@ -1,5 +1,5 @@
 import styles from "./EventDetails.module.css";
-export default function EventDetails() {
+export default function EventDetails(props) {
   return (
     <div className={styles["event-details"]}>
       <div className={styles["date-and-location"]}>
@@ -47,7 +47,7 @@ export default function EventDetails() {
               <h3>Date and Time</h3>
               <p className={styles["p"]}>
                 <span class={styles["appointment"]}>
-                  Saturday, March 25 · 5:30 - 6:30pm EET
+                  {props.dateAndtime}
                 </span>
               </p>
             </div>
@@ -102,7 +102,7 @@ export default function EventDetails() {
             <div className={styles["date-time-heading"]}>
               <h3>Location</h3>
               <p className={styles["p"]}>
-                <div class="address">Online</div>
+                <div class="address">{props.location}</div>
               </p>
             </div>
           </div>
@@ -147,7 +147,7 @@ export default function EventDetails() {
                   </svg>
                 </i>
               </div>
-              <h2 className={styles["period-h"]}>1 hour</h2>
+              <h2 className={styles["period-h"]}>{props.duration}</h2>
             </div>
 
             <div className={styles["ticket"]}>
@@ -174,7 +174,7 @@ export default function EventDetails() {
                   </svg>
                 </i>
               </div>
-              <h2 className={styles["period-h"]}>Mobile eTicket</h2>
+              <h2 className={styles["period-h"]}>{props.ticket}</h2>
             </div>
           </div>
         </div>
