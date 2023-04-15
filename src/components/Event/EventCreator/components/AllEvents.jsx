@@ -9,7 +9,7 @@ import config from "../../../../utils/config";
 function AllEvents() {
   const [data, setData] = useState(null);
   const [selectedOption, setSelectedOption] = useState("All Events");
-  const eventsList = Array.isArray(data) && data.map();
+  // const eventsList = Array.isArray(data) && data.map();
   const events = [
     { date: new Date("3/4/2024") },
     { date: new Date("1/3/2006") },
