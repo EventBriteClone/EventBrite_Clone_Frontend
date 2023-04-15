@@ -7,6 +7,8 @@ import EventDetails from "./EventDetails";
 import ShareEvent from "./ShareEvent";
 import AboutOrganizer from "./AboutOrganizer";
 import ShareButton from "../../UI/ShareButton";
+import LikeButton from "./LikeButton"
+
 function Event() {
   return (
     <>
@@ -19,6 +21,7 @@ function Event() {
       <ShareEvent />
       <AboutOrganizer />
       <ShareButton />
+      <LikeButton />
     </>
   );
 }

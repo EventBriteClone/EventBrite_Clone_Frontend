@@ -147,7 +147,7 @@ export default function EventDetails() {
                   </svg>
                 </i>
               </div>
-              <h2 className={styles["period h2"]}>1 hour</h2>
+              <h2 className={styles["period-h"]}>1 hour</h2>
             </div>
 
             <div className={styles["ticket"]}>
@@ -174,7 +174,7 @@ export default function EventDetails() {
                   </svg>
                 </i>
               </div>
-              <h2 className={styles["ticket-info h2"]}>Mobile eTicket</h2>
+              <h2 className={styles["period-h"]}>Mobile eTicket</h2>
             </div>
           </div>
         </div>

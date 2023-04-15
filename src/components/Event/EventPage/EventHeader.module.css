@@ -20,7 +20,7 @@
   overflow: hidden;
   border-radius: 30px 30px 30px 30px;
 }
-@media (max-width: 86em) {
+@media screen and (max-width: 86em) {
   .event-poster-background {
     width: 80% !important;
   }

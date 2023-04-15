@@ -3,7 +3,7 @@ import LikeButton from "../../UI/LikeButton";
 export default function PriceTag() {
   return (
     <div>
-      <LikeButton />
+      {/* <LikeButton /> */}
       <div className={styles["price-tag"]}>
         <div className={styles["price"]}>€549 – €699</div>
         <button

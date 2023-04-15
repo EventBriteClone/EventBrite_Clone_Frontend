@@ -1,0 +1,34 @@
+.like-button {
+    cursor: pointer;
+    position: absolute;
+    /* display: inline; */
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    border-radius: 50%;
+    border: 1px solid #dbdae3;
+    top:0;
+    margin-top: 665px;
+    right: 205px;
+    transform: translateY(-50%);
+    background: white;
+  }
+  
+  .like-button i {
+    display: block;
+    height: 24px;
+    width: 24px;
+  }
+  
+  .like-button svg {
+    height: 24px;
+    width: 24px;
+  }
+  
+  .like-button.clicked svg {
+    fill: var(--lighter-orange);
+  }
+  

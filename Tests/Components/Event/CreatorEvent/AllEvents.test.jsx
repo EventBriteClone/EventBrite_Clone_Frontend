@@ -12,6 +12,6 @@ describe("AllEvents component", () => {
     );
 
     const eventCards = screen.getAllByTestId("event-card");
-    expect(eventCards.length).toBe(6);
+    expect(eventCards.length).toBe(12);
   });
 });

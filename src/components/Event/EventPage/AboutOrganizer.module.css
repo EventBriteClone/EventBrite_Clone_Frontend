@@ -4,6 +4,12 @@
     height: 350px;
     width: 800px;
 }
+@media screen and (max-width:60em){
+.about-oranizer{
+    width: 80% !important;
+}
+}
+
 
 .about-org {
     height: 350px;
