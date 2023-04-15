@@ -36,18 +36,25 @@
   letter-spacing: -2px;
 }
 
-/* h1 {
+.h1 {
   color: #1e0a3c;
   padding-top: 30px;
   font-weight: 900;
-} */
-
+}
+.input {
+  padding: 10px 20px;
+  padding-left: 50px;
+  width: 25vw;
+  height: 7vh;
+  border-color: rgba(0, 0, 0, 0.08);
+}
 .email form {
   padding-top: 10px;
 }
 
 .email {
   padding-bottom: 20px;
+  width: 100%;
 }
 
 .cont button {
