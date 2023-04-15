@@ -108,3 +108,14 @@
     width: 40%;
   }
 }
+/* @media screen and (max-width: 33em) {
+  .VenueButton {
+    width: 30%;
+  }
+  .OnlineEventButton {
+    width: 90%;
+  }
+  .TobeAnnounced {
+    width: 100%;
+  }
+} */

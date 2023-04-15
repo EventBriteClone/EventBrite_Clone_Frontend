@@ -8,7 +8,7 @@ import TextField from "@mui/material/TextField";
 import Select from "@mui/joy/Select";
 import Option from "@mui/joy/Option";
 import Checkbox from "@mui/material/Checkbox";
-import PropTypes from "prop-types";
+import PropTypes, { func } from "prop-types";
 import dayjs, { Dayjs } from "dayjs";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { LocalizationProvider } from "@mui/x-date-pickers";
@@ -157,17 +157,59 @@ function DateTime({ changeButton }) {
       setRecurringEventOpen(true);
     }
   }
-
   const [checkedOne, setCheckedOne] = useState(true);
   const [checkedTwo, setCheckedTwo] = useState(true);
-
-  const handleChangeOne = (event) => {
+  function handleChangeOne(event) {
     setCheckedOne(event.target.checked);
-  };
+    changeButton(true);
+    if (checkedOne === false) {
+      changeButton(false);
+    } else {
+      changeButton(true);
+    }
+  }
 
-  const handleChangeTwo = (event) => {
+  function handleChangeTwo(event) {
     setCheckedTwo(event.target.checked);
-  };
+    changeButton(true);
+    if (checkedTwo === false) {
+      changeButton(false);
+    } else {
+      changeButton(true);
+    }
+  }
+
+  const [showStartEventNav, setshowStartEventav] = useState(false);
+  function startEventChange(event) {
+    setshowStartEventav(true);
+    changeButton(true);
+  }
+  const [showEndEventNav, setshowEndEventav] = useState(false);
+  function endEventChange(event) {
+    setshowEndEventav(true);
+    changeButton(true);
+  }
+  const [timeStart, setTimeStart] = useState(false);
+  function timeStartChange(event) {
+    setTimeStart(true);
+    changeButton(true);
+  }
+  const [timeEnd, setTimeEnd] = useState(false);
+  function timeEndChange(event) {
+    setTimeEnd(true);
+    changeButton(true);
+  }
+  const [showLanguage, setShowLanguage] = useState(false);
+  function languageChange(event) {
+    setShowLanguage(true);
+    changeButton(true);
+  }
+  const [timeZone, setTimeZone] = useState(false);
+  function timeZoneChange(event) {
+    setTimeZone(true);
+    changeButton(true);
+  }
+  // function startEventChange(event) {}
   return (
     <>
       <div className={styles.containerDataTime}>
@@ -215,6 +257,7 @@ function DateTime({ changeButton }) {
                     <DatePicker
                       label="Event Starts *"
                       defaultValue={dayjs("2023-04-30")}
+                      onChange={startEventChange}
                     />
                   </DemoContainer>
                 </LocalizationProvider>
@@ -224,6 +267,7 @@ function DateTime({ changeButton }) {
                   id="disabled-options-demo"
                   options={timeSlots}
                   defaultValue="7:00 PM"
+                  onChange={timeStartChange}
                   sx={{
                     width: 275,
                     paddingRight: "8px",
@@ -246,6 +290,7 @@ function DateTime({ changeButton }) {
                     <DatePicker
                       label="Event Ends *"
                       defaultValue={dayjs("2023-04-30")}
+                      onChange={endEventChange}
                     />
                   </DemoContainer>
                 </LocalizationProvider>
@@ -255,6 +300,7 @@ function DateTime({ changeButton }) {
                   id="disabled-options-demo"
                   options={timeSlots}
                   defaultValue="10:00 PM"
+                  onChange={timeEndChange}
                   sx={{
                     width: 275,
                     paddingRight: "8px",
@@ -320,6 +366,7 @@ function DateTime({ changeButton }) {
                 label="Time Zone"
                 defaultValue="Egypt"
                 variant="standard"
+                onChange={timeZoneChange}
               >
                 {timezone.map((option) => (
                   <MenuItem key={option.value} value={option.value}>
@@ -335,6 +382,7 @@ function DateTime({ changeButton }) {
                 label="Event Page Language"
                 defaultValue="USA"
                 variant="standard"
+                onChange={languageChange}
               >
                 {language.map((option) => (
                   <MenuItem key={option.value} value={option.value}>
