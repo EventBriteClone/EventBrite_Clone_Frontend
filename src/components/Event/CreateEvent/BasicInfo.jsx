@@ -138,7 +138,7 @@ export default function BasicInfo() {
           </div>
         </div>
         <div className={styles.containerCol}>
-          <BasicInfoComponents />
+          <BasicInfoComponents changeButton={(value) => setIsVisible(value)} />
           <hr />
           <Location changeButton={(value) => setIsVisible(value)} />
           <hr />

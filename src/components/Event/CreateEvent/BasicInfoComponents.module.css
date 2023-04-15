@@ -157,8 +157,9 @@
   color: #39364f;
   background-color: #fff;
 }
+
 @media (max-width: 37em) {
   .AddTagButton {
-    display: block;
+    display: block !important;
   }
 }

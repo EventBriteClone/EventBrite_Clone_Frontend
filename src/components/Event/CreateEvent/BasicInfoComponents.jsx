@@ -4,9 +4,11 @@ import TextField from "@mui/material/TextField";
 import Select from "@mui/joy/Select";
 import Option from "@mui/joy/Option";
 import PropTypes from "prop-types";
+// import { Chip } from "@material-ui/core";
+import Chip from "@mui/material/Chip";
 import { grey } from "@mui/material/colors";
 
-function BasicInfoComponents() {
+function BasicInfoComponents({ changeButton }) {
   const mySelectors = {
     width: 200,
     height: 50,
@@ -23,34 +25,6 @@ function BasicInfoComponents() {
     borderRadius: "1px",
     marginRight: "8px",
   };
-  const [color, setColor] = useState("red");
-  const [eventTileValue, setEventTitle] = useState("");
-  const [isRequired, setIsRequired] = useState(false);
-  const [count, setCount] = useState(0);
-  function eventTitleChange(event) {
-    const length = event.target.value.length;
-    setCount(length);
-    if (event.target.value.length >= 75) return;
-    setEventTitle(event.target.value);
-    if (event.target.value.length === 0) {
-      setColor("red");
-      setIsRequired(true);
-    } else {
-      setColor("blue");
-      setIsRequired(false);
-    }
-  }
-  const [addButton, setAddButton] = useState(0);
-  const [changeColor, setChangeColor] = useState(false);
-  // const [addColor, setAddColor] = useState(white);
-  function addTagHandler(event) {
-    addTagChange(event);
-  }
-  function handleClick() {
-    setAddButton(addButton + 1);
-    setChangeColor(!changeColor);
-    addTagHandler();
-  }
   const conditions = [
     ";",
     "/",
@@ -86,21 +60,79 @@ function BasicInfoComponents() {
     "£",
     "¬",
   ];
+  const [color, setColor] = useState("red");
+  const [eventTileValue, setEventTitle] = useState("");
+  const [isRequired, setIsRequired] = useState(false);
+  const [count, setCount] = useState(0);
+  function eventTitleChange(event) {
+    const length = event.target.value.length;
+    setCount(length);
+    if (event.target.value.length >= 75) return;
+    setEventTitle(event.target.value);
+    if (event.target.value.length === 0) {
+      setColor("red");
+      setIsRequired(true);
+      changeButton(false);
+    } else {
+      setColor("blue");
+      setIsRequired(false);
+      changeButton(true);
+    }
+  }
 
+  const [addButton, setAddButton] = useState(0);
+  const [changeColor, setChangeColor] = useState(false);
+  const [iserror, setErrorText] = useState(false);
+  const [addtag, setAddTag] = useState("");
+  const [tags, setTags] = useState([]);
   const [charLength, setCharLength] = useState(0);
+
+  function handleClick(event) {
+    if (addButton < 10 && iserror === false) {
+      setAddButton(addButton + 1);
+      setChangeColor(!changeColor);
+      changeButton(true);
+      setAddTag(event.target.value);
+      const newTag = `Tag ${tags.length + 1}`;
+      setTags([...tags, newTag]);
+      setCharLength(0);
+    }
+  }
+
+  const handleDeleteTag = (tagToDelete) => {
+    const newTags = tags.filter((tag) => tag !== tagToDelete);
+    setTags(newTags);
+    const len = addButton - 1;
+    setAddButton(addButton - 1);
+    if (len === 0) {
+      changeButton(false);
+    }
+  };
+
   function addNumberText(event) {
     const length = event.target.value.length;
     setCharLength(length);
     if (event.target.value.length >= 25) return;
+    else {
+      const includesSymbols = conditions.some((word) =>
+        event.target.value.includes(word)
+      );
+      if (includesSymbols) {
+        setColor("red");
+        setErrorText(true);
+      } else {
+        setColor("blue");
+        setErrorText(false);
+      }
+    }
   }
-  const [iserror, setErrorText] = useState(false);
-  const [addtag, setAddTag] = useState("");
-
   function addTagChange(event) {
     setAddTag(event.target.value);
+    console.log(event.target.value);
     const includesSymbols = conditions.some((word) =>
       event.target.value.includes(word)
     );
+    console.log(includesSymbols);
     if (includesSymbols) {
       setColor("red");
       setErrorText(true);
@@ -112,13 +144,12 @@ function BasicInfoComponents() {
   const [organizervalue, setOrganizer] = useState("");
   function organizervalueChange(event) {
     setOrganizer(event.target.value);
+    if (event.target.value.length === 0) {
+      changeButton(false);
+    } else {
+      changeButton(true);
+    }
   }
-
-  // const handleChange = (event: SelectChangeEvent) => {
-  //   setAge(event.target.value);
-  // };
-  //handle show sub-Category
-  // const [category, setCategory] = useState(1);
   const [showSubCategory, setShowSubCategory] = useState(false);
   const [hideSubCategory, setHideSubCategory] = useState(true);
 
@@ -127,11 +158,23 @@ function BasicInfoComponents() {
     if (hideSubCategory) {
       setShowSubCategory(false);
       setHideSubCategory(false);
-    } else setShowSubCategory(true);
+    } else {
+      setShowSubCategory(true);
+      changeButton(true);
+    }
   }
-  function handleShowSubCategory(event) {
-    // setShowSubCategory(true);
-    console.log("ana");
+
+  const [showTypeNav, setshowTypeNav] = useState(false);
+  const [hideTypeNav, setHideTypeNav] = useState(true);
+  function handleChangeType(event) {
+    // setOrganizer(event.target.value);
+    if (hideTypeNav) {
+      setshowTypeNav(false);
+      setHideTypeNav(false);
+    } else {
+      setshowTypeNav(true);
+      changeButton(true);
+    }
   }
   return (
     <>
@@ -212,6 +255,7 @@ function BasicInfoComponents() {
         <Select
           defaultValue="Type"
           placeholder="Type"
+          onChange={handleChangeType}
           sx={{
             ...mySelectors,
           }}
@@ -308,11 +352,24 @@ function BasicInfoComponents() {
                 Add
               </button>
             </div>
+            <div>
+              {tags.map((tag) => (
+                <Chip
+                  key={tag}
+                  label={tag}
+                  onDelete={() => handleDeleteTag(tag)}
+                  variant="outlined"
+                  className={styles.chip}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
     </>
   );
 }
-
+BasicInfoComponents.propTypes = {
+  changeButton: PropTypes.func,
+};
 export default BasicInfoComponents;

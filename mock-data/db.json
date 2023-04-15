@@ -92,7 +92,7 @@
     {
       "title": "Title3",
       "organizer": "Organizer3",
-      "startDate": "25/4/2023",
+      "startDate": "10/4/2023",
       "price": "100 EGP",
       "location": "Alexandria, Egypt",
       "followersNum": "6"
@@ -100,7 +100,7 @@
     {
       "title": "Title4",
       "organizer": "Organizer4",
-      "startDate": "28 /4/2023",
+      "startDate": "12 /4/2023",
       "price": "120 EGP",
       "location": "Cairo, Egypt",
       "followersNum": "70"
@@ -108,7 +108,7 @@
     {
       "title": "Title5",
       "organizer": "Organizer5",
-      "startDate": "26/4/2023",
+      "startDate": "11/4/2023",
       "price": "150 EGP",
       "location": "Online",
       "followersNum": "68"
