@@ -1,5 +1,5 @@
 .price-tag {
-  position: sticky;
+  position: relative;
   width: 360px;
   height: 150px;
   margin-left: 1000px;

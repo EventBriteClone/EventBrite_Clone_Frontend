@@ -1,6 +1,6 @@
 import styles from "./AboutOrganizer.module.css";
 
-export default function AboutOrganizer() {
+export default function AboutOrganizer(props) {
   return (
     <div className={styles["about-organizer"]}>
       <h2>About the organizer</h2>
@@ -9,10 +9,10 @@ export default function AboutOrganizer() {
           <p>Organized by</p>
         </div>
         <div className={styles["organizer"]}>
-          <h2>Organizer Name</h2>
+          <h2>{props.organizer}</h2>
         </div>
         <div className={styles["followers-number"]}>
-          <h3>78</h3>
+          <h3>{props.organizerFollowers}</h3>
         </div>
         <span className={styles["fol"]}>Followers</span>
 

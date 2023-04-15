@@ -11,7 +11,7 @@ export default function EventHeader(props) {
       <div className={styles["event-poster-background"]}>
         <img
           className={styles["poster-blur"]}
-          src="https://image.freepik.com/free-vector/modern-event-banner-background-template_85212-202.jpg"
+          src={props.img}
           width={1200}
           height={470}
         />
@@ -19,7 +19,7 @@ export default function EventHeader(props) {
       <div className={styles["event-poster"]}>
         <img
           className="poster"
-          src="https://image.freepik.com/free-vector/modern-event-banner-background-template_85212-202.jpg"
+          src={props.img}
           alt="event poster"
           width={940}
           height={470}

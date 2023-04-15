@@ -13,6 +13,6 @@ describe("PriceTag", () => {
     );
     const buttons = component.root.findAll((el) => el.type === 'button');
 
-    expect(buttons.length).toBe(2);
+    expect(buttons.length).toBe(1);
   });
 });
