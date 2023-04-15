@@ -98,7 +98,9 @@ const New = (props) => {
                       required: true,
                     }}
                   />
-                  <button className={`${Style.button}`}>Create account</button>
+                  <button id="signup-button" className={`${Style.button}`}>
+                    Create account
+                  </button>
                 </form>
               </div>
               <div className={Style["log-in"]}>

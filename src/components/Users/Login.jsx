@@ -85,7 +85,7 @@ const Login = (props) => {
 
               <div className={Style["cont"]}>
                 <form onSubmit={submitHandler}>
-                  <button>Log in</button>
+                  <button id="login-button">Log in</button>
                 </form>
               </div>
               <div className={Style["or"]}>

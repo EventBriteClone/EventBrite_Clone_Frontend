@@ -86,6 +86,7 @@ export default function GetSignUpEmail(props) {
                     <div className={Style["invalidEmail"]}>
                       <h2 className={Style["invalidEmail"]}></h2>
                       <button
+                        id="getEmail-button"
                         type="submit"
                         className={`${Style["cont"]} ${Style["button"]}`}
                         onClick={AddEmail}
