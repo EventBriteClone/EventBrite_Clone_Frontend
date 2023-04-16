@@ -21,7 +21,11 @@ export default function EventsInLocation(props) {
     data =
       response &&
       response?.results?.map((ev) => {
-        return { title: ev.Title, id: ev.id, image: ev.image };
+        return {
+          title: ev.Title,
+          id: ev.id,
+          image: `${config.baseURL}${ev.image.slice(1)}`,
+        };
       });
   }
   const eventsList =
