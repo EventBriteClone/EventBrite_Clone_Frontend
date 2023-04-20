@@ -71,7 +71,7 @@ function Modal() {
   return (
     <div className={`modalBackground ${closeAnimation ? "hide" : ""}`}>
       <div className="modalContainer">
-        <span className="closeBtn" onClick={handleCloseModal}>
+        <span className="closeBtn" onClick={handleCloseModal} data-testid="closeButton">
           <div className="times">
             <FaTimes />
           </div>
@@ -80,11 +80,13 @@ function Modal() {
           </div>
         </span>
         <div className="sections">
-          <div className="searchSection">
-            <SearchBar
-              query={query}
-              handleQueryChange={handleQueryChange}
-            ></SearchBar>
+          <div className="searchSection" data-testid="searchSection">
+            <span data-testid="searchInput">
+              <SearchBar
+                query={query}
+                handleQueryChange={handleQueryChange}
+              ></SearchBar>
+              </span>
             <LocationBar></LocationBar>
             {!query ? (
               <Suggested></Suggested>
@@ -99,12 +101,12 @@ function Modal() {
             )}
           </div>
           {!query && (
-            <div className="carouselSection">
+            <div className="carouselSection" data-testid="carouselSection">
               <Carousel />
             </div>
           )}
           {!query && (
-            <div className="resultSection">
+            <div className="resultSection" data-testid="resultSection">
               <RecentAndPopular
                 recent={recent}
                 trends={trends}

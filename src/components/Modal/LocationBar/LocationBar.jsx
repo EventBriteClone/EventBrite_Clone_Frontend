@@ -19,7 +19,8 @@ function LocationBar() {
 
   return (
     <div className={styles["location-bar-container"]}>
-      <FaMapMarkerAlt
+      <FaMapMarkerAlt 
+        data-testid="location-icon"
         className={styles["location-icon"]}
         onClick={handleSearchClick}
       />
