@@ -2,21 +2,114 @@ import styles from "./footer.module.css";
 export default function Footer() {
   return (
     <div className={styles.footer}>
-      <div className="eds-global-footer__base eds-g-grid eds-l-pad-hor-6"></div>
-      <div className="eds-global-footer__copyright eds-g-cell eds-g-cell-12-12 eds-g-cell-mn-2-12 eds-l-pad-vert-4">
-        &copy;2023 Eventbrite
-      </div>
-      <div
-        className="eds-global-footer__general-links eds-g-cell eds-g-cell-12-12 eds-g-cell-mn-8-12 eds-text--center"
-        data-spec="global-footer-general-links"
-      >
-        <ul className="eds-l-mar-all-0 eds-l-pad-hor-0">
-          <li
-            className="eds-global-footer__link-bullet eds-global-footer__horizontal-link-item eds-hide-md eds-hide-mw eds-hide-ln eds-hide-lg eds-hide-lw"
-            data-spec="global-footer-link-item"
-          ></li>
-        </ul>
-      </div>
+      <div className="sb__footer section__padding">
+                <div className="sb__footer-links">
+                    <div className="sb__footer-links_div">
+                        <h4>Use Eventbrite</h4>
+                        <a href="/employer">
+                            <p>Create Events</p>
+                        </a>
+                        <a href="/employer">
+                            <p>Pricing</p>
+                        </a>
+                        <a href="/employer">
+                            <p>Eventbrite Boost</p>
+                        </a>
+                        <a href="/employer">
+                            <p>Eventbrite Mobile Ticket App</p>
+                        </a>
+                        <a href="/employer">
+                            <p>Eventbrite Check-In App</p>
+                        </a>
+                        <a href="/employer">
+                            <p>Eventbrite App Marketplace</p>
+                        </a>
+                        <a href="/employer">
+                            <p>Event Registration Software</p>
+                        </a>
+                        <a href="/employer">
+                            <p>Content Standards</p>
+                        </a>
+                        <a href="/employer">
+                            <p>FAQs</p>
+                        </a>
+                        <a href="/employer">
+                            <p>Sitemap</p>
+                        </a>
+
+
+                    </div>
+                    <div className="sb__footer-links_div">
+                    <h4>Plan Events</h4>
+                        <a href="/employer">
+                            <p>Employer</p>
+                        </a>
+                        <a href="/employer">
+                            <p>Employer</p>
+                        </a>
+                        <a href="/employer">
+                            <p>Employer</p>
+                        </a>
+                    </div>
+                    <div className="sb__footer-links_div">
+                    <h4>Find Events</h4>
+                        <a href="/employer">
+                            <p>Employer</p>
+                        </a>
+                        <a href="/employer">
+                            <p>Employer</p>
+                        </a>
+                        <a href="/employer">
+                            <p>Employer</p>
+                        </a>
+                    </div>
+
+                    <div className="sb__footer-links_div">
+                    <h4>Connect With Us</h4>
+                        <a href="/employer">
+                            <p>Employer</p>
+                        </a>
+                        <a href="/employer">
+                            <p>Employer</p>
+                        </a>
+                        <a href="/employer">
+                            <p>Employer</p>
+                        </a>
+                    </div>
+
+                    <div className="sb__footer-links_div">
+                    <h4>For Business</h4>
+                        <a href="/employer">
+                            <p>Employer</p>
+                        </a>
+                        <a href="/employer">
+                            <p>Employer</p>
+                        </a>
+                        <a href="/employer">
+                            <p>Employer</p>
+                        </a>
+                    </div>
+
+                </div>
+                <hr></hr>
+                <div className="sb__footer-below">
+                    <div className="sb__footer-copyright">
+                        <p>
+                            @{new Date().getFullYear()} EventBrite
+                        </p>
+
+                    </div>
+                    <div className="sb__footer-below-links">
+                        <a href="/terms"><div><p>Terms and Conditions</p></div></a>
+                        <a href="/terms"><div><p>Terms and Conditions</p></div></a>
+                        <a href="/terms"><div><p>Terms and Conditions</p></div></a>
+                        <a href="/terms"><div><p>Terms and Conditions</p></div></a>
+                        <a href="/terms"><div><p>Terms and Conditions</p></div></a>
+
+                    </div>
+
+                </div>
+            </div>
     </div>
   );
 }
