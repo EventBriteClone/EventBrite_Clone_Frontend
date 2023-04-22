@@ -2,33 +2,35 @@
     padding: 4rem 4rem;
 }
 
-.footer{
-    background-color:#1e0a3c
+.sb-footer-below-links-ul{
+    list-style: none;
+}
+.sb-footer-below-links-ul li{
+    display: inline-block;
+    margin: 0rem 1rem;
 }
 
-.sb__footer{
-    display: flex;
-    flex-direction: column;
+.footer{
+    background-color:#1e0a3c;
+    padding: 15rem;
 }
+
+ 
 
 .sb__footer-links{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-    text-align: left;
+    display: flex; 
+    width: 100%;     
     margin-bottom: 2rem;
 }
 
 .sb__footer-links_div{
-    width: 150px;
+    width: 25%;
     margin: 1rem;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     color: white;
+    padding-bottom: 25rem;
 }
 
 a{
@@ -41,13 +43,25 @@ a{
 .sb__footer-links_div h4{
    font-size: 14px;
    line-height: 17px;
-   margin-bottom: 0.9rem;
+   margin-bottom: 15rem;
+}
+
+.sb__footer-links_div a{
+    color: #fff;
+}
+
+.sb__footer-links_div a:hover{
+    
+    color: #3659e3 !important;
+    text-decoration: underline;
 }
 
 .sb__footer-links_div p{
-    font-size: 12px;
+    font-size: 13px;
+    letter-spacing: normal;   
     line-height: 15px;
-    margin: 0.5rem 0;
+    text-transform: capitalize;
+    margin: 4rem 0;
  }
 
  .sb__footer-below{
@@ -61,27 +75,34 @@ a{
  .sb__footer-below-links{
     display: flex;
     flex-direction: row;
+    justify-content: center;
 
  }
 
+
+ .sb-footer-below-links a{
+    color: white;
+    text-decoration: none;
+    padding: 0rem 20rem !important;
+ }
  .sb-footer-below-links p{
    font-size: 13px;
    line-height: 15px;
-   margin-left: 2rem;
+   margin: 2rem 10rem;
    color: white;
    font-weight: 600;
-
  }
 
- hr{
-    color: white;
-    width: 100%;
+ .select{
+    background-color: transparent;
  }
 
+  
  .sb__footer-copyright p {
     font-size: 13px;
     line-height: 15px;
     color: white;
+  
     font-weight: 600;
  }
 
@@ -93,6 +114,16 @@ a{
     
  }
 
+
+ @media all and (max-width:768px){
+    .sb__footer-links{
+        display: block;
+        text-align: center;
+    }
+    .sb__footer-links_div{
+        width:100%;
+    }
+ }
  @media screen and (max-width:550px) {
     .sb__footer-heading h1{
         font-size: 34px;
@@ -107,11 +138,7 @@ a{
         line-height: 20px;
     }
 
-    .sb__footer-below{
-        flex-direction: column;
-        justify-content: left;
-    }
-
+    
     .sb__footer-below-links{
         flex-direction: column;
     }
