@@ -1,4 +1,4 @@
-import styles from "./footer.module.css";
+import "./footer.css";
 import styled from "styled-components";
 
 export default function Footer() {
@@ -56,7 +56,7 @@ export default function Footer() {
 
     
   return (
-    <div className={styles.footer}>
+  
        <div className="footer">
       <div className="sb__footer section__padding">
         <div className="sb__footer-links">
@@ -277,7 +277,6 @@ export default function Footer() {
           </Select>
         </div>
       </div>
-    </div>
     </div>
   );
 }
