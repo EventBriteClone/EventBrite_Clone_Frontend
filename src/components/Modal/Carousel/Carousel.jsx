@@ -14,6 +14,7 @@ const event = [
     organizerName: "Lorem ipsum",
     eventName: "Lorem ipsum dolor sit",
     eventSummary: "Lorem ipsum dolor sit",
+    alt: "Event 1",
   },
   {
     imgSrc:
@@ -25,6 +26,7 @@ const event = [
     organizerName: "Lorem ipsum",
     eventName: "Lorem ipsum dolor sit",
     eventSummary: "Lorem ipsum dolor sit",
+    alt: "Event 2",
   },
   {
     imgSrc:
@@ -36,6 +38,7 @@ const event = [
     organizerName: "Lorem ipsum",
     eventName: "Lorem ipsum dolor sit",
     eventSummary: "Lorem ipsum dolor sit",
+    alt: "Event 3"
   },
 ];
 function Carousel() {
@@ -55,14 +58,19 @@ function Carousel() {
     });
   };
   return (
-    <div className={styles["carousel-container"]}>
+    <div className={styles["carousel-container"]} data-testid="carousel-container">
       <div className={styles["carousel-title"]}>
         <p className={styles["carousel-title-text"]}>
           Our favorite online event collections
         </p>
         <div className={styles["carousel-title-arrows"]}>
-          <FaArrowLeft onClick={handleLeft} />
-          <FaArrowRight onClick={handleRight} />
+          <span data-testid="arrow-left">
+            <FaArrowLeft onClick={handleLeft} />
+          </span>
+
+          <span data-testid="arrow-right">
+            <FaArrowRight onClick={handleRight} />
+          </span>
         </div>
       </div>
       <div ref={carouselRef} className={styles["carousel-body"]}>
@@ -70,7 +78,7 @@ function Carousel() {
           <div key={i} className={styles["slider"]}>
             <img
               src={e.imgSrc}
-              alt=""
+              alt={e.alt}
               className={styles["carousel-body-img"]}
             />
             <div className={styles["slider-body"]}>

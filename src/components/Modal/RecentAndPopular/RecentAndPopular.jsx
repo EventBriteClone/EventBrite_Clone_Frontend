@@ -14,14 +14,17 @@ function RecentAndPopular({ recent, trends }) {
       <p className="title">Recent and popular reseaches</p>
       <ResultList>
         {recent.slice(0, 3).map((r, i) => (
-          <ResultItem key={i} title={r} icon={<FaClock />}></ResultItem>
+          <div key={i} data-testid="recent-item">
+              <ResultItem title={r} icon={<FaClock />}></ResultItem>
+          </div>
         ))}
         {trends.slice(0, 4).map((t, i) => (
-          <ResultItem
-            key={i}
-            title={t.term}
-            icon={<FaLevelUpAlt />}
-          ></ResultItem>
+          <div key={i} data-testid="trend-item">
+            <ResultItem
+              title={t.term}
+              icon={<FaLevelUpAlt />}
+            ></ResultItem>
+          </div>
         ))}
       </ResultList>
     </div>
