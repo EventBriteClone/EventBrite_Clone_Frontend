@@ -57,3 +57,7 @@
   background-color: #d1410c;
   background-color: var(--eds-primary-brand, #d1410c);
 }
+
+.eds-btn--fill:hover {
+  opacity: 0.8;
+}

@@ -33,3 +33,7 @@
     fill: var(--lighter-orange);
   }
   
+  .share-button:hover {
+    background-color: #f5f5f5;
+  }
+  

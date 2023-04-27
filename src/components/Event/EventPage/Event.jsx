@@ -8,6 +8,7 @@ import ShareEvent from "./ShareEvent";
 import AboutOrganizer from "./AboutOrganizer";
 import ShareButton from "../../UI/ShareButton";
 import LikeButton from "./LikeButton"
+import Footer from "./Footer"
 
 function Event() {
   const event = {
@@ -33,9 +34,10 @@ function Event() {
       <Organizer organizer={event.organizer} organizerIcon={event.organizerIcon} organizerFollowers={event.organizerFollowers}/>
       <EventDetails dateAndtime={event.dateAndtime} location={event.location} duration={event.duration} ticket={event.ticket}/>
       <ShareEvent />
-      <AboutOrganizer organizer={event.organizer} organizerFollowers={event.organizerFollowers}/>
+      <AboutOrganizer organizerIcon={event.organizerIcon} organizer={event.organizer} organizerFollowers={event.organizerFollowers}/>
       <ShareButton />
       <LikeButton />
+      <Footer/>
     </>
   );
 }
