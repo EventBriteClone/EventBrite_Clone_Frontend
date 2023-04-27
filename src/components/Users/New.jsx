@@ -93,16 +93,19 @@ const New = (props) => {
         configurationOpt = {
           method: "POST",
           headers: { "Content-Type": "application/json" },
+
           body: JSON.stringify({
-            email: email,
+            email: confirmEmail,
             first_name: firstName,
             last_name: lastName,
             password: password,
           }),
+          timeout: 10000,
         };
       }
+      console.log("wslt");
       const response = await fetchDataFromAPI({ endpoint, configurationOpt });
-      console.log("response", response.user);
+      console.log("response", response);
       if (response.error) {
       } else {
         if (config.mocking) {
