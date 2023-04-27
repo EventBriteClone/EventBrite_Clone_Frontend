@@ -1,28 +1,120 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+import React, { useContext, useState } from "react";
+import Style from "./Style.module.css";
+import { fetchDataFromAPI } from "../../utils";
+import config from "../../utils/config";
+import { AuthContext } from "../../context/AuthContext";
+
 import MainIcon from "../Icons/MainIcon";
 
 import Input from "../UI/Input";
 
-import Style from "./Style.module.css";
 const New = (props) => {
-  let [email, setEmail] = useState("");
-  let [invalidEmail, setInvalid] = useState(false);
+  const navigate = useNavigate();
+  let [invalidEmail, setInvalidConfirmemail] = useState(false);
+  const [invalidFirstname, setInvalidFirstname] = useState(false);
+  const [invalidLastname, setInvalidLastname] = useState(false);
+  const [invalidpassword, setInvalidpassword] = useState(false);
+  const [firstName, setFirstName] = useState("");
 
-  const getInputValue = (event) => {
-    // show the user input value to console
-    let userValue = event.target.value;
-    setEmail(userValue);
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [confirmEmail, setConfirmEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  console.log(confirmEmail);
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+    console.log(email);
   };
-  function AddEmail() {
-    const validRegex =
-      /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-    if (!email) {
-      setInvalid("Field required");
-    } else if (email.match(validRegex)) {
-      setInvalid("");
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+    console.log(password);
+  };
+  const handleFirstnameChange = (event) => {
+    setFirstName(event.target.value);
+    console.log(firstName);
+  };
+  const handleLastnameChange = (event) => {
+    setLastName(event.target.value);
+    console.log(lastName);
+  };
+  const handleConfirmEmailChange = (event) => {
+    setConfirmEmail(event.target.value);
+    console.log(confirmEmail);
+  };
+
+  // const getInputValue = (event) => {
+  //   // show the user input value to console
+  //   let userValue = event.target.value;
+  //   setEmail(userValue);
+  // };
+
+  const validateEmail = () => {
+    var nameRegex = /^[a-zA-Z\-]+$/;
+    var passwordRegex = /^(?=.*\d)(?=(.*\W))(?=.*[a-zA-Z])(?!.*\s).{8,20}$/;
+    // perform email validation here
+    if (props.email !== confirmEmail) {
+      setInvalidConfirmemail(true);
+
+      alert("Email and Confirm Email do not match");
+
+      console.log("d5lt");
+    } else if (firstName.match(nameRegex) == null) {
+      alert("please enter correct first name");
+      setInvalidFirstname(true);
+    } else if (lastName.match(nameRegex) == null) {
+      alert("please enter correct last name");
+      setInvalidLastname(true);
+    } else if (!password.match(passwordRegex)) {
+      setInvalidpassword(true);
+      alert("Please enter valid password");
     } else {
-      setInvalid("Invalid email");
+      setInvalidConfirmemail(false);
+      setInvalidFirstname(false);
+      setInvalidLastname(false);
+      setInvalidpassword(false);
+      console.log("sa7 ya ba4a");
+    }
+  };
+  async function submitHandler(e) {
+    e.preventDefault();
+    if (invalidEmail || invalidFirstname || invalidLastname || invalidpassword)
+      return;
+    else {
+      let endpoint,
+        configurationOpt = {};
+      if (config.mocking === "true") {
+        endpoint = `users?email=${email}&password=${password}&first_name=${firstName}&last_name=${lastName}`;
+      } else {
+        endpoint = "user/signup/";
+        configurationOpt = {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: email,
+            first_name: firstName,
+            last_name: lastName,
+            password: password,
+          }),
+        };
+      }
+      const response = await fetchDataFromAPI({ endpoint, configurationOpt });
+      console.log("response", response.user);
+      if (response.error) {
+      } else {
+        if (config.mocking) {
+          if (response.length) {
+            setAuthData(response[0]);
+            navigate("/login");
+          }
+        } else {
+          setAuthData(response);
+          navigate("/login");
+        }
+      }
     }
   }
   return (
@@ -49,9 +141,10 @@ const New = (props) => {
                 </div>
               </div>
               <div className={Style["hero"]}>
-                <form>
+                <form onSubmit={submitHandler}>
                   <Input
                     label="Email address"
+                    onChange={handleEmailChange}
                     input={{
                       type: "email",
                       required: true,
@@ -61,17 +154,26 @@ const New = (props) => {
                   />
                   <Input
                     label="Confirm Email"
+                    onChange={handleConfirmEmailChange}
+                    invalid={invalidEmail ? true : false}
+                    // invalid={invalidEmail ? Style["error"] : Style["input"]}
+                    // style={{
+                    //   border: invalidEmail ? "1px solid #ccc" : "1px solid red",
+                    // }}
                     input={{
                       type: "email",
                       invalidText:
                         "Email address doesn't match. Please try again.",
-                      required: true,
+
+                      required: false,
                       id: "confirm-email",
                     }}
                   />
                   <div className={Style["row"]}>
                     <Input
                       label="First Name"
+                      onChange={handleFirstnameChange}
+                      invalid={invalidFirstname ? true : false}
                       input={{
                         id: "fname",
                         type: "text",
@@ -81,6 +183,8 @@ const New = (props) => {
                     />
                     <Input
                       label="Last Name"
+                      onChange={handleLastnameChange}
+                      invalid={invalidLastname ? true : false}
                       input={{
                         id: "lname",
                         type: "text",
@@ -91,14 +195,19 @@ const New = (props) => {
                   </div>
                   <Input
                     label="Password"
+                    onChange={handlePasswordChange}
+                    invalid={invalidpassword ? true : false}
                     input={{
                       id: "password",
                       type: "password",
-                      // invalidText: "Please enter a valid last name",
                       required: true,
                     }}
                   />
-                  <button id="signup-button" className={`${Style.button}`}>
+                  <button
+                    onClick={validateEmail}
+                    id="signup-button"
+                    className={`${Style.button}`}
+                  >
                     Create account
                   </button>
                 </form>

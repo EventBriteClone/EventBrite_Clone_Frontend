@@ -48,7 +48,7 @@ export default function GetSignUpEmail(props) {
                     rel="noopener noreferrer"
                     title="Go to/ homepage"
                   >
-                    eventbrite
+                    eventus
                   </a>
                   <h1 className={Style["h1"]}>
                     Create an <br /> account
