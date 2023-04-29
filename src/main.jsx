@@ -11,7 +11,7 @@ import "./index.css";
 import BasicInfo from "./Pages/BasicInfo";
 import LandingPage from "./Pages/LandingPage";
 import EventPage from "./Pages/EventPage";
-import SignUp from "./Pages/SignUp";
+import SignUp from "./Pages/Signup";
 import EventCreator from "./Pages/CreatorEvent";
 import configuration from "./utils/config";
 import New from "./Pages/New";

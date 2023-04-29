@@ -1,13 +1,14 @@
 import Header from "../../Layout/Header";
-import EventHeader from "./EventHeader";
-import EventInfo from "./EventInfo";
-import PriceTag from "./PriceTag";
-import Organizer from "./Organizer";
-import EventDetails from "./EventDetails";
-import ShareEvent from "./ShareEvent";
-import AboutOrganizer from "./AboutOrganizer";
+import EventHeader from "./EventHeader/EventHeader";
+import EventInfo from "./EventInfo/EventInfo";
+import PriceTag from "./PriceTag/PriceTag";
+import Organizer from "./Organizer/Organizer";
+import EventDetails from "./EventDetails/EventDetails";
+import ShareEvent from "./ShareEvent/ShareEvent";
+import AboutOrganizer from "./AboutOrganizer/AboutOrganizer";
 import ShareButton from "../../UI/ShareButton";
 import LikeButton from "./LikeButton"
+import Footer from "./Footer"
 
 function Event() {
   const event = {
@@ -33,9 +34,10 @@ function Event() {
       <Organizer organizer={event.organizer} organizerIcon={event.organizerIcon} organizerFollowers={event.organizerFollowers}/>
       <EventDetails dateAndtime={event.dateAndtime} location={event.location} duration={event.duration} ticket={event.ticket}/>
       <ShareEvent />
-      <AboutOrganizer organizer={event.organizer} organizerFollowers={event.organizerFollowers}/>
+      <AboutOrganizer organizerIcon={event.organizerIcon} organizer={event.organizer} organizerFollowers={event.organizerFollowers}/>
       <ShareButton />
       <LikeButton />
+      <Footer/>
     </>
   );
 }

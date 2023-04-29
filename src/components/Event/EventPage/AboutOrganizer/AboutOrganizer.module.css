@@ -10,9 +10,13 @@
 }
 }
 
+.descriptive-organizer-info__avatar {
+    margin-left: 350rem;
+    margin-top: 50rem;
+}  
 
 .about-org {
-    height: 350px;
+    height: 410px;
     margin-top: 30px;
     border-width: 1px;
     border-style: ridge;
@@ -20,7 +24,7 @@
 }
 .organized-by {
     margin-left:350px;
-    margin-top: 80px;
+    margin-top: 30px;
 }
 
 .organizer {
@@ -101,3 +105,7 @@
     cursor: pointer;
     transition: all .4s cubic-bezier(.4,0,.3,1);
 }
+
+.contact-btn:hover {
+    opacity: 0.8;
+  }

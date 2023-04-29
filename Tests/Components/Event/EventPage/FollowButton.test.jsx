@@ -1,4 +1,4 @@
-import Organizer from "../../../../src/components/Event/EventPage/Organizer";
+import Organizer from "../../../../src/components/Event/EventPage/Organizer/Organizer";
 import { test, expect, describe } from "vitest";
 import { create } from 'react-test-renderer';
 import { render, screen } from "@testing-library/react";

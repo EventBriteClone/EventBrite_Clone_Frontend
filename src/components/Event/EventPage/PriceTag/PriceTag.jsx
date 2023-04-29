@@ -1,9 +1,11 @@
 import styles from "./PriceTag.module.css";
-import LikeButton from "../../UI/LikeButton";
 export default function PriceTag(props) {
+  if (props.buttonClass === "")
+  {
+  props.buttonClass =`${styles["eds-btn"]} ${styles["eds-btn--button"]} ${styles["eds-btn--fill"]} ${styles["js-embed-ticket-modal-btn"]}`
+  }
   return (
     <div>
-      {/* <LikeButton /> */}
       <div className={styles["price-tag"]}>
         <div className={styles["price"]}>{props.price}</div>
         <button
@@ -11,7 +13,7 @@ export default function PriceTag(props) {
           data-testid="checkout-link"
           data-tracking-label="Tickets"
           data-heap-id="Conversion Bar - Checkout Button"
-          className={`${styles["eds-btn"]} ${styles["eds-btn--button"]} ${styles["eds-btn--fill"]} ${styles["js-embed-ticket-modal-btn"]}`}
+          className={props.buttonClass}
           type="button"
         >
           Get tickets

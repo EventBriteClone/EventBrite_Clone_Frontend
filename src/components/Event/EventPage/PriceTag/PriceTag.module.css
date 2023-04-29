@@ -8,9 +8,9 @@
   border-style: ridge;
   border-radius: 15px 15px 15px 15px;
 }
-@media screen and (max-width: 86em)
-{
-  .price-tag{
+
+@media screen and (max-width: 86em) {
+  .price-tag {
     width: 80% !important;
   }
 }
@@ -25,7 +25,6 @@
 
 .eds-btn {
   font-size: 15px;
-  background-color: orange;
   color: white;
   margin-top: 30px;
   margin-left: 25px;
@@ -51,9 +50,35 @@
   transition: all 0.4s cubic-bezier(0.4, 0, 0.3, 1);
 }
 
-.eds-btn--fill {
+.eds-btn--button {
+  background-color: orange;
   border-color: #d1410c;
   border-color: var(--eds-primary-brand, #d1410c);
+}
+
+.eds-btn--fill {
   background-color: #d1410c;
-  background-color: var(--eds-primary-brand, #d1410c);
+  border-color: #d1410c;
+  border-color: var(--eds-primary-brand, #d1410c);
+}
+
+.eds-btn--fill:hover {
+  opacity: 0.8;
+}
+
+.eds-btn--unavailable {
+  background-color: #ccc;
+  border-color: #ccc;
+  cursor: default;
+}
+
+.eds-btn--unavailable {
+  background-color: #ccc;
+  border-color: #ccc;
+  cursor: default;
+}
+
+.eds-btn--unavailable:hover {
+  opacity: 1;
+  cursor: default;
 }

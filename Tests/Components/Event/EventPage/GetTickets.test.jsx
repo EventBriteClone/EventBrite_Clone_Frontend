@@ -1,4 +1,4 @@
-import PriceTag from "../../../../src/components/Event/EventPage/PriceTag";
+import PriceTag from "../../../../src/components/Event/EventPage/PriceTag/PriceTag";
 import { test, expect, describe } from "vitest";
 import { create } from 'react-test-renderer';
 import { render, screen } from "@testing-library/react";
