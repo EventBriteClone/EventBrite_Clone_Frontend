@@ -16,7 +16,7 @@ export default function LikeButton({ position = "absolute", transform }) {
       <span>
         <i
           className="eds-vector-image eds-icon--small eds-vector-image--block"
-          title="like"
+          title="Like Event"
           data-spec="icon"
           data-testid="icon"
         >

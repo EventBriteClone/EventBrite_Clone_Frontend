@@ -31,4 +31,7 @@
   .like-button.clicked svg {
     fill: var(--lighter-orange);
   }
-  
+
+  .like-button:hover {
+    background-color: #f2f2f2;
+  }  

@@ -28,16 +28,21 @@ export default function EventDetails(props) {
         </div> */}
           <div className={styles["date-and-time"]}>
             <div class={styles["detail__icon"]}>
-              <i data-spec="icon" data-testid="icon" aria-hidden="true">
+              <i
+                class={`${styles["eds-vector-image"]} ${styles["eds-icon--small"]} ${styles["eds-vector-image--block"]}`}
+                data-spec="icon"
+                data-testid="icon"
+                aria-hidden="true"
+              >
                 <svg
-                  id={styles["calendar-chunky_svg__eds-icon--calendar-chunky_svg"]}
+                  id="calendar-chunky_svg__eds-icon--calendar-chunky_svg"
                   x="0"
                   y="0"
                   viewBox="0 0 24 24"
-                  xmSpace="preserve"
+                  xml:space="preserve"
                 >
                   <path
-                    id={styles["calendar-chunky_svg__eds-icon--calendar-chunky_base"]}
+                    id="calendar-chunky_svg__eds-icon--calendar-chunky_base"
                     d="M16.9 6.5v-2h-2v2h-6v-2h-2v2h-2v13h14v-13h-2zm0 11h-10v-7h10v7z"
                   ></path>
                 </svg>
@@ -46,9 +51,7 @@ export default function EventDetails(props) {
             <div className={styles["date-time-heading"]}>
               <h3>Date and Time</h3>
               <p className={styles["p"]}>
-                <span class={styles["appointment"]}>
-                  {props.dateAndtime}
-                </span>
+                <span class={styles["appointment"]}>{props.dateAndtime}</span>
               </p>
             </div>
           </div>
@@ -56,47 +59,33 @@ export default function EventDetails(props) {
 
         <div className={styles["location"]}>
           <div className={styles["date-and-time"]}>
-            <div class={styles["detail__icon2"]}>
+            <div class={styles["detail__icon"]}>
               <i
                 class={`${styles["eds-vector-image"]} ${styles["eds-icon--small"]}`}
                 data-spec="icon"
                 data-testid="icon"
                 aria-hidden="true"
               >
+                {/* <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 0C8.134 0 5 3.134 5 7c0 3.237 2.246 6.474 4.916 10.292 1.125 1.567 2.404 3.331 3.284 5.026.88-1.695 2.16-6.459 2.284-6.026C16.754 13.474 19 10.237 19 7c0-3.866-3.134-7-7-7zm0 4a3 3 0 11-.001 6.001A3 3 0 0112 4z"
+                    fill="#0124d9"
+                  />
+                  <path
+                    d="M12 2a5 5 0 110 10 5 5 0 010-10zm0 8a3 3 0 100-6 3 3 0 000 6z"
+                    fill="#fff"
+                  />
+                </svg> */}
                 <svg viewBox="0 0 24 24">
                   <path
-                    id="map-pin-fill_svg__24_small_map_pin_fill-a"
-                    d="M7 0a7 7 0 00-7 7c0 2.015 1.016 3.985 2 5.5.985 1.515 5 7.5 5 7.5s3.985-5.985 5-7.5c1.015-1.515 2-3.485 2-5.5a7 7 0 00-7-7m0 9.5c1.378 0 2.5-1.122 2.5-2.5S8.378 4.5 7 4.5A2.503 2.503 0 004.5 7c0 1.378 1.122 2.5 2.5 2.5"
-                  ></path>
-                  <g fill="none" fill-rule="evenodd" transform="translate(5 2)">
-                    <mask
-                      id="map-pin-fill_svg__24_small_map_pin_fill-b"
-                      fill="#fff"
-                    >
-                      <use xlinkHref="#map-pin-fill_svg__24_small_map_pin_fill-a"></use>
-                    </mask>
-                    <use
-                      fill="#45494E"
-                      xlinkHref="#map-pin-fill_svg__24_small_map_pin_fill-a"
-                    ></use>
-                    <g mask="url(#map-pin-fill_svg__24_small_map_pin_fill-b)">
-                      <path fill="#000" d="M-5-2h24v24H-5z"></path>
-                    </g>
-                    <mask
-                      id="map-pin-fill_svg__24_small_map_pin_fill-b"
-                      fill="#fff"
-                    >
-                      <use xlinkHref="#map-pin-fill_svg__24_small_map_pin_fill-a"></use>
-                    </mask>
-                    <use
-                      fill="#45494E"
-                      xlinkHref="#map-pin-fill_svg__24_small_map_pin_fill-a"
-                    ></use>
-                    <g mask="url(#map-pin-fill_svg__24_small_map_pin_fill-b)">
-                      <path fill="#000" d="M-5-2h24v24H-5z"></path>
-                    </g>
-                  </g>
-                </svg>{" "}
+                    d="M12 0C8.134 0 5 3.134 5 7c0 3.237 2.246 6.474 4.3 10.292 1.125 1.567 2.404 3.331 3.284 5.026.88-1.695 3.16-6.459 3.0-6.026C16.754 13.474 19 9.237 19 7c0-3.866-3.134-7-7-7zm0 4a3 3 0 11-.001 6.001A3 3 0 0112 4z"
+                    fill="#000"
+                  />
+                  <path
+                    d="M12 2a5 5 0 110 10 5 5 0 010-10zm0 8a3 3 0 100-6 3 3 0 000 6z"
+                    fill="#fff"
+                  />
+                </svg>
               </i>
             </div>
             <div className={styles["date-time-heading"]}>
@@ -111,7 +100,9 @@ export default function EventDetails(props) {
       <div className={styles["about"]}>
         <div className={styles["refund-policy"]}>
           <h2 className={styles["h2"]}>Refund Policy</h2>
-          <p className={styles["p"]}>Contact the organizer to request a refund.</p>
+          <p className={styles["p"]}>
+            Contact the organizer to request a refund.
+          </p>
           <p className={styles["p"]}>Eventbrite's fee is nonrefundable.</p>
         </div>
         <div className={styles["about-event"]}>
@@ -147,7 +138,7 @@ export default function EventDetails(props) {
                   </svg>
                 </i>
               </div>
-              <h2 className={styles["period-h"]}>{props.duration}</h2>
+              <div className={styles["period"]}>{props.duration}</div>
             </div>
 
             <div className={styles["ticket"]}>
@@ -174,7 +165,7 @@ export default function EventDetails(props) {
                   </svg>
                 </i>
               </div>
-              <h2 className={styles["period-h"]}>{props.ticket}</h2>
+              <div className={styles["period"]}>{props.ticket}</div>
             </div>
           </div>
         </div>
