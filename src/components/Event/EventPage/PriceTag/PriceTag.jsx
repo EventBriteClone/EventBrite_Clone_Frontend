@@ -1,9 +1,14 @@
+import React, { useState } from 'react';
 import styles from "./PriceTag.module.css";
+import Popup from "../../popup/Popup";
+
 export default function PriceTag(props) {
-  if (props.buttonClass === "")
-  {
-  props.buttonClass =`${styles["eds-btn"]} ${styles["eds-btn--button"]} ${styles["eds-btn--fill"]} ${styles["js-embed-ticket-modal-btn"]}`
+  const [popupOpen, setPopupOpen] = useState(false);
+
+  if (props.buttonClass === "") {
+    props.buttonClass = `${styles["eds-btn"]} ${styles["eds-btn--button"]} ${styles["eds-btn--fill"]} ${styles["js-embed-ticket-modal-btn"]}`
   }
+
   return (
     <div>
       <div className={styles["price-tag"]}>
@@ -15,10 +20,12 @@ export default function PriceTag(props) {
           data-heap-id="Conversion Bar - Checkout Button"
           className={props.buttonClass}
           type="button"
+          onClick={() => setPopupOpen(true)}
         >
           Get tickets
         </button>
       </div>
+      {popupOpen && <Popup price={props.price} event={props.id}/>}
     </div>
   );
 }

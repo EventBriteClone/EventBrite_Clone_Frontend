@@ -6,9 +6,11 @@ import { NavLink } from "react-router-dom";
 import image from "../../../assets/images/side-view.jfif";
 import Timer from "../timer/Timer";
 import logoImg from "../../../assets/images/logo.png";
+import config from "../../../utils/config";
+import { fetchDataFromAPI } from "../../../utils";
 // import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
-const Popup = ({show,setShow}) => {
+const Popup = ({show,setShow}, props) => {
   const [stepOne, setStepOne] = useState(false);
 
 
@@ -18,7 +20,7 @@ const Popup = ({show,setShow}) => {
     lname: false,
     email: false,
     cmail:false,
-    
+    promo:false
   });
   const [validmail, setValidmail] = useState(false);
   
@@ -28,6 +30,7 @@ const Popup = ({show,setShow}) => {
     lname: "",
     email: "",
     cmail:"",
+    promo:""
   });
    
    
@@ -76,7 +79,22 @@ const handleSubmit = (event) => {
     setValidmail(true);
   }
 event.preventDefault(); 
-
+let endpoint, configurationOpt = {};
+if (config.mocking === "true") {
+  endpoint = "orders";
+}
+else {
+  endpoint = "booking/orders"
+  configurationOpt = {
+    method: "POST",
+    body: JSON.stringify({
+      event: props.id,
+      full_price: `${props.price}`
+    })
+  }
+}
+const response = fetchDataFromAPI({endpoint, configurationOpt})
+console.log(response);
 }
 
 const checkValid = (event) => {
@@ -257,7 +275,7 @@ const checkValid = (event) => {
                 </div>
 
                 <div className="left-bottom top-button">
-                  <button type="submit" className="order-btn">Place Order</button>
+                  <button type="submit" className="order-btn" onClick={handleSubmit}>Place Order</button>
                 </div>
               </form>
             </div>
@@ -274,7 +292,7 @@ const checkValid = (event) => {
                       <p>1 x Work in Sweden - Visa </p>
                     </div>
 
-                    <p>$19.92</p>
+                    <p>{props.price}</p>
                   </div>
 
                   <div className="summary-item">
@@ -282,7 +300,7 @@ const checkValid = (event) => {
                       <p>Delivery</p>
                       <p><span>1 x eticker</span> </p>
                     </div>
-                    <p>$19.92</p>
+                    <p>{props.price}</p>
                   </div>
 
                   <div className="summary-item summary-total">
@@ -290,7 +308,7 @@ const checkValid = (event) => {
                       <p>Delivery</p>
                        
                     </div>
-                    <p>$19.92</p>
+                    <p>{props.price}</p>
                   </div>
 
                   <div className="left-bottom bottom-button">
