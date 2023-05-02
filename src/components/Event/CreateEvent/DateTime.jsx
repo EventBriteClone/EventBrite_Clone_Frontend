@@ -18,6 +18,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
 import { element } from "prop-types";
+import { DateTimeContext } from "../../../context/CreateEventContext";
 
 function DateTime({ changeButton }) {
   const timezone = [
@@ -114,6 +115,23 @@ function DateTime({ changeButton }) {
     "11:00 PM",
     "11:30 PM",
   ];
+
+  const DateTimeValues = useContext(DateTimeContext);
+  const {
+    startDateContext,
+    setStartDateContext,
+    endDateContext,
+    setEndDateContext,
+    startTimeContext,
+    setStartTimeContext,
+    endTimeContext,
+    setEndTimeContext,
+    languageContext,
+    setLanguageContext,
+    timeZoneContext,
+    setTimeZoneContext,
+  } = DateTimeValues;
+
   // Online Event Button Hide and Show
   const [showSingleEvent, setshowSingleEvent] = useState(true);
   const [isSingleEventOpen, setIsSingleEventOpen] = useState(true);
@@ -183,31 +201,43 @@ function DateTime({ changeButton }) {
   function startEventChange(event) {
     setshowStartEventav(true);
     changeButton(true);
+    setStartDateContext(event);
+    console.log(startDateContext);
   }
   const [showEndEventNav, setshowEndEventav] = useState(false);
   function endEventChange(event) {
     setshowEndEventav(true);
     changeButton(true);
+    setEndDateContext(event);
+    console.log(endDateContext);
   }
   const [timeStart, setTimeStart] = useState(false);
   function timeStartChange(event) {
     setTimeStart(true);
     changeButton(true);
+    setStartTimeContext(event);
+    console.log(startTimeContext);
   }
   const [timeEnd, setTimeEnd] = useState(false);
   function timeEndChange(event) {
     setTimeEnd(true);
     changeButton(true);
+    setEndTimeContext(event);
+    console.log(endTimeContext);
   }
   const [showLanguage, setShowLanguage] = useState(false);
   function languageChange(event) {
     setShowLanguage(true);
     changeButton(true);
+    setLanguageContext(event);
+    console.log(languageContext);
   }
   const [timeZone, setTimeZone] = useState(false);
   function timeZoneChange(event) {
     setTimeZone(true);
     changeButton(true);
+    setTimeZoneContext(event);
+    console.log(timeZoneContext);
   }
   // function startEventChange(event) {}
   return (
@@ -257,6 +287,8 @@ function DateTime({ changeButton }) {
                     <DatePicker
                       label="Event Starts *"
                       defaultValue={dayjs("2023-04-30")}
+                      // defaultValue={dayjs(DateTimeContext.toString())}
+                      // defaultValue={DateTimeContext.toString()}
                       onChange={startEventChange}
                     />
                   </DemoContainer>
@@ -341,11 +373,9 @@ function DateTime({ changeButton }) {
             </div>
             <div className={styles.CheckboxBorder}>
               <Checkbox
-                // defaultChecked
                 checked={checkedTwo}
                 onChange={handleChangeTwo}
                 inputProps={{ "aria-label": "timeEnd" }}
-                // aria-label="timeEnd"
                 className={styles.Checkbox}
               ></Checkbox>
               <label className={styles.DisplayTimeLabel}>

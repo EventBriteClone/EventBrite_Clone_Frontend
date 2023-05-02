@@ -1,0 +1,70 @@
+.dashboard-list-item-name {
+  font-size: 12rem;
+  font-weight: 600;
+  color: #4b4d63;
+  margin-left: 20rem;
+  margin-top: 15rem;
+  margin-bottom: 15rem;
+  justify-content: center;
+}
+.order-options-nav-item {
+  font-size: 12rem;
+  font-weight: 600;
+  color: #4b4d63;
+  margin-left: 20rem;
+  margin-top: 15rem;
+  margin-bottom: 15rem;
+  display: flex;
+  justify-content: center;
+}
+.order-options-symbol-item {
+  height: 15rem;
+  width: 15rem;
+  margin-left: 67rem;
+  margin-top: 1.5rem;
+  color: #4b4d63;
+}
+.market-list-nav-item {
+  font-size: 12rem;
+  font-weight: 600;
+  color: #4b4d63;
+  margin-left: 20rem;
+  margin-top: 15rem;
+  margin-bottom: 15rem;
+  display: flex;
+  justify-content: center;
+}
+.market-list-item-symbol {
+  height: 15rem;
+  width: 15rem;
+  margin-left: 87rem;
+  /* margin-right: 3.5rem; */
+  margin-top: 1.5rem;
+  color: #4b4d63;
+}
+.list-item-a {
+  background-color: #f8f7fa;
+}
+.manage-attendees-list-nav-item {
+  font-size: 12rem;
+  font-weight: 600;
+  color: #4b4d63;
+  margin-left: 20rem;
+  margin-top: 15rem;
+  margin-bottom: 15rem;
+  display: flex;
+  justify-content: center;
+}
+.manage-attendees-symbol-item {
+  height: 15rem;
+  width: 15rem;
+  margin-left: 40rem;
+  /* margin-right: 3.5rem; */
+  margin-top: 1.5rem;
+  color: #4b4d63;
+}
+.break-line {
+  border: 0.25rem solid #eeedf2;
+  margin-top: 25rem;
+  width: 100%;
+}
