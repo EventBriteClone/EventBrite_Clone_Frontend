@@ -5,23 +5,29 @@ const initialState = {
   isAuthenticated: false,
 };
 
-const AuthContext = createContext(initialState);
-const savedAuthData = Cookies.get("authData");
+export const AuthContext = createContext(initialState);
+const savedAuthData = Cookies.get("authData")
+  ? JSON.parse(Cookies.get("authData"))
+  : null;
+console.log({ savedAuthData });
 
 function authReducer(_, payload) {
   let newState = {};
   if (payload.action === "login")
     newState = {
       isAuthenticated: true,
-      ...payload,
+      ...payload.data,
     };
   else if (payload.action === "logout") newState = { ...initialState };
-
   Cookies.set("authData", JSON.stringify(newState), {
     expires: 1,
     secure: true,
-    httpOnly: true,
+    sameSite: "strict",
   });
+  setTimeout(function () {
+    console.log(Cookies.get("authData"), "cbjsknkm");
+  }, 1000);
+  // console.log(Cookies.get("authData"), "zzzzzzzzzzz");
   return newState;
 }
 
@@ -32,8 +38,9 @@ export default function AuthContextProvider(props) {
   );
 
   function setAuthData(authData) {
+    console.log("setAuthData", authData);
     const { email, password, id: userId, token } = authData;
-    dispatch({ action: "login", payload: { email, password, userId, token } });
+    dispatch({ action: "login", data: { email, password, userId, token } });
   }
   function removeAuthData() {
     dispatch({ action: "logout" });

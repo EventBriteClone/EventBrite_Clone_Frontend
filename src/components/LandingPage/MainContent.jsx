@@ -13,7 +13,7 @@ export default function MainContent(props) {
         <TrendingCategories />
       </Section>
       <Section>
-        <EventsInLocation events={props.events} />
+        <EventsInLocation />
       </Section>
     </>
   );

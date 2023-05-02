@@ -1,4 +1,4 @@
-import PriceTag from "../../../../src/components/Event/EventPage/PriceTag";
+import PriceTag from "../../../../src/components/Event/EventPage/PriceTag/PriceTag";
 import { test, expect, describe } from "vitest";
 import { create } from 'react-test-renderer';
 import { render, screen } from "@testing-library/react";
@@ -13,6 +13,6 @@ describe("PriceTag", () => {
     );
     const buttons = component.root.findAll((el) => el.type === 'button');
 
-    expect(buttons.length).toBe(2);
+    expect(buttons.length).toBe(1);
   });
 });

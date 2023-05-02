@@ -23,16 +23,19 @@ export default function ShareEvent() {
                 >
                   <button
                     className={`
-                      ${styles["eds-btn--button"]} ${styles["eds-btn--none"]} ${styles["eds-btn--icon-only"]}
-                    `}
+    ${styles["eds-btn--button"]} ${styles["eds-btn--none"]} ${styles["eds-btn--icon-only"]}
+  `}
                     type="button"
+                    onClick={() =>
+                      window.open(
+                        "https://www.facebook.com/Google/",
+                        "_blank",
+                        "noopener noreferrer"
+                      )
+                    }
                   >
                     <i
-                      className={
-                        styles[
-                          "eds-vector-image eds-icon--small eds-vector-image--block"
-                        ]
-                      }
+                      className={`${styles["eds-vector-image"]} ${styles["eds-icon--small"]} ${styles["eds-vector-image--block"]}`}
                       title=""
                       data-spec="icon"
                       data-testid="icon"
@@ -82,7 +85,7 @@ export default function ShareEvent() {
                 data-spec="linkedin-share-box-container"
               >
                 <span
-                  className={styles["eds-icon-button eds-icon-button--neutral"]}
+                  className={`${styles["eds-icon-button"]} ${styles["eds-icon-button--neutral"]}`}
                   data-spec="icon-button"
                 >
                   <button
@@ -115,19 +118,20 @@ export default function ShareEvent() {
                 data-spec="twitter-share-box-container"
               >
                 <span
-                  className={styles["eds-icon-button eds-icon-button--neutral"]}
+                  className={`${styles["eds-icon-button"]} ${styles["eds-icon-button--neutral"]}`}
                   data-spec="icon-button"
                 >
                   <button
                     className={`
-                      ${styles["eds-btn--button"]} ${styles["eds-btn--none"]} ${styles["eds-btn--icon-only"]}
-                    `}
+    ${styles["eds-btn--button"]} ${styles["eds-btn--none"]} ${styles["eds-btn--icon-only"]}
+  `}
                     type="button"
+                    onClick={() =>
+                      window.open("https://twitter.com/Google?s=20", "_blank")
+                    }
                   >
                     <i
-                      className={`${styles["eds-vector-image eds-icon--small"]} ${styles["eds-vector-image--block"]}"
-                        ]
-                      `}
+                      className={`${styles["eds-vector-image"]} ${styles["eds-icon--small"]} ${styles["eds-vector-image--block"]}`}
                       title=""
                       data-spec="icon"
                       data-testid="icon"

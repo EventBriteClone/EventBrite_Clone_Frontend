@@ -12,19 +12,22 @@ export default function EventCard(props) {
     >
       <article className={styles["event-card__container"]}>
         <aside>
-          <Link to="/event/1">
+          <Link to={`/event/${event.id}`}>
             <img
               loading="lazy"
-              src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F440854699%2F140533847643%2F1%2Foriginal.20230207-112359?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C72%2C1228%2C614&s=a4be3f3cf640cd2791d10eb04df87581"
+              src={
+                event.image ||
+                "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F440854699%2F140533847643%2F1%2Foriginal.20230207-112359?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C72%2C1228%2C614&s=a4be3f3cf640cd2791d10eb04df87581"
+              }
               alt="Title"
               style={{ width: "512", height: "256" }}
             />
           </Link>
         </aside>
         <main>
-          <LikeButton></LikeButton>
+          <LikeButton position="absolute" />
           <div>
-            <Link to="/event/1">
+            <Link to={`/event/${event.id}}`}>
               <h3 className={`${styles["event-card__title"]} truncate-text`}>
                 {event?.title || "Title"}
               </h3>

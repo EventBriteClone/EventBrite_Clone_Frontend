@@ -10,19 +10,22 @@ function SearchResult({ recent, trends, char }) {
   trends = trends.filter((t) => t.term.includes(char));
   return (
     <div className="container">
-      <ResultList>
+      <ResultList data-testid="result-list">
         {recent
           .filter((r) => r.includes(char))
           .slice(0, 3)
           .map((r, i) => (
-            <ResultItem key={i} title={r} icon={<FaClock />}></ResultItem>
+            <div key={i} data-testid="recent-results">
+              <ResultItem title={r} icon={<FaClock />}></ResultItem>
+            </div>
           ))}
         {trends.slice(0, 4).map((t, i) => (
-          <ResultItem
-            key={i}
-            title={t.term}
-            icon={<FaLevelUpAlt />}
-          ></ResultItem>
+          <div key={i} data-testid="tranding-results">
+             <ResultItem
+                title={t.term}
+                icon={<FaLevelUpAlt />}
+              ></ResultItem>
+          </div>
         ))}
       </ResultList>
     </div>

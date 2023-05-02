@@ -13,7 +13,7 @@ function SearchBar({ query,handleQueryChange }) {
 
   return (
     <div className="search-bar-container">
-      <FaSearch className="search-icon" onClick={handleSearchClick} />
+      <FaSearch data-testid="search-icon" className="search-icon" onClick={handleSearchClick} />
       <div className="search-input-wrapper">
         <input
           type="text"
@@ -23,7 +23,7 @@ function SearchBar({ query,handleQueryChange }) {
           onInput={handleQueryChange}
         />
       </div>
-      <FaArrowRight className="back-icon" onClick={handleBackClick} />
+      <FaArrowRight data-testid="back-icon"  className="back-icon" onClick={handleBackClick} />
     </div>
   );
 }

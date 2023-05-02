@@ -40,7 +40,6 @@ function AllEventsDropdown() {
               id="event-filter"
               style={{ backgroundColor: "#3659e3", color: "#fff" }}
               onChange={(event) => {
-                setSelectedOption(event.target.value);
                 handleOptionChange(filteredEvents);
               }}
             >

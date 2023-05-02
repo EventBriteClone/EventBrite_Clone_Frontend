@@ -4,9 +4,19 @@
     height: 350px;
     width: 800px;
 }
+@media screen and (max-width:60em){
+.about-oranizer{
+    width: 80% !important;
+}
+}
+
+.descriptive-organizer-info__avatar {
+    margin-left: 350rem;
+    margin-top: 50rem;
+}  
 
 .about-org {
-    height: 350px;
+    height: 410px;
     margin-top: 30px;
     border-width: 1px;
     border-style: ridge;
@@ -14,18 +24,18 @@
 }
 .organized-by {
     margin-left:350px;
-    margin-top: 80px;
+    margin-top: 30px;
 }
 
 .organizer {
-    margin-left: 310px;
+    margin-left: 355px;
     margin-top: 20px;
 }
 
 .followers-number {
     font-size: 16px;
     margin-top: 30px;
-    margin-left: 380px;
+    margin-left: 375px;
 }
 
 .fol {
@@ -95,3 +105,7 @@
     cursor: pointer;
     transition: all .4s cubic-bezier(.4,0,.3,1);
 }
+
+.contact-btn:hover {
+    opacity: 0.8;
+  }

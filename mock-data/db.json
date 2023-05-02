@@ -5,75 +5,342 @@
       "first_name": "Admin",
       "last_name": "Admona",
       "email": "admin@gmail.com",
-      "password": "adminadmin"
+      "password": "Testtest",
+      "token": "451263"
     },
     {
       "id": 2,
       "first_name": "Odilia",
       "last_name": "Noraway",
       "email": "onoraway1@ucoz.ru",
-      "password": "H35s1Qu"
+      "password": "H35s1Qu",
+      "token": "451242"
     },
     {
       "id": 3,
       "first_name": "Seamus",
       "last_name": "Roft",
       "email": "sroft2@ehow.com",
-      "password": "3flWuoU"
+      "password": "3flWuoU",
+      "token": "451221"
     },
     {
       "id": 4,
       "first_name": "Kakalina",
       "last_name": "Matskiv",
       "email": "kmatskiv3@utexas.edu",
-      "password": "IdOLkeEtg5w1"
+      "password": "IdOLkeEtg5w1",
+      "token": "451"
     },
     {
       "id": 5,
       "first_name": "Garwood",
       "last_name": "Valentetti",
       "email": "gvalentetti4@springer.com",
-      "password": "s1LMBLJu5eM"
+      "password": "s1LMBLJu5eM",
+      "token": "45128"
     },
     {
       "id": 6,
       "first_name": "Nora",
       "last_name": "Birkhead",
       "email": "nbirkhead5@cnet.com",
-      "password": "iUsP6ayPOM"
+      "password": "iUsP6ayPOM",
+      "token": "45127"
     },
     {
       "id": 7,
       "first_name": "Brucie",
       "last_name": "Ewdale",
       "email": "bewdale6@hexun.com",
-      "password": "ouUefFisX4"
+      "password": "ouUefFisX4",
+      "token": "45126"
     },
     {
       "id": 8,
       "first_name": "Catina",
       "last_name": "Groveham",
       "email": "cgroveham7@yahoo.co.jp",
-      "password": "HIejMH9rd"
+      "password": "HIejMH9rd",
+      "token": "45125"
     },
     {
       "id": 9,
       "first_name": "Reed",
       "last_name": "Glasser",
       "email": "rglasser8@4shared.com",
-      "password": "kulOkH"
+      "password": "kulOkH",
+      "token": "45124"
     },
     {
       "id": 10,
       "first_name": "Hamlen",
       "last_name": "Bladesmith",
       "email": "hbladesmith9@istockphoto.com",
-      "password": "F1yOOF14K"
+      "password": "F1yOOF14K",
+      "token": "45123"
+    },
+    {
+      "email": "",
+      "first_name": "Admin",
+      "last_name": "Admona",
+      "password": "Testtest",
+      "id": 11
+    },
+    {
+      "email": "",
+      "first_name": "Admin",
+      "last_name": "Admona",
+      "password": "Testtest",
+      "id": 12
+    },
+    {
+      "email": "mariowa7dbs@gmail.com",
+      "first_name": "mar",
+      "last_name": "sam",
+      "password": "Mamario@254",
+      "id": 13
+    },
+    {
+      "email": "Samy123@gmail.com",
+      "first_name": "samy",
+      "last_name": "nakhla",
+      "password": "Samy 12344",
+      "id": 14
+    },
+    {
+      "email": "mariowa7dbs@gmail.com",
+      "first_name": "mar",
+      "last_name": "sam",
+      "password": "Mamaririoo@254",
+      "id": 15
+    },
+    {
+      "email": "mariowa7dbs@gmail.com",
+      "first_name": "mar",
+      "last_name": "sam",
+      "password": "Mamaririoo@254",
+      "id": 16
+    },
+    {
+      "email": "mariowa7dbs@gmail.com",
+      "first_name": "mar",
+      "last_name": "sam",
+      "password": "marioolo",
+      "id": 17
+    },
+    {
+      "email": "mariowa7dbs@gmail.com",
+      "id": 18
+    },
+    {
+      "email": "Samy123@gmail.com",
+      "id": 19
+    },
+    {
+      "email": "admin@gmail.com",
+      "id": 20
+    },
+    {
+      "email": "7mada1@hotmail.com",
+      "id": 21
+    },
+    {
+      "email": "7mada1@hotmail.com",
+      "id": 22
+    },
+    {
+      "email": "mariowa7dbs@gmail.com",
+      "first_name": "Mario",
+      "last_name": "samy",
+      "password": "Mariomario",
+      "id": 23
     }
   ],
-  "events": [],
+  "events": [
+    {
+    "id": 0,
+    "img": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F440854699%2F140533847643%2F1%2Foriginal.20230207-112359?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C72%2C1228%2C614&s=a4be3f3cf640cd2791d10eb04df87581",
+    "title": "Title0",
+    "organizer": "Organizer0",
+    "caption": "Caption0",
+    "organizer_icon": "https://th.bing.com/th/id/OIP.fj785b1WfQF6KVMDvzptNgAAAA?w=205&h=205&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+    "startDate": "Jan 23",
+    "price": "50 EGP",
+    "location": "Cairo, Egypt",
+    "date_and_time": "Sunday, 23 January · 5:30 - 6:30pm EET",
+    "duration": "1 Hour",
+    "followersNum": "600"
+    },
+
+    {
+      "id": 1,
+      "img": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F440854699%2F140533847643%2F1%2Foriginal.20230207-112359?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C72%2C1228%2C614&s=a4be3f3cf640cd2791d10eb04df87581",
+      "title": "Title1",
+      "organizer": "Organizer1",
+      "caption": "Caption1",
+      "organizer_icon": "https://th.bing.com/th/id/OIP.fj785b1WfQF6KVMDvzptNgAAAA?w=205&h=205&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+      "startDate": "Jun 24",
+      "price": "500 EGP",
+      "location": "Alexandria, Egypt",
+      "date_and_time": "Thursday, 24 June · 3:30 - 6:30pm EET",
+      "duration": "3 Hours",
+      "followersNum": "123.6K"
+      },
+
+      {
+        "id": 2,
+        "img": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F440854699%2F140533847643%2F1%2Foriginal.20230207-112359?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C72%2C1228%2C614&s=a4be3f3cf640cd2791d10eb04df87581",
+        "title": "Title2",
+        "organizer": "Organizer2",
+        "caption": "Caption2",
+        "organizer_icon": "https://th.bing.com/th/id/OIP.fj785b1WfQF6KVMDvzptNgAAAA?w=205&h=205&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+        "startDate": "Apr 3",
+        "price": "Free",
+        "location": "Giza, Egypt",
+        "date_and_time": "Sunday, 3 April · 2:30 - 4:30pm EET",
+        "duration": "2 Hours",
+        "followersNum": "1M"
+      },
+
+      {
+        "id": 3,
+        "img": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F440854699%2F140533847643%2F1%2Foriginal.20230207-112359?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C72%2C1228%2C614&s=a4be3f3cf640cd2791d10eb04df87581",
+        "title": "Title3",
+        "organizer": "Organizer3",
+        "caption": "Caption3",
+        "organizer_icon": "https://th.bing.com/th/id/OIP.fj785b1WfQF6KVMDvzptNgAAAA?w=205&h=205&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+        "startDate": "Aug 14",
+        "price": "Free",
+        "location": "New Cairo, Egypt",
+        "date_and_time": "Monday, 14 August · 8:30 - 10:00pm EET",
+        "duration": "90 Minutes",
+        "followersNum": "10K"
+        },
+
+        {
+          "id": 4,
+          "img": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F440854699%2F140533847643%2F1%2Foriginal.20230207-112359?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C72%2C1228%2C614&s=a4be3f3cf640cd2791d10eb04df87581",
+          "title": "Title4",
+          "organizer": "Organizer4",
+          "caption": "Caption4",
+          "organizer_icon": "https://th.bing.com/th/id/OIP.fj785b1WfQF6KVMDvzptNgAAAA?w=205&h=205&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+          "startDate": "Jul 20",
+          "price": "890 EGP",
+          "location": "Hurghada, Egypt",
+          "date_and_time": "Thurday, 20 July · 6:30 - 11:30pm EET",
+          "duration": "5 Hours",
+          "followersNum": "3M"
+        },
+
+        {
+          "id": 5,
+          "img": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F440854699%2F140533847643%2F1%2Foriginal.20230207-112359?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C72%2C1228%2C614&s=a4be3f3cf640cd2791d10eb04df87581",
+          "title": "Title5",
+          "organizer": "Organizer5",
+          "caption": "Caption5",
+          "organizer_icon": "https://th.bing.com/th/id/OIP.fj785b1WfQF6KVMDvzptNgAAAA?w=205&h=205&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+          "startDate": "Mar 7",
+          "price": "550 EGP",
+          "location": "Dahab, Egypt",
+          "date_and_time": "Wednesday, 7 March · 1:00 - 5:00pm EET",
+          "duration": "4 Hours",
+          "followersNum": "500K"
+        },
+
+        {
+          "id": 6,
+          "img": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F440854699%2F140533847643%2F1%2Foriginal.20230207-112359?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C72%2C1228%2C614&s=a4be3f3cf640cd2791d10eb04df87581",
+          "title": "Title6",
+          "organizer": "Organizer6",
+          "caption": "Caption6",
+          "organizer_icon": "https://th.bing.com/th/id/OIP.fj785b1WfQF6KVMDvzptNgAAAA?w=205&h=205&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+          "startDate": "Apr 29",
+          "price": "75 EGP",
+          "location": "CIS, Cairo, Egypt",
+          "date_and_time": "Saturday, 29 January · 10:00 - 12:00pm EET",
+          "duration": "2 Hours",
+          "followersNum": "50M"
+          },
+
+          {
+            "id": 7,
+            "img": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F440854699%2F140533847643%2F1%2Foriginal.20230207-112359?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C72%2C1228%2C614&s=a4be3f3cf640cd2791d10eb04df87581",
+            "title": "Title7",
+            "organizer": "Organizer7",
+            "caption": "Caption7",
+            "organizer_icon": "https://th.bing.com/th/id/OIP.fj785b1WfQF6KVMDvzptNgAAAA?w=205&h=205&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+            "startDate": "Jan 23",
+            "price": "50 EGP",
+            "location": "Cairo, Egypt",
+            "date_and_time": "Sunday, 23 January · 5:30 - 6:30pm EET",
+            "duration": "1 Hour",
+            "followersNum": "600"
+          },
+
+          {
+            "id": 8,
+            "img": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F440854699%2F140533847643%2F1%2Foriginal.20230207-112359?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C72%2C1228%2C614&s=a4be3f3cf640cd2791d10eb04df87581",
+            "title": "Title8",
+            "organizer": "Organizer8",
+            "caption": "Caption8",
+            "organizer_icon": "https://th.bing.com/th/id/OIP.fj785b1WfQF6KVMDvzptNgAAAA?w=205&h=205&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+            "startDate": "Apr 28",
+            "price": "100 EGP",
+            "location": "Mohammad V Stadium, Casablanca, Morocco",
+            "date_and_time": "Friday, 28 April · 11:00pm - 1:00am EET",
+            "duration": "2 Hours",
+            "followersNum": "50M"
+            },
+
+            {
+              "id": 9,
+              "img": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F440854699%2F140533847643%2F1%2Foriginal.20230207-112359?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C72%2C1228%2C614&s=a4be3f3cf640cd2791d10eb04df87581",
+              "title": "Title9",
+              "organizer": "Organizer9",
+              "caption": "Caption9",
+              "organizer_icon": "https://th.bing.com/th/id/OIP.fj785b1WfQF6KVMDvzptNgAAAA?w=205&h=205&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+              "startDate": "Apr 29",
+              "price": "100 EGP",
+              "location": "Loftus Versfeld Stadium, South Africa",
+              "date_and_time": "Saturday, 29 April · 4:00 - 6:00pm EET",
+              "duration": "2 Hours",
+              "followersNum": "50M"
+            },
+
+            {
+              "id": 10,
+              "img": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F440854699%2F140533847643%2F1%2Foriginal.20230207-112359?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C72%2C1228%2C614&s=a4be3f3cf640cd2791d10eb04df87581",
+              "title": "Title10",
+              "organizer": "Organizer10",
+              "caption": "Caption10",
+              "organizer_icon": "https://th.bing.com/th/id/OIP.fj785b1WfQF6KVMDvzptNgAAAA?w=205&h=205&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+              "startDate": "May 5",
+              "price": "150 EGP",
+              "location": "Hazza Bin Zayed, Abu Dhabi, UAE",
+              "date_and_time": "Friday, 5 May · 7:30 - 9:30pm EET",
+              "duration": "2 Hours",
+              "followersNum": "10M"
+            },
+
+            {
+              "id": 11,
+              "img": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F440854699%2F140533847643%2F1%2Foriginal.20230207-112359?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C72%2C1228%2C614&s=a4be3f3cf640cd2791d10eb04df87581",
+              "title": "Title11",
+              "organizer": "Organizer11",
+              "caption": "Caption11",
+              "organizer_icon": "https://th.bing.com/th/id/OIP.fj785b1WfQF6KVMDvzptNgAAAA?w=205&h=205&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+              "startDate": "May 9",
+              "price": "5000 EGP",
+              "location": "Estadio Santiago Bernabeu, Madrid, Spain",
+              "date_and_time": "Tuesday, 9 May · 10:00pm - 11:45am EET",
+              "duration": "105 Minutes",
+              "followersNum": "100M"
+            }
+  ],
   "eventsPreview": [
     {
+      "id": "0",
       "title": "Title1",
       "organizer": "Organizer1",
       "startDate": "Tomorrow at 9PM",
@@ -82,6 +349,7 @@
       "followersNum": "600"
     },
     {
+      "id": "1",
       "title": "Title2",
       "organizer": "Organizer2",
       "startDate": "Tomorrow at 10",
@@ -90,6 +358,7 @@
       "followersNum": "60"
     },
     {
+      "id": "2",
       "title": "Title3",
       "organizer": "Organizer3",
       "startDate": "10/4/2023",
@@ -98,6 +367,7 @@
       "followersNum": "6"
     },
     {
+      "id": "3",
       "title": "Title4",
       "organizer": "Organizer4",
       "startDate": "12 /4/2023",
@@ -106,6 +376,7 @@
       "followersNum": "70"
     },
     {
+      "id": "4",
       "title": "Title5",
       "organizer": "Organizer5",
       "startDate": "11/4/2023",
@@ -114,6 +385,7 @@
       "followersNum": "68"
     },
     {
+      "id": "5",
       "title": "Title6",
       "organizer": "Organizer6",
       "startDate": "26/4/2023",
@@ -122,6 +394,7 @@
       "followersNum": "412"
     },
     {
+      "id": "6",
       "title": "Title7",
       "organizer": "Organizer7",
       "startDate": "24/4/2023",
@@ -130,6 +403,7 @@
       "followersNum": "1235"
     },
     {
+      "id": "7",
       "title": "Title8",
       "organizer": "Organizer8",
       "startDate": "21/4/2023",
@@ -138,6 +412,7 @@
       "followersNum": "451"
     },
     {
+      "id": "8",
       "title": "Title9",
       "organizer": "Organizer9",
       "startDate": "20/4/2023",
@@ -146,6 +421,7 @@
       "followersNum": "532"
     },
     {
+      "id": "9",
       "title": "Title10",
       "organizer": "Organizer10",
       "startDate": "24/4/2023",
@@ -154,6 +430,7 @@
       "followersNum": "4685"
     },
     {
+      "id": "10",
       "title": "Title11",
       "organizer": "Organizer11",
       "startDate": "22/4/2023",
@@ -162,12 +439,31 @@
       "followersNum": "562"
     },
     {
+      "id": "11",
       "title": "Title12",
       "organizer": "Organizer12",
       "startDate": "19/4/2023",
       "price": "400 EGP",
       "location": "Cairo, Egypt",
       "followersNum": "452"
+    }
+  ],
+  "orders": [
+    {
+      "event": "",
+      "id": "",
+      "fname": "",
+      "lname": "",
+      "email": "",
+      "promo": "",
+      "orderedItems": {
+        "ticketClass": "",
+        "qty": ""
+      },
+      "fullprice": "",
+      "discount": "",
+      "total": "",
+      "fee": ""
     }
   ]
 }
