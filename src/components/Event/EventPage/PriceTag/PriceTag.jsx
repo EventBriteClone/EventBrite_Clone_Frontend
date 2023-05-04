@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import styles from "./PriceTag.module.css";
 import Popup from "../../popup/Popup";
+import { Link } from "react-router-dom"
 
 export default function PriceTag(props) {
-  const [popupOpen, setPopupOpen] = useState(false);
-
-  if (props.buttonClass === "") {
-    props.buttonClass = `${styles["eds-btn"]} ${styles["eds-btn--button"]} ${styles["eds-btn--fill"]} ${styles["js-embed-ticket-modal-btn"]}`
-  }
-
+  const [show,setShow]=useState(false);
+  const price = props.price;
+  const image = props.img;
   return (
     <div>
       <div className={styles["price-tag"]}>
@@ -18,14 +16,13 @@ export default function PriceTag(props) {
           data-testid="checkout-link"
           data-tracking-label="Tickets"
           data-heap-id="Conversion Bar - Checkout Button"
-          className={props.buttonClass}
-          type="button"
-          onClick={() => setPopupOpen(true)}
+          className={ `${styles["eds-btn"]} ${styles["eds-btn--button"]} ${styles["eds-btn--fill"]} ${styles["js-embed-ticket-modal-btn"]}`        }
+          onClick={() => setShow(true)}
         >
-          Get tickets
+          Get Tickets
         </button>
       </div>
-      {popupOpen && <Popup price={props.price} event={props.id}/>}
+      {show && <Popup price={price} event={props.id} show={show} setShow={setShow} img={image} title={props.title}/>}
     </div>
   );
 }

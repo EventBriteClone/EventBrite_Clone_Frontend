@@ -10,11 +10,15 @@ import ShareButton from "../../UI/ShareButton";
 import LikeButton from "./LikeButton"
 import Footer from "./Footer"
 import config from "../../../utils/config";
+import useFetch from "../../../custom-hooks/useFetch";
+import NotFound from "./NotFound/NotFound";
 
 function Event() {
   let data;
-  const endpoint = config.mocking === "true" ? `events/ID/${event_ID}` : `events/${id}`;
+  const id = window.location.href.split('/').at(-1)
+  const endpoint = config.mocking === "true" ? `events/${id}` : `events/ID/${id}/`;
   const { response } = useFetch({ endpoint })
+  console.log(response)
   if (config.mocking === "true"){
     data = response;
   }
@@ -34,13 +38,13 @@ function Event() {
     })
   }
 
-  const event = data && {
-    id: "1",
+  const event =  {
+    id: 1,
     img: "https://syndicode.com/wp-content/uploads/2017/10/UX-vs-UI-e1507292179406.png",
     date: "Nov 15",
     title: "UI/UX Workshop",
     caption: "Professional UI/UX Workshop",
-    price: "€549 – €699",
+    price: "€49",
     organizer: "Google",
     organizerIcon: "https://th.bing.com/th/id/OIP.T6F6Vja5ue4BhRs81wWlywHaHa?pid=ImgDet&rs=1",
     organizerFollowers: "10M",
@@ -54,7 +58,7 @@ function Event() {
       <Header></Header>
       <EventHeader img={event.img} />
       <EventInfo date={event.date} title={event.title} caption={event.caption}/>
-      <PriceTag price={event.price} event={event.id}/>
+      <PriceTag price={event.price} event={event.id} img={event.img} title={event.title}/>
       <Organizer organizer={event.organizer} organizerIcon={event.organizerIcon} organizerFollowers={event.organizerFollowers}/>
       <EventDetails dateAndtime={event.dateAndtime} location={event.location} duration={event.duration} ticket={event.ticket}/>
       <ShareEvent />

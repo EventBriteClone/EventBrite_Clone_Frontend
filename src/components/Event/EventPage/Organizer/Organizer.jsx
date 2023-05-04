@@ -1,6 +1,13 @@
 import styles from "./Organizer.module.css";
+import { useState } from "react"
 
 export default function Organizer(props) {
+  const [followed, setFollowed] = useState(false);
+
+  const handleClick = () => {
+    setFollowed(!followed);
+  };
+  
   return (
     <section className={styles["organizer-container"]}>
       <div className={styles["organizer-profile"]}>
@@ -30,7 +37,9 @@ export default function Organizer(props) {
           </div>
           <div class={styles["organizer-stats"]}>
             <div class={styles["followers-count"]}>
-              <span class={styles["organizer-followers"]}>{props.organizerFollowers}</span>{" "}
+              <span class={styles["organizer-followers"]}>
+                {props.organizerFollowers}
+              </span>{" "}
               <span style={{ color: "#6f7287" }}>followers</span>
             </div>
           </div>
@@ -38,10 +47,15 @@ export default function Organizer(props) {
       </div>
       <div class={styles["organizer-follow"]}>
         <button
-          class={`${styles["eds-btn eds-btn--button"]} ${styles["eds-btn--follow"]} ${styles["follow-button-listing-page"]}`}
+          className={`${styles["eds-btn"]} ${styles["eds-btn--button"]} ${styles["eds-btn--follow"]} ${styles["follow-button-listing-page"]}`}
           type="button"
+          onClick={handleClick}
+          style={{
+            backgroundColor: followed ? "#4560b0" : "#3659e3",
+            color: followed ? "#fff" : "#fff",
+          }}
         >
-          Follow
+          {followed ? "Followed!" : "Follow"}
         </button>
       </div>
     </section>

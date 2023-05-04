@@ -17,6 +17,7 @@ import configuration from "./utils/config";
 import New from "./Pages/New";
 import Login from "./Pages/Login";
 import AuthContextProvider from "./context/AuthContext";
+import NotFound from "./components/Event/EventPage/NotFound/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,14 @@ const router = createBrowserRouter([
     path: "/event/:id",
     element: <EventPage />,
   },
+  {
+    path: "*",
+    element: <NotFound/>
+  },
+  // {
+  //   path: "/event/:id/booking",
+  //   element: <Popup/>
+  // },
   {
     path: "/my-events",
     element: <EventCreator />,
