@@ -259,8 +259,13 @@ flex-direction: column;
 
 .summary-total p{
   font-weight: bold;
-  
+
 }
+
+.summar-subtotal p{
+  font-weight: normal;
+}
+
 .bottom-button{
   display: none;
 }

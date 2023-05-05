@@ -1,24 +1,29 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { BsXLg, BsArrowLeft } from "react-icons/bs";
-import "./popup.css";
+import styles from "./Popup.module.css";
 import { NavLink } from "react-router-dom";
-import image from "../../../assets/images/side-view.jfif";
-import Timer from "../timer/Timer";
-import logoImg from "../../../assets/images/eventus.png";
-import config from "../../../utils/config";
-import { fetchDataFromAPI } from "../../../utils";
+import Timer from "../Timer/Timer";
+import logoImg from "../../../../assets/images/eventus.png";
+import swal from "sweetalert";
+import config from "../../../../utils/config";
+import { fetchDataFromAPI } from "../../../../utils";
 // import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
 const Popup = ({ show, setShow, ...props }) => {
+  const subTotal = props.price;
 
-  const Total = props.price;
+  const discount = `${subTotal[0]}`+32;
+
+  const fees = `${subTotal[0]}`+50;
 
   const [stepOne, setStepOne] = useState(false);
 
   const [number, setNumber] = useState(1);
 
-  const [total, setTotal] = useState(Total);
+  const [subtotal, setSubTotal] = useState(subTotal);
+
+  const [total, setTotal] = useState(subtotal[0] + Number(subTotal.slice(1) - Number(discount.slice(1)) + Number(fees.slice(1))));
 
   const [isValid, setIsValid] = useState({
     fname: false,
@@ -74,7 +79,12 @@ const Popup = ({ show, setShow, ...props }) => {
     }
     event.preventDefault();
     
+
     setShow(false);
+
+    swal("", "Order Placed Successfully!", "success");
+
+
     // let endpoint, configurationOpt = {};
     // if (config.mocking === "true") {
     //   endpoint = "orders";
@@ -102,12 +112,12 @@ const Popup = ({ show, setShow, ...props }) => {
     }));
   };
 
-
   const handleIncrement = () => {
     if (number < 10) {
       setNumber(number + 1);
       if (props.price != "0") {
-      setTotal("€"+(Number(total.slice(1))+(Number(props.price.slice(1)))));
+        setSubTotal(subtotal[0] + (Number(subtotal.slice(1)) + Number(props.price.slice(1))));
+        setTotal(total[0] + (Number(total.slice(1)) + Number(props.price.slice(1))));
       }
     }
   };
@@ -116,51 +126,59 @@ const Popup = ({ show, setShow, ...props }) => {
     if (number > 1) {
       setNumber(number - 1);
       if (props.price != "0") {
-      setTotal("€"+(Number(total.slice(1))-(Number(props.price.slice(1)))));
+        setSubTotal(subtotal[0] + (Number(subtotal.slice(1)) - Number(props.price.slice(1))));
+        setTotal(total[0] + (Number(total.slice(1)) - Number(props.price.slice(1))));
       }
     }
-  }
+  };
+  
   return (
-    <div className="model">
-      <div className="model-inner">
-        <BsArrowLeft className="back-icon" onClick={backIcon} />
+    <div className={styles["model"]}>
+      <div className={styles["model-inner"]}>
+        <BsArrowLeft className={styles["back-icon"]} onClick={backIcon} />
         {stepOne ? (
           ""
         ) : (
-          <BsXLg className="cross-icon" onClick={() => setShow(false)} />
+          <BsXLg
+            className={styles["cross-icon"]}
+            onClick={() => setShow(false)}
+          />
         )}
 
         {stepOne ? (
-          <div className="step-one">
-            <div className="top">
+          <div className={styles["step-one"]}>
+            <div className={styles["top"]}>
               <h1>Leave Checkout?</h1>
               <p>
                 Are you sure you want to leave checkout? The items you've
                 selected may not be available later.
               </p>
             </div>
-            <div className="bottom">
-              <button className="stay" onClick={stay}>
+            <div className={styles["bottom"]}>
+              <button className={styles["stay"]} onClick={stay}>
                 Stay
               </button>
-              <button className="leave" onClick={() => setShow(false)}>
+              <button
+                className={styles["leave"]}
+                onClick={() => setShow(false)}
+              >
                 Leave
               </button>
             </div>
           </div>
         ) : (
-          <div className="wraper">
-            <div className="left">
+          <div className={styles["wraper"]}>
+            <div className={styles["left"]}>
               <form onSubmit={handleSubmit}>
-                <div className="left-top">
-                  <p className="check">Checkout</p>
+                <div className={styles["left-top"]}>
+                  <p className={styles["check"]}>Checkout</p>
                   <Timer onTimerEnd={onTimerEnd} />
                 </div>
 
-                <div className="left-middle">
+                <div className={styles["left-middle"]}>
                   <h1>Billing Information</h1>
 
-                  <div className="login">
+                  <div className={styles["login"]}>
                     <p>
                       <NavLink to="/">Login</NavLink> for a faster experience
                     </p>
@@ -169,13 +187,13 @@ const Popup = ({ show, setShow, ...props }) => {
                     </p>
                   </div>
 
-                  <div className="two-fields">
-                    <div className="field-container">
+                  <div className={styles["two-fields"]}>
+                    <div className={styles["field-container"]}>
                       <input
                         type="text"
                         placeholder="First name"
                         required
-                        className="custom-field"
+                        className={styles["custom-field"]}
                         name="fname"
                         onFocus={checkValid}
                         onBlur={checkValid}
@@ -183,7 +201,7 @@ const Popup = ({ show, setShow, ...props }) => {
                       {isValid.fname ? <p>First Name is required *</p> : ""}
                     </div>
 
-                    <div className="field-container">
+                    <div className={styles["field-container"]}>
                       <input
                         type="text"
                         placeholder="Last name"
@@ -191,19 +209,19 @@ const Popup = ({ show, setShow, ...props }) => {
                         name="lname"
                         onFocus={checkValid}
                         onBlur={checkValid}
-                        className="custom-field"
+                        className={styles["custom-field"]}
                       />
                       {isValid.lname ? <p>Last name is required *</p> : ""}
                     </div>
                   </div>
 
-                  <div className="two-fields">
-                    <div className="field-container">
+                  <div className={styles["two-fields"]}>
+                    <div className={styles["field-container"]}>
                       <input
                         type="email"
                         placeholder="Email address"
                         required
-                        className="custom-field"
+                        className={styles["custom-field"]}
                         name="email"
                         onFocus={checkValid}
                         onBlur={checkValid}
@@ -215,38 +233,39 @@ const Popup = ({ show, setShow, ...props }) => {
                       )}
                     </div>
 
-                    <div className="field-container">
+                    <div className={styles["field-container"]}>
                       <input
                         type="email"
                         placeholder="Confirm email address"
                         required
-                        className="custom-field"
+                        className={styles["custom-field"]}
                       />
                       {validmail ? <p>Email address doesn't match </p> : ""}
                     </div>
                   </div>
 
-                  <div className="two-fields">
-                    <div className="field-container margin-0 ">
+                  <div className={styles["two-fields"]}>
+                    <div className={styles["field-container margin-0"]}>
                       <input
                         type="text"
                         placeholder="Promo code"
-                        className="custom-field"
+                        className={styles["custom-field"]}
                       />
                     </div>
                   </div>
-          
-                    <div className="powered-by">
-                      <p>Powered by </p>
-                      <img src={logoImg} alt="logo" />
-                    </div>
-          
+
+                  <div className={styles["powered-by"]}>
+                    <p>Powered by </p>
+                    <img src={logoImg} alt="logo" />
+                  </div>
                 </div>
 
-                <div className="left-bottom top-button">
+                <div
+                  className={`${styles["left-bottom"]} ${styles["top-button"]}`}
+                >
                   <button
                     type="submit"
-                    className="order-btn"
+                    className={styles["order-btn"]}
                     onClick={handleSubmit}
                   >
                     Place Order
@@ -255,16 +274,22 @@ const Popup = ({ show, setShow, ...props }) => {
               </form>
             </div>
 
-            <div className="right">
-              <div className="right-top">
-                <img src={props.img} alt="image" className="side-image" />
+            <div className={styles["right"]}>
+              <div className={styles["right-top"]}>
+                <img
+                  src={props.img}
+                  alt="image"
+                  className={styles["side-image"]}
+                />
 
-                <div className="summary">
+                <div className={styles["summary"]}>
                   <h4>Order Summary</h4>
 
-                  <div className="summary-item">
+                  <div className={styles["summary-item"]}>
                     <div>
-                      <p>{number} x {props.title} </p>
+                      <p>
+                        {number} x {props.title}{" "}
+                      </p>
                     </div>
 
                     <p>{props.price}</p>
@@ -280,20 +305,66 @@ const Popup = ({ show, setShow, ...props }) => {
                     <p>{props.price}</p>
                       </div> */}
 
-                  <div className="number-picker">
-                    <button className="minus" onClick={handleDecrement}>-</button>
-                    <button className="plus" onClick={handleIncrement}>+</button>
+                  <div className={styles["number-picker"]}>
+                    <button
+                      className={styles["minus"]}
+                      onClick={handleDecrement}
+                    >
+                      -
+                    </button>
+                    <button
+                      className={styles["plus"]}
+                      onClick={handleIncrement}
+                    >
+                      +
+                    </button>
                   </div>
 
-                  <div className="summary-item summary-total">
+                  <div
+                    className={`${styles["summary-item"]} ${styles["summary-subtotal"]}`}
+                  >
+                    <div>
+                      <p>Subtotal</p>
+                    </div>
+                    <p>{subtotal}</p>
+                  </div>
+
+                  <div
+                    className={`${styles["summary-item"]} ${styles["summary-subtotal"]}`}
+                  >
+                    <div>
+                      <p>Fees</p>
+                    </div>
+                    <p>{fees}</p>
+                  </div>
+
+                  <div
+                    className={`${styles["summary-item"]} ${styles["summary-subtotal"]}`}
+                  >
+                    <div>
+                      <p>Discount</p>
+                    </div>
+                    <p>-{discount}</p>
+                  </div>
+
+                  <div
+                    className={`${styles["summary-item"]} ${styles["summary-total"]}`}
+                  >
                     <div>
                       <p>Total</p>
                     </div>
                     <p>{total}</p>
                   </div>
 
-                  <div className="left-bottom bottom-button">
-                    <button className="order-btn" onClick={handleSubmit}>Place Order</button>
+                  <div
+                    className={`${styles["left-bottom"]} ${styles["bottom-button"]}`}
+                  >
+                    <button
+                      className={styles["order-btn"]}
+                      onClick={handleSubmit}
+                    >
+                      Place Order
+                    </button>
                   </div>
                 </div>
               </div>

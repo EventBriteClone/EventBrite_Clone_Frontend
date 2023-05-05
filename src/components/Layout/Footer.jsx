@@ -1,4 +1,4 @@
-import "./footer.css";
+import styles from "./Footer.module.css";
 import styled from "styled-components";
 
 export default function Footer() {
@@ -57,11 +57,11 @@ export default function Footer() {
     
   return (
   
-       <div className="footer">
-      <div className="sb__footer section__padding">
-        <div className="sb__footer-links">
-          <div className="sb__footer-links_div">
-            <h4>Use Eventbrite</h4>
+       <div className={styles["footer"]}>
+      <div className={`${styles["sb__footer"]} ${styles["section__padding"]}`}>
+        <div className={styles["sb__footer-links"]}>
+          <div className={styles["sb__footer-links_div"]}>
+            <h4>Use Eventus</h4>
             <a href="https://www.eventbrite.com/organizer/overview/">
               <p>Create Events</p>
             </a>
@@ -69,16 +69,16 @@ export default function Footer() {
               <p>Pricing</p>
             </a>
             <a href="https://www.eventbrite.com/boost/">
-              <p>Eventbrite Boost</p>
+              <p>Eventus Boost</p>
             </a>
             <a href="https://www.eventbrite.com/l/eventbrite-app/">
-              <p>Eventbrite Mobile Ticket App</p>
+              <p>Eventus Mobile Ticket App</p>
             </a>
             <a href="https://www.eventbrite.com/l/organizer-check-in-app/">
-              <p>Eventbrite Check-In App</p>
+              <p>Eventus Check-In App</p>
             </a>
             <a href="https://www.eventbrite.com/apps/">
-              <p>Eventbrite App Marketplace</p>
+              <p>Eventus App Marketplace</p>
             </a>
             <a href="https://www.eventbrite.com/l/registration-online/">
               <p>Event Registration Software</p>
@@ -93,7 +93,7 @@ export default function Footer() {
               <p>Sitemap</p>
             </a>
           </div>
-          <div className="sb__footer-links_div">
+          <div className={styles["sb__footer-links_div"]}>
             <h4>Plan Events</h4>
             <a href="https://www.eventbrite.com/l/sell-tickets/">
               <p>Sell Tickets Online</p>
@@ -127,7 +127,7 @@ export default function Footer() {
             </a>
           </div>
 
-          <div className="sb__footer-links_div">
+          <div className={styles["sb__footer-links_div"]}>
             <h4>Find Events</h4>
             <a href="https://www.eventbrite.com/b/la--new-orleans/food-and-drink/">
               <p>New Orleans Food & Drink Events</p>
@@ -161,7 +161,7 @@ export default function Footer() {
             </a>
           </div>
 
-          <div className="sb__footer-links_div">
+          <div className={styles["sb__footer-links_div"]}>
             <h4>Connect With Us</h4>
             <a href="https://www.eventbrite.com/support/contact-us">
               <p>Contact Support</p>
@@ -183,8 +183,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="sb__footer-below-links">
-          <Ul className="sb__footer-below-links-ul">
+        <div className={styles["sb__footer-below-links"]}>
+          <Ul className={styles["sb__footer-below-links-ul"]}>
             <li>
               <a href="/terms">
                 <p>About</p>
@@ -256,9 +256,9 @@ export default function Footer() {
           </Ul>
         </div>
 
-        <div className="sb__footer-below">
-          <div className="sb__footer-copyright">
-            <p>@{new Date().getFullYear()} EventBrite</p>
+        <div className={styles["sb__footer-below"]}>
+          <div className={styles["sb__footer-copyright"]}>
+            <p>@{new Date().getFullYear()} Eventus</p>
           </div>
 
           <Select  >

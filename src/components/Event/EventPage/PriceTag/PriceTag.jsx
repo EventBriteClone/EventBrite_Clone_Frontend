@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styles from "./PriceTag.module.css";
-import Popup from "../../popup/Popup";
-import { Link } from "react-router-dom"
+import Popup from "../Popup/Popup";
 
 export default function PriceTag(props) {
   const [show,setShow]=useState(false);
