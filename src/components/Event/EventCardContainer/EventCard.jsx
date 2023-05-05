@@ -4,7 +4,18 @@ import PersonIcon from "../../Icons/PersonIcon";
 import { Link } from "react-router-dom";
 
 export default function EventCard(props) {
-  const { event } = props;
+  // const { event } = props;
+  const {
+    event = {
+      id: "",
+      title: "",
+      startDate: "",
+      location: "",
+      price: "",
+      organizer: "",
+      followersNum: "",
+    },
+  } = props;
   return (
     <div
       className={`${styles["event-card__response"]} event__card`}
