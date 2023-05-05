@@ -39,7 +39,7 @@
     "react-icons": "^4.8.0",
     "react-router-dom": "^6.9.0",
     "remixicon": "^2.5.0",
-    "styled-components": "^5.3.9"
+    "styled-components": "^5.3.10"
   },
   "devDependencies": {
     "@babel/core": "^7.21.3",

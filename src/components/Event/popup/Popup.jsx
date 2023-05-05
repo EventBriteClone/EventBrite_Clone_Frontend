@@ -6,7 +6,6 @@ import { NavLink } from "react-router-dom";
 import image from "../../../assets/images/side-view.jfif";
 import Timer from "../timer/Timer";
 import logoImg from "../../../assets/images/logo.png";
-// import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
 const Popup = ({show,setShow}) => {
   const [stepOne, setStepOne] = useState(false);
