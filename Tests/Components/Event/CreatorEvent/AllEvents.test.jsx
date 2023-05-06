@@ -11,7 +11,7 @@ describe("AllEvents component", () => {
       </BrowserRouter>
     );
 
-    const eventCards = screen.getAllByTestId("event-card");
+    const eventCards = document.querySelectorAll(".event__card");
     expect(eventCards.length).toBe(6);
   });
 });

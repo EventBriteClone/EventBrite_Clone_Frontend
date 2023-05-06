@@ -17,6 +17,7 @@ import configuration from "./utils/config";
 import New from "./Pages/New";
 import Login from "./Pages/Login";
 import AuthContextProvider from "./context/AuthContext";
+import ManageAttendees from "./Pages/ManageAttendees";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
   {
     path: "/my-events",
     element: <EventCreator />,
+  },
+  {
+    path: "/manage-attendees",
+    element: <ManageAttendees />,
   },
 ]);
 

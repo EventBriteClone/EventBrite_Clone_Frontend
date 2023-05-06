@@ -1,7 +1,7 @@
 import { test, expect, describe } from "vitest";
 import { getByText, render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import EventDetails from "../../../../src/components/Event/EventPage/EventDetails";
+import EventDetails from "../../../../src/components/Event/EventPage/EventDetails/EventDetails";
 
 describe("get tickets", () => {
     it("renders text", () => {
