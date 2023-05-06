@@ -19,10 +19,7 @@ export default function PriceTag(props) {
           Get tickets
         </button>
       </div>
-<<<<<<< HEAD
       {show && <Popup price={price} event={props.event} show={show} setShow={setShow} img={image} title={props.title}/>}
-=======
->>>>>>> 2b46fc69c80d70947595a65922c06276f0323e53
     </div>
   );
 }
