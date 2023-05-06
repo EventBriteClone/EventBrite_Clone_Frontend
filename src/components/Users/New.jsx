@@ -12,7 +12,9 @@ import Input from "../UI/Input";
 
 const New = (props) => {
   const navigate = useNavigate();
-  let [invalidEmail, setInvalidConfirmemail] = useState(false);
+  const { setAuthData } = useContext(AuthContext);
+  let [invalidconfirmemail, setInvalidConfirmemail] = useState(false);
+  const [invalidemail, setInvalidemail] = useState(false);
   const [invalidFirstname, setInvalidFirstname] = useState(false);
   const [invalidLastname, setInvalidLastname] = useState(false);
   const [invalidpassword, setInvalidpassword] = useState(false);
@@ -26,7 +28,7 @@ const New = (props) => {
   console.log(confirmEmail);
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
-    console.log(email);
+    console.log("email", email);
   };
 
   const handlePasswordChange = (event) => {
@@ -54,194 +56,92 @@ const New = (props) => {
 
   const validateEmail = () => {
     var nameRegex = /^[a-zA-Z\-]+$/;
+    const validRegex =
+      /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     var passwordRegex = /^(?=.*\d)(?=(.*\W))(?=.*[a-zA-Z])(?!.*\s).{8,20}$/;
     // perform email validation here
-    if (props.email !== confirmEmail) {
+    console.log("email", email);
+    console.log("props.email", props.email);
+    if (props.email) {
+      setInvalidemail(false);
+    } else {
+      setInvalidemail(true);
+    }
+
+    if (!confirmEmail || confirmEmail != props.email) {
       setInvalidConfirmemail(true);
-
-      alert("Email and Confirm Email do not match");
-
-      console.log("d5lt");
-    } else if (firstName.match(nameRegex) == null) {
-      alert("please enter correct first name");
-      setInvalidFirstname(true);
-    } else if (lastName.match(nameRegex) == null) {
-      alert("please enter correct last name");
-      setInvalidLastname(true);
-    } else if (!password) {
-      setInvalidpassword(true);
-      alert("Please enter valid password");
     } else {
       setInvalidConfirmemail(false);
+    }
+
+    // if (!confirmEmail) {
+    //   setInvalidConfirmemail(true);
+    // } else {
+    //   setInvalidConfirmemail(false);
+    // }
+
+    if (firstName.match(nameRegex) == null) {
+      setInvalidFirstname(true);
+    } else {
       setInvalidFirstname(false);
+    }
+    if (lastName.match(nameRegex) == null) {
+      setInvalidLastname(true);
+    } else {
       setInvalidLastname(false);
+    }
+    if (!password || password.match(passwordRegex) == null) {
+      setInvalidpassword(true);
+    } else {
       setInvalidpassword(false);
       console.log("sa7 ya ba4a");
     }
   };
-  //     const formdata = new FormData();
-  // formdata.append("email", props.email);
-  // formdata.append("first_name", firstName);
-  // formdata.append("last_name", lastName);
-  // formdata.append("password", password);
-
-  // const requestOptions = {
-  //   method: 'POST',
-  //   body: formdata,
-  //   headers: {
-  //     'Accept': 'application/json',
-  //   },
-  //   redirect: 'follow'
-  // };
-
-  // console.log("fetching data...");
-  // const response = await fetch("https://event-us.me:8000/user/signup/", requestOptions);
-  // const data = await response.json();
-  // console.log("response", data);
-
-  // if (data.error) {
-  //   // handle error
-  //   return;
-  // } else {
-  //   navigate("/login");
-  //   setAuthData(data);
-  // }
 
   async function submitHandler(e) {
     e.preventDefault();
     if (
-      invalidEmail ||
+      invalidemail ||
+      invalidconfirmemail ||
       invalidFirstname ||
       invalidLastname ||
       invalidpassword
     ) {
       return;
     } else {
-      let endpoint,
-        configurationOpt = {};
-      if (config.mocking) {
-        console.log("using mock server");
-        endpoint = `users`;
-        configurationOpt = {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            email: props.email,
-            first_name: firstName,
-            last_name: lastName,
-            password: password,
-          }),
-          timeout: 10000,
-        };
-      } else {
-        endpoint = "user/signup/";
-        configurationOpt = {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            email: props.email,
-            first_name: firstName,
-            last_name: lastName,
-            password: password,
-          }),
-          timeout: 10000,
-        };
-      }
+      let endpoint, configurationOpt;
+      endpoint = "user/signup/";
+      configurationOpt = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: props.email,
+          first_name: firstName,
+          last_name: lastName,
+          password: password,
+        }),
+        timeout: 10000,
+      };
+
       console.log("fetching data...");
-      const response = await fetchDataFromAPI({ endpoint, configurationOpt });
-      console.log("response", response);
-      if (response.error) {
-        // handle error
-        return;
-      } else {
+      try {
+        const res = await fetch(
+          `${"https://event-us.me:8000/"}${endpoint}`,
+          configurationOpt
+        );
+        const response = await res.json();
+        console.log("response", response);
+        setAuthData(response);
         navigate("/login");
-        if (config.mocking) {
-          if (response) {
-            console.log("ro7 ya 7omar");
-            navigate("/login");
-            setAuthData(response[0]);
-            // con;
-            // navigate("/login");
-          }
-        } else {
-          setAuthData(response);
-          navigate("/login");
-        }
+      } catch (error) {
+        console.error(error);
+        alert("you already signed up with this account");
+        navigate("/login");
+        return { error };
       }
     }
   }
-  // const config = {
-  //   baseURL: "https://event-us.me:8000/",
-  //   mocking: false,
-  // };
 
-  // async function submitHandler(e) {
-  //   e.preventDefault();
-  //   if (
-  //     invalidEmail ||
-  //     invalidFirstname ||
-  //     invalidLastname ||
-  //     invalidpassword
-  //   ) {
-  //     return;
-  //   } else {
-  //     let endpoint,
-  //       configurationOpt = {};
-  //     if (config.mocking) {
-  //       console.log("using mock server");
-  //       endpoint = `users`;
-  //       configurationOpt = {
-  //         method: "POST",
-  //         headers: { "Content-Type": "application/json" },
-  //         body: JSON.stringify({
-  //           email: props.email,
-  //           first_name: firstName,
-  //           last_name: lastName,
-  //           password: password,
-  //         }),
-  //         timeout: 10000,
-  //       };
-  //     } else {
-  //       endpoint = "user/signup/";
-  //       configurationOpt = {
-  //         method: "POST",
-  //         headers: { "Content-Type": "application/json" },
-  //         body: JSON.stringify({
-  //           email: props.email,
-  //           first_name: firstName,
-  //           last_name: lastName,
-  //           password: password,
-  //         }),
-  //         timeout: 10000,
-  //       };
-  //     }
-  //     console.log("fetching data...");
-  //     const response = await fetchDataFromAPI({ endpoint, configurationOpt });
-  //     console.log("response", response);
-  //     if (response.error) {
-  //       // handle error
-  //       return;
-  //     } else {
-  //       navigate("/login");
-  //       setAuthData(response);
-  //       navigate("/login");
-  //     }
-  //   }
-  // }
-
-  // async function fetchDataFromAPI({ endpoint, configurationOpt = {} }) {
-  //   try {
-  //     configurationOpt = {
-  //       ...configurationOpt,
-  //     };
-  //     const res = await fetch(`${config.baseURL}${endpoint}`, configurationOpt);
-  //     const data = await res.json();
-  //     return data;
-  //   } catch (error) {
-  //     // console.error(error);
-  //     return { error };
-  //   }
-  // }
   return (
     <div>
       <div className={Style["main"]}>
@@ -270,9 +170,14 @@ const New = (props) => {
                   <Input
                     label="Email address"
                     onChange={handleEmailChange}
+                    invalid={invalidemail ? true : false}
+                    invalidText={
+                      invalidemail ? "please enter valid email." : ""
+                    }
                     input={{
                       type: "email",
                       required: true,
+                      invalidText: "please enter valid email.",
                       id: "email",
                       value: props.email,
                     }}
@@ -280,10 +185,15 @@ const New = (props) => {
                   <Input
                     label="Confirm Email"
                     onChange={handleConfirmEmailChange}
-                    invalid={invalidEmail ? true : false}
-                    // invalid={invalidEmail ? Style["error"] : Style["input"]}
+                    invalid={invalidconfirmemail ? true : false}
+                    invalidText={
+                      invalidconfirmemail
+                        ? "Email address doesn't match. Please try again."
+                        : ""
+                    }
+                    // invalid={setInvalidConfirmemail ? Style["error"] : Style["input"]}
                     // style={{
-                    //   border: invalidEmail ? "1px solid #ccc" : "1px solid red",
+                    //   border: setInvalidConfirmemail ? "1px solid #ccc" : "1px solid red",
                     // }}
                     input={{
                       type: "email",
@@ -299,6 +209,11 @@ const New = (props) => {
                       label="First Name"
                       onChange={handleFirstnameChange}
                       invalid={invalidFirstname ? true : false}
+                      invalidText={
+                        invalidFirstname
+                          ? "Please enter a valid first name"
+                          : ""
+                      }
                       input={{
                         id: "fname",
                         type: "text",
@@ -310,6 +225,9 @@ const New = (props) => {
                       label="Last Name"
                       onChange={handleLastnameChange}
                       invalid={invalidLastname ? true : false}
+                      invalidText={
+                        invalidLastname ? "Please enter a valid last name" : ""
+                      }
                       input={{
                         id: "lname",
                         type: "text",
@@ -322,9 +240,13 @@ const New = (props) => {
                     label="Password"
                     onChange={handlePasswordChange}
                     invalid={invalidpassword ? true : false}
+                    invalidText={
+                      invalidpassword ? "Please enter a valid password" : ""
+                    }
                     input={{
                       id: "password",
                       type: "password",
+                      invalidText: "Please enter a valid password",
                       required: true,
                     }}
                   />

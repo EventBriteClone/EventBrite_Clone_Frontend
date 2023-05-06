@@ -9,6 +9,7 @@ import { AuthContext } from "../../context/AuthContext";
 export default function GetSignUpEmail(props) {
   let [email, setEmail] = useState("");
   let [invalidEmail, setInvalid] = useState(false);
+
   const navigate = useNavigate();
 
   // let emailInvalidMessage;
@@ -37,45 +38,56 @@ export default function GetSignUpEmail(props) {
 
   async function submitHandler(e) {
     e.preventDefault();
+
     if (invalidEmail) return;
     else {
-      props.submitHandler(email);
+      console.log("email", email);
+
       let endpoint,
         configurationOpt = {};
       if (config.mocking) {
         console.log("using mock server");
-        endpoint = `users/`;
+        endpoint = `user/emailcheck/${email}`;
         configurationOpt = {
           method: "GET",
           headers: { "Content-Type": "application/json" },
           timeout: 10000,
         };
       } else {
-        endpoint = `user/emailcheck?email=${email}`;
+        endpoint = `user/emailcheck/${encodeURIComponent(email)}/`;
         configurationOpt = {
           method: "GET",
           headers: { "Content-Type": "application/json" },
           timeout: 10000,
         };
       }
-      console.log("fetching data...");
-      const response = await fetchDataFromAPI({ endpoint, configurationOpt });
-      console.log("response", response);
+      try {
+        const res = await fetch(
+          `https://event-us.me:8000/user/emailcheck/${encodeURIComponent(
+            email
+          )}/`,
+          configurationOpt
+        );
+        const response = await res.json();
+        console.log("response", response);
 
-      for (let i = 0; i < response.length; i++) {
-        if (response[i].email === email) {
-          navigate("/login");
+        if (response.email_exists == true) {
           console.log("mawgod");
-          return;
+
+          props.submitHandler(email, true);
+
+          // navigate("/login");
         } else {
-          navigate("/SignUp");
-          console.log("m4 mwogd");
+          props.submitHandler(email, false);
         }
+      } catch (error) {
+        console.error(error);
+        return { error };
       }
     }
   }
-
-  //     let endpoint,
+  // }
+  // let endpoint
   //       configurationOpt = {};
   //     if (config.mocking) {
   //       console.log("using mock server");
@@ -169,7 +181,7 @@ export default function GetSignUpEmail(props) {
                   /> */}
                   <div className={Style["cont"]}>
                     <div className={Style["invalidEmail"]}>
-                      <h2 className={Style["invalidEmail"]}></h2>
+                      {/* <h2 className={Style["invalidEmail"]}></h2> */}
                       <button
                         id="getEmail-button"
                         type="submit"
