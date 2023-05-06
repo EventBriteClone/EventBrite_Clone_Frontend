@@ -68,7 +68,12 @@ function BasicInfo() {
     setHideSearchBar(false);
   }
   const [isVisible, setIsVisible] = useState(false);
-  const [isErrorVisible, setIsErrorVisible] = useState(true);
+  const [isErrorVisible, setIsErrorVisible] = useState(false);
+  const [eventNameAvaliable, setEventNameAvaliable] = useState(false);
+  const [locationAvaliable, setLocationAvaliavle] = useState(false);
+  const [isRequiredName, setIsRequiredName] = useState(false);
+  const [isLocationRequired, setIsLocationRequired] = useState(false);
+
   return (
     <>
       {isErrorVisible && <ErrorMessage />}
@@ -157,11 +162,19 @@ function BasicInfo() {
             <BasicInfoContextProvider>
               <BasicInfoComponents
                 changeButton={(value) => setIsVisible(value)}
+                saveButton={(value) => setEventNameAvaliable(value)}
+                setIsRequired={(value) => setIsRequiredName(value)}
+                isRequired={isRequiredName}
               />
             </BasicInfoContextProvider>
             <hr />
             <LocationContext.Provider value={LocationValues}>
-              <Location changeButton={(value) => setIsVisible(value)} />
+              <Location
+                changeButton={(value) => setIsVisible(value)}
+                saveButton={(value) => setLocationAvaliavle(value)}
+                isLocationRequired={isLocationRequired}
+                setIsLocationRequired={(value) => setIsLocationRequired(value)}
+              />
             </LocationContext.Provider>
             <hr />
             <DateTimeContextProvider>
@@ -169,7 +182,14 @@ function BasicInfo() {
             </DateTimeContextProvider>
           </div>
           {isVisible && (
-            <NavBar changeButton={(value) => setIsVisible(value)} />
+            <NavBar
+              changeButton={(value) => setIsVisible(value)}
+              nameAvaliable={eventNameAvaliable}
+              locationAvaliable={locationAvaliable}
+              showErrorText={(value) => setIsRequiredName(value)}
+              showLocationErrorText={(value) => setIsLocationRequired(value)}
+              errorVisible={(value) => setIsErrorVisible(value)}
+            />
           )}
         </div>
       </div>

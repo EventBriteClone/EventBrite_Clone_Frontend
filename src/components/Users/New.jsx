@@ -17,7 +17,7 @@ const New = (props) => {
   const [invalidLastname, setInvalidLastname] = useState(false);
   const [invalidpassword, setInvalidpassword] = useState(false);
   const [firstName, setFirstName] = useState("");
-
+  const { setAuthData } = useContext(AuthContext);
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [confirmEmail, setConfirmEmail] = useState("");
@@ -119,7 +119,7 @@ const New = (props) => {
     } else {
       let endpoint,
         configurationOpt = {};
-      if (config.mocking) {
+      if (config.mocking === "true") {
         console.log("using mock server");
         endpoint = `users`;
         configurationOpt = {

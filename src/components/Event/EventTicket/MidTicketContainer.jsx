@@ -71,7 +71,7 @@ function MidTicketContainer({ showDrawerButton, createSectionButton }) {
           </button>
           <button
             className={styles["add-tickets-button"]}
-            onClick={() => showDrawerButton(false)}
+            onClick={() => showDrawerButton(true)}
           >
             Add tickets
           </button>
