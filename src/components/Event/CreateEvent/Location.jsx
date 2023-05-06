@@ -18,7 +18,23 @@ import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
+<<<<<<< HEAD
+function Location({
+  changeButton,
+  saveButton,
+  isLocationRequired,
+  setIsLocationRequired,
+}) {
+  const LocationValues = useContext(LocationContext);
+  const [showHideSearchBar, setShowHideSearchBar] = useState(false);
+  const [HideSearchBar, setHideSearchBar] = useState(true);
+  const [showVenue, setshowVenue] = useState(true);
+  const [showOnlineEvent, setshowOnlineEvent] = useState(false);
+  const [showToBeAnnounced, setshowToBeAnnounced] = useState(false);
+  const [isVenueOpen, setIsVenueOpen] = useState(true);
+=======
 function Location({ changeButton }) {
+>>>>>>> 50192d368c87f9c3aa34fef650e0d7107be6eeb6
   const [isOnlineEventOpen, setIsOnlineEventOpen] = useState(false);
   const [showOnlineEvent, setshowOnlineEvent] = useState(false);
   const [showHideSearchBar, setShowHideSearchBar] = useState(false);
@@ -26,9 +42,26 @@ function Location({ changeButton }) {
   const [showVenue, setshowVenue] = useState(true);
   const [HideSearchBar, setHideSearchBar] = useState(true);
   const [isToBeAnnouncedOpen, setIsToBeAnnouncedOpen] = useState(false);
+<<<<<<< HEAD
+  const [locationValue, setLocationValue] = useState("");
+  // const [isLocationRequired, setIsLocationRequired] = useState(false);
+  function locationValueChange(event) {
+    setLocationValue(event.target.value);
+    if (event.target.value.length === 0) {
+      setIsLocationRequired(true);
+      saveButton(false);
+    } else {
+      setIsLocationRequired(false);
+      saveButton(true);
+      changeButton(true);
+    }
+  }
+=======
   const [showToBeAnnounced, setshowToBeAnnounced] = useState(false);
 
+>>>>>>> 50192d368c87f9c3aa34fef650e0d7107be6eeb6
   function handleShowVenue(event) {
+    saveButton(false);
     if (
       isVenueOpen === true &&
       isOnlineEventOpen === false &&
@@ -65,6 +98,7 @@ function Location({ changeButton }) {
   }
   // Online Event Button Hide and Show
   function handleShowOnlineEvent(event) {
+    saveButton(true);
     if (
       isVenueOpen === false &&
       isOnlineEventOpen === true &&
@@ -95,8 +129,11 @@ function Location({ changeButton }) {
       setIsToBeAnnouncedOpen(false);
     }
   }
+
   // Online Event Button Hide and Show
   function handleShowToBeAnnounced(event) {
+    saveButton(true);
+
     if (
       isVenueOpen === false &&
       isOnlineEventOpen === false &&
@@ -192,10 +229,21 @@ function Location({ changeButton }) {
                 <InputBase
                   sx={{ ml: 1, flex: 1 }}
                   placeholder="Search for a venue or address."
+<<<<<<< HEAD
+                  onChange={locationValueChange}
+                  value={locationValue}
+
+=======
+>>>>>>> 50192d368c87f9c3aa34fef650e0d7107be6eeb6
                   // inputProps={{ 'aria-label': 'search google maps' }}
                 />
               </Paper>
             )}
+            <div className={styles.aside}>
+              {isLocationRequired && (
+                <p className={styles.letterRequired}>Location is required.</p>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -204,6 +252,9 @@ function Location({ changeButton }) {
 }
 Location.propTypes = {
   changeButton: PropTypes.func,
+  saveButton: PropTypes.func,
+  isLocationRequired: PropTypes.bool,
+  setIsLocationRequired: PropTypes.func,
 };
 
 export default Location;

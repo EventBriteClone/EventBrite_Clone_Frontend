@@ -6,6 +6,17 @@
   font-weight: 750;
   margin-top: 35px;
 }
+/* .aside {
+  display: flex;
+  justify-content: space-between;
+} */
+.letterRequired {
+  font: inherit;
+  color: red;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  animation-name: fadeIn;
+}
 .searchVenueLocation {
   width: 100%;
   font-size: 14px;

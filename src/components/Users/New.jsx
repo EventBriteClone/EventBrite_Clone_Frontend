@@ -19,7 +19,7 @@ const New = (props) => {
   const [invalidLastname, setInvalidLastname] = useState(false);
   const [invalidpassword, setInvalidpassword] = useState(false);
   const [firstName, setFirstName] = useState("");
-
+  const { setAuthData } = useContext(AuthContext);
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [confirmEmail, setConfirmEmail] = useState("");
@@ -109,20 +109,36 @@ const New = (props) => {
     ) {
       return;
     } else {
-      let endpoint, configurationOpt;
-      endpoint = "user/signup/";
-      configurationOpt = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: props.email,
-          first_name: firstName,
-          last_name: lastName,
-          password: password,
-        }),
-        timeout: 10000,
-      };
-
+      let endpoint,
+        configurationOpt = {};
+      if (config.mocking) {
+        console.log("using mock server");
+        endpoint = `users`;
+        configurationOpt = {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: props.email,
+            first_name: firstName,
+            last_name: lastName,
+            password: password,
+          }),
+          timeout: 10000,
+        };
+      } else {
+        endpoint = "user/signup/";
+        configurationOpt = {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: props.email,
+            first_name: firstName,
+            last_name: lastName,
+            password: password,
+          }),
+          timeout: 10000,
+        };
+      }
       console.log("fetching data...");
       try {
         const res = await fetch(
