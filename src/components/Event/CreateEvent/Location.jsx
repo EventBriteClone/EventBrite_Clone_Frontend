@@ -17,8 +17,8 @@ import Autocomplete from "@mui/material/Autocomplete";
 import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { LocationContext } from "../../../context/CreateEventContext";
 
+<<<<<<< HEAD
 function Location({
   changeButton,
   saveButton,
@@ -32,8 +32,17 @@ function Location({
   const [showOnlineEvent, setshowOnlineEvent] = useState(false);
   const [showToBeAnnounced, setshowToBeAnnounced] = useState(false);
   const [isVenueOpen, setIsVenueOpen] = useState(true);
+=======
+function Location({ changeButton }) {
+>>>>>>> 50192d368c87f9c3aa34fef650e0d7107be6eeb6
   const [isOnlineEventOpen, setIsOnlineEventOpen] = useState(false);
+  const [showOnlineEvent, setshowOnlineEvent] = useState(false);
+  const [showHideSearchBar, setShowHideSearchBar] = useState(false);
+  const [isVenueOpen, setIsVenueOpen] = useState(true);
+  const [showVenue, setshowVenue] = useState(true);
+  const [HideSearchBar, setHideSearchBar] = useState(true);
   const [isToBeAnnouncedOpen, setIsToBeAnnouncedOpen] = useState(false);
+<<<<<<< HEAD
   const [locationValue, setLocationValue] = useState("");
   // const [isLocationRequired, setIsLocationRequired] = useState(false);
   function locationValueChange(event) {
@@ -47,6 +56,10 @@ function Location({
       changeButton(true);
     }
   }
+=======
+  const [showToBeAnnounced, setshowToBeAnnounced] = useState(false);
+
+>>>>>>> 50192d368c87f9c3aa34fef650e0d7107be6eeb6
   function handleShowVenue(event) {
     saveButton(false);
     if (
@@ -216,9 +229,12 @@ function Location({
                 <InputBase
                   sx={{ ml: 1, flex: 1 }}
                   placeholder="Search for a venue or address."
+<<<<<<< HEAD
                   onChange={locationValueChange}
                   value={locationValue}
 
+=======
+>>>>>>> 50192d368c87f9c3aa34fef650e0d7107be6eeb6
                   // inputProps={{ 'aria-label': 'search google maps' }}
                 />
               </Paper>

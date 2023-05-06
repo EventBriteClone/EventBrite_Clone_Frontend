@@ -1,0 +1,72 @@
+.h1 {
+  color: #1e0a3c;
+  font-size: 20rem;
+  letter-spacing: 0.75px;
+  font-weight: 700;
+  margin: 0;
+  padding-bottom: 0.5rem;
+}
+.containerEventTitle {
+  display: flex;
+  flex-direction: column;
+}
+
+.EventTitle {
+  margin-top: 16px;
+  display: block;
+  margin-bottom: 12px;
+  padding: 1px;
+  width: 100% !important;
+}
+
+.aside {
+  display: flex;
+  justify-content: space-between;
+}
+
+.letterNumberBorder {
+  text-align: right;
+  flex: 1 1 auto;
+}
+.letterRequired {
+  font: inherit;
+  color: red;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  margin-bottom: 10px;
+  animation-name: fadeIn;
+}
+.letterNumber {
+  text-align: right;
+  font: inherit;
+  color: #4b4d63;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  margin-bottom: 10px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.AddTagButton {
+  width: 90px;
+  height: 44px;
+  position: relative;
+  padding: 0 30px 1px;
+  line-height: 24px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  border-radius: 8px;
+  border: 2px solid #a9a8b3 !important;
+  border-color: #a9a8b3;
+  color: #39364f;
+  background-color: #fff;
+}
+
+@media (max-width: 37em) {
+  .AddTagButton {
+    display: block !important;
+  }
+}

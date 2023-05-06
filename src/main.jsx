@@ -13,11 +13,11 @@ import LandingPage from "./Pages/LandingPage";
 import EventPage from "./Pages/EventPage";
 import SignUp from "./Pages/Signup";
 import EventCreator from "./Pages/CreatorEvent";
-import EventTicket from "./Pages/EventTicket";
 import configuration from "./utils/config";
 import New from "./Pages/New";
 import Login from "./Pages/Login";
 import AuthContextProvider from "./context/AuthContext";
+import ManageAttendees from "./Pages/ManageAttendees";
 
 const router = createBrowserRouter([
   {
@@ -53,8 +53,8 @@ const router = createBrowserRouter([
     element: <EventCreator />,
   },
   {
-    path: "/event-ticket",
-    element: <EventTicket />,
+    path: "/manage-attendees",
+    element: <ManageAttendees />,
   },
 ]);
 

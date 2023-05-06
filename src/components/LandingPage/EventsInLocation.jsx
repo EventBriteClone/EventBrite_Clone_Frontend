@@ -10,9 +10,12 @@ import styled from "styled-components";
 export default function EventsInLocation(props) {
   
   const { city } = useContext(NavigationContext);
+<<<<<<< HEAD
+=======
 
   const [show,setShow]=useState(false);
 
+>>>>>>> 2b46fc69c80d70947595a65922c06276f0323e53
   let data;
   const endpoint =
     config.mocking === "true"

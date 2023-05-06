@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import styles from "./NavBar.module.css";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 
 function NavBar({
   changeButton,
@@ -35,11 +34,15 @@ function NavBar({
         >
           Discard
         </button>
+<<<<<<< HEAD
         <Link to="" href="">
           <button className={styles.saveButtom} onClick={saveAndCont}>
             Save & Continue
           </button>
         </Link>
+=======
+        <button className={styles.saveButtom}>Save & Continue</button>
+>>>>>>> 50192d368c87f9c3aa34fef650e0d7107be6eeb6
       </div>
     </>
   );
