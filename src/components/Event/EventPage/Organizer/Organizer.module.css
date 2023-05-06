@@ -110,20 +110,3 @@
     cursor: pointer;
     transition: all .4s cubic-bezier(.4,0,.3,1);
 }
-
-.follow-button-listing-page.eds-btn--follow {
-  background-color: #98a9f9;
-}
-
-.follow-button-listing-page.eds-btn--follow.clicked {
-  background-color: #c5c8d1;
-}
-
-.follow-button-listing-page.eds-btn--follow.clicked span {
-  display: none;
-}
-
-.follow-button-listing-page.eds-btn--follow.clicked:after {
-  content: "Followed!";
-  display: inline-block;
-}

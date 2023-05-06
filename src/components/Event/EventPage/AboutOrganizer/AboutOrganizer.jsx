@@ -1,14 +1,6 @@
 import styles from "./AboutOrganizer.module.css";
-import { useState } from "react"
 
 export default function AboutOrganizer(props) {
-
-  const [followed, setFollowed] = useState(false);
-
-  const handleClick = () => {
-    setFollowed(!followed);
-  };
-
   return (
     <div className={styles["about-organizer"]}>
       <h2>About the organizer</h2>
@@ -50,17 +42,12 @@ export default function AboutOrganizer(props) {
             </button>
           </div>
           <div className={styles["follow-btn"]}>
-          <button
-          className={`${styles["eds-btn"]} ${styles["eds-btn--button"]} ${styles["eds-btn--follow"]} ${styles["follow-button-listing-page"]}`}
-          type="button"
-          onClick={handleClick}
-          style={{
-            backgroundColor: followed ? "#4560b0" : "#3659e3",
-            color: followed ? "#fff" : "#fff",
-          }}
-        >
-          {followed ? "Followed!" : "Follow"}
-        </button>
+            <button
+              class={`${styles["eds-btn"]} ${styles["eds-btn--button"]} ${styles["eds-btn--follow"]} ${styles["follow-button-listing-page"]}`}
+              type="button"
+            >
+              Follow
+            </button>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import styles from "./Footer.module.css";
+import styles from "./Footer.module.css"
 import styled from "styled-components";
 
 export default function Footer() {
@@ -58,10 +58,10 @@ export default function Footer() {
   return (
   
        <div className={styles["footer"]}>
-      <div className={`${styles["sb__footer"]} ${styles["section__padding"]}`}>
+      <div className={styles["sb__footer section__padding"]}>
         <div className={styles["sb__footer-links"]}>
           <div className={styles["sb__footer-links_div"]}>
-            <h4>Use Eventus</h4>
+            <h4>Use Eventbrite</h4>
             <a href="https://www.eventbrite.com/organizer/overview/">
               <p>Create Events</p>
             </a>
@@ -69,16 +69,16 @@ export default function Footer() {
               <p>Pricing</p>
             </a>
             <a href="https://www.eventbrite.com/boost/">
-              <p>Eventus Boost</p>
+              <p>Eventbrite Boost</p>
             </a>
             <a href="https://www.eventbrite.com/l/eventbrite-app/">
-              <p>Eventus Mobile Ticket App</p>
+              <p>Eventbrite Mobile Ticket App</p>
             </a>
             <a href="https://www.eventbrite.com/l/organizer-check-in-app/">
-              <p>Eventus Check-In App</p>
+              <p>Eventbrite Check-In App</p>
             </a>
             <a href="https://www.eventbrite.com/apps/">
-              <p>Eventus App Marketplace</p>
+              <p>Eventbrite App Marketplace</p>
             </a>
             <a href="https://www.eventbrite.com/l/registration-online/">
               <p>Event Registration Software</p>
@@ -258,7 +258,7 @@ export default function Footer() {
 
         <div className={styles["sb__footer-below"]}>
           <div className={styles["sb__footer-copyright"]}>
-            <p>@{new Date().getFullYear()} Eventus</p>
+            <p>@{new Date().getFullYear()} EventBrite</p>
           </div>
 
           <Select  >

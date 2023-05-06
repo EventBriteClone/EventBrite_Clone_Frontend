@@ -5,10 +5,17 @@ import { useContext, useState } from "react";
 import { NavigationContext } from "../../context/NavigationContext";
 import useFetch from "../../custom-hooks/useFetch";
 import config from "../../utils/config";
+import Popup from "../Event/popup/Popup";
 import styled from "styled-components";
 export default function EventsInLocation(props) {
   
   const { city } = useContext(NavigationContext);
+<<<<<<< HEAD
+=======
+
+  const [show,setShow]=useState(false);
+
+>>>>>>> 2b46fc69c80d70947595a65922c06276f0323e53
   let data;
   const endpoint =
     config.mocking === "true"
@@ -45,6 +52,11 @@ export default function EventsInLocation(props) {
         {city === "online" ? "Online Events" : `Events in ${city}`}
       </h3>
       <EventCardContainer>{eventsList}</EventCardContainer>
+  
+
+     {show && <Popup show={show} setShow={setShow} />}
+
+     <Button onClick={()=>setShow(true) }   >Open Pop-up</Button>
     </>
   );
 }

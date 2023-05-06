@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 // import { Chip } from "@material-ui/core";
 import Chip from "@mui/material/Chip";
 import { grey } from "@mui/material/colors";
-import { BasicInfoContext } from "../../../context/CreateEventContext";
+
 function BasicInfoComponents({ changeButton }) {
   const mySelectors = {
     width: 200,
@@ -25,14 +25,6 @@ function BasicInfoComponents({ changeButton }) {
     borderRadius: "1px",
     marginRight: "8px",
   };
-  const BasicInfoValues = useContext(BasicInfoContext);
-  const {
-    eventTitleContext,
-    setEventTitleContext,
-    organizerContext,
-    setOrganizerContext,
-  } = BasicInfoValues;
-
   const conditions = [
     ";",
     "/",
@@ -77,7 +69,6 @@ function BasicInfoComponents({ changeButton }) {
     setCount(length);
     if (event.target.value.length >= 75) return;
     setEventTitle(event.target.value);
-    setEventTitleContext(event.target.value);
     if (event.target.value.length === 0) {
       setColor("red");
       setIsRequired(true);

@@ -9,6 +9,7 @@ import AboutOrganizer from "./AboutOrganizer/AboutOrganizer";
 import ShareButton from "../../UI/ShareButton";
 import LikeButton from "./LikeButton"
 import Footer from "./Footer"
+<<<<<<< HEAD
 import config from "../../../utils/config";
 import useFetch from "../../../custom-hooks/useFetch";
 import BeatLoader from "react-spinners/BeatLoader";
@@ -53,6 +54,22 @@ function Event() {
     location: "Egypt GOZA PLATEAU CIZA, 94100",
     dateAndtime: "November 3 · 4pm - November 12 · 12pm EET",
     duration: "8 days 20 hours",
+=======
+
+function Event() {
+  const event = {
+    img: "https://syndicode.com/wp-content/uploads/2017/10/UX-vs-UI-e1507292179406.png",
+    date: "Nov 15",
+    title: "UI/UX Workshop",
+    caption: "Professional UI/UX Workshop",
+    price: "€549 – €699",
+    organizer: "Google",
+    organizerIcon: "https://th.bing.com/th/id/OIP.T6F6Vja5ue4BhRs81wWlywHaHa?pid=ImgDet&rs=1",
+    organizerFollowers: "10M",
+    location: "Online",
+    dateAndtime: "Saturday, November 15 · 5:30 - 6:30pm EET",
+    duration: "4 Hours",
+>>>>>>> 2b46fc69c80d70947595a65922c06276f0323e53
     ticket: "Mobile eTitcket"
   }
 
@@ -66,11 +83,19 @@ function Event() {
   return (
     <>
       <Header></Header>
+<<<<<<< HEAD
       <EventHeader img={data.image} />
       <EventInfo date={data.ST_DATE} title={data.Title} caption={data.Summery}/>
       <PriceTag price={event.price} event={event.id} img={data.image} title={data.Title}/>
       <Organizer organizer={data.organizer} organizerIcon={event.organizerIcon} organizerFollowers={event.organizerFollowers}/>
       <EventDetails dateAndtime={`${data.ST_DATE} - ${data.ST_TIME}`} location={data.venue_name} duration={`${Number(data.END_TIME.substring(0,2))-Number(data.ST_TIME.substring(0,2))} hour`} ticket={event.ticket}/>
+=======
+      <EventHeader img={event.img} />
+      <EventInfo date={event.date} title={event.title} caption={event.caption}/>
+      <PriceTag price={event.price}/>
+      <Organizer organizer={event.organizer} organizerIcon={event.organizerIcon} organizerFollowers={event.organizerFollowers}/>
+      <EventDetails dateAndtime={event.dateAndtime} location={event.location} duration={event.duration} ticket={event.ticket}/>
+>>>>>>> 2b46fc69c80d70947595a65922c06276f0323e53
       <ShareEvent />
       <AboutOrganizer organizerIcon={event.organizerIcon} organizer={data.organizer} organizerFollowers={event.organizerFollowers}/>
       <ShareButton />

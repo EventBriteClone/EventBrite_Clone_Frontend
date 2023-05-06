@@ -259,13 +259,8 @@ flex-direction: column;
 
 .summary-total p{
   font-weight: bold;
-
+  
 }
-
-.summar-subtotal p{
-  font-weight: normal;
-}
-
 .bottom-button{
   display: none;
 }
@@ -326,49 +321,4 @@ flex-direction: column;
 }
 .powered-by img{
   max-width: 100px;
-}
-
-.number-picker {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 10px;
-}
-
-.plus {
-  background-color: #3659e3;
-  padding: 10px 20px;
-  border-radius: 5px;
-  border: none;
-  font-size: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  margin-left: 20px;
-  color: #fff;
-}
-
-.plus:hover {
-  opacity: 0.98;
-}
-
-.minus {
-  background-color: #eeedf2;
-  padding: 10px 20px;
-  border-radius: 5px;
-  border: none;
-  font-size: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  margin-left: 20px;
-  color: rgb(140, 137, 137);
-}
-
-.minus:hover {
-  opacity: 0.98;
 }

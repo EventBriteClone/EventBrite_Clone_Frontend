@@ -171,14 +171,14 @@ export default function EventDetails(props) {
         </div>
       </div>
       <div className={styles["event-content"]}>
-      Beloved Journey to the Ancient land of Kemet for this once in a lifetime Experience on the 11:11 Stargate Portal of 2023. 
-And Stand in the Kings Chamber of the Great Pyramid of Giza and Open the New Codes of the Golden Universe.
-10 DAY PILGRIMAGE
-We are called to Activate the Original Universal Leylines and Temple Light Grid within the 7 Main Egyptian Temples of Light. 
-Connect directly with Goddess Isis + Osiris, and Goddess Hathor + Horus and Sekhmet.
-* Co-Create the Sacred Divine Union for the New Golden Age on Earth.
-* Illuminate your Soul's Original Codes of Light.
-Immerse in the Open Air Souk Markets and the Ancient Culture of the Nile.
+        Whether you are a beginner, intermediate or advanced player, join our
+        League. We are a community of squash enthusiasts, who love the game.Will
+        be organizing games to train, excel and most important, for the love of
+        the game. So, join the league! *** Please Read Carefully *** Court fee
+        is EGP 100/person/hour, which apply on everyone, as this is a private
+        group. Fees are paid at court before playing/. Maximum number of players
+        per session is 6. Each player will play 5 games per hour. Bring your own
+        racket and water.
       </div>
     </div>
   );

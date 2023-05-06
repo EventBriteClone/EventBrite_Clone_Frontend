@@ -101,7 +101,7 @@ const Login = (props) => {
                 <p>Other login methods</p>
                 <i className="ri-facebook-circle-fill" />
               </div>
-              <a href="/signup">Sign up</a>
+              <a href="#">Sign up</a>
             </div>
           </div>
           <div className={Style["sec-container"]}>

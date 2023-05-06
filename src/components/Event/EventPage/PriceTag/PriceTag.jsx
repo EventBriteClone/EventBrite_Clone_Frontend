@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
 import styles from "./PriceTag.module.css";
-import Popup from "../Popup/Popup";
-
 export default function PriceTag(props) {
-  const [show,setShow]=useState(false);
-  const price = props.price;
-  const image = props.img;
+  if (props.buttonClass === "")
+  {
+  props.buttonClass =`${styles["eds-btn"]} ${styles["eds-btn--button"]} ${styles["eds-btn--fill"]} ${styles["js-embed-ticket-modal-btn"]}`
+  }
   return (
     <div>
       <div className={styles["price-tag"]}>
@@ -15,13 +13,16 @@ export default function PriceTag(props) {
           data-testid="checkout-link"
           data-tracking-label="Tickets"
           data-heap-id="Conversion Bar - Checkout Button"
-          className={ `${styles["eds-btn"]} ${styles["eds-btn--button"]} ${styles["eds-btn--fill"]} ${styles["js-embed-ticket-modal-btn"]}`        }
-          onClick={() => setShow(true)}
+          className={props.buttonClass}
+          type="button"
         >
-          Get Tickets
+          Get tickets
         </button>
       </div>
+<<<<<<< HEAD
       {show && <Popup price={price} event={props.event} show={show} setShow={setShow} img={image} title={props.title}/>}
+=======
+>>>>>>> 2b46fc69c80d70947595a65922c06276f0323e53
     </div>
   );
 }
