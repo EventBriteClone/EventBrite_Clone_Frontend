@@ -9,7 +9,6 @@ import styled from "styled-components";
 export default function EventsInLocation(props) {
   
   const { city } = useContext(NavigationContext);
-
   let data;
   const endpoint =
     config.mocking === "true"

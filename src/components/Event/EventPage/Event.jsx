@@ -11,32 +11,34 @@ import LikeButton from "./LikeButton"
 import Footer from "./Footer"
 import config from "../../../utils/config";
 import useFetch from "../../../custom-hooks/useFetch";
-import NotFound from "./NotFound/NotFound";
+import BeatLoader from "react-spinners/BeatLoader";
 
 function Event() {
   let data;
-  const id = window.location.href.split('/').at(-1)
-  const endpoint = config.mocking === "true" ? `events/${id}` : `events/ID/${id}/`;
-  const { response } = useFetch({ endpoint })
-  console.log(response)
-  if (config.mocking === "true"){
-    data = response;
-  }
-  else {
-    data = response && response?.results?.map((ev) => {
-      return {
-        id: ev.id,
-        title: ev.Title,
-        img: ev.image,
-        organizer: ev.organizer,
-        location: ev.venue_name,
-        caption: ev.summery,
-        date: ev.ST_DATE,
-        dateAndtime: `${ev.ST_DATE} ${ev.ST_TIME}`,
-        duration: `${Number(Number(ev.END_TIME)-Number(ev.ST_TIME))} Hours`
-      }
-    })
-  }
+  const event_ID = window.location.href.split('/').at(-1);
+
+  const endpoint =config.mocking === "true" ? `events/${event_ID}` : `events/ID/${event_ID}/`;
+    
+  const pricepoint = config.mocking === "true" ? "" : `events/TicketsPrice/${event_ID}/`;
+
+  const { response } = useFetch({
+    endpoint,
+    configurationOpt: {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    },
+  });
+  console.log(response);
+  data = response?.[0];
+
+  const { price } = useFetch({
+    pricepoint,
+    configurationOpt: {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    },
+  });
+  console.log(price);
 
   const event =  {
     id: window.location.href.split('/').at(-1),
@@ -46,28 +48,37 @@ function Event() {
     caption: "11:11 EGYPT STARGATE Pilgrimage Golden Universe & Temples of Light Activation. 10 Day Journey with 11:11 Ceremony at the Great Pyramid",
     price: "$532",
     organizer: "Jennifer Ashira Ra",
-    organizerIcon: "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F145397963%2F248532170773%2F1%2Foriginal.20210824-061121?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=75%2C44%2C948%2C948&s=2116de7469bf214a01f46acd74bf44b9",
+    organizerIcon: "https://th.bing.com/th/id/R.cd446aa1c31865154fd4d9404ac2c9fc?rik=EOQHelO6qj7ZEg&pid=ImgRaw&r=0",
     organizerFollowers: "614",
     location: "Egypt GOZA PLATEAU CIZA, 94100",
     dateAndtime: "November 3 · 4pm - November 12 · 12pm EET",
     duration: "8 days 20 hours",
     ticket: "Mobile eTitcket"
   }
+
+  while (!response) {
+  return (
+    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+      <BeatLoader color="#d1410c" size={30}/>
+    </div>
+  );
+  }
   return (
     <>
       <Header></Header>
-      <EventHeader img={event.img} />
-      <EventInfo date={event.date} title={event.title} caption={event.caption}/>
-      <PriceTag price={event.price} event={event.id} img={event.img} title={event.title}/>
-      <Organizer organizer={event.organizer} organizerIcon={event.organizerIcon} organizerFollowers={event.organizerFollowers}/>
-      <EventDetails dateAndtime={event.dateAndtime} location={event.location} duration={event.duration} ticket={event.ticket}/>
+      <EventHeader img={data.image} />
+      <EventInfo date={data.ST_DATE} title={data.Title} caption={data.Summery}/>
+      <PriceTag price={event.price} event={event.id} img={data.image} title={data.Title}/>
+      <Organizer organizer={data.organizer} organizerIcon={event.organizerIcon} organizerFollowers={event.organizerFollowers}/>
+      <EventDetails dateAndtime={`${data.ST_DATE} - ${data.ST_TIME}`} location={data.venue_name} duration={`${Number(data.END_TIME.substring(0,2))-Number(data.ST_TIME.substring(0,2))} hour`} ticket={event.ticket}/>
       <ShareEvent />
-      <AboutOrganizer organizerIcon={event.organizerIcon} organizer={event.organizer} organizerFollowers={event.organizerFollowers}/>
+      <AboutOrganizer organizerIcon={event.organizerIcon} organizer={data.organizer} organizerFollowers={event.organizerFollowers}/>
       <ShareButton />
       <LikeButton />
       <Footer/>
     </>
   );
-}
+  }
+
 
 export default Event;

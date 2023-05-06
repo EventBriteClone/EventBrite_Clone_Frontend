@@ -21,7 +21,7 @@ export default function PriceTag(props) {
           Get Tickets
         </button>
       </div>
-      {show && <Popup price={price} event={props.id} show={show} setShow={setShow} img={image} title={props.title}/>}
+      {show && <Popup price={price} event={props.event} show={show} setShow={setShow} img={image} title={props.title}/>}
     </div>
   );
 }

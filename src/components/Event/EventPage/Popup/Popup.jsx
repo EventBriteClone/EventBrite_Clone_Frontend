@@ -69,7 +69,8 @@ const Popup = ({ show, setShow, ...props }) => {
     setShow(false);
   };
 
-  const handleSubmit = (event) => {
+  async function handleSubmit(event)
+  {
     console.log("data", data);
 
     if (data.email === data.cmail) {
@@ -84,23 +85,24 @@ const Popup = ({ show, setShow, ...props }) => {
 
     swal("", "Order Placed Successfully!", "success");
 
+    let endpoint = config.mocking === "true" ? "" : `booking/event/${props.event}/orders/`;
+    let configurationOpt = {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+        order_items: [
+          {
+            ticket_class_id: 1,
+            quantity: number,
+          }
+        ],
+        promocode: "",
+        user_id: 1
+      })
+    }
 
-    // let endpoint, configurationOpt = {};
-    // if (config.mocking === "true") {
-    //   endpoint = "orders";
-    // }
-    // else {
-    //   endpoint = "booking/orders"
-    //   configurationOpt = {
-    //     method: "POST",
-    //     body: JSON.stringify({
-    //       event: props.id,
-    //       full_price: `${props.price}`
-    //     })
-    //   }
-    // }
-    // const response = fetchDataFromAPI({endpoint, configurationOpt})
-    // console.log(response);
+    const response = await fetchDataFromAPI({ endpoint, configurationOpt });
+    console.log(response.text);
   };
 
   const checkValid = (event) => {
