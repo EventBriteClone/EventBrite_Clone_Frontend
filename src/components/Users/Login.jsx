@@ -208,25 +208,15 @@ const Login = (props) => {
           const response = await res.json();
           console.log("response", response);
 
-          if (
-            response.email != undefined ||
-            response.userId != undefined ||
-            response.token != undefined
-          ) {
-            if (config.mocking) {
-              setShowNoAccount(false);
-              setAuthData(response);
-              navigate("/");
-            } else {
-              if (response.length) {
-                console.log("api");
-                setAuthData(response);
-                navigate("/");
-              }
-            }
-          } else if (response.error) {
-            console.log("na hna");
-            setShowNoAccount(true);
+          if (config.mocking) {
+            setShowNoAccount(false);
+            setAuthData(response);
+            navigate("/");
+            // } else {
+            //   if (response.length) {
+            //     console.log("api");
+            //     setAuthData(response);
+            //     navigate("/");
           }
         } catch (error) {
           console.log("2lmfrod tt8ir");
