@@ -1,11 +1,6 @@
 {
   "mockData": {
-    "recent": [
-      "React",
-      "JavaScript",
-      "Storybook",
-      "CSS"
-    ],
+    "recent": ["React", "JavaScript", "Storybook", "CSS"],
     "trends": [
       {
         "term": "React",
@@ -25,12 +20,7 @@
       }
     ]
   },
-  "recentSearches": [
-    "React",
-    "JavaScript",
-    "Storybook",
-    "CSS"
-  ],
+  "recentSearches": ["React", "JavaScript", "Storybook", "CSS"],
   "trendingSearches": [
     {
       "term": "React",
@@ -157,62 +147,11 @@
       "last_name": "nakhla",
       "password": "Samy 12344",
       "id": 14
-    },
-    {
-      "email": "mariowa7dbs@gmail.com",
-      "first_name": "mar",
-      "last_name": "sam",
-      "password": "Mamaririoo@254",
-      "id": 15
-    },
-    {
-      "email": "mariowa7dbs@gmail.com",
-      "first_name": "mar",
-      "last_name": "sam",
-      "password": "Mamaririoo@254",
-      "id": 16
-    },
-    {
-      "email": "mariowa7dbs@gmail.com",
-      "first_name": "mar",
-      "last_name": "sam",
-      "password": "marioolo",
-      "id": 17
-    },
-    {
-      "email": "mariowa7dbs@gmail.com",
-      "id": 18
-    },
-    {
-      "email": "Samy123@gmail.com",
-      "id": 19
-    },
-    {
-      "email": "admin@gmail.com",
-      "id": 20
-    },
-    {
-      "email": "7mada1@hotmail.com",
-      "id": 21
-    },
-    {
-      "email": "7mada1@hotmail.com",
-      "id": 22
-    },
-    {
-      "email": "mariowa7dbs@gmail.com",
-      "first_name": "Mario",
-      "last_name": "samy",
-      "password": "Mariomario",
-      "id": 23
     }
   ],
   "events": [
     {
-<<<<<<< HEAD
       "id": 0,
-=======
->>>>>>> 50192d368c87f9c3aa34fef650e0d7107be6eeb6
       "img": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F440854699%2F140533847643%2F1%2Foriginal.20230207-112359?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C72%2C1228%2C614&s=a4be3f3cf640cd2791d10eb04df87581",
       "title": "Title0",
       "organizer": "Organizer0",
@@ -238,13 +177,9 @@
       "duration": "3 Hours",
       "followersNum": "123.6K"
     },
-<<<<<<< HEAD
 
     {
       "id": 2,
-=======
-    {
->>>>>>> 50192d368c87f9c3aa34fef650e0d7107be6eeb6
       "img": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F440854699%2F140533847643%2F1%2Foriginal.20230207-112359?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C72%2C1228%2C614&s=a4be3f3cf640cd2791d10eb04df87581",
       "title": "Title2",
       "organizer": "Organizer2",
@@ -257,13 +192,9 @@
       "duration": "2 Hours",
       "followersNum": "1M"
     },
-<<<<<<< HEAD
 
     {
       "id": 3,
-=======
-    {
->>>>>>> 50192d368c87f9c3aa34fef650e0d7107be6eeb6
       "img": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F440854699%2F140533847643%2F1%2Foriginal.20230207-112359?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C72%2C1228%2C614&s=a4be3f3cf640cd2791d10eb04df87581",
       "title": "Title3",
       "organizer": "Organizer3",
@@ -276,13 +207,9 @@
       "duration": "90 Minutes",
       "followersNum": "10K"
     },
-<<<<<<< HEAD
 
     {
       "id": 4,
-=======
-    {
->>>>>>> 50192d368c87f9c3aa34fef650e0d7107be6eeb6
       "img": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F440854699%2F140533847643%2F1%2Foriginal.20230207-112359?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C72%2C1228%2C614&s=a4be3f3cf640cd2791d10eb04df87581",
       "title": "Title4",
       "organizer": "Organizer4",
@@ -295,13 +222,9 @@
       "duration": "5 Hours",
       "followersNum": "3M"
     },
-<<<<<<< HEAD
 
     {
       "id": 5,
-=======
-    {
->>>>>>> 50192d368c87f9c3aa34fef650e0d7107be6eeb6
       "img": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F440854699%2F140533847643%2F1%2Foriginal.20230207-112359?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C72%2C1228%2C614&s=a4be3f3cf640cd2791d10eb04df87581",
       "title": "Title5",
       "organizer": "Organizer5",
@@ -314,13 +237,9 @@
       "duration": "4 Hours",
       "followersNum": "500K"
     },
-<<<<<<< HEAD
 
     {
       "id": 6,
-=======
-    {
->>>>>>> 50192d368c87f9c3aa34fef650e0d7107be6eeb6
       "img": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F440854699%2F140533847643%2F1%2Foriginal.20230207-112359?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C72%2C1228%2C614&s=a4be3f3cf640cd2791d10eb04df87581",
       "title": "Title6",
       "organizer": "Organizer6",
@@ -333,13 +252,9 @@
       "duration": "2 Hours",
       "followersNum": "50M"
     },
-<<<<<<< HEAD
 
     {
       "id": 7,
-=======
-    {
->>>>>>> 50192d368c87f9c3aa34fef650e0d7107be6eeb6
       "img": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F440854699%2F140533847643%2F1%2Foriginal.20230207-112359?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C72%2C1228%2C614&s=a4be3f3cf640cd2791d10eb04df87581",
       "title": "Title7",
       "organizer": "Organizer7",
@@ -352,13 +267,9 @@
       "duration": "1 Hour",
       "followersNum": "600"
     },
-<<<<<<< HEAD
 
     {
       "id": 8,
-=======
-    {
->>>>>>> 50192d368c87f9c3aa34fef650e0d7107be6eeb6
       "img": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F440854699%2F140533847643%2F1%2Foriginal.20230207-112359?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C72%2C1228%2C614&s=a4be3f3cf640cd2791d10eb04df87581",
       "title": "Title8",
       "organizer": "Organizer8",
@@ -371,13 +282,9 @@
       "duration": "2 Hours",
       "followersNum": "50M"
     },
-<<<<<<< HEAD
 
     {
       "id": 9,
-=======
-    {
->>>>>>> 50192d368c87f9c3aa34fef650e0d7107be6eeb6
       "img": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F440854699%2F140533847643%2F1%2Foriginal.20230207-112359?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C72%2C1228%2C614&s=a4be3f3cf640cd2791d10eb04df87581",
       "title": "Title9",
       "organizer": "Organizer9",
@@ -390,13 +297,9 @@
       "duration": "2 Hours",
       "followersNum": "50M"
     },
-<<<<<<< HEAD
 
     {
       "id": 10,
-=======
-    {
->>>>>>> 50192d368c87f9c3aa34fef650e0d7107be6eeb6
       "img": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F440854699%2F140533847643%2F1%2Foriginal.20230207-112359?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C72%2C1228%2C614&s=a4be3f3cf640cd2791d10eb04df87581",
       "title": "Title10",
       "organizer": "Organizer10",
@@ -409,13 +312,9 @@
       "duration": "2 Hours",
       "followersNum": "10M"
     },
-<<<<<<< HEAD
 
     {
       "id": 11,
-=======
-    {
->>>>>>> 50192d368c87f9c3aa34fef650e0d7107be6eeb6
       "img": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F440854699%2F140533847643%2F1%2Foriginal.20230207-112359?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C72%2C1228%2C614&s=a4be3f3cf640cd2791d10eb04df87581",
       "title": "Title11",
       "organizer": "Organizer11",

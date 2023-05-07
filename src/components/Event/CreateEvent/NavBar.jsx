@@ -34,15 +34,7 @@ function NavBar({
         >
           Discard
         </button>
-<<<<<<< HEAD
-        <Link to="" href="">
-          <button className={styles.saveButtom} onClick={saveAndCont}>
-            Save & Continue
-          </button>
-        </Link>
-=======
         <button className={styles.saveButtom}>Save & Continue</button>
->>>>>>> 50192d368c87f9c3aa34fef650e0d7107be6eeb6
       </div>
     </>
   );

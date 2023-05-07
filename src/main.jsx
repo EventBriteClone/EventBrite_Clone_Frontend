@@ -10,7 +10,7 @@ import {
 import "./index.css";
 import BasicInfo from "./Pages/BasicInfo";
 import LandingPage from "./Pages/LandingPage";
-import EventPage from "./Pages/EventPage";
+// import EventPage from "./Pages/EventPage";
 import SignUp from "./Pages/Signup";
 import EventCreator from "./Pages/CreatorEvent";
 import configuration from "./utils/config";
@@ -18,6 +18,7 @@ import New from "./Pages/New";
 import Login from "./Pages/Login";
 import AuthContextProvider from "./context/AuthContext";
 import ManageAttendees from "./Pages/ManageAttendees";
+import Publish from "./components/Event/CreateEvent/Publish/Publish";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
   {
     path: "/manage-attendees",
     element: <ManageAttendees />,
+  },
+  {
+    path: "/publish",
+    element: <Publish />,
   },
 ]);
 
