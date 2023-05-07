@@ -12,7 +12,7 @@ import Input from "../UI/Input";
 
 const New = (props) => {
   const navigate = useNavigate();
-  const { setAuthData } = useContext(AuthContext);
+  // const { setAuthData } = useContext(AuthContext);
   let [invalidconfirmemail, setInvalidConfirmemail] = useState(false);
   const [invalidemail, setInvalidemail] = useState(false);
   const [invalidFirstname, setInvalidFirstname] = useState(false);

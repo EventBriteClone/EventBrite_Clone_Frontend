@@ -8,14 +8,7 @@ import config from "../../utils/config";
 import Popup from "../Event/popup/Popup";
 import styled from "styled-components";
 export default function EventsInLocation(props) {
-  
   const { city } = useContext(NavigationContext);
-<<<<<<< HEAD
-=======
-
-  const [show,setShow]=useState(false);
-
->>>>>>> 2b46fc69c80d70947595a65922c06276f0323e53
   let data;
   const endpoint =
     config.mocking === "true"
@@ -36,27 +29,27 @@ export default function EventsInLocation(props) {
       });
   }
 
-  const Button=styled.button`
-  background-color: #f44336;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  margin: 4px 2px;
-  text-decoration: none;
-  `
-  const eventsList =data && data.map((event) => <EventCard key={event.id} event={event} />);
+  const Button = styled.button`
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    margin: 4px 2px;
+    text-decoration: none;
+  `;
+  const eventsList =
+    data && data.map((event) => <EventCard key={event.id} event={event} />);
   return (
     <>
       <h3 className={styles.h3} style={{ paddingTop: "40px" }}>
         {city === "online" ? "Online Events" : `Events in ${city}`}
       </h3>
       <EventCardContainer>{eventsList}</EventCardContainer>
-  
 
-     {show && <Popup show={show} setShow={setShow} />}
+      {show && <Popup show={show} setShow={setShow} />}
 
-     <Button onClick={()=>setShow(true) }   >Open Pop-up</Button>
+      <Button onClick={() => setShow(true)}>Open Pop-up</Button>
     </>
   );
 }
