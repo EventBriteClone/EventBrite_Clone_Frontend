@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import styles from "./NavBar.module.css";
 import PropTypes from "prop-types";
+import { useNavigation } from "react-router-dom/dist";
 
 function NavBar({
   changeButton,
@@ -10,9 +11,10 @@ function NavBar({
   showLocationErrorText,
   errorVisible,
 }) {
+  const navigate = useNavigation();
   function saveAndCont(event) {
     if (nameAvaliable === true && locationAvaliable === true) {
-      window.location.href = "/event-ticket";
+      navigate("/event-ticket");
     } else if (nameAvaliable != true && locationAvaliable != true) {
       showErrorText(true);
       showLocationErrorText(true);

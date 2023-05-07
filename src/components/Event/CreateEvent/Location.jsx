@@ -229,11 +229,11 @@ function Location({
                 />
               </Paper>
             )}
-            <div className={styles.aside}>
+            {/* <div className={styles.aside}>
               {isLocationRequired && (
                 <p className={styles.letterRequired}>Location is required.</p>
               )}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -243,8 +243,8 @@ function Location({
 Location.propTypes = {
   changeButton: PropTypes.func,
   saveButton: PropTypes.func,
-  isLocationRequired: PropTypes.bool,
-  setIsLocationRequired: PropTypes.func,
+  // isLocationRequired: PropTypes.bool,
+  // setIsLocationRequired: PropTypes.func,
 };
 
 export default Location;

@@ -61,7 +61,7 @@ export default function Footer() {
       <div className={styles["sb__footer section__padding"]}>
         <div className={styles["sb__footer-links"]}>
           <div className={styles["sb__footer-links_div"]}>
-            <h4>Use Eventbrite</h4>
+            <h4>Use Eventus</h4>
             <a href="https://www.eventbrite.com/organizer/overview/">
               <p>Create Events</p>
             </a>
@@ -69,16 +69,16 @@ export default function Footer() {
               <p>Pricing</p>
             </a>
             <a href="https://www.eventbrite.com/boost/">
-              <p>Eventbrite Boost</p>
+              <p>Eventus Boost</p>
             </a>
             <a href="https://www.eventbrite.com/l/eventbrite-app/">
-              <p>Eventbrite Mobile Ticket App</p>
+              <p>Eventus Mobile Ticket App</p>
             </a>
             <a href="https://www.eventbrite.com/l/organizer-check-in-app/">
-              <p>Eventbrite Check-In App</p>
+              <p>Eventus Check-In App</p>
             </a>
             <a href="https://www.eventbrite.com/apps/">
-              <p>Eventbrite App Marketplace</p>
+              <p>Eventus App Marketplace</p>
             </a>
             <a href="https://www.eventbrite.com/l/registration-online/">
               <p>Event Registration Software</p>
@@ -258,7 +258,7 @@ export default function Footer() {
 
         <div className={styles["sb__footer-below"]}>
           <div className={styles["sb__footer-copyright"]}>
-            <p>@{new Date().getFullYear()} EventBrite</p>
+            <p>@{new Date().getFullYear()} Eventus</p>
           </div>
 
           <Select  >

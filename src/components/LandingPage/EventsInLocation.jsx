@@ -5,7 +5,6 @@ import { useContext, useState } from "react";
 import { NavigationContext } from "../../context/NavigationContext";
 import useFetch from "../../custom-hooks/useFetch";
 import config from "../../utils/config";
-import Popup from "../Event/popup/Popup";
 import styled from "styled-components";
 export default function EventsInLocation(props) {
   const { city } = useContext(NavigationContext);
