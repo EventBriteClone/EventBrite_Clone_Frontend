@@ -67,7 +67,7 @@ function BasicInfoComponents({
   ];
   const [color, setColor] = useState("red");
   const [eventTileValue, setEventTitle] = useState("");
-  const [isRequired, setIsRequired] = useState(false);
+  // const [isRequired, setIsRequired] = useState(false);
   const [count, setCount] = useState(0);
   function eventTitleChange(event) {
     const length = event.target.value.length;
