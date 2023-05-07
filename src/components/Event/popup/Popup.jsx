@@ -9,9 +9,9 @@ import swal from "sweetalert";
 const Popup = ({ show, setShow, ...props }) => {
   const subTotal = props.price;
 
-  const discount = `${subTotal[0]}`+32;
+  const discount = 32;
 
-  const fees = `${subTotal[0]}`+50;
+  const fees = 50;
 
   const [stepOne, setStepOne] = useState(false);
 
@@ -19,7 +19,16 @@ const Popup = ({ show, setShow, ...props }) => {
 
   const [subtotal, setSubTotal] = useState(subTotal);
 
-  const [total, setTotal] = useState(subtotal[0] + Number(subTotal.slice(1) - Number(discount.slice(1)) + Number(fees.slice(1))));
+  let initTotal;
+  if(props.price)
+  {
+    initTotal = subTotal - discount + fees;
+  }
+  else {
+    initTotal = 0;
+  }
+
+  const [total, setTotal] = useState(initTotal);
 
   const [isValid, setIsValid] = useState({
     fname: false,
@@ -114,8 +123,8 @@ const Popup = ({ show, setShow, ...props }) => {
     if (number < 10) {
       setNumber(number + 1);
       if (props.price != "0") {
-        setSubTotal(subtotal[0] + (Number(subtotal.slice(1)) + Number(props.price.slice(1))));
-        setTotal(total[0] + (Number(total.slice(1)) + Number(props.price.slice(1))));
+        setSubTotal(subtotal + props.price);
+        setTotal(total + props.price);
       }
     }
   };
@@ -124,8 +133,8 @@ const Popup = ({ show, setShow, ...props }) => {
     if (number > 1) {
       setNumber(number - 1);
       if (props.price != "0") {
-        setSubTotal(subtotal[0] + (Number(subtotal.slice(1)) - Number(props.price.slice(1))));
-        setTotal(total[0] + (Number(total.slice(1)) - Number(props.price.slice(1))));
+        setSubTotal(subtotal - props.price);
+        setTotal(total - props.price);
       }
     }
   };
