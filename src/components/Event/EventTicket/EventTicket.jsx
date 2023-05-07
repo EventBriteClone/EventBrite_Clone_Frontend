@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
-import HeaderTicket from "./HeaderTicket";
-import HomeNavConatiner from "./HomeNavContainer";
+// import HeaderTicket from "./HeaderTicket";
+// import HomeNavConatainer from "./HomeNavContainer";
 import StructureDrawer from "./StructureDrawer";
-import styles from "./EventTicket.module.css";
+// import styles from "./EventTicket.module.css";
 import MidTicketContainer from "./MidTicketContainer";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -42,10 +42,10 @@ export default function EventTicket() {
 
   return (
     <>
-      <HeaderTicket></HeaderTicket>
+      {/* <HeaderTicket></HeaderTicket> */}
       <div className={styles["bigger-container"]}>
         <div className={styles["creator-left-nav-container"]}>
-          <HomeNavConatiner />
+          {/* <HomeNavConatiner /> */}
         </div>
         <div className={styles["structure-drawer-left-container"]}>
           <StructureDrawer />
