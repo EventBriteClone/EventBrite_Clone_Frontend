@@ -19,6 +19,7 @@ import Login from "./Pages/Login";
 import AuthContextProvider from "./context/AuthContext";
 import ManageAttendees from "./Pages/ManageAttendees";
 import Publish from "./components/Event/CreateEvent/Publish/Publish";
+import EventTicket from "./components/Event/EventTicket/EventTicket";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
     path: "/publish",
     element: <Publish />,
   },
+  // {
+  //   path: "/event-ticket",
+  //   element: <EventTicket />,
+  // },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
