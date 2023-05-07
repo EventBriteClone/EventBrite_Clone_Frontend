@@ -45,10 +45,10 @@ const router = createBrowserRouter([
     path: "/create-event",
     element: <BasicInfo />,
   },
-  {
-    path: "/event/:id",
-    element: <EventPage />,
-  },
+  // {
+  //   path: "/event/:id",
+  //   element: <EventPage />,
+  // },
   {
     path: "/my-events",
     element: <EventCreator />,
