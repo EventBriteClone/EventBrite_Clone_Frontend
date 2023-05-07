@@ -10,7 +10,7 @@ import ShareButton from "../../UI/ShareButton";
 import LikeButton from "./LikeButton"
 import Footer from "./Footer"
 import config from "../../../utils/config";
-import useFetch from "../../../custom-hooks/useFetch";
+// import useFetch from "../../../custom-hooks/useFetch";
 import BeatLoader from "react-spinners/BeatLoader";
 import PriceFetch from "./PriceFetch";
 
@@ -43,6 +43,30 @@ function Event() {
   const endpoint =
   config.mocking === "true" ? `events/${event_ID}` : `events/ID/${event_ID}/`;
 
+<<<<<<< HEAD
+  const pricepoint =
+    config.mocking === "true" ? "" : `events/TicketsPrice/${event_ID}/`;
+
+  const { response } = useFetch({
+    endpoint,
+    configurationOpt: {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    },
+  });
+  console.log(response);
+  data = response?.[0];
+
+  const { price } = useFetch({
+    pricepoint,
+    configurationOpt: {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    },
+  });
+
+  console.log(price);
+=======
 // const priceEndpoint =
 //   config.mocking === "true" ? "" : `events/TicketsPrice/${event_ID}/`;
 
@@ -57,6 +81,7 @@ console.log(response);
 data = response?.[0];
 
 let price = PriceFetch(event_ID);
+>>>>>>> 4c5d07e8dc218b2c56921de8518b791959bcb482
 
 // const { response: price } = useFetch({
 //   priceEndpoint,
@@ -79,6 +104,25 @@ let price = PriceFetch(event_ID);
     organizerFollowers: "614",
     location: "Egypt GOZA PLATEAU CIZA, 94100",
     dateAndtime: "November 3 · 4pm - November 12 · 12pm EET",
+<<<<<<< HEAD
+    duration: "8 days 20 hours",
+
+    while(response) {
+      return (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+          }}
+        >
+          <BeatLoader color="#d1410c" size={30} />
+        </div>
+      );
+    },
+  };
+=======
     duration: "8 days 20 hours"
   }
 
@@ -89,10 +133,68 @@ let price = PriceFetch(event_ID);
     </div>
   );
   }
+>>>>>>> 4c5d07e8dc218b2c56921de8518b791959bcb482
   return (
     <>
       <Header></Header>
       <EventHeader img={data.image} />
+<<<<<<< HEAD
+      <EventInfo
+        date={data.ST_DATE}
+        title={data.Title}
+        caption={data.Summery}
+      />
+      <PriceTag
+        price={event.price}
+        event={event.id}
+        img={data.image}
+        title={data.Title}
+      />
+      <Organizer
+        organizer={data.organizer}
+        organizerIcon={event.organizerIcon}
+        organizerFollowers={event.organizerFollowers}
+      />
+      <EventDetails
+        dateAndtime={`${data.ST_DATE} - ${data.ST_TIME}`}
+        location={data.venue_name}
+        duration={`${
+          Number(data.END_TIME.substring(0, 2)) -
+          Number(data.ST_TIME.substring(0, 2))
+        } hour`}
+        ticket={event.ticket}
+      />
+      <EventHeader img={event.img} />
+      <EventInfo
+        date={event.date}
+        title={event.title}
+        caption={event.caption}
+      />
+      <PriceTag price={event.price} />
+      <Organizer
+        organizer={event.organizer}
+        organizerIcon={event.organizerIcon}
+        organizerFollowers={event.organizerFollowers}
+      />
+      <EventDetails
+        dateAndtime={event.dateAndtime}
+        location={event.location}
+        duration={event.duration}
+        ticket={event.ticket}
+      />
+      <ShareEvent />
+      <AboutOrganizer
+        organizerIcon={event.organizerIcon}
+        organizer={data.organizer}
+        organizerFollowers={event.organizerFollowers}
+      />
+      <ShareButton />
+      <LikeButton />
+      <Footer />
+    </>
+  );
+}
+=======
       <EventInfo date={data.ST_DATE} title={data.Title} caption={data.Summery}/>
       <PriceTag price={price} event={event.id} img={data.image} title={data.Title}/>
       <Organizer organizer={data.organizer} organizerIcon={event.organizerIcon} organizerFollowers={event.organizerFollowers}/>
@@ -106,5 +208,6 @@ let price = PriceFetch(event_ID);
   );
   }
 
+>>>>>>> 4c5d07e8dc218b2c56921de8518b791959bcb482
 
 export default Event;

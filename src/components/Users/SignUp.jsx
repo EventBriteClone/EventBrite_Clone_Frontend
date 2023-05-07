@@ -1,12 +1,20 @@
 import { useState } from "react";
 import GetSignUpEmail from "./GetSignUpEmail";
 import New from "./New";
+import Login from "./Login";
 
 export default function SignUp(props) {
   const [email, setEmail] = useState(null);
-  function onSubmitHandler(emailFromUser) {
-    setEmail(emailFromUser);
+  // const [login, setLogin] = useState(false);
+
+  function onSubmitHandler(email) {
+    setEmail(email);
+    console.log("emailfromuser", email);
+
+    // setLogin(shouldLogin);
+    // console.log("shouldlogin", shouldLogin);
   }
+
   return (
     <>
       {!email && <GetSignUpEmail submitHandler={onSubmitHandler} />}
