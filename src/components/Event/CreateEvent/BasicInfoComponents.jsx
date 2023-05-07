@@ -7,7 +7,6 @@ import PropTypes from "prop-types";
 // import { Chip } from "@material-ui/core";
 import Chip from "@mui/material/Chip";
 import { grey } from "@mui/material/colors";
-<<<<<<< HEAD
 import { BasicInfoContext } from "../../../context/CreateEventContext";
 function BasicInfoComponents({
   changeButton,
@@ -15,10 +14,6 @@ function BasicInfoComponents({
   isRequired,
   setIsRequired,
 }) {
-=======
-
-function BasicInfoComponents({ changeButton }) {
->>>>>>> 50192d368c87f9c3aa34fef650e0d7107be6eeb6
   const mySelectors = {
     width: 200,
     height: 50,

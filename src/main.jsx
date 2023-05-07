@@ -18,6 +18,7 @@ import New from "./Pages/New";
 import Login from "./Pages/Login";
 import AuthContextProvider from "./context/AuthContext";
 import ManageAttendees from "./Pages/ManageAttendees";
+import EventTicket from "./Pages/EventTicket";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
   {
     path: "/manage-attendees",
     element: <ManageAttendees />,
+  },
+  {
+    path: "/event-ticket",
+    element: <EventTicket />,
   },
 ]);
 

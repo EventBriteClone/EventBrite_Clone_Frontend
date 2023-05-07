@@ -55,7 +55,6 @@ export default function BasicInfo() {
     setHideSearchBar(false);
   }
   const [isVisible, setIsVisible] = useState(false);
-<<<<<<< HEAD
   const [isErrorVisible, setIsErrorVisible] = useState(false);
   const [eventNameAvaliable, setEventNameAvaliable] = useState(false);
   const [locationAvaliable, setLocationAvaliavle] = useState(false);
@@ -180,29 +179,8 @@ export default function BasicInfo() {
             />
           )}
         </div>
-=======
-  return (
-    <div className={styles.mainContainer}>
-      <div className={styles.RoutingContainer}>
-        <svg
-          id="chevron-left-chunky_svg__eds-icon--chevron-left-chunky_svg"
-          x="0"
-          y="0"
-          className={styles.arrow}
-          viewBox="0 0 24 24"
-        >
-          <path
-            id="chevron-left-chunky_svg__eds-icon--chevron-left-chunky_base"
-            d="M13.8 7l-5 5 5 5 1.4-1.4-3.6-3.6 3.6-3.6z"
-          ></path>
-        </svg>
-        <Link to="/my-events" className={styles.Routing} href="">
-          Events
-        </Link>
->>>>>>> 50192d368c87f9c3aa34fef650e0d7107be6eeb6
       </div>
-      <div className={styles.container}>
-        {/* icon */}
+      {/* <div className={styles.container}>
         <div className={styles.ImageContainer}>
           <div className={styles.basicInfoImg}>
             <svg
@@ -263,8 +241,8 @@ export default function BasicInfo() {
               </g>
             </svg>
           </div>
-        </div>
-        <div className={styles.containerCol}>
+        </div> */}
+      {/* <div className={styles.containerCol}>
           <BasicInfoComponents changeButton={(value) => setIsVisible(value)} />
           <hr />
           <Location changeButton={(value) => setIsVisible(value)} />
@@ -273,7 +251,8 @@ export default function BasicInfo() {
         </div>
 
         {isVisible && <NavBar changeButton={(value) => setIsVisible(value)} />}
-      </div>
-    </div>
+      </div> */}
+      {/* </div> */}
+    </>
   );
 }

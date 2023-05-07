@@ -1,0 +1,66 @@
+.side-bar {
+  background-color: #f8f7fa;
+  max-width: 56px;
+  min-height: 100vh;
+  top: 0;
+  bottom: 0;
+  border-right: 1px solid #eeedf2;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  padding: 30px 13px;
+  height: 50px;
+  width: 50px;
+}
+.Icons {
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+.home-icon-display-default {
+  margin-bottom: 15rem;
+  margin-top: 15rem;
+}
+.order-icon-default {
+  margin-top: 15rem;
+  margin-bottom: 15rem;
+}
+.marketing-icon-default-display {
+  margin-top: 15rem;
+  margin-bottom: 15rem;
+}
+.reports-icon-display-default {
+  margin-top: 15rem;
+  margin-bottom: 15rem;
+}
+.finance-icon-display-default {
+  margin-top: 15rem;
+  margin-bottom: 15rem;
+}
+.organization-settings-display-default {
+  margin-top: 15rem;
+  margin-bottom: 15rem;
+}
+.app-marketplace-display-default {
+  margin-top: 40rem;
+  margin-bottom: 15rem;
+}
+.help-center-display-default {
+  margin-top: 15rem;
+}
+.home-icon :hover {
+  background-color: #fff;
+  color: #3659e3;
+}
+.home-left-navdescription-container {
+  display: none;
+  position: fixed;
+  margin-left: 45rem;
+  margin-top: -35rem;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(19, 0, 45, 0.1);
+  border-radius: 4rem;
+}
+.home-icon-container :hover .home-left-navdescription-container {
+  display: block;
+  color: #3659e3;
+}
