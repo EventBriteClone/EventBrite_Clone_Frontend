@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import styles from "./StructureDrawer.module.css";
-import ManageEventBar from "./ManageEventBar";
+// import ManageEventBar from "./ManageEventBar";
 import Button from "@mui/material/Button";
 import { styled, alpha } from "@mui/material/styles";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";

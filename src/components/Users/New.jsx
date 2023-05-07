@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Style from "./Style.module.css";
 import { fetchDataFromAPI } from "../../utils";
 import config from "../../utils/config";
@@ -9,10 +9,13 @@ import { AuthContext } from "../../context/AuthContext";
 import MainIcon from "../Icons/MainIcon";
 
 import Input from "../UI/Input";
+import { useGoogleLogin } from "@react-oauth/google";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const New = (props) => {
   const navigate = useNavigate();
   // const { setAuthData } = useContext(AuthContext);
+  const [user, setUser] = useState([]);
   let [invalidconfirmemail, setInvalidConfirmemail] = useState(false);
   const [invalidemail, setInvalidemail] = useState(false);
   const [invalidFirstname, setInvalidFirstname] = useState(false);
@@ -47,6 +50,57 @@ const New = (props) => {
     setConfirmEmail(event.target.value);
     console.log(confirmEmail);
   };
+  const google = useGoogleLogin({
+    onSuccess: (codeResponse) => setUser(codeResponse),
+    onError: (error) => console.log("Login Failed:", error),
+  });
+  useEffect(() => {
+    const setUser = async () => {
+      const response = await fetch(
+        `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.access_token}`,
+            Accept: "application/json",
+          },
+        }
+      );
+
+      const json = await response.json();
+      console.log(json);
+
+      const {
+        email: Email,
+        given_name: firstname,
+        family_name: lastname,
+        id,
+      } = json;
+      let endpoint = "user/signup/";
+
+      const postData = await fetch(
+        `${"https://event-us.me:8000/"}${endpoint}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: Email,
+            first_name: Email,
+            last_name: Email,
+            password: Email,
+          }),
+        }
+      );
+
+      const data = await postData.json();
+      console.log(data);
+      if (data.success) {
+        navigate("/");
+      }
+    };
+    setUser();
+  }, [user]);
 
   // const getInputValue = (event) => {
   //   // show the user input value to console
@@ -112,21 +166,9 @@ const New = (props) => {
       let endpoint,
         configurationOpt = {};
       if (config.mocking) {
-        console.log("using mock server");
-        endpoint = `users`;
-        configurationOpt = {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            email: props.email,
-            first_name: firstName,
-            last_name: lastName,
-            password: password,
-          }),
-          timeout: 10000,
-        };
-      } else {
         endpoint = "user/signup/";
+        console.log("using mock server");
+
         configurationOpt = {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -138,6 +180,19 @@ const New = (props) => {
           }),
           timeout: 10000,
         };
+        // } else {
+        //   endpoint = "user/signup/";
+        //   configurationOpt = {
+        //     method: "POST",
+        //     headers: { "Content-Type": "application/json" },
+        //     body: JSON.stringify({
+        //       email: props.email,
+        //       first_name: firstName,
+        //       last_name: lastName,
+        //       password: password,
+        //     }),
+        // timeout: 10000,
+        // };
       }
       console.log("fetching data...");
       try {
@@ -151,7 +206,8 @@ const New = (props) => {
         navigate("/login");
       } catch (error) {
         console.error(error);
-        alert("you already signed up with this account");
+        alert("you already signed up");
+
         navigate("/login");
         return { error };
       }

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Style from "./Style.module.css";
 import { fetchDataFromAPI } from "../../utils";
 import config from "../../utils/config";
@@ -7,11 +7,13 @@ import { Link, useNavigate } from "react-router-dom";
 import MainIcon from "../Icons/MainIcon";
 import Input from "../UI/Input";
 
+import { useGoogleLogin } from "@react-oauth/google";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 const Login = (props) => {
   const navigate = useNavigate();
   const [showNoAccount, setShowNoAccount] = useState(false);
   const [exit, setexit] = useState(false);
-
+  const [user, setUser] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [forgetemail, setforgetEmail] = useState("");
@@ -27,7 +29,55 @@ const Login = (props) => {
       setEmail(props.email);
     }
   };
+  const google = useGoogleLogin({
+    onSuccess: (codeResponse) => setUser(codeResponse),
+    onError: (error) => console.log("Login Failed:", error),
+  });
+  useEffect(() => {
+    const setUser = async () => {
+      const response = await fetch(
+        `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.access_token}`,
+            Accept: "application/json",
+          },
+        }
+      );
 
+      const json = await response.json();
+      console.log(json);
+
+      const {
+        email: Email,
+        given_name: firstname,
+        family_name: lastname,
+        id,
+      } = json;
+      let endpoint = "user/login/";
+
+      const postData = await fetch(
+        `${"https://event-us.me:8000/"}${endpoint}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: Email,
+            password: Email,
+          }),
+        }
+      );
+
+      const data = await postData.json();
+      console.log(data);
+      if (data.success) {
+        navigate("/");
+      }
+    };
+    setUser();
+  }, [user]);
   const handleExitClick = () => {
     setexit(false);
   };
@@ -102,25 +152,25 @@ const Login = (props) => {
           response.token != undefined
         ) {
           if (config.mocking) {
-            // setShowNoAccount(false);
-            // setAuthData(response);
-            // navigate("/");
+            setShowNoAccount(false);
+            setAuthData(response);
+            navigate("/");
           } else {
             if (response.length) {
               console.log("api");
-              // setAuthData(response);
-              // navigate("/");
+              setAuthData(response);
+              navigate("/");
             }
           }
         } else if (response.error) {
           console.log("na hna");
-          //   setShowNoAccount(true);
+          setShowNoAccount(true);
         }
       } catch (error) {
         console.log("2lmfrod tt8ir");
         console.log(error);
 
-        // setShowNoAccount(true);
+        setShowNoAccount(true);
         return;
       }
     }
@@ -295,7 +345,7 @@ const Login = (props) => {
                       type: "email",
                       required: true,
                       id: "email",
-                      value: props.email,
+                      value: email,
                     }}
                   />
                 </form>
@@ -333,7 +383,7 @@ const Login = (props) => {
                 </button>
               </div>
               <div className={Style["cont2"]}>
-                <button>
+                <button onClick={() => google()}>
                   <i className="ri-google-fill" />
                   Sign in with Google
                 </button>

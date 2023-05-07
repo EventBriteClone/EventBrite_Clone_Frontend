@@ -1,7 +1,7 @@
-export default function TicketIcon() {
+export default function TicketIcon({ height = "24rem", width = "24rem" }) {
   return (
     <i
-      style={{ width: "24rem" }}
+      style={{ height, width }}
       data-spec="icon"
       data-testid="icon"
       aria-hidden="true"

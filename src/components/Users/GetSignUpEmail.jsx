@@ -1,16 +1,70 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Input from "../UI/Input";
 import Style from "./Style.module.css";
 import { fetchDataFromAPI } from "../../utils";
 import config from "../../utils/config";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import { useGoogleLogin } from "@react-oauth/google";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 export default function GetSignUpEmail(props) {
+  const [user, setUser] = useState([]);
   let [email, setEmail] = useState("");
   let [invalidEmail, setInvalid] = useState(false);
 
   const navigate = useNavigate();
+  const google = useGoogleLogin({
+    onSuccess: (codeResponse) => setUser(codeResponse),
+    onError: (error) => console.log("Login Failed:", error),
+  });
+  useEffect(() => {
+    const setUser = async () => {
+      const response = await fetch(
+        `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.access_token}`,
+            Accept: "application/json",
+          },
+        }
+      );
+
+      const json = await response.json();
+      console.log(json);
+
+      const {
+        email: Email,
+        given_name: firstname,
+        family_name: lastname,
+        id,
+      } = json;
+      let endpoint = "user/signup/";
+
+      const postData = await fetch(
+        `${"https://event-us.me:8000/"}${endpoint}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: Email,
+            first_name: Email,
+            last_name: Email,
+
+            password: Email,
+          }),
+          timeout: 10000,
+        }
+      );
+
+      const data = await postData.json();
+      console.log(data);
+      if (data.success) {
+        navigate("/login");
+      }
+    };
+    setUser();
+  }, [user]);
 
   // let emailInvalidMessage;
 
@@ -19,6 +73,7 @@ export default function GetSignUpEmail(props) {
     let userValue = event.target.value;
     setEmail(userValue);
   };
+
   function AddEmail() {
     const validRegex =
       /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -74,9 +129,7 @@ export default function GetSignUpEmail(props) {
         if (response.email_exists == true) {
           console.log("mawgod");
 
-          props.submitHandler(email, true);
-
-          // navigate("/login");
+          navigate("/login");
         } else {
           props.submitHandler(email, false);
         }
@@ -198,10 +251,10 @@ export default function GetSignUpEmail(props) {
                 <h3>or</h3>
               </div>
               <div className={Style["cont2"]}>
-                <button>
+                <button onClick={() => google()}>
                   <i
                     className="ri-google-fill"
-                    href="https://accounts.google.com/"
+                    // href="https://accounts.google.com/"
                     title="Go to google account"
                   ></i>
                   Sign in with Google
