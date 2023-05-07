@@ -396,7 +396,7 @@ const Login = (props) => {
                   title="Go to Facebook"
                 ></a>
               </div>
-              <a href="#">Sign up</a>
+              <a href="/signup">Sign up</a>
             </div>
           </div>
           <div className={Style["sec-container"]}>

@@ -18,9 +18,10 @@ import New from "./Pages/New";
 import Login from "./Pages/Login";
 import AuthContextProvider from "./context/AuthContext";
 import ManageAttendees from "./Pages/ManageAttendees";
+import EventTicket from "./Pages/EventTicket";
 import Publish from "./components/Event/CreateEvent/Publish/Publish";
 import EventTicket from "./components/Event/EventTicket/EventTicket";
-import { GoogleOAuthProvider } from "@react-oauth/google";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -59,13 +60,13 @@ const router = createBrowserRouter([
     element: <ManageAttendees />,
   },
   {
+    path: "/event-ticket",
+    element: <EventTicket />,
+  },
+  {
     path: "/publish",
     element: <Publish />,
   },
-  // {
-  //   path: "/event-ticket",
-  //   element: <EventTicket />,
-  // },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
