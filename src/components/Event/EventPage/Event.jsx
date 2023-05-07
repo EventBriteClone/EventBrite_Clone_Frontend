@@ -12,6 +12,7 @@ import Footer from "./Footer"
 import config from "../../../utils/config";
 import useFetch from "../../../custom-hooks/useFetch";
 import BeatLoader from "react-spinners/BeatLoader";
+import PriceFetch from "./PriceFetch";
 
 function Event() {
   let data;
@@ -42,8 +43,8 @@ function Event() {
   const endpoint =
   config.mocking === "true" ? `events/${event_ID}` : `events/ID/${event_ID}/`;
 
-const priceEndpoint =
-  config.mocking === "true" ? "" : `events/TicketsPrice/${event_ID}/`;
+// const priceEndpoint =
+//   config.mocking === "true" ? "" : `events/TicketsPrice/${event_ID}/`;
 
 const { response } = useFetch({
   endpoint,
@@ -55,14 +56,16 @@ const { response } = useFetch({
 console.log(response);
 data = response?.[0];
 
-const { response: price } = useFetch({
-  priceEndpoint,
-  configurationOpt: {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-  },
-});
-console.log(price);
+let price = PriceFetch(event_ID);
+
+// const { response: price } = useFetch({
+//   priceEndpoint,
+//   configurationOpt: {
+//     method: "GET",
+//     headers: { "Content-Type": "application/json" },
+//   },
+// });
+// console.log(price);
 
   const event =  {
     id: window.location.href.split('/').at(-1),
@@ -91,7 +94,7 @@ console.log(price);
       <Header></Header>
       <EventHeader img={data.image} />
       <EventInfo date={data.ST_DATE} title={data.Title} caption={data.Summery}/>
-      <PriceTag price={event.price} event={event.id} img={data.image} title={data.Title}/>
+      <PriceTag price={price} event={event.id} img={data.image} title={data.Title}/>
       <Organizer organizer={data.organizer} organizerIcon={event.organizerIcon} organizerFollowers={event.organizerFollowers}/>
       <EventDetails dateAndtime={`${data.ST_DATE} - ${data.ST_TIME}`} location={data.venue_name} duration={`${Number(data.END_TIME.substring(0,2))-Number(data.ST_TIME.substring(0,2))} hour`} ticket="Mobile eTicket"/>
       <ShareEvent />
