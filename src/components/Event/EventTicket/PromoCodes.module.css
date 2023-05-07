@@ -1,0 +1,95 @@
+.banner-icon-circle-yellow-container {
+  background-color: #efedab;
+  border-radius: 50% !important;
+  height: 100% !important;
+  width: 100% !important;
+  justify-content: left;
+}
+.spans-container {
+  display: block;
+  justify-content: left;
+  flex-wrap: wrap;
+  margin: 80rem auto;
+}
+.spans-container svg {
+  width: 14.5rem;
+}
+.promo-codes-bigger-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 150px;
+}
+.promo-codes-span {
+  margin-bottom: 15rem;
+  font-weight: 600;
+  font-size: 12rem;
+}
+.marketing-link {
+  font-size: 12rem;
+  color: #3659e3;
+}
+.promo-codes-article {
+  vertical-align: top;
+  width: 100%;
+  text-align: left;
+  color: #1e0a3c;
+  margin-top: 25rem;
+  letter-spacing: 0.25px;
+}
+.promo-codes-text1 {
+  text-align: left;
+  color: #39364f;
+  font-size: 12rem;
+  font-weight: 400;
+  margin-top: 10rem;
+  margin-bottom: 15rem;
+  width: 280rem;
+}
+.promo-codes-text2 {
+  text-align: left;
+  color: #39364f;
+  font-size: 12rem;
+  font-weight: 400;
+  margin-top: 10rem;
+  margin-bottom: 15rem;
+  width: 280rem;
+}
+.buttons-contariner {
+  margin-top: 10rem;
+  text-align: left;
+  display: flex;
+}
+.upload-csv-button {
+  min-width: 115rem;
+  width: 100%;
+  height: 40rem;
+  font-size: 10rem;
+  padding: 0.5rem 30px;
+  border: 1rem solid #a9a8b3 !important;
+  color: #39364f;
+  border-radius: 2rem;
+  background-color: #fff;
+}
+.create-promo-code-button {
+  min-width: 145rem;
+  width: 100%;
+  height: 40rem;
+  background-color: #d1410c;
+  color: #fff;
+  font-size: 10rem;
+  padding: 0.5rem 30px;
+  margin-right: 10rem;
+  border: 1rem solid #d1410c;
+  border-radius: 2rem;
+  padding: 0.5rem 30px;
+}
+.promo-codes-empty-state-illustration {
+  height: 250rem;
+  width: 250rem;
+  margin-left: 50rem;
+  margin-top: 50rem;
+}
+.div-image-inputs {
+  display: flex;
+}

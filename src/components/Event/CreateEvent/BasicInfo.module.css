@@ -72,6 +72,7 @@
 .CalenderImage {
   width: 3.125em;
   height: 3.125em;
+  margin-top: 25px;
   fill: #dbdae3 !important;
 }
 .mapImage {

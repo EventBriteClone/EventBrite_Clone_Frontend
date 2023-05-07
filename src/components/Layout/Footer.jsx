@@ -1,7 +1,7 @@
 import "./footer.css";
 import styled from "styled-components";
 
-export default function Footer() {
+ function Footer() {
 
     const Ul= styled.ul`
     list-style: none;
@@ -280,3 +280,5 @@ export default function Footer() {
     </div>
   );
 }
+
+export default Footer;

@@ -17,7 +17,7 @@ const New = (props) => {
   const [invalidLastname, setInvalidLastname] = useState(false);
   const [invalidpassword, setInvalidpassword] = useState(false);
   const [firstName, setFirstName] = useState("");
-
+  const { setAuthData } = useContext(AuthContext);
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [confirmEmail, setConfirmEmail] = useState("");
@@ -68,7 +68,7 @@ const New = (props) => {
     } else if (lastName.match(nameRegex) == null) {
       alert("please enter correct last name");
       setInvalidLastname(true);
-    } else if (!password.match(passwordRegex)) {
+    } else if (!password) {
       setInvalidpassword(true);
       alert("Please enter valid password");
     } else {
@@ -79,23 +79,67 @@ const New = (props) => {
       console.log("sa7 ya ba4a");
     }
   };
+  //     const formdata = new FormData();
+  // formdata.append("email", props.email);
+  // formdata.append("first_name", firstName);
+  // formdata.append("last_name", lastName);
+  // formdata.append("password", password);
+
+  // const requestOptions = {
+  //   method: 'POST',
+  //   body: formdata,
+  //   headers: {
+  //     'Accept': 'application/json',
+  //   },
+  //   redirect: 'follow'
+  // };
+
+  // console.log("fetching data...");
+  // const response = await fetch("https://event-us.me:8000/user/signup/", requestOptions);
+  // const data = await response.json();
+  // console.log("response", data);
+
+  // if (data.error) {
+  //   // handle error
+  //   return;
+  // } else {
+  //   navigate("/login");
+  //   setAuthData(data);
+  // }
+
   async function submitHandler(e) {
     e.preventDefault();
-    if (invalidEmail || invalidFirstname || invalidLastname || invalidpassword)
+    if (
+      invalidEmail ||
+      invalidFirstname ||
+      invalidLastname ||
+      invalidpassword
+    ) {
       return;
-    else {
+    } else {
       let endpoint,
         configurationOpt = {};
       if (config.mocking === "true") {
-        endpoint = `users?email=${email}&password=${password}&first_name=${firstName}&last_name=${lastName}`;
+        console.log("using mock server");
+        endpoint = `users`;
+        configurationOpt = {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: props.email,
+            first_name: firstName,
+            last_name: lastName,
+            password: password,
+          }),
+          timeout: 10000,
+        };
       } else {
         endpoint = "user/signup/";
         configurationOpt = {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-
           body: JSON.stringify({
-            email: confirmEmail,
+            email: props.email,
             first_name: firstName,
             last_name: lastName,
             password: password,
@@ -103,15 +147,21 @@ const New = (props) => {
           timeout: 10000,
         };
       }
-      console.log("wslt");
+      console.log("fetching data...");
       const response = await fetchDataFromAPI({ endpoint, configurationOpt });
       console.log("response", response);
       if (response.error) {
+        // handle error
+        return;
       } else {
+        navigate("/login");
         if (config.mocking) {
-          if (response.length) {
-            setAuthData(response[0]);
+          if (response) {
+            console.log("ro7 ya 7omar");
             navigate("/login");
+            setAuthData(response[0]);
+            // con;
+            // navigate("/login");
           }
         } else {
           setAuthData(response);
@@ -120,6 +170,78 @@ const New = (props) => {
       }
     }
   }
+  // const config = {
+  //   baseURL: "https://event-us.me:8000/",
+  //   mocking: false,
+  // };
+
+  // async function submitHandler(e) {
+  //   e.preventDefault();
+  //   if (
+  //     invalidEmail ||
+  //     invalidFirstname ||
+  //     invalidLastname ||
+  //     invalidpassword
+  //   ) {
+  //     return;
+  //   } else {
+  //     let endpoint,
+  //       configurationOpt = {};
+  //     if (config.mocking) {
+  //       console.log("using mock server");
+  //       endpoint = `users`;
+  //       configurationOpt = {
+  //         method: "POST",
+  //         headers: { "Content-Type": "application/json" },
+  //         body: JSON.stringify({
+  //           email: props.email,
+  //           first_name: firstName,
+  //           last_name: lastName,
+  //           password: password,
+  //         }),
+  //         timeout: 10000,
+  //       };
+  //     } else {
+  //       endpoint = "user/signup/";
+  //       configurationOpt = {
+  //         method: "POST",
+  //         headers: { "Content-Type": "application/json" },
+  //         body: JSON.stringify({
+  //           email: props.email,
+  //           first_name: firstName,
+  //           last_name: lastName,
+  //           password: password,
+  //         }),
+  //         timeout: 10000,
+  //       };
+  //     }
+  //     console.log("fetching data...");
+  //     const response = await fetchDataFromAPI({ endpoint, configurationOpt });
+  //     console.log("response", response);
+  //     if (response.error) {
+  //       // handle error
+  //       return;
+  //     } else {
+  //       navigate("/login");
+  //       setAuthData(response);
+  //       navigate("/login");
+  //     }
+  //   }
+  // }
+
+  // async function fetchDataFromAPI({ endpoint, configurationOpt = {} }) {
+  //   try {
+  //     configurationOpt = {
+  //       ...configurationOpt,
+  //     };
+  //     const res = await fetch(`${config.baseURL}${endpoint}`, configurationOpt);
+  //     const data = await res.json();
+  //     return data;
+  //   } catch (error) {
+  //     // console.error(error);
+  //     return { error };
+  //   }
+  // }
   return (
     <div>
       <div className={Style["main"]}>
@@ -216,7 +338,7 @@ const New = (props) => {
                 </form>
               </div>
               <div className={Style["log-in"]}>
-                <Link to="/">log in</Link>
+                <Link to="/login">log in</Link>
               </div>
             </div>
           </div>

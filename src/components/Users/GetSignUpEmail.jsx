@@ -1,10 +1,16 @@
 import { useState } from "react";
 import Input from "../UI/Input";
 import Style from "./Style.module.css";
+import { fetchDataFromAPI } from "../../utils";
+import config from "../../utils/config";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function GetSignUpEmail(props) {
   let [email, setEmail] = useState("");
   let [invalidEmail, setInvalid] = useState(false);
+  const navigate = useNavigate();
+
   // let emailInvalidMessage;
 
   const getInputValue = (event) => {
@@ -29,12 +35,91 @@ export default function GetSignUpEmail(props) {
     }
   }
 
-  function submitHandler(e) {
+  async function submitHandler(e) {
     e.preventDefault();
     if (invalidEmail) return;
-    props.submitHandler(email);
+    else {
+      props.submitHandler(email);
+      let endpoint,
+        configurationOpt = {};
+      if (config.mocking) {
+        console.log("using mock server");
+        endpoint = `users/`;
+        configurationOpt = {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+          timeout: 10000,
+        };
+      } else {
+        endpoint = `user/emailcheck?email=${email}`;
+        configurationOpt = {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+          timeout: 10000,
+        };
+      }
+      console.log("fetching data...");
+      const response = await fetchDataFromAPI({ endpoint, configurationOpt });
+      console.log("response", response);
+
+      for (let i = 0; i < response.length; i++) {
+        if (response[i].email === email) {
+          navigate("/login");
+          console.log("mawgod");
+          return;
+        } else {
+          navigate("/SignUp");
+          console.log("m4 mwogd");
+        }
+      }
+    }
   }
 
+  //     let endpoint,
+  //       configurationOpt = {};
+  //     if (config.mocking) {
+  //       console.log("using mock server");
+  //       endpoint = `users/`;
+  //       configurationOpt = {
+  //         method: "GET",
+  //         headers: { "Content-Type": "application/json" },
+  //         timeout: 10000,
+  //       };
+  //     } else {
+  //       endpoint = `user/emailcheck?email=${email}`;
+  //       configurationOpt = {
+  //         method: "GET",
+  //         headers: { "Content-Type": "application/json" },
+  //         timeout: 10000,
+  //       };
+  //     }
+  //     console.log("fetching data...");
+  //     const response = await fetchDataFromAPI({ endpoint, configurationOpt });
+  //     console.log("response", response);
+  //     if (response === true) {
+  //       navigate("/login");
+  //       setAuthData(email);
+  //     } else {
+  //       navigate("/SignUp");
+  //     }
+  //   }
+  // }
+  // // async function checkEmail(email) {
+  // //   const endpoint = `u=${email}`;
+
+  //   // try {
+  //   //   const response = await fetch(endpoint, {
+  //   //     method: "GET",
+  //   //     headers: { "Content-Type": "application/json" },
+  //   //   });
+
+  //   //   const data = await response.json();
+  //   //   console.log(data);
+  //   //   return data;
+  //   // } catch (error) {
+  //   //   console.error(error);
+  //   // }
+  // }
   return (
     <>
       <div className={Style["main"]}>

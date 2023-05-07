@@ -29,6 +29,7 @@ function Location({ changeButton }) {
   const [showToBeAnnounced, setshowToBeAnnounced] = useState(false);
 
   function handleShowVenue(event) {
+    saveButton(false);
     if (
       isVenueOpen === true &&
       isOnlineEventOpen === false &&
@@ -65,6 +66,7 @@ function Location({ changeButton }) {
   }
   // Online Event Button Hide and Show
   function handleShowOnlineEvent(event) {
+    saveButton(true);
     if (
       isVenueOpen === false &&
       isOnlineEventOpen === true &&
@@ -95,8 +97,11 @@ function Location({ changeButton }) {
       setIsToBeAnnouncedOpen(false);
     }
   }
+
   // Online Event Button Hide and Show
   function handleShowToBeAnnounced(event) {
+    saveButton(true);
+
     if (
       isVenueOpen === false &&
       isOnlineEventOpen === false &&
@@ -196,6 +201,11 @@ function Location({ changeButton }) {
                 />
               </Paper>
             )}
+            <div className={styles.aside}>
+              {isLocationRequired && (
+                <p className={styles.letterRequired}>Location is required.</p>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -204,6 +214,9 @@ function Location({ changeButton }) {
 }
 Location.propTypes = {
   changeButton: PropTypes.func,
+  saveButton: PropTypes.func,
+  isLocationRequired: PropTypes.bool,
+  setIsLocationRequired: PropTypes.func,
 };
 
 export default Location;

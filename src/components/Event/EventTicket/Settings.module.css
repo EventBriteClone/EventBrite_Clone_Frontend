@@ -1,0 +1,103 @@
+.ticket-settings-container {
+  /* align-items: flex-start; */
+  /* justify-content: flex-start; */
+  /* flex-wrap: wrap; */
+  margin-top: 150rem;
+  margin-right: 200rem;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+.first-settings-container {
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+}
+.second-settings-container {
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+}
+.checkbox-container {
+  display: flex;
+}
+.display-settings-h3 {
+  font-weight: 600;
+  font-size: 13.5rem;
+  letter-spacing: 0.25px;
+  padding-top: 5rem;
+  padding-bottom: 15rem;
+  margin-bottom: 5rem;
+  color: #4b4d63;
+}
+.event-type-h3 {
+  font-weight: 600;
+  font-size: 13.5rem;
+  letter-spacing: 0.25px;
+  padding-top: 5rem;
+  padding-bottom: 15rem;
+  margin-bottom: 5rem;
+  color: #4b4d63;
+}
+.display-mess-after-salesEnd {
+  font-weight: 600;
+  font-size: 13.5rem;
+  letter-spacing: 0.25px;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  /* margin-bottom: 5rem; */
+  color: #4b4d63;
+}
+.display-text-after-salesEnd {
+  font-size: 12rem;
+  color: #a9a8b3;
+  padding-bottom: 5rem;
+}
+.checkbox2 {
+  width: 17rem;
+  height: 17rem;
+}
+.radio1 {
+  width: 17rem;
+  height: 17rem;
+}
+.radio1-label {
+  font-size: 13.5rem;
+  line-height: 13rem;
+  color: #39364f;
+}
+.event-type-radio1-text1 {
+  font-size: 11rem;
+  color: #a9a8b3;
+  margin-left: 20rem;
+  margin-bottom: 20rem;
+}
+.checkbox-texts {
+  margin-left: 13rem;
+  padding-bottom: 11rem;
+}
+.checkbox-text1 {
+  font-size: 13.5rem;
+  line-height: 13rem;
+  color: #39364f;
+}
+.checkbox-text2 {
+  font-size: 11rem;
+  color: #a9a8b3;
+}
+/* .input-upcoming-sessions {
+
+  max-width: 400rem;
+  height: 500rem;
+} */
+.letter-num-border {
+  text-align: right;
+  flex: 1 1 auto;
+}
+.letter-num {
+  text-align: right;
+  font: inherit;
+  color: #4b4d63;
+  font-size: 12rem;
+  line-height: 1rem;
+  margin-top: 5rem;
+  margin-bottom: 15px;
+}
