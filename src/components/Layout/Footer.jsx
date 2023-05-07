@@ -1,23 +1,19 @@
 import "./footer.css";
 import styled from "styled-components";
 
- function Footer() {
-
-    const Ul= styled.ul`
+function Footer() {
+  const Ul = styled.ul`
     list-style: none;
     padding: 0 20px;
-    text-align:center;
-    margin-bottom:20px;
-  
-  
-  
-    li{
+    text-align: center;
+    margin-bottom: 20px;
+
+    li {
       display: inline-block;
       margin: 0 10px;
       position: relative;
-      
     }
-    li:before{
+    li:before {
       content: "";
       position: absolute;
       top: 50%;
@@ -28,253 +24,152 @@ import styled from "styled-components";
       border-radius: 50%;
       background: #ccc;
     }
-     li a{
+    li a {
       color: #fff;
-     }
-     li a:hover{
+    }
+    li a:hover {
       color: #3659e3 !important;
       text-decoration: underline;
-      
-     }
-  
-    `;
-  
-    const Select = styled.div`
-    select{
+    }
+  `;
+
+  const Select = styled.div`
+    select {
       background-color: transparent !important;
-      color:#fff;
-      border:0;
+      color: #fff;
+      border: 0;
       outline: none;
     }
-    select option{
-       color:#000;
-      }
-    
-    `
+    select option {
+      color: #000;
+    }
+  `;
 
-
-
-    
   return (
-  
-       <div className="footer">
+    <div className="footer">
       <div className="sb__footer section__padding">
         <div className="sb__footer-links">
           <div className="sb__footer-links_div">
             <h4>Use Eventbrite</h4>
-            <a href="https://www.eventbrite.com/organizer/overview/">
+            <a href="#">
               <p>Create Events</p>
             </a>
-            <a href="https://www.eventbrite.com/organizer/pricing/">
+            <a href="#">
               <p>Pricing</p>
             </a>
-            <a href="https://www.eventbrite.com/boost/">
+            <a href="#">
               <p>Eventbrite Boost</p>
             </a>
-            <a href="https://www.eventbrite.com/l/eventbrite-app/">
+            <a href="#/">
               <p>Eventbrite Mobile Ticket App</p>
             </a>
-            <a href="https://www.eventbrite.com/l/organizer-check-in-app/">
+            <a href="#">
               <p>Eventbrite Check-In App</p>
             </a>
-            <a href="https://www.eventbrite.com/apps/">
+            <a href="#">
               <p>Eventbrite App Marketplace</p>
             </a>
-            <a href="https://www.eventbrite.com/l/registration-online/">
+            <a href="#">
               <p>Event Registration Software</p>
             </a>
-            <a href="https://www.eventbrite.com/l/contentstandards/">
+            <a href="#">
               <p>Content Standards</p>
             </a>
-            <a href="https://www.eventbrite.com/l/frequently-asked-questions/">
+            <a href="#">
               <p>FAQs</p>
             </a>
-            <a href="https://www.eventbrite.com/sitemap/">
+            <a href="#">
               <p>Sitemap</p>
             </a>
           </div>
           <div className="sb__footer-links_div">
             <h4>Plan Events</h4>
-            <a href="https://www.eventbrite.com/l/sell-tickets/">
+            <a href="#">
               <p>Sell Tickets Online</p>
             </a>
-            <a href="https://www.eventbrite.com/l/planning-an-event/">
+            <a href="#">
               <p>Event Planning</p>
             </a>
-            <a href="https://www.eventbrite.com/l/music-venues/">
+            <a href="#">
               <p>Sell Concert Ticekts Online</p>
             </a>
-            <a href="https://www.eventbrite.com/l/event-payment/">
+            <a href="#">
               <p>Event Payment System</p>
             </a>
-            <a href="https://www.eventbrite.com/l/professional-services/">
+            <a href="#">
               <p>Solutions for professional services</p>
             </a>
-            <a href="https://www.eventbrite.com/l/event-management-software/">
+            <a href="#">
               <p>event managment software</p>
             </a>
-            <a href="https://www.eventbrite.com/l/community-engagement/">
+            <a href="#">
               <p>community engagement</p>
             </a>
-            <a href="https://www.eventbrite.com/l/virtual-events-platform/">
+            <a href="#">
               <p>virtual events platform</p>
             </a>
-            <a href="https://www.eventbrite.com/l/how-to-use-qr-codes-for-events/">
+            <a href="#">
               <p>QR codes for event check-in</p>
             </a>
-            <a href="https://www.eventbrite.com/l/post-events/">
+            <a href="#">
               <p>post your event online</p>
             </a>
           </div>
 
           <div className="sb__footer-links_div">
             <h4>Find Events</h4>
-            <a href="https://www.eventbrite.com/b/la--new-orleans/food-and-drink/">
+            <a href="#">
               <p>New Orleans Food & Drink Events</p>
             </a>
-            <a href="https://www.eventbrite.com/b/ca--san-francisco/holiday/">
+            <a href="#">
               <p>San Francisco Holiday Events</p>
             </a>
-            <a href="https://www.eventbrite.com/b/mexico--tulum/music/">
+            <a href="#">
               <p>Tulum Music Events</p>
             </a>
-            <a href="https://www.eventbrite.com/b/co--denver/hobbies/">
+            <a href="#">
               <p>Denver Hobby Events</p>
             </a>
-            <a href="https://www.eventbrite.com/b/co--atlanta/music/pop/">
+            <a href="#">
               <p>Atlanta Pop Music Events</p>
             </a>
-            <a href="https://www.eventbrite.com/d/ny--new-york/events/">
+            <a href="#">
               <p>New York Events</p>
             </a>
-            <a href="https://www.eventbrite.com/d/il--chicago/events/">
+            <a href="#">
               <p>Chicago Events</p>
             </a>
-            <a href="https://www.eventbrite.com/d/tx--dallas/events--today/">
+            <a href="#">
               <p>Events in Dallas Today</p>
             </a>
-            <a href="https://www.eventbrite.com/d/ca--los-angeles/events/">
+            <a href="#">
               <p>Los Angeles Events</p>
             </a>
-            <a href="https://www.eventbrite.com/d/dc--washington/events/">
+            <a href="#">
               <p>Washington Events</p>
             </a>
           </div>
 
           <div className="sb__footer-links_div">
             <h4>Connect With Us</h4>
-            <a href="https://www.eventbrite.com/support/contact-us">
+            <a href="#">
               <p>Contact Support</p>
             </a>
-            <a href="https://www.twitter.com/Eventbrite">
+            <a href="#">
               <p>Twitter</p>
             </a>
-            <a href="https://www.facebook.com/Eventbrite">
+            <a href="#">
               <p>Facebook</p>
             </a>
 
-            <a href="https://www.linkedin.com/company/eventbrite">
+            <a href="#">
               <p>LinkedIn</p>
             </a>
 
-            <a href="https://www.instagram.com/eventbrite/">
+            <a href="#">
               <p>Instagram</p>
             </a>
           </div>
-        </div>
-
-        <div className="sb__footer-below-links">
-          <Ul className="sb__footer-below-links-ul">
-            <li>
-              <a href="/terms">
-                <p>About</p>
-              </a>
-            </li>
-            <li>
-              <a href="/terms">
-                <p>Blog</p>
-              </a>
-            </li>
-            <li>
-              <a href="/terms">
-                <p>Help</p>
-              </a>
-            </li>
-            <li>
-              <a href="/terms">
-                <p>Careers</p>
-              </a>
-            </li>
-            <li>
-              <a href="/terms">
-                <p>Press</p>
-              </a>
-            </li>
-
-            <li>
-              <a href="/terms">
-                <p>Investors</p>
-              </a>
-            </li>
-
-
-            <li>
-              <a href="/terms">
-                <p>Security</p>
-              </a>
-            </li>
-
-
-            <li>
-              <a href="/terms">
-                <p>Developers</p>
-              </a>
-            </li>
-
-            <li>
-              <a href="/terms">
-                <p>PrivacyCA Privacy Notice</p>
-              </a>
-            </li>
-
-
-            <li>
-              <a href="/terms">
-                <p>Accessibility</p>
-              </a>
-            </li>
-
-
-            <li>
-              <a href="/terms">
-                <p>Cookies</p>
-              </a>
-            </li>
-
-
-             
-          </Ul>
-        </div>
-
-        <div className="sb__footer-below">
-          <div className="sb__footer-copyright">
-            <p>@{new Date().getFullYear()} EventBrite</p>
-          </div>
-
-          <Select  >
-            <select name="country" id="country">
-              <option value="us">United States</option>
-              <option value="ca">Canada</option>
-              <option value="mx">Mexico</option>
-              <option value="gb">United Kingdom</option>
-              <option value="au">Australia</option>
-              <option value="nz">New Zealand</option>
-              <option value="ie">Ireland</option>
-              <option value="za">South Africa</option>            
-
-           </select>
-
-          </Select>
         </div>
       </div>
     </div>

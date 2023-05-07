@@ -1,0 +1,16 @@
+.submit-card__container {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  background-color: var(--grey-background);
+}
+
+.submit-card__container button {
+  background: var(--primary-orange);
+  padding: 12px 16px;
+  border-radius: 4px;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
