@@ -5,6 +5,17 @@ import DateTime from "./DateTime";
 import styles from "./BasicInfo.module.css";
 import { Link } from "react-router-dom";
 import NavBar from "./NavBar";
+import ErrorMessage from "./ErrorMessage";
+import {
+  LocationContext,
+  LocationValues,
+  BasicInfoContext,
+  BasicInfoValues,
+} from "../../../context/CreateEventContext";
+import {
+  BasicInfoContextProvider,
+  DateTimeContextProvider,
+} from "../../../context/CreateEventContext";
 
 export default function BasicInfo() {
   useEffect(() => {

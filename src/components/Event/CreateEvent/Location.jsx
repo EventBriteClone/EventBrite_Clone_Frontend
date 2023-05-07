@@ -17,6 +17,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { LocationContext } from "../../../context/CreateEventContext";
 
 function Location({
   changeButton,
@@ -55,6 +56,7 @@ function Location({
 
   function handleShowVenue(event) {
     saveButton(false);
+    setIsLocationRequired(true);
     if (
       isVenueOpen === true &&
       isOnlineEventOpen === false &&
@@ -92,6 +94,7 @@ function Location({
   // Online Event Button Hide and Show
   function handleShowOnlineEvent(event) {
     saveButton(true);
+    setIsLocationRequired(false);
     if (
       isVenueOpen === false &&
       isOnlineEventOpen === true &&
@@ -126,7 +129,7 @@ function Location({
   // Online Event Button Hide and Show
   function handleShowToBeAnnounced(event) {
     saveButton(true);
-
+    setIsLocationRequired(false);
     if (
       isVenueOpen === false &&
       isOnlineEventOpen === false &&
@@ -229,11 +232,11 @@ function Location({
                 />
               </Paper>
             )}
-            {/* <div className={styles.aside}>
+            <div className={styles.aside}>
               {isLocationRequired && (
                 <p className={styles.letterRequired}>Location is required.</p>
               )}
-            </div> */}
+            </div>
           </div>
         </div>
       </div>
@@ -243,8 +246,8 @@ function Location({
 Location.propTypes = {
   changeButton: PropTypes.func,
   saveButton: PropTypes.func,
-  // isLocationRequired: PropTypes.bool,
-  // setIsLocationRequired: PropTypes.func,
+  isLocationRequired: PropTypes.bool,
+  setIsLocationRequired: PropTypes.func,
 };
 
 export default Location;
