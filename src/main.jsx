@@ -10,7 +10,7 @@ import {
 import "./index.css";
 import BasicInfo from "./Pages/BasicInfo";
 import LandingPage from "./Pages/LandingPage";
-import EventPage from "./Pages/EventPage";
+// import EventPage from "./Pages/EventPage";
 import SignUp from "./Pages/Signup";
 import EventCreator from "./Pages/CreatorEvent";
 import configuration from "./utils/config";
@@ -72,7 +72,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthContextProvider>
+      <GoogleOAuthProvider clientId="749417144932-40bn9j748fbhp5tciuuhd5ehhr8e5gfd.apps.googleusercontent.com">
         <RouterProvider router={router} />
+      </GoogleOAuthProvider>
     </AuthContextProvider>
   </React.StrictMode>
 );

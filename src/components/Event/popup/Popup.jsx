@@ -4,7 +4,7 @@ import styles from "./Popup.module.css";
 import { NavLink } from "react-router-dom";
 import Timer from "../timer/Timer";
 import logoImg from "../../../assets/images/eventus.png";
-import swal from "sweetalert";
+// import swal from "sweetalert";
 
 const Popup = ({ show, setShow, ...props }) => {
   const subTotal = props.price;
@@ -20,11 +20,9 @@ const Popup = ({ show, setShow, ...props }) => {
   const [subtotal, setSubTotal] = useState(subTotal);
 
   let initTotal;
-  if(props.price)
-  {
+  if (props.price) {
     initTotal = subTotal - discount + fees;
-  }
-  else {
+  } else {
     initTotal = 0;
   }
 
@@ -74,8 +72,7 @@ const Popup = ({ show, setShow, ...props }) => {
     setShow(false);
   };
 
-  async function handleSubmit(event)
-  {
+  async function handleSubmit(event) {
     console.log("data", data);
 
     if (data.email === data.cmail) {
@@ -84,7 +81,6 @@ const Popup = ({ show, setShow, ...props }) => {
       setValidmail(true);
     }
     event.preventDefault();
-    
 
     setShow(false);
 
@@ -108,7 +104,7 @@ const Popup = ({ show, setShow, ...props }) => {
 
     // const response = await fetchDataFromAPI({ endpoint, configurationOpt });
     // console.log(response.text);
-  };
+  }
 
   const checkValid = (event) => {
     const { name, value } = event.target;
@@ -138,7 +134,7 @@ const Popup = ({ show, setShow, ...props }) => {
       }
     }
   };
-  
+
   return (
     <div className={styles["model"]}>
       <div className={styles["model-inner"]}>
