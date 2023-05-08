@@ -1,0 +1,112 @@
+.image-create-section {
+  width: 200rem;
+  height: 350rem;
+}
+.create-section-border {
+  flex-wrap: wrap;
+  width: 100%;
+}
+.image-create-section-border {
+  /* margin-bottom: 90rem; */
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.create-section-svg {
+  /* margin-bottom: 100rem; */
+  padding-bottom: 165rem;
+  padding-left: 115rem;
+}
+.create-section-container {
+  justify-content: right;
+  display: flex;
+}
+.create-section-h3-popper {
+  text-align: left;
+  color: #1e0a3c;
+  font-size: 17rem;
+  margin-left: 60rem;
+  margin-bottom: 12rem;
+}
+.create-section-text-popper {
+  text-align: left;
+  color: #4b4d63;
+  font-size: 12rem;
+  font-weight: 400;
+  margin-left: 60rem;
+  margin-bottom: 12rem;
+  width: 280rem;
+}
+.section-name-input {
+  margin-left: 60rem;
+  width: 100%;
+  max-width: 260rem;
+  margin-bottom: 10rem;
+}
+.section-capacity-input {
+  margin-left: 60rem;
+  width: 100%;
+  max-width: 260rem;
+  margin-bottom: 10rem;
+}
+
+.create-section-line {
+  margin-top: 30rem;
+  border-top: 0.25rem solid #eeedf2;
+  width: 100%;
+  justify-content: left;
+}
+.buttons-contariner {
+  margin-top: 10rem;
+  /* text-align: center; */
+  text-align: end;
+}
+.cancel-button {
+  width: 100%;
+  max-width: 100rem;
+  min-height: 35rem;
+  font-size: 12rem;
+  padding: 0.5rem 30px;
+  margin-right: 16px;
+  border: 1rem solid #a9a8b3 !important;
+  color: #39364f;
+  border-radius: 2rem;
+  background-color: #fff;
+}
+.create-button {
+  width: 100%;
+  max-width: 100rem;
+  min-height: 35rem;
+  background-color: #d1410c;
+  color: #fff;
+  font-size: 12rem;
+  padding: 0.5rem 30px;
+  border: 1rem solid #d1410c;
+  border-radius: 2rem;
+  padding: 0.5rem 30px;
+}
+.aside-name-required {
+  display: flex;
+  justify-content: space-between;
+}
+.nameRequired {
+  font: inherit;
+  color: red;
+  font-size: 12rem;
+  margin-left: 60rem;
+  line-height: 1rem;
+  margin-bottom: 15px;
+  animation-name: fadeIn;
+}
+.letter-num-border {
+  text-align: right;
+  flex: 1 1 auto;
+  margin-right: 20rem;
+}
+.letter-num {
+  text-align: right;
+  font: inherit;
+  color: #4b4d63;
+  font-size: 12rem;
+  line-height: 1rem;
+  margin-bottom: 15px;
+}

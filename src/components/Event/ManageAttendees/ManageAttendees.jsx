@@ -10,7 +10,7 @@ function ManageAttendees() {
   return (
     <>
       <div className={styles["h1"]}>
-        <h1>Manage Atendees</h1>
+        <h1>Manage Attendees</h1>
       </div>
 
       <div className={styles["containerEventTitle"]}>
@@ -59,7 +59,7 @@ function ManageAttendees() {
       </div>
 
       <div className={styles.buttonContainer}>
-        <button className={styles.AddTagButton}>Add</button>
+        <button className={styles.AddTagButton}>Check</button>
       </div>
       <div className={styles.buttonContainer}>
         <button className={styles.AddTagButton}>Save</button>
