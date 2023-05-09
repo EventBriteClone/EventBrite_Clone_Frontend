@@ -114,7 +114,7 @@ function UploadCSV({
   }
   const handleRadioChange = (event) => {
     setSelectedValue(event.target.value);
-    console.log(event.target.value);
+    // console.log(event.target.value);
     if (event.target.value === "radio2") {
       setShowHideStartDateTime(true);
     } else {
@@ -133,9 +133,8 @@ function UploadCSV({
     setSelectedValue3(event.target.value);
   };
   function LimitedDropDownChange(event) {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     if (event.target.value === "22") {
-      console.log("alo");
       setShowHideItemValue(true);
     } else {
       setShowHideItemValue(false);

@@ -4,7 +4,12 @@ import PropTypes from "prop-types";
 import MyCard from "./Card";
 import { Link } from "react-router-dom";
 
-function Admission({ showDrawerButton, ticketList }) {
+function Admission({
+  showDrawerButton,
+  ticketList,
+  setTicketList,
+  setTicketNameTitle,
+}) {
   function admissionAddButton(event) {
     showDrawerButton(true);
   }
@@ -19,7 +24,12 @@ function Admission({ showDrawerButton, ticketList }) {
           Add tickets
         </button>
       </div>
-      <MyCard ticketList={ticketList} />
+      <MyCard
+        ticketList={ticketList}
+        setTicketList={setTicketList}
+        setTicketNameTitle={setTicketNameTitle}
+        showDrawerButton={showDrawerButton}
+      />
     </>
   );
 }
@@ -27,6 +37,8 @@ Admission.propTypes = {
   showDrawerButton: PropTypes.func,
   ticketList: PropTypes.array,
   showAddTicketDrawer: PropTypes.func,
+  setTicketList: PropTypes.func,
+  setTicketNameTitle: PropTypes.func,
 };
 
 export default Admission;

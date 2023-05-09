@@ -11,9 +11,9 @@ function PromoCodeList({ promoCodeList }) {
         return (
           <div className={styles["promo-list-container"]}>
             <div>
-              <button className={styles["search-icon-button"]} type="submit">
+              {/* <button className={styles["search-icon-button"]} type="submit">
                 <FaSearch className={styles["search-icon"]} />
-              </button>
+              </button> */}
               <div className={styles["add-code-button"]}>
                 <input
                   type="search"
