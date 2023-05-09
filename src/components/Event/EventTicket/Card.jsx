@@ -1,11 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Card.module.css";
 import PropTypes from "prop-types";
+function MyCard({
+  ticketList = [],
+  setTicketList,
+  setTicketNameTitle,
+  showDrawerButton,
+}) {
+  const [open, setOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const options = ["Edit", "Delete"];
+  const handleClick = (event) => {
+    setOpen(true);
+    setAnchorEl(event.currentTarget);
+  };
 
-function MyCard({ ticketList }) {
+  const handleClose = (event, number) => {
+    setOpen(false);
+    setAnchorEl(null);
+    // console.log(number);
+    if (event.target.id === "Edit") {
+      showDrawerButton(true);
+      setTicketNameTitle(number.name);
+      // console.log(number.name);
+    } else if (event.target.id === "Delete") {
+      let copy = [...ticketList];
+      copy = copy.filter((item) => number.name != item.name);
+
+      setTicketList(copy);
+      // console.log(copy);
+    }
+  };
   return (
     <div>
-      {ticketList.map((val, key) => {
+      {ticketList.map((val, key, index) => {
         return (
           <tr key={key}>
             <td className={styles["table"]}>
@@ -61,6 +89,34 @@ function MyCard({ ticketList }) {
                         0/{val.quantity}
                       </p>
                       <p className={styles["price-text"]}>${val.price}</p>
+                      <div className={styles["menu-container"]}>
+                        <button
+                          className={styles["more-button"]}
+                          onClick={handleClick}
+                        >
+                          <span className={styles["more-icon"]}>&#8942;</span>
+                        </button>
+                        {open && (
+                          <div className={styles["menu"]}>
+                            {options.map((option) => (
+                              <tr>
+                                <td>
+                                  <button
+                                    key={option}
+                                    id={option}
+                                    className={styles["menu-item"]}
+                                    onClick={(event) => {
+                                      handleClose(event, val);
+                                    }}
+                                  >
+                                    {option}
+                                  </button>
+                                </td>
+                              </tr>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     </p>
                   </div>
                 </div>
@@ -75,6 +131,9 @@ function MyCard({ ticketList }) {
 
 MyCard.propTypes = {
   ticketList: PropTypes.array,
+  setTicketList: PropTypes.func,
+  setTicketNameTitle: PropTypes.func,
+  showDrawerButton: PropTypes.func,
 };
 
 export default MyCard;
