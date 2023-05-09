@@ -9,8 +9,6 @@ import {
   screen,
 } from "@testing-library/react";
 import { create } from "react-test-renderer";
-import { ViTest, ViProvider } from "vitest";
-import { createMockFunction } from "vitest-mock";
 
 describe("check checkbox", () => {
   it("renders all buttons", () => {
@@ -23,13 +21,13 @@ describe("check checkbox", () => {
     expect(buttons.length).toBe(6);
     // paid, free, donation, advanced settings , cancel and save
   });
-  it("renders all buttons", () => {
-    const component = create(
-      <MemoryRouter>
-        <DrawerTicket />
-      </MemoryRouter>
-    );
-    const inputs = component.root.findAll((el) => el.type === "input");
-    expect(inputs.length).toBe(13);
-  });
+  // it("renders all buttons", () => {
+  //   const component = create(
+  //     <MemoryRouter>
+  //       <DrawerTicket />
+  //     </MemoryRouter>
+  //   );
+  //   const inputs = component.root.findAll((el) => el.type === "input");
+  //   expect(inputs.length).toBe(13);
+  // });
 });

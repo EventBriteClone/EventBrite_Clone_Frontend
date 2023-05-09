@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./Card.module.css";
 import PropTypes from "prop-types";
 function MyCard({
-  ticketList = [],
+  ticketList,
   setTicketList,
   setTicketNameTitle,
   showDrawerButton,
