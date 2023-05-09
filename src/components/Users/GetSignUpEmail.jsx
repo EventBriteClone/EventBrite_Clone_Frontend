@@ -7,6 +7,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { useGoogleLogin } from "@react-oauth/google";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import {
+  ConnectingAirportsOutlined,
+  NavigationRounded,
+} from "@mui/icons-material";
 
 export default function GetSignUpEmail(props) {
   const [user, setUser] = useState([]);
@@ -15,56 +19,14 @@ export default function GetSignUpEmail(props) {
 
   const navigate = useNavigate();
   const google = useGoogleLogin({
-    onSuccess: (codeResponse) => setUser(codeResponse),
+    onSuccess: (codeResponse) => googleLoginSuccess(codeResponse, navigate),
     onError: (error) => console.log("Login Failed:", error),
   });
-  useEffect(() => {
-    const setUser = async () => {
-      const response = await fetch(
-        `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
-        {
-          headers: {
-            Authorization: `Bearer ${user.access_token}`,
-            Accept: "application/json",
-          },
-        }
-      );
+  // useEffect(() => {
 
-      const json = await response.json();
-      console.log(json);
-
-      const {
-        email: Email,
-        given_name: firstname,
-        family_name: lastname,
-        id,
-      } = json;
-      let endpoint = "user/signup/";
-
-      const postData = await fetch(
-        `${"https://event-us.me:8000/"}${endpoint}`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            email: Email,
-            first_name: Email,
-            last_name: Email,
-
-            password: Email,
-          }),
-          timeout: 10000,
-        }
-      );
-
-      const data = await postData.json();
-      console.log(data);
-      if (data.success) {
-        navigate("/login");
-      }
-    };
-    setUser();
-  }, [user]);
+  // setUser();
+  // }, []);
+  // }, [user]);
 
   // let emailInvalidMessage;
 
@@ -279,4 +241,46 @@ export default function GetSignUpEmail(props) {
       <footer></footer>
     </>
   );
+}
+
+async function googleLoginSuccess(googleData, navigate) {
+  try {
+    console.log(googleData);
+    const response = await fetch(
+      `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${googleData.access_token}`,
+      {
+        headers: {
+          Authorization: `${googleData.token_type} ${googleData.access_token}`,
+          Accept: "application/json",
+        },
+      }
+    );
+
+    const json = await response.json();
+    console.log(json);
+
+    const { email } = json;
+
+    let endpoint = "user/signup/";
+    console.log(email);
+    const postData = await fetchDataFromAPI({
+      endpoint,
+      configurationOpt: {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: email + "5" + "M",
+          first_name: "mario",
+          last_name: "mario",
+          password: email + "5" + "M",
+        }),
+      },
+    });
+    console.log(postData);
+    if (postData) {
+      navigate("/login");
+    }
+  } catch (error) {
+    console.error(error);
+  }
 }
