@@ -1,0 +1,151 @@
+.h2 {
+  font-size: 23px;
+}
+
+.event-details {
+  width: 720px;
+  height: 140px;
+  margin-left: 160px;
+  margin-top: 50px;
+}
+
+.date-and-location {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+}
+
+.detail__icon {
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  margin-top: 17px;
+  border-radius: 8px;
+  background: #f8f7fa;
+}
+
+#calendar-chunky_svg__eds-icon--calendar-chunky_svg {
+  margin-top: 2.8px;
+  margin-left: 4.5px;
+  width: 31px;
+  height: 31px;
+}
+
+.detail__icon .eds-vector-image svg path {
+  width: 14px;
+  height: 15px;
+  fill: #0124d9 !important;
+}
+
+.date-and-time {
+  display: grid;
+  width: 200px;
+  margin-top: 15px;
+  grid-template-columns: 1fr minmax(5px, 220px);
+  height: 100px;
+}
+
+.date-time-heading {
+  font-size: 15px;
+  width: 200px;
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
+.p {
+  font-size: 15px;
+  line-height: 1.25rem;
+  color: #6f7287;
+  width: 350px;
+  margin-top: 25px;
+}
+
+.address {
+  word-break: normal;
+}
+
+.location {
+  margin-top: 30px;
+  margin-left: 60px;
+}
+
+.detail__icon2 {
+  width: 35px;
+  height: 35px;
+  overflow: hidden;
+  margin-top: 17px;
+  border-radius: 8px;
+  background: #f8f7fa;
+}
+
+.detail__icon2 .eds-vector-image svg path {
+  width: 14px;
+  height: 15px;
+  fill: #0124d9 !important;
+}
+
+/* .detail__icon .eds-vector-image svg path {
+    fill: #0124D9!important;
+} */
+
+.about {
+  margin-top: 50px;
+}
+
+.about-event {
+  margin-top: 70px;
+}
+
+.about-icons {
+  width: 500px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.time {
+  grid-template-columns: repeat(2, 1fr) minmax(20px, 150px);
+  display: grid;
+}
+
+.period {
+  font-size: 15px;
+  margin-top: 25px;
+}
+
+.ticket {
+  grid-template-columns: repeat(2, 1fr) minmax(20px, 100px);
+  display: grid;
+}
+
+.ticket-info {
+  font-size: 15px;
+  margin-top: 25px;
+  width: 100px;
+}
+
+.event-content {
+  font-size: 18px;
+  margin-top: 40px;
+  max-width: 750px;
+  color: #6f7287;
+}
+
+g[Attributes] {
+  fill: none;
+  fill-rule: evenodd;
+  transform: translate(5, 2);
+}
+
+.eds-structure--min-height .eds-structure__main-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  height: 100%;
+}
