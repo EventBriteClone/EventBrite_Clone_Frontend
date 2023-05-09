@@ -1,0 +1,98 @@
+[
+  {
+    "title": "Title1",
+    "organizer": "Organizer1",
+    "startDate": "Tomorrow at 9PM",
+    "price": "50 EGP",
+    "location": "Cairo, Egypt",
+    "followersNum": "600"
+  },
+  {
+    "title": "Title2",
+    "organizer": "Organizer2",
+    "startDate": "Tomorrow at 10",
+    "price": "Free",
+    "location": "Giza, Egypt",
+    "followersNum": "60"
+  },
+  {
+    "title": "Title3",
+    "organizer": "Organizer3",
+    "startDate": "25/4/2023",
+    "price": "100 EGP",
+    "location": "Alexandria, Egypt",
+    "followersNum": "6"
+  },
+  {
+    "title": "Title4",
+    "organizer": "Organizer4",
+    "startDate": "28 /4/2023",
+    "price": "120 EGP",
+    "location": "Cairo, Egypt",
+    "followersNum": "70"
+  },
+  {
+    "title": "Title5",
+    "organizer": "Organizer5",
+    "startDate": "26/4/2023",
+    "price": "150 EGP",
+    "location": "Online",
+    "followersNum": "68"
+  },
+  {
+    "title": "Title6",
+    "organizer": "Organizer6",
+    "startDate": "26/4/2023",
+    "price": "94 EGP",
+    "location": "Online",
+    "followersNum": "412"
+  },
+  {
+    "title": "Title7",
+    "organizer": "Organizer7",
+    "startDate": "24/4/2023",
+    "price": "200 EGP",
+    "location": "Online",
+    "followersNum": "1235"
+  },
+  {
+    "title": "Title8",
+    "organizer": "Organizer8",
+    "startDate": "21/4/2023",
+    "price": "250 EGP",
+    "location": "Cairo, Egypt",
+    "followersNum": "451"
+  },
+  {
+    "title": "Title9",
+    "organizer": "Organizer9",
+    "startDate": "20/4/2023",
+    "price": "300 EGP",
+    "location": "Cairo, Egypt",
+    "followersNum": "532"
+  },
+  {
+    "title": "Title10",
+    "organizer": "Organizer10",
+    "startDate": "24/4/2023",
+    "price": "700 EGP",
+    "location": "Cairo, Egypt",
+    "followersNum": "4685"
+  },
+  {
+    "title": "Title11",
+    "organizer": "Organizer11",
+    "startDate": "22/4/2023",
+    "price": "free",
+    "location": "Cairo, Egypt",
+    "followersNum": "562"
+  },
+  {
+    "title": "Title12",
+    "organizer": "Organizer12",
+    "startDate": "19/4/2023",
+    "price": "400 EGP",
+    "location": "Cairo, Egypt",
+    "followersNum": "452"
+  }
+]

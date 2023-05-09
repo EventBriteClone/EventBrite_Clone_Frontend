@@ -9,6 +9,8 @@ import {
 import MidTicketContainer from "../../../../src/components/Event/EventTicket/MidTicketContainer";
 import { MemoryRouter } from "react-router-dom";
 import { fireEvent, getByClassName } from "@testing-library/react";
+import { getByText } from "@testing-library/react";
+import { element } from "prop-types";
 
 describe("find text", () => {
   it("renders text", () => {
@@ -18,7 +20,6 @@ describe("find text", () => {
     );
     expect(element).toBeDefined();
   });
-
   it("renders all buttons", () => {
     const component = create(
       <MemoryRouter>

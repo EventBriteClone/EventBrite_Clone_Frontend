@@ -51,7 +51,7 @@
 }
 
 .AddTagButton {
-  width: 90px;
+  /* width: 90px; */
   height: 44px;
   position: relative;
   padding: 0 30px 1px;
@@ -69,4 +69,118 @@
   .AddTagButton {
     display: block !important;
   }
+}
+
+.Selectors {
+  margin-top: 16px;
+  display: flex;
+  font-size: 100px;
+  line-height: 22px;
+  font-weight: 400;
+  padding-right: 5px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.h1Location {
+  color: #1e0a3c;
+  font-size: 20rem;
+  line-height: 2.25rem;
+  margin-right: -0.75px;
+  font-weight: 750;
+  margin-top: 35px;
+}
+
+.textLocation {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  vertical-align: top;
+  display: inline-block;
+  box-sizing: border-box;
+}
+@media (max-width: 43em) {
+  .textLocation {
+    max-width: 60vw;
+  }
+}
+
+.Buttons {
+  line-height: 22px;
+  font-weight: 400;
+  display: flex;
+  justify-content: flex-start;
+  vertical-align: top;
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.VenueButton {
+  font-size: 15rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid #000000 !important;
+  color: #000000;
+  text-align: center;
+  border-radius: 4px;
+  width: 125px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin-right: 16px;
+}
+.OnlineEventButton {
+  margin-right: 16px;
+  color: #1e0a3c;
+  font-size: 15rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid #000000 !important;
+  text-align: center;
+  width: 155px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.TobeAnnounced {
+  color: #1e0a3c;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid #dbdae3 !important;
+  text-align: center;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 12px;
+  width: 200px;
+  padding-bottom: 12px;
+}
+@media screen and (max-width: 62em) {
+  .VenueButton {
+    width: 20%;
+  }
+  .OnlineEventButton {
+    width: 40%;
+  }
+  .TobeAnnounced {
+    width: 40%;
+  }
+}
+
+.list {
+  padding: 15rem 10rem;
+  padding-top: 50rem;
+  display: flex;
+  align-items: center;
+}
+.search {
+  padding-right: 25rem;
 }
