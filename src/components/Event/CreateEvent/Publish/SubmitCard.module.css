@@ -3,7 +3,7 @@
   padding: 10px;
   display: flex;
   justify-content: center;
-  background-color: var(--grey-background);
+  /* background-color: var(--grey-background); */
 }
 
 .submit-card__container button {

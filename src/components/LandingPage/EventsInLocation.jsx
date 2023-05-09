@@ -9,7 +9,6 @@ import styled from "styled-components";
 export default function EventsInLocation(props) {
   const { city } = useContext(NavigationContext);
 
-  const [show, setShow] = useState(false);
 
   let data;
   const endpoint =
@@ -49,10 +48,6 @@ export default function EventsInLocation(props) {
         {city === "online" ? "Online Events" : `Events in ${city}`}
       </h3>
       <EventCardContainer>{eventsList}</EventCardContainer>
-
-      {show && <Popup show={show} setShow={setShow} />}
-
-      <Button onClick={() => setShow(true)}>Open Pop-up</Button>
     </>
   );
 }

@@ -1,3 +1,9 @@
+.creator-left-nav-container {
+  background-color: #f8f7fa;
+  flex-direction: column;
+  border-right: 0.25rem solid #eeedf2;
+}
+
 .side-bar {
   background-color: #f8f7fa;
   max-width: 56px;

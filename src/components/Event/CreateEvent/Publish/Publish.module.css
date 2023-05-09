@@ -1,6 +1,10 @@
 .main {
-  max-width: 960px;
+  width: 80%;
   margin-left: auto;
+}
+
+.flex {
+  display: flex;
 }
 
 .publish-preview__container {

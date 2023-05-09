@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 function StructureDrawer() {
   return (
-    <>
+    <div className={styles["structure-drawer-left-container"]}>
       <div className={styles.RoutingContainer}>
         <svg
           id="chevron-left-chunky_svg__eds-icon--chevron-left-chunky_svg"
@@ -37,7 +37,8 @@ function StructureDrawer() {
           Mon, May 29, 2023, 7:00PM
         </p>
         <div className={styles["container-name-event"]}>
-          <a className={styles["preview-link"]} href="">
+          {/* we dont need to preview the event! */}
+          {/* <a className={styles["preview-link"]} href="">
             <span>Preview your event</span>
             <i
               // className={styles["preview-event-icon"]}
@@ -53,12 +54,12 @@ function StructureDrawer() {
                 ></path>
               </svg>
             </i>
-          </a>
+          </a> */}
         </div>
       </div>
       <hr className={styles["break-line"]} />
       <ManageEventBar />
-    </>
+    </div>
   );
 }
 

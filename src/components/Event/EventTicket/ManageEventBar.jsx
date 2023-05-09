@@ -86,7 +86,7 @@ function ManageEventBar() {
                   className={styles["list-item-component"]}
                   data-spec="eds-list-item-contents"
                 >
-                  <div className={styles["basic-info-div"]}>Details</div>
+                  <div className={styles["basic-info-div"]}>Publish</div>
                 </div>
               </div>
             </Link>
@@ -131,50 +131,6 @@ function ManageEventBar() {
                   data-spec="eds-list-item-contents"
                 >
                   <div className={styles["basic-info-div"]}>Tickets</div>
-                </div>
-              </div>
-            </Link>
-          </li>
-          <li className={styles["basic-info-li"]}>
-            <Link href="">
-              <div className={styles["list-item"]} data-spec="eds-list-item">
-                <span className={styles["list-item-icon-span"]}>
-                  <i
-                    className={styles["list-item-vector-image"]}
-                    data-spec="icon"
-                    data-testid="icon"
-                    aria-hidden="true"
-                  >
-                    <svg
-                      className={styles["navigation-icon"]}
-                      xmlns="http://www.w3.org/2000/svg"
-                      xmlns:xlink="http://www.w3.org/1999/xlink"
-                      x="0px"
-                      y="0px"
-                      viewBox="0 0 28 28"
-                      xml:space="preserve"
-                    >
-                      <circle
-                        className={styles["navigation-icon-circle"]}
-                        cx="14"
-                        cy="14"
-                        r="14"
-                      ></circle>
-                      <path
-                        data-spec="shape-four"
-                        className={
-                          styles["navigation-icon-circle-two-component"]
-                        }
-                        d="M17.7,20.9h3.2v-5.4h0L17.7,20.9z M23.3,20.9v1h-1.3v2.3h-1.2v-2.3H16v-0.1l4-6.8h2.1v5.9H23.3z"
-                      ></path>
-                    </svg>
-                  </i>
-                </span>
-                <div
-                  className={styles["list-item-component"]}
-                  data-spec="eds-list-item-contents"
-                >
-                  <div className={styles["basic-info-div"]}>Publish</div>
                 </div>
               </div>
             </Link>
