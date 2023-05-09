@@ -65,7 +65,7 @@ const Login = (props) => {
           },
           body: JSON.stringify({
             email: Email,
-            password: Email,
+            password: Email + "5" + "M",
           }),
         }
       );
@@ -177,10 +177,9 @@ const Login = (props) => {
   }
 
   async function submitHandler(e) {
-    e.preventDefault();
-    if (invalidEmail || invalidpassword) {
-      return;
-    } else {
+    try {
+      e.preventDefault();
+      if (invalidEmail || invalidpassword) return;
       console.log(email, password);
       let endpoint,
         configurationOpt = {};
@@ -199,32 +198,34 @@ const Login = (props) => {
           timeout: 10000,
         };
         console.log("fetching data...");
-        try {
-          const res = await fetch(
-            `${"https://event-us.me:8000/"}${endpoint}`,
-            configurationOpt
-          );
-          console.log(res);
-          const response = await res.json();
-          console.log("response", response);
-
-          if (config.mocking) {
-            setShowNoAccount(false);
-            setAuthData(response);
-            navigate("/");
-            // } else {
-            //   if (response.length) {
-            //     console.log("api");
-            //     setAuthData(response);
-            //     navigate("/");
-          }
-        } catch (error) {
-          console.log("2lmfrod tt8ir");
-
+        const res = await fetch(
+          `${"https://event-us.me:8000/"}${endpoint}`,
+          configurationOpt
+        );
+        console.log(res);
+        if (!res.ok) {
           setShowNoAccount(true);
-          return;
         }
+        const response = await res.json();
+        console.log("responseeeeeee", response);
+
+        setShowNoAccount(false);
+
+        setAuthData(response);
+        navigate("/");
       }
+      // if (config.mocking) {
+      //   // } else {
+      //   //   if (response.length) {
+      //   //     console.log("api");
+      //   //     setAuthData(response);
+      //   //     navigate("/");
+      // }
+    } catch (error) {
+      console.log(error, "error");
+
+      setShowNoAccount(true);
+      return;
     }
   }
 
@@ -399,3 +400,44 @@ const Login = (props) => {
   );
 };
 export default Login;
+async function googleLoginSuccess(googleData, navigate) {
+  try {
+    console.log(googleData);
+    const response = await fetch(
+      `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${googleData.access_token}`,
+      {
+        headers: {
+          Authorization: `${googleData.token_type} ${googleData.access_token}`,
+          Accept: "application/json",
+        },
+      }
+    );
+
+    const json = await response.json();
+    console.log(json);
+
+    const { email } = json;
+
+    let endpoint = "user/signup/";
+    console.log(email);
+    const postData = await fetchDataFromAPI({
+      endpoint,
+      configurationOpt: {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: email + "5" + "M",
+          first_name: "mario",
+          last_name: "mario",
+          password: email + "5" + "M",
+        }),
+      },
+    });
+    console.log(postData);
+    if (postData) {
+      navigate("/login");
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}

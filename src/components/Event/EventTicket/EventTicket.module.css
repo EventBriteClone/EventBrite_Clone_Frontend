@@ -12,6 +12,7 @@
   background-color: #f8f7fa;
   flex-direction: column;
   display: flex;
+
   /* overflow-y: scroll; */
 }
 .mid-container {
