@@ -4,7 +4,6 @@ import config from "../../../utils/config";
 import { fetchDataFromAPI } from "../../../utils";
 
 function ManageAttendees() {
-  // const [color, setColor] = useState("red");
   const [selectedTicketType, setSelectedTicketType] = useState(null);
   const [searchEmail, setSearchEmail] = useState("");
   const [data, setData] = useState(null);
@@ -25,8 +24,7 @@ function ManageAttendees() {
     if (config.mocking === "true") {
       endpoint = "eventsPreview";
     } else {
-      let email = "mohammedahmed200135@gmail.com";
-      endpoint = `user/emailcheck/${email}/`;
+      endpoint = `user/emailcheck/${searchEmail}/`;
       configurationOpt = {
         method: "GET",
         headers: { "content-type": "application/json" },
@@ -41,7 +39,7 @@ function ManageAttendees() {
       .catch((error) => {
         console.log("Fetch failed:", error);
       });
-  }, []);
+  }, [searchEmail]);
 
   const handleCheckClick = (event) => {
     event.preventDefault();
@@ -50,10 +48,10 @@ function ManageAttendees() {
       const fetchedEmail = data[property];
       if (fetchedEmail == true) {
         console.log("True");
-        console.log(fetchedEmail);
+        setColor("green");
       } else {
         console.log("Enter another Email");
-        console.log(fetchedEmail);
+        setColor("red");
       }
     }
   };
@@ -111,7 +109,11 @@ function ManageAttendees() {
         </div>
       </div>
       <div className={styles.buttonContainer}>
-        <button className={styles.AddTagButton} onClick={handleSaveClick}>
+        <button
+          className={styles.AddTagButton}
+          onClick={handleSaveClick}
+          disabled={color === "red"}
+        >
           Save
         </button>
       </div>

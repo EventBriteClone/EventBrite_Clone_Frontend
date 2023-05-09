@@ -127,18 +127,18 @@ function AllEvents() {
             Array.isArray(data) &&
             data.map((e) => <EventCard event={e} />)}
 
-          {ay7aga &&
+          {/* {ay7aga &&
             Array.isArray(ay7aga) &&
-            ay7aga.map((e) => <EventCard event={e} />)}
+            ay7aga.map((e) => <EventCard event={e} />)} */}
 
-          {/* {filteredEvents.map((event, index) => (
+          {filteredEvents.map((event, index) => (
             <EventCard
               key={index}
               startDate={
                 event.date ? event.date.toLocaleDateString("en-US") : ""
               }
             />
-          ))} */}
+          ))}
         </EventCardContainer>
       </div>
     </>
