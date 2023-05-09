@@ -21,6 +21,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import ManageAttendees from "./Pages/ManageAttendees";
 import EventTicket from "./Pages/EventTicket";
 import Publish from "./components/Event/CreateEvent/Publish/Publish";
+import { SearchResultsPage } from "./Pages/SearchResultsPage";
 
 const router = createBrowserRouter([
   {
@@ -67,18 +68,18 @@ const router = createBrowserRouter([
     path: "/publish",
     element: <Publish />,
   },
+  {
+    path: "/search/:key",
+    element: <SearchResultsPage />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthContextProvider>
-<<<<<<< HEAD
-      <RouterProvider router={router} />
-=======
       <GoogleOAuthProvider clientId="749417144932-40bn9j748fbhp5tciuuhd5ehhr8e5gfd.apps.googleusercontent.com">
         <RouterProvider router={router} />
       </GoogleOAuthProvider>
->>>>>>> 7aeee1dacba3ec5a7ca588a7be58bf5fca95bd16
     </AuthContextProvider>
   </React.StrictMode>
 );

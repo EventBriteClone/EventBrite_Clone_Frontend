@@ -1,0 +1,79 @@
+.share-inline {
+    margin-top: 550px;
+}
+
+.event-details__section-title {
+ margin-left: 30px;
+}
+
+.eds-icon-button--neutral button, .eds-icon-button button {
+    color: #4b4d63;
+    color: var(--eds-ui-700,#4b4d63);
+    fill: #4b4d63;
+    fill: var(--eds-ui-700,#4b4d63);
+}
+
+.eds-icon-button button {
+    border-radius: 40px;
+    height: 40px;
+    padding: 8px;
+    -webkit-transition: all .4s cubic-bezier(.4,0,.3,1);
+    transition: all .4s cubic-bezier(.4,0,.3,1);
+    width: 40px;
+}
+
+
+.eds-btn--anchor, .eds-btn--anchor--inverse, .eds-btn--anchor--neutral, .eds-btn--none {
+    background: none;
+    border: none;
+    padding: 0;
+    text-align: left;
+    color: #39364f;
+    color: var(--eds-ui-800,#39364f);
+    fill: #39364f;
+    fill: var(--eds-ui-800,#39364f);
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
+}
+
+button, html input[type=button], input[type=reset], input[type=submit] {
+    cursor: pointer;
+}
+
+button, input {
+    line-height: normal;
+}
+
+button, html input[type=button], input[type=reset], input[type=submit] {
+    cursor: pointer;
+}
+
+button, select {
+    text-transform: none;
+}
+
+button {
+    overflow: visible;
+    writing-mode: horizontal-tb !important;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-rendering: auto;
+}
+
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+} 
+
+.share-box-container {
+    margin-left: 35px;
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(5,1fr) minmax(100px,150px);
+}  
