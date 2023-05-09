@@ -21,11 +21,8 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import ManageAttendees from "./Pages/ManageAttendees";
 import EventTicket from "./Pages/EventTicket";
 import Publish from "./components/Event/CreateEvent/Publish/Publish";
-<<<<<<< HEAD
 import Dashboard from "./Pages/Dashboard";
-=======
 import { SearchResultsPage } from "./Pages/SearchResultsPage";
->>>>>>> 57d48becfc719b876e1339231fa0bbd7018dac13
 
 const router = createBrowserRouter([
   {
