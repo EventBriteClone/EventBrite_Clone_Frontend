@@ -8,65 +8,38 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import DrawerTicket from "./DrawerTicket";
 import CreateSectionPopper from "./CreateSectionPopper";
+import Admission from "./Admission";
+import TicketPage from "./TicketPage";
+import PromoCodeDrawer from "./PromoCodeDrawer";
+import CreateAddOnDrawer from "./CreateAddOnDrawer";
+import UploadCSV from "./UploadCSV";
+const addTicket = [
+  // { name: "let's party", quantity: "1", price: "100" },
+  // { name: "shaima", quantity: "2", price: "100" },
+];
+const addPromoCode = [
+  // { name: "let's party", quantity: "1", price: "100" },
+  // { name: "shaima", quantity: "2", price: "100" },
+];
 
 export default function EventTicket() {
-  // const handleDrawerOpen = () => {
-  //   setOpen(true);
-  // };
-  // const handleClose = () => setOpen(false);
-  // const [startDate, setStartDate] = useState(new Date());
-  const [isVisibleDrawer, setIsVisibleDrawer] = useState(false);
+  const [isVisibleDrawer, setIsVisibleDrawer] = useState(true);
   const [showCreateSectionPopper, setShowCreateSectionPopper] = useState(false);
-  const timeSlots = [
-    "12:00 AM",
-    "12:30 AM",
-    "1:00 AM",
-    "1:30 AM",
-    "2:00 AM",
-    "2:30 AM",
-    "3:00 AM",
-    "3:30 AM",
-    "4:00 AM",
-    "4:30 AM",
-    "5:00 AM",
-    "5:30 AM",
-    "6:00 AM",
-    "6:30 AM",
-    "7:00 AM",
-    "7:30 AM",
-    "8:00 AM",
-    "8:30 AM",
-    "9:00 AM",
-    "9:30 AM",
-    "10:00 AM",
-    "10:30 AM",
-    "11:00 AM",
-    "11:30 AM",
-    "12:00 PM",
-    "12:30 PM",
-    "1:00 PM",
-    "1:30 PM",
-    "2:00 PM",
-    "2:30 PM",
-    "3:00 PM",
-    "3:30 PM",
-    "4:00 PM",
-    "4:30 PM",
-    "5:00 PM",
-    "5:30 PM",
-    "6:00 PM",
-    "6:30 PM",
-    "7:00 PM",
-    "7:30 PM",
-    "8:00 PM",
-    "8:30 PM",
-    "9:00 PM",
-    "9:30 PM",
-    "10:00 PM",
-    "10:30 PM",
-    "11:00 PM",
-    "11:30 PM",
-  ];
+
+  const [addTicketList, setAddTicketList] = useState(addTicket);
+  const [addPromoCodeList, setAddPromoCodeList] = useState(addPromoCode);
+
+  const [showMidTicket, setShowMidTicket] = useState(true);
+  const [isVisiblePromoCodeDrawer, setIsVisiblePromoCodeDrawer] =
+    useState(false);
+  const [isVisibleUploadCSVDrawer, setIsVisibleUploadCSVDrawer] =
+    useState(false);
+  const [isVisibleAddTicket, setIsVisibleAddTicket] = useState(false);
+
+  const [isVisibleAddOnDrawer, setIsVisibleAddOnDrawer] = useState(false);
+
+  const [showPromoCodes, setShowPromoCodes] = useState(false);
+
   return (
     <>
       <HeaderTicket></HeaderTicket>
@@ -79,13 +52,63 @@ export default function EventTicket() {
         </div>
         <hr />
         <div className={styles["mid-container"]}>
-          <MidTicketContainer
-            showDrawerButton={(value) => setIsVisibleDrawer(value)}
-            createSectionButton={(value) => setShowCreateSectionPopper(value)}
-          />
-          <DrawerTicket
-            showDrawerButton={(value) => setIsVisibleDrawer(value)}
-          />
+          {showMidTicket && (
+            <MidTicketContainer
+              showDrawerButton={(value) => setIsVisibleDrawer(value)}
+              createSectionButton={(value) => setShowCreateSectionPopper(value)}
+            />
+          )}
+          {!showMidTicket && (
+            <TicketPage
+              showDrawerButton={(value) => setIsVisibleDrawer(value)}
+              showPromoCodeDrawer={(value) =>
+                setIsVisiblePromoCodeDrawer(value)
+              }
+              showUploadCSVDrawer={(value) =>
+                setIsVisibleUploadCSVDrawer(value)
+              }
+              ticketList={addTicketList}
+              promoCodeList={addPromoCodeList}
+              showAddOnDrawer={(value) => setIsVisibleAddOnDrawer(value)}
+              setShowPromoCodesAvailable={(value) => setShowPromoCodes(value)}
+              ShowPromoCodesAvailable={showPromoCodes}
+              // closePromoCodeDrawer={(value) =>
+              //   setIsVisiblePromoCodeDrawer(value)
+              // }
+            />
+          )}
+
+          {isVisibleDrawer && (
+            <DrawerTicket
+              showDrawerButton={(value) => setIsVisibleDrawer(value)}
+              showMidTicketOnSave={(value) => setShowMidTicket(value)}
+              ticketList={addTicketList}
+              setTicketList={(value) => setAddTicketList(value)}
+            />
+          )}
+
+          {isVisiblePromoCodeDrawer && (
+            <PromoCodeDrawer
+              closePromoCodeDrawer={(value) =>
+                setIsVisiblePromoCodeDrawer(value)
+              }
+              promoCodeList={addPromoCodeList}
+              setPromoCodeList={(value) => setAddPromoCodeList(value)}
+              setShowPromoCodesAvailable={(value) => setShowPromoCodes(value)}
+            />
+          )}
+          {isVisibleUploadCSVDrawer && (
+            <UploadCSV
+              closeUploadCSVDrawer={(value) =>
+                setIsVisibleUploadCSVDrawer(value)
+              }
+            />
+          )}
+          {isVisibleAddOnDrawer && (
+            <CreateAddOnDrawer
+              closeAddOnDrawer={(value) => setIsVisibleAddOnDrawer(value)}
+            />
+          )}
         </div>
         {showCreateSectionPopper && (
           <CreateSectionPopper
@@ -96,4 +119,3 @@ export default function EventTicket() {
     </>
   );
 }
-// onClick={() => changeButton(false)}

@@ -17,7 +17,10 @@ import configuration from "./utils/config";
 import New from "./Pages/New";
 import Login from "./Pages/Login";
 import AuthContextProvider from "./context/AuthContext";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 import ManageAttendees from "./Pages/ManageAttendees";
+import EventTicket from "./Pages/EventTicket";
+import Publish from "./components/Event/CreateEvent/Publish/Publish";
 
 const router = createBrowserRouter([
   {
@@ -44,10 +47,10 @@ const router = createBrowserRouter([
     path: "/create-event",
     element: <BasicInfo />,
   },
-  {
-    path: "/event/:id",
-    element: <EventPage />,
-  },
+  // {
+  //   path: "/event/:id",
+  //   element: <EventPage />,
+  // },
   {
     path: "/my-events",
     element: <EventCreator />,
@@ -55,6 +58,14 @@ const router = createBrowserRouter([
   {
     path: "/manage-attendees",
     element: <ManageAttendees />,
+  },
+  {
+    path: "/event-ticket",
+    element: <EventTicket />,
+  },
+  {
+    path: "/publish",
+    element: <Publish />,
   },
 ]);
 

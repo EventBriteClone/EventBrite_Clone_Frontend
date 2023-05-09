@@ -8,17 +8,25 @@
 }
 .image-create-section-border {
   /* margin-bottom: 90rem; */
-  align-items: flex-start;
-  justify-content: flex-start;
+  margin-top: -49px;
+  /* height: 2000px; */
 }
+/* .image-create-section-border img { */
+/* margin-bottom: 90rem; */
+/* height: 500px; */
+/* max-width: 100px;
+  max-height: 100px; */
+/* } */
 .create-section-svg {
   /* margin-bottom: 100rem; */
-  padding-bottom: 165rem;
-  padding-left: 115rem;
+  padding-bottom: 105rem;
+  padding-left: 114rem;
 }
 .create-section-container {
   justify-content: right;
   display: flex;
+  height: 100%;
+  position: relative;
 }
 .create-section-h3-popper {
   text-align: left;

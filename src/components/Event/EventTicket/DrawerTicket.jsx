@@ -7,6 +7,7 @@ import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import Input from "../../UI/Input";
 import Box from "@mui/material/Box";
+import ErrorText from "./ErrorText";
 import dayjs from "dayjs";
 import config from "../../../utils/config";
 import { fetchDataFromAPI } from "../../../utils";
@@ -22,10 +23,12 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   ...theme.mixins.toolbar,
   justifyContent: "flex-start",
 }));
-function DrawerTicket({ showDrawerButton }) {
-  // const [ticket, setTicket] = useState({
-
-  // })
+function DrawerTicket({
+  showDrawerButton,
+  showMidTicketOnSave,
+  ticketList,
+  setTicketList,
+}) {
   const [color, setColor] = useState("blue");
   const [ticketNameValue, setTicketNameTitle] = useState(""); // ticket name hya event name
   const [isRequired, setIsRequired] = useState(false);
@@ -53,6 +56,7 @@ function DrawerTicket({ showDrawerButton }) {
   const [isMaxRequired, setIsMaxRequired] = useState(false);
   const [minimumValue, setMinimumValue] = useState("");
   const [maximumValue, setMaximumValue] = useState("");
+  const [hasError, setHasError] = useState(false);
   async function saveData(e) {
     e.preventDefault();
     let endpoint,
@@ -77,16 +81,32 @@ function DrawerTicket({ showDrawerButton }) {
     }
     const response = await fetchDataFromAPI({ endpoint, configurationOpt });
   }
+  function saveData(event) {
+    if (
+      ticketNameValue === "" ||
+      availableQuantityValue === "" ||
+      priceValue === ""
+    ) {
+      setHasError(true);
+    } else {
+      showMidTicketOnSave(false);
+      showDrawerButton(false);
+      const ticket = {
+        name: ticketNameValue,
+        quantity: availableQuantityValue,
+        price: priceValue,
+      };
+      setTicketList((ticketList) => ticketList.concat(ticket));
+    }
+  }
   function minimumChange(event) {
     setMinimumValue(event.target.value);
     if (event.target.value.length === 0) {
       setColor("red");
       setIsMinRequired(true);
-      // changeButton(false);
     } else {
       setColor("blue");
       setIsMinRequired(false);
-      // changeButton(true);
     }
   }
   function maximumChange(event) {
@@ -94,11 +114,9 @@ function DrawerTicket({ showDrawerButton }) {
     if (event.target.value.length === 0) {
       setColor("red");
       setIsMaxRequired(true);
-      // changeButton(false);
     } else {
       setColor("blue");
       setIsMaxRequired(false);
-      // changeButton(true);
     }
   }
   function descriptionChange(event) {
@@ -113,11 +131,9 @@ function DrawerTicket({ showDrawerButton }) {
       isFreeOpen === false &&
       isDonationOpen === false
     ) {
-      // changeButton(true);
       setshowPaid(true);
       setShowFree(false);
     } else {
-      // changeButton(true);
       setshowPaid(true);
       setshowPaid(false);
       const child1 = event.target.parentNode.childNodes[1];
@@ -194,19 +210,13 @@ function DrawerTicket({ showDrawerButton }) {
   }
   function startTimeChange(event) {
     setShowTimeStart(event.target.value);
-    // changeButton(true);
   }
-  function endTimeChange(event) {
-    setShowTimeEnd(event.target.value);
-    // changeButton(true);
-  }
+  function endTimeChange(event) {}
   function startDateChange(event) {
     setshowStartDate(event.target.value);
-    // changeButton(true);
   }
   function endDateChange(event) {
     setshowEndDate(event.target.value);
-    // changeButton(true);
   }
 
   function handleChangeOne(event) {
@@ -241,7 +251,6 @@ function DrawerTicket({ showDrawerButton }) {
     setCount(length);
     if (event.target.value.length >= 50) return;
     setTicketNameTitle(event.target.value);
-    // setEventTitleContext(event.target.value);
     if (event.target.value.length === 0) {
       setColor("red");
       setIsRequired(true);
@@ -256,30 +265,30 @@ function DrawerTicket({ showDrawerButton }) {
   function availableQuantityValueChange(event) {
     setAvailableQuantityValue(event.target.value);
     if (event.target.value.length === 0) {
-      // setColor("red");
       setIsQuantityRequired(true);
-      // changeButton(false);
     } else {
-      // setColor("blue");
       setIsQuantityRequired(false);
-      // changeButton(true);
     }
   }
   function priceValueChange(event) {
     setPriceValue(event.target.value);
     if (event.target.value.length === 0) {
-      // setColor("red");
       setIsPriceRequired(false);
-      // changeButton(false);
     } else {
-      // setColor("blue");
       setIsPriceRequired(true);
-      // changeButton(true);
     }
   }
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setHasError(false);
+    }, 8000); // hide error message after 5 seconds
+
+    return () => clearTimeout(timer);
+  }, [hasError]);
   return (
     <>
       <Box className={styles["box-container"]}>
+        {hasError && <ErrorText />}
         <DrawerHeader>
           <div className={styles["add-ticket-container"]}>
             <h3 className={styles["add-ticket-h3"]}>Add tickets</h3>
@@ -613,6 +622,7 @@ function DrawerTicket({ showDrawerButton }) {
             <label>
               <input
                 type="checkbox"
+                id="toot"
                 checked={checkedThree}
                 onChange={handleChangeThree}
                 fill="#3659e3"
@@ -631,7 +641,12 @@ function DrawerTicket({ showDrawerButton }) {
         <Divider />
         <List>
           <div className={styles["buttons-contariner"]}>
-            <button className={styles["cancel-button"]}>Cancel</button>
+            <button
+              onClick={() => showDrawerButton(false)}
+              className={styles["cancel-button"]}
+            >
+              Cancel
+            </button>
             <button onClick={saveData} className={styles["save-button"]}>
               Save
             </button>
@@ -643,5 +658,8 @@ function DrawerTicket({ showDrawerButton }) {
 }
 DrawerTicket.propTypes = {
   showDrawerButton: PropTypes.func,
+  showMidTicketOnSave: PropTypes.func,
+  ticketList: PropTypes.func,
+  setTicketList: PropTypes.func,
 };
 export default DrawerTicket;

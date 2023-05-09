@@ -108,7 +108,12 @@ function AllEvents() {
             <div className={styles["span"]}>
               <div className={styles["hr"]} />
             </div>
-            <div className={styles["Create-Event"]}>
+            <div
+              className={styles["Create-Event"]}
+              onClick={() =>
+                (window.location.href = "http://localhost:5173/create-event")
+              }
+            >
               <div className={styles["create-event"]}>
                 <h1>Create Event</h1>
               </div>

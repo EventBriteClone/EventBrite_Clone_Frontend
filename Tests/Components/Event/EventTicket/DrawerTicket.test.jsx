@@ -15,15 +15,8 @@ import { createMockFunction } from "vitest-mock";
 describe("check checkbox", () => {
   // it("renders text", () => {
   //   const { getByLabelText } = render(<DrawerTicket />);
-  //   const checkbox = getByLabelText("eTicket");
-
-  //   fireEvent.click(checkbox);
-  //   expect(checkbox.checked).toBe(true);
-  // });
-  // it("renders text", () => {
-  //   const { getByLabelText } = render(<DrawerTicket />);
-  //   const checkbox = getByLabelText("Will call");
-
+  //   // const checkbox = getByLabelText("Will call");
+  //   const checkbox = getById("toot");
   //   fireEvent.click(checkbox);
   //   expect(checkbox.checked).toBe(true);
   // });

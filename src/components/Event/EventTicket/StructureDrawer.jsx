@@ -4,7 +4,7 @@ import ManageEventBar from "./ManageEventBar";
 import Button from "@mui/material/Button";
 import { styled, alpha } from "@mui/material/styles";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 function StructureDrawer() {
@@ -29,20 +29,6 @@ function StructureDrawer() {
       </div>
 
       <hr className={styles["break-line"]} />
-      {/* <div class="dropdown-menu">
-        <div class="dropdown-menu__contents">
-          <div class="dropdown-menu__label">Draft</div>
-          <div class="dropdown-menu__icon">
-            <svg class="icon" viewBox="0 0 24 24">
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M7 10.2l5 5 5-5-1.4-1.4-3.6 3.6-3.6-3.6z"
-              ></path>
-            </svg>
-          </div>
-        </div>
-      </div> */}
       <div>
         <h3 className={styles["h3-event-name"]}>
           <a href="">Name of Event</a>

@@ -1,0 +1,51 @@
+.icon-add-ons-background {
+  background-color: #f8f7fa;
+  border-radius: 50%;
+}
+.add-ons-logo-container {
+  width: 80rem;
+  margin: 80rem auto;
+}
+.span-add-ons {
+  border-radius: 50% !important;
+  height: 100% !important;
+  width: 100% !important;
+  padding: 80rem auto;
+  background-color: #f8f7fa;
+}
+.add-ons-h1 {
+  text-align: center;
+  color: #1e0a3c;
+  font-size: 20rem;
+  letter-spacing: 0.25px;
+  margin-top: -40px;
+}
+.paragraph-add-ons {
+  text-align: center;
+  color: #6f7287;
+  font-size: 12rem;
+  font-weight: 400;
+  margin-top: 3rem;
+  width: 100%;
+  min-width: 50rem;
+}
+.button-contariner {
+  margin-top: 10rem;
+  text-align: center;
+}
+.add-ons-button {
+  width: 100%;
+  max-width: 140rem;
+  height: 40rem;
+  background-color: #d1410c;
+  color: #fff;
+  font-size: 12rem;
+  padding: 0.5rem 30px;
+  border: 1rem solid #d1410c;
+  border-radius: 2rem;
+  padding: 0.5rem 30px;
+}
+.learn-more-link-add-ons {
+  font-size: 12rem;
+  color: #3659e3;
+}

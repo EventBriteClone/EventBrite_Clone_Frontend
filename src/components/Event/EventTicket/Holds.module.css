@@ -1,0 +1,27 @@
+.holds-container {
+  justify-content: center;
+  margin-right: 60rem;
+}
+.holds-h1 {
+  text-align: center;
+  color: #1e0a3c;
+  font-size: 20rem;
+  letter-spacing: 0.25px;
+  margin-top: -40px;
+}
+.paragraph-holds {
+  text-align: center;
+  color: #6f7287;
+  font-size: 12rem;
+  font-weight: 400;
+  margin-top: 3rem;
+  width: 100%;
+  min-width: 280rem;
+}
+.set-event-capacity {
+  font-size: 12rem;
+  color: #3659e3;
+}
+/* .holds-imagen svg {
+  width: 50rem;
+} */

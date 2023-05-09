@@ -37,6 +37,9 @@ function CreateSectionPopper({ createSectionButton }) {
       setIsSectionCapacityRequired(false);
     }
   }
+  function closePopper(event) {
+    createSectionButton(false);
+  }
   const style = {
     position: "absolute",
     top: "50%",
@@ -120,7 +123,6 @@ function CreateSectionPopper({ createSectionButton }) {
                   <aside className={styles["letter-num"]}>{count}/50</aside>
                 </div>
               </div>
-
               <form className={styles["section-capacity-input"]}>
                 <Input
                   label="Section capacity"
@@ -143,7 +145,12 @@ function CreateSectionPopper({ createSectionButton }) {
               </div>
               <hr className={styles["create-section-line"]} />
               <div className={styles["buttons-contariner"]}>
-                <button className={styles["cancel-button"]}>Cancel</button>
+                <button
+                  className={styles["cancel-button"]}
+                  onClick={closePopper}
+                >
+                  Cancel
+                </button>
                 <button className={styles["create-button"]}>Create</button>
               </div>
             </div>

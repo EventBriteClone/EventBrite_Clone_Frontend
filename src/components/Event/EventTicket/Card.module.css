@@ -1,0 +1,141 @@
+.my-card {
+  border: 1rem solid;
+  margin-left: 40rem;
+  position: fixed;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  max-height: 40rem;
+  max-width: 600rem;
+  margin: 10rem;
+  margin-bottom: 12rem;
+}
+.card-date {
+  flex-wrap: wrap;
+  margin-bottom: 20rem;
+}
+.card-bottom {
+  margin-right: 40rem;
+}
+/* .my-card {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 1rem;
+  width: 320px;
+}
+
+.card-title {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.card-date {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #666;
+}
+
+.card-bookmark {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  cursor: pointer;
+  color: #ccc;
+}
+
+.card-bottom {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.card-price {
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+}
+
+.card-price-label {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.card-price-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.card-button {
+  background-color: #0077ff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.card-button:hover {
+  background-color: #005fcc;
+} */
+
+.ticket-name {
+  font-size: 15rem;
+  line-height: 12rem;
+  margin-bottom: 3rem;
+  margin-top: 20rem;
+  margin-left: 40rem;
+  font-weight: 600;
+  color: #39364f;
+}
+.card-container {
+  border-bottom: 1rem solid #a9a8b3;
+  box-shadow: 0 1px 17px 0 rgba(40, 44, 53, 0.1),
+    0 2px 4px 0 rgba(40, 44, 53, 0.1);
+  margin-bottom: 20rem;
+  align-items: center;
+  justify-content: left;
+  position: fixed;
+  margin-right: 300rem;
+  width: 100%;
+  max-width: 700rem;
+  min-width: 150rem;
+}
+.list svg {
+  height: 14rem;
+  width: 14rem;
+}
+.cont {
+  margin-bottom: 15rem;
+  margin-right: 50rem;
+}
+.small-icon-circle svg {
+  height: 12rem;
+  width: 12rem;
+  margin-right: 2rem;
+  margin-left: 2rem;
+}
+.text-card {
+  display: flex;
+  font-size: 12rem;
+  color: #39364f;
+  margin-bottom: 20rem;
+  margin-left: 40rem;
+}
+.capacity-text {
+  margin-left: 220rem;
+}
+.price-text {
+  margin-left: 50rem;
+}
+.list-card-div {
+  position: absolute;
+  padding-left: 12rem;
+}
+.table {
+  padding-top: 80rem;
+  /* margin-bottom: 50rem; */
+}

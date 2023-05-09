@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useContext } from "react";
-// import styles from "./DrawerTicket.module.css";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { styled, useTheme } from "@mui/material/styles";
