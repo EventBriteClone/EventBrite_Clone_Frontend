@@ -17,71 +17,14 @@
 .card-bottom {
   margin-right: 40rem;
 }
-/* .my-card {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 1rem;
-  width: 320px;
-}
-
-.card-title {
-  margin-bottom: 0.5rem;
-  font-size: 1.5rem;
-}
-
-.card-date {
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  color: #666;
-}
-
-.card-bookmark {
-  background-color: transparent;
-  border: none;
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  cursor: pointer;
-  color: #ccc;
-}
-
-.card-bottom {
+.vector-image-block svg {
+  height: 16rem;
+  width: 16rem;
   display: flex;
-  margin-top: 1rem;
+  margin-left: 60rem;
+  background-color: #fff;
+  color: #39364f;
 }
-
-.card-price {
-  display: flex;
-  flex-direction: column;
-  margin-right: auto;
-}
-
-.card-price-label {
-  font-size: 0.8rem;
-  color: #666;
-}
-
-.card-price-value {
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
-.card-button {
-  background-color: #0077ff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-}
-
-.card-button:hover {
-  background-color: #005fcc;
-} */
-
 .ticket-name {
   font-size: 15rem;
   line-height: 12rem;
@@ -123,7 +66,7 @@
   font-size: 12rem;
   color: #39364f;
   margin-bottom: 20rem;
-  margin-left: 40rem;
+  margin-left: 30rem;
 }
 .capacity-text {
   margin-left: 220rem;
@@ -137,5 +80,35 @@
 }
 .table {
   padding-top: 80rem;
-  /* margin-bottom: 50rem; */
+}
+/* @media screen and (max-width: 40em) {
+  .table {
+    width: 100%;
+    max-width: 300rem;
+    margin: auto;
+  }
+} */
+.options-tickets-button {
+  background-color: #fff;
+}
+.menu-container {
+  margin-left: 30rem;
+  background-color: #fff;
+}
+.more-button {
+  background-color: #fff;
+  height: 25rem;
+  width: 25rem;
+  color: #39364f;
+}
+.menu {
+  background-color: #fff;
+  border: 1rem solid #a9a8b3;
+  text-align: center;
+}
+.menu-item {
+  background-color: #fff;
+  font-size: 12rem;
+  color: #39364f;
+  text-align: center;
 }

@@ -22,6 +22,8 @@ import ManageAttendees from "./Pages/ManageAttendees";
 import EventTicket from "./Pages/EventTicket";
 import Publish from "./components/Event/CreateEvent/Publish/Publish";
 import NotFound from "../src/components/Event/EventPage/NotFound/NotFound"
+import Dashboard from "./Pages/Dashboard";
+import { SearchResultsPage } from "./Pages/SearchResultsPage";
 
 const router = createBrowserRouter([
   {
@@ -65,8 +67,16 @@ const router = createBrowserRouter([
     element: <EventTicket />,
   },
   {
+    path: "/Dashboard/:id",
+    element: <Dashboard />,
+  },
+  {
     path: "/publish",
     element: <Publish />,
+  },
+  {
+    path: "/search/:key",
+    element: <SearchResultsPage />,
   },
   {
     path: '*',

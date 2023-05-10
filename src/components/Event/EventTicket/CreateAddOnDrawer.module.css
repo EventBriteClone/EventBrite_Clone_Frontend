@@ -8,6 +8,12 @@
     0 2px 4px 0 rgba(40, 44, 53, 0.1);
   overflow-y: scroll;
 }
+@media screen and (max-width: 40em) {
+  .box-container {
+    width: 100%;
+    max-width: 450rem;
+  }
+}
 .create-add-on-container {
   display: flex;
   justify-content: flex-start;
@@ -41,12 +47,15 @@
 }
 .input-general-admission {
   margin-bottom: 10rem;
+  margin-left: 12rem;
 }
 .input-available-quantity {
   margin-bottom: 10rem;
+  margin-left: 12rem;
 }
 .input-price {
   margin-bottom: 17rem;
+  margin-left: 12rem;
 }
 .aside-name-required {
   display: flex;

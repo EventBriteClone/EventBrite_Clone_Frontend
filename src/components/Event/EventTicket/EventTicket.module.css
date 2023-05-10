@@ -12,6 +12,7 @@
   background-color: #f8f7fa;
   flex-direction: column;
   display: flex;
+
   /* overflow-y: scroll; */
 }
 .mid-container {
@@ -21,4 +22,17 @@
   display: flex;
   justify-content: center;
   z-index: 20;
+}
+@media screen and (max-width: 40em) {
+  .creator-left-nav-container {
+    visibility: hidden;
+    width: 0;
+  }
+  .structure-drawer-left-container {
+    visibility: hidden;
+    width: 0;
+  }
+  .mid-container {
+    width: 100%;
+  }
 }

@@ -54,53 +54,6 @@ const New = (props) => {
     onSuccess: (codeResponse) => setUser(codeResponse),
     onError: (error) => console.log("Login Failed:", error),
   });
-  useEffect(() => {
-    const setUser = async () => {
-      const response = await fetch(
-        `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
-        {
-          headers: {
-            Authorization: `Bearer ${user.access_token}`,
-            Accept: "application/json",
-          },
-        }
-      );
-
-      const json = await response.json();
-      console.log(json);
-
-      const {
-        email: Email,
-        given_name: firstname,
-        family_name: lastname,
-        id,
-      } = json;
-      let endpoint = "user/signup/";
-
-      const postData = await fetch(
-        `${"https://event-us.me:8000/"}${endpoint}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: Email,
-            first_name: Email,
-            last_name: Email,
-            password: Email,
-          }),
-        }
-      );
-
-      const data = await postData.json();
-      console.log(data);
-      if (data.success) {
-        navigate("/");
-      }
-    };
-    setUser();
-  }, [user]);
 
   // const getInputValue = (event) => {
   //   // show the user input value to console
@@ -165,7 +118,7 @@ const New = (props) => {
     } else {
       let endpoint,
         configurationOpt = {};
-      if (config.mocking) {
+      if (config.mocking === "false") {
         endpoint = "user/signup/";
         console.log("using mock server");
 

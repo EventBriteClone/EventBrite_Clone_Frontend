@@ -19,6 +19,8 @@ function TicketPage({
   promoCodeList,
   setShowPromoCodesAvailable,
   ShowPromoCodesAvailable,
+  setTicketList,
+  setTicketNameTitle,
 }) {
   const [showSettings, setShowSettings] = useState(false);
   const [showHolds, setShowHolds] = useState(false);
@@ -152,12 +154,13 @@ function TicketPage({
             </a>
           </li>
         </ul>
-        {/* <hr className={styles["block-line"]} /> */}
         {showAdmission && (
           <Admission
             showDrawerButton={showDrawerButton}
             ticketList={ticketList}
             showAddTicketDrawer={showAddTicketDrawer}
+            setTicketList={setTicketList}
+            setTicketNameTitle={setTicketNameTitle}
           />
         )}
 
@@ -185,9 +188,10 @@ TicketPage.propTypes = {
   showAddTicketDrawer: PropTypes.func,
   showAddOnDrawer: PropTypes.func,
   promoCodeList: PropTypes.array,
-
+  setTicketList: PropTypes.func,
   setShowPromoCodesAvailable: PropTypes.func,
   ShowPromoCodesAvailable: PropTypes.bool,
+  setTicketNameTitle: PropTypes.func,
 };
 
 export default TicketPage;

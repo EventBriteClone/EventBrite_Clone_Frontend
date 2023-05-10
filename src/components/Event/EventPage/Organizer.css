@@ -1,0 +1,112 @@
+.organizer-container {
+    background-color:#f8f7fa;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(1,1fr);
+    width: 720px;
+    height: 88px;
+    margin-left: 160px;
+    margin-top: 20px;
+    border-radius: 8px;;
+}
+
+.organizer-profile {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(1,1fr);
+    margin-left: 15px;
+    width: 222px;
+    height: 56px;
+}
+
+.organizer-follow {
+    float: left;
+    width: 108px;
+    height: 44px;
+    margin-left: 550px;
+}
+
+.organizer-avatar {
+    width:56px;
+    height:56px;
+    overflow: hidden;
+    margin-top: 17px;
+    border-radius: 15px;
+}
+
+.eds-avatar__background eds-avatar__background--has-border svg {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 1px solid #eeedf2;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.simplified-organizer-info__details {
+    width: 200px;
+    height: 50px;
+    margin-right: auto;
+    margin-top: 18px;
+    -ms-flex-item-align: center;
+    align-self: center;
+}
+
+.simplified-organizer-info__name-by {
+    margin-left: 20px;
+    margin-top: 10px;
+    width: 200px;
+    height: 17px;
+    color: #6f7287;
+    font-size: 16px;
+    line-height: 1.5rem;
+}
+
+.simplified-organizer-info__name-link {
+    width: 128px;
+    height: 17px;
+    color: #1e0a3c;
+    font-weight: 600;
+}
+
+.organizer-stats {
+    width:150px;
+    height:17px;
+    margin-left: 20px;
+    margin-top: 6px;;
+    font-size: 14px;
+}
+
+.organizer-followers {
+    color: #6f7287;
+    width: 21.9px;
+    height:14.4px;
+}
+
+.organizer-follow {
+    margin-left: 220px;
+    margin-top: 20px;
+}
+
+.follow-button-listing-page.eds-btn--follow {
+    margin-left: 1px;
+    margin-top: 1px;;
+    background-color: #3659e3;
+    color: #fff;
+    width: auto;
+    word-break: normal;
+    box-sizing: border-box;
+    border-color: var(--eds-control,#3659e3);
+    transform: translateZ(0);
+    position: relative;
+    height: 44px;
+    padding: 0 30px 1px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 24px;
+    font-weight: 600;
+    letter-spacing: .2px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .4s cubic-bezier(.4,0,.3,1);
+}

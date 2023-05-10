@@ -2,6 +2,11 @@
   width: 80rem;
   margin: 80rem auto;
 }
+/* @media screen and (max-width: 40rem) {
+  .ticket-logo-container {
+    visibility: hidden;
+  }
+} */
 .span-ticket {
   border-radius: 50% !important;
   height: 100% !important;

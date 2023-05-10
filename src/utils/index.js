@@ -41,10 +41,8 @@ export function filterMockDataByCity(events, city) {
 
 export async function fetchDataFromAPI({ endpoint, configurationOpt = {} }) {
   try {
-    configurationOpt = {
-      ...configurationOpt,
-    };
     const res = await fetch(`${config.baseURL}${endpoint}`, configurationOpt);
+    console.log(res);
     const data = await res.json();
     return data;
   } catch (error) {
