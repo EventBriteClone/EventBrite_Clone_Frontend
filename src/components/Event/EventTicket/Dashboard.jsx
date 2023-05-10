@@ -30,20 +30,169 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import DrawerTicket from "./DrawerTicket";
 import CreateSectionPopper from "./CreateSectionPopper";
-import Admission from "./Admission";
+import Cookies from "js-cookie";
 import TicketPage from "./TicketPage";
 import PromoCodeDrawer from "./PromoCodeDrawer";
 import CreateAddOnDrawer from "./CreateAddOnDrawer";
 import UploadCSV from "./UploadCSV";
 
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthContext";
+
+import { useLocation } from "react-router-dom";
+import useFetch from "../../../custom-hooks/useFetch";
+
 export default function Dashboard(props) {
-  const [isVisibleDrawer, setIsVisibleDrawer] = useState(true);
+  const authContext = useContext(AuthContext);
+  const [ctx, setCtx] = useState(authContext);
+  const { id } = useParams();
+
+  const [quantity, setquantity] = useState("");
+  const [cap, setcapacity] = useState("");
+  const [profit, setprofit] = useState("");
+  const [price, setprice] = useState("");
+  const [userid, setuserid] = useState("");
+  const navigate = useNavigate();
+
+  console.log("ctx", ctx);
+  if (ctx.authState.isAuthenticated == false) {
+    console.log("na fe else");
+    navigate("/login");
+  } else {
+    useEffect(() => {
+      setCtx(authContext);
+      const submitHandler = async () => {
+        console.log("2btdena");
+        const token = JSON.parse(Cookies.get("authData")).token;
+        console.log("TOKEN", token);
+        console.log("token", token);
+        console.log("ID", id);
+
+        let endpoint,
+          configurationOpt = {};
+
+        console.log("using mock server");
+        endpoint = `eventmanagement/event/${id}/orders/`;
+        configurationOpt = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `CustomToken 146ca400f5e2548815dbb3aab29c15cdf1cea386342c7300ff4022e23349cda6`,
+          },
+          timeout: 10000,
+        };
+
+        try {
+          const res = await fetch(
+            `https://event-us.me:8000/dashboard/eventmanagement/sold-tickets/${id}/ticket-classes/`,
+            configurationOpt
+          );
+          const response = await res.json();
+          console.log("responseeee", response);
+          if (response.length > 0) {
+            const { quantity_sold, capacity } = response[0];
+            console.log("quantity_sold:", quantity_sold);
+            console.log("capacity:", capacity);
+            setquantity(quantity_sold);
+            console.log("omk", quantity_sold);
+            setcapacity(capacity);
+          }
+        } catch (error) {
+          console.error(error);
+          return { error };
+        }
+
+        configurationOpt = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization:
+              "CustomToken 146ca400f5e2548815dbb3aab29c15cdf1cea386342c7300ff4022e23349cda6",
+            // Authorization: `customToken ${ctx.authState.token}`,
+          },
+          timeout: 10000,
+        };
+
+        try {
+          const res = await fetch(
+            `https://event-us.me:8000/dashboard/eventmanagement/event/${id}/order-items/`,
+            configurationOpt
+          );
+          const response = await res.json();
+          console.log("responseeeetwo", response);
+          if (response) {
+            console.log("profit", response.profit);
+            setprofit(response.profit);
+          }
+        } catch (error) {
+          console.error(error);
+          return { error };
+        }
+        configurationOpt = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization:
+              "CustomToken 146ca400f5e2548815dbb3aab29c15cdf1cea386342c7300ff4022e23349cda6",
+            // Authorization: `customToken ${ctx.authState.token}`,
+          },
+          timeout: 10000,
+        };
+
+        try {
+          const res = await fetch(
+            `https://event-us.me:8000/dashboard/eventmanagement/event/save/${id}/order-items/`,
+            configurationOpt
+          );
+          const response = await res.json();
+          console.log("responseeeethreeee", response);
+          if (response) {
+            console.log("ticket_price", response.data[0].ticket_price);
+            console.log("user_id", response.data[0].user_id);
+            setprice(response.data[0].ticket_price);
+            setuserid(response.data[0].user_id);
+          }
+        } catch (error) {
+          console.error(error);
+          return { error };
+        }
+        configurationOpt = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization:
+              "CustomToken 146ca400f5e2548815dbb3aab29c15cdf1cea386342c7300ff4022e23349cda6",
+            // Authorization: `customToken ${ctx.authState.token}`,
+          },
+          timeout: 10000,
+        };
+
+        try {
+          const res = await fetch(
+            `https://event-us.me:8000/dashboard/user/1151/`,
+            configurationOpt
+          );
+          const response = await res.json();
+          console.log("responseeefouuurr", response);
+          // if (response) {
+          //   console.log("ticket_price", response.data[0].ticket_price);
+          //   setprice(response.data[0].ticket_price);
+          // }
+        } catch (error) {
+          console.error(error);
+          return { error };
+        }
+      };
+
+      submitHandler();
+    }, []);
+  }
+
   const [showCreateSectionPopper, setShowCreateSectionPopper] = useState(false);
 
-  const [addTicketList, setAddTicketList] = useState(addTicket);
   const [addPromoCodeList, setAddPromoCodeList] = useState(addPromoCode);
 
-  const [showMidTicket, setShowMidTicket] = useState(true);
   const [isVisiblePromoCodeDrawer, setIsVisiblePromoCodeDrawer] =
     useState(false);
   const [isVisibleUploadCSVDrawer, setIsVisibleUploadCSVDrawer] =
@@ -53,55 +202,9 @@ export default function Dashboard(props) {
   const [isVisibleAddOnDrawer, setIsVisibleAddOnDrawer] = useState(false);
 
   const [showPromoCodes, setShowPromoCodes] = useState(false);
-  async function submitHandler(e) {
-    console.log("2btdena");
-    e.preventDefault();
-    let endpoint,
-      configurationOpt = {};
-
-    console.log("using mock server");
-    endpoint = `dashboard/user/1536/`;
-    configurationOpt = {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-      timeout: 10000,
-    };
-
-    endpoint = `user/emailcheck/${encodeURIComponent(email)}/`;
-    configurationOpt = {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-    };
-
-    try {
-      const res = await fetch(
-        await fetch(
-          `${"https://event-us.me:8000/"}${endpoint}`,
-          configurationOpt
-        )
-      );
-      const response = await res.json();
-      console.log("responseeee", response);
-
-      if (response.email_exists == true) {
-        console.log("mawgod");
-
-        navigate("/login");
-      } else {
-        props.submitHandler();
-      }
-    } catch (error) {
-      console.error(error);
-      return { error };
-    }
-  }
 
   return (
     <>
-      {/* <OptionsManageEventBar
-        submitHandler={submitHandler}
-      ></OptionsManageEventBar> */}
-      ;{/* <OptionsManageEventBar submitHandler={submitHandler} /> */}
       <HeaderTicket></HeaderTicket>
       <div className={styles["bigger-container"]}>
         <div className={styles["creator-left-nav-container"]}>
@@ -110,37 +213,7 @@ export default function Dashboard(props) {
         <div className={styles["structure-drawer-left-container"]}>
           <StructureDrawer />
         </div>
-        {/* <hr /> */}
-        {/* <div className={styles["mid-container"]}>
-          {showMidTicket && (
-            <MidTicketContainer
-              showDrawerButton={(value) => setIsVisibleDrawer(value)}
-              createSectionButton={(value) => setShowCreateSectionPopper(value)}
-            /> */}
 
-        {/* {!showMidTicket && (
-          <TicketPage
-            showDrawerButton={(value) => setIsVisibleDrawer(value)}
-            showPromoCodeDrawer={(value) => setIsVisiblePromoCodeDrawer(value)}
-            showUploadCSVDrawer={(value) => setIsVisibleUploadCSVDrawer(value)}
-            ticketList={addTicketList}
-            promoCodeList={addPromoCodeList}
-            showAddOnDrawer={(value) => setIsVisibleAddOnDrawer(value)}
-            setShowPromoCodesAvailable={(value) => setShowPromoCodes(value)}
-            ShowPromoCodesAvailable={showPromoCodes}
-            // closePromoCodeDrawer={(value) =>
-            //   setIsVisiblePromoCodeDrawer(value)
-            // }
-          />
-        )} */}
-        {/* {isVisibleDrawer && (
-          <DrawerTicket
-            showDrawerButton={(value) => setIsVisibleDrawer(value)}
-            showMidTicketOnSave={(value) => setShowMidTicket(value)}
-            ticketList={addTicketList}
-            setTicketList={(value) => setAddTicketList(value)}
-          />
-        )} */}
         <title>Eventbrite - Dashboard</title>
         {/* <header /> */}
         <div className={Dash["main"]}>
@@ -156,7 +229,7 @@ export default function Dashboard(props) {
                     <h2>Net Sales</h2>
                   </div>
                   <div className={Dash["Sales"]}>
-                    <p>$0.00</p>
+                    <p>{profit}</p>
                   </div>
                   <div className={Dash["P2"]}>
                     <p>$0.00 gross sales</p>
@@ -175,7 +248,9 @@ export default function Dashboard(props) {
                   </div>
                   <div className={Dash["Sales"]}>
                     <p>
-                      0<span>/12</span>
+                      {quantity}
+
+                      <span>/{cap}</span>
                     </p>
                   </div>
                   <div className={Dash["P2"]}>
@@ -215,7 +290,7 @@ export default function Dashboard(props) {
                     <p>Event URL</p>
                     <div className="link">
                       <a href="#">
-                        https://www.eventbrite.com/e/mario-tickets-628060444697
+                        https://www.eventus.com/e/mario-tickets-628060444697
                       </a>
                     </div>
                   </div>
@@ -318,9 +393,11 @@ export default function Dashboard(props) {
                       <p>General Admission</p>
                     </div>
                     <div className={Dash["tic"]}>
-                      <p>$20.00</p>
+                      <p>{price}</p>
 
-                      <a href="#">0/12</a>
+                      <a href="#">
+                        {quantity}/{cap}
+                      </a>
                     </div>
                   </div>
                 </div>

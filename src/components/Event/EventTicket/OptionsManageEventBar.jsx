@@ -1,44 +1,57 @@
 import React, { useEffect, useState, useContext } from "react";
 import styles from "./OptionsManageEventBar.module.css";
-import { Link } from "react-router-dom";
-import Dashboard from "./Dashboard";
 
-function OptionsManageEventBar(props) {
+import Dashboard from "./Dashboard";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthContext";
+import Cookies from "js-cookie";
+import { useParams } from "react-router-dom";
+import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+export default function OptionsManageEventBar(props) {
+  const authContext = useContext(AuthContext);
+  const [ctx, setCtx] = useState(authContext);
+  const [ticket, setticket] = useState("");
+  const [quantity_sold, setquantity] = useState("");
+  const [capacity, setcapacity] = useState("");
+
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  console.log("ctx", ctx);
+
+  const handleButtonClick = async (e) => {
+    setCtx(authContext);
+    if (ctx.authState.isAuthenticated == false) {
+      console.log("na fe else");
+      navigate("/login");
+    } else {
+      await submitHandler(e);
+    }
+
+    // three(ctx, e, navigate);
+    // two(ctx, e, navigate);
+  };
   async function submitHandler(e) {
     console.log("2btdena");
     e.preventDefault();
+
+    console.log("2btdena");
+
     let endpoint,
       configurationOpt = {};
-
+    const token = JSON.parse(Cookies.get("authData")).token;
+    console.log("token", token);
     console.log("using mock server");
-    endpoint = `dashboard/eventmanagement/sold-tickets/${1536}/ticket-classes/ `;
+    endpoint = `eventmanagement/event/1151/orders/ `;
     configurationOpt = {
       method: "GET",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `CustomToken ${token}`,
+        //  Authorization: `CustomToken  ${ctx.authState.token}`,
+      },
       timeout: 10000,
     };
-
-    try {
-      const res = await fetch(
-        await fetch(
-          `${"https://event-us.me:8000/"}${endpoint}`,
-          configurationOpt
-        )
-      );
-      const response = await res.json();
-      console.log("responseeee", response);
-
-      //     if (response.email_exists == true) {
-      //       console.log("mawgod");
-
-      //       navigate("/login");
-      //     } else {
-      //       props.submitHandler();
-      //     }
-    } catch (error) {
-      console.error(error);
-      return { error };
-    }
   }
 
   return (
@@ -58,11 +71,11 @@ function OptionsManageEventBar(props) {
               className={styles["dashboard-list-item-contents"]}
               data-spec="eds-list-item-contents"
             >
-              <Link to="/Dashboard/:id" href="">
-                <div className={styles["dashboard-list-item-name"]}>
-                  <button onClick={submitHandler}>Dashboard</button>
-                </div>
-              </Link>
+              <Link to={`/Dashboard/${id}`} />
+              <div className={styles["dashboard-list-item-name"]}>
+                <button onClick={handleButtonClick}>Dashboard</button>
+              </div>
+              <Link />
             </div>
           </div>
         </a>
@@ -209,5 +222,3 @@ function OptionsManageEventBar(props) {
     </>
   );
 }
-
-export default OptionsManageEventBar;

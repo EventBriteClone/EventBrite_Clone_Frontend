@@ -1,6 +1,8 @@
 import React from "react";
 import NavigationContextProvider from "./context/NavigationContext";
 import ReactDOM from "react-dom/client";
+import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -11,7 +13,7 @@ import "./index.css";
 import BasicInfo from "./Pages/BasicInfo";
 import LandingPage from "./Pages/LandingPage";
 // import EventPage from "./Pages/EventPage";
-import SignUp from "./Pages/Signup";
+import SignUp from "./Pages/SignUp";
 import EventCreator from "./Pages/CreatorEvent";
 import configuration from "./utils/config";
 import New from "./Pages/New";
@@ -21,11 +23,10 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import ManageAttendees from "./Pages/ManageAttendees";
 import EventTicket from "./Pages/EventTicket";
 import Publish from "./components/Event/CreateEvent/Publish/Publish";
-<<<<<<< HEAD
+
 import Dashboard from "./Pages/Dashboard";
-=======
+
 import { SearchResultsPage } from "./Pages/SearchResultsPage";
->>>>>>> 57d48becfc719b876e1339231fa0bbd7018dac13
 
 const router = createBrowserRouter([
   {
@@ -69,7 +70,7 @@ const router = createBrowserRouter([
     element: <EventTicket />,
   },
   {
-    path: "/Dashboard/:id",
+    path: `/Dashboard/${id}`,
     element: <Dashboard />,
   },
   {

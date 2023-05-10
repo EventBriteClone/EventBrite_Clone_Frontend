@@ -269,7 +269,7 @@ async function googleLoginSuccess(googleData, navigate) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          email: email + "5" + "M",
+          email: email + +"5" + "M",
           first_name: "mario",
           last_name: "mario",
           password: email + "5" + "M",

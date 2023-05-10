@@ -30,54 +30,54 @@ const Login = (props) => {
     }
   };
   const google = useGoogleLogin({
-    onSuccess: (codeResponse) => setUser(codeResponse),
+    onSuccess: (codeResponse) => googleLoginSuccess(codeResponse, navigate),
     onError: (error) => console.log("Login Failed:", error),
   });
-  useEffect(() => {
-    const setUser = async () => {
-      const response = await fetch(
-        `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
-        {
-          headers: {
-            Authorization: `Bearer ${user.access_token}`,
-            Accept: "application/json",
-          },
-        }
-      );
+  // useEffect(() => {
+  //   const setUser = async () => {
+  //     const response = await fetch(
+  //       `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${user.access_token}`,
+  //           Accept: "application/json",
+  //         },
+  //       }
+  //     );
 
-      const json = await response.json();
-      console.log(json);
+  //     const json = await response.json();
+  //     console.log(json);
 
-      const {
-        email: Email,
-        given_name: firstname,
-        family_name: lastname,
-        id,
-      } = json;
-      let endpoint = "user/login/";
+  //     const {
+  //       email: Email,
+  //       given_name: firstname,
+  //       family_name: lastname,
+  //       id,
+  //     } = json;
+  //     let endpoint = "user/login/";
 
-      const postData = await fetch(
-        `${"https://event-us.me:8000/"}${endpoint}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: Email,
-            password: Email + "5" + "M",
-          }),
-        }
-      );
+  //     const postData = await fetch(
+  //       `${"https://event-us.me:8000/"}${endpoint}`,
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({
+  //           email: Email,
+  //           password: Email + "5" + "M",
+  //         }),
+  //       }
+  //     );
 
-      const data = await postData.json();
-      console.log(data);
-      if (data.success) {
-        navigate("/");
-      }
-    };
-    setUser();
-  }, [user]);
+  //     const data = await postData.json();
+  //     console.log(data);
+  //     if (data.success) {
+  //       navigate("/");
+  //     }
+  //   };
+  //   setUser();
+  // }, [user]);
   const handleExitClick = () => {
     setexit(false);
   };
@@ -418,26 +418,26 @@ async function googleLoginSuccess(googleData, navigate) {
 
     const { email } = json;
 
-    let endpoint = "user/signup/";
+    let endpoint = "user/login/";
     console.log(email);
-    const postData = await fetchDataFromAPI({
+    const respo = await fetchDataFromAPI({
       endpoint,
       configurationOpt: {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          email: email + "5" + "M",
-          first_name: "mario",
-          last_name: "mario",
+          email: email,
           password: email + "5" + "M",
         }),
       },
     });
-    console.log(postData);
-    if (postData) {
-      navigate("/login");
+    console.log("respoo", respo);
+    if (respo) {
+      setAuthData(respo);
+      navigate("/");
     }
   } catch (error) {
     console.error(error);
+    setShowNoAccount(true);
   }
 }

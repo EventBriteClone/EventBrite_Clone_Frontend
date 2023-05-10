@@ -50,10 +50,6 @@ const New = (props) => {
     setConfirmEmail(event.target.value);
     console.log(confirmEmail);
   };
-  const google = useGoogleLogin({
-    onSuccess: (codeResponse) => setUser(codeResponse),
-    onError: (error) => console.log("Login Failed:", error),
-  });
 
   // const getInputValue = (event) => {
   //   // show the user input value to console
@@ -133,19 +129,21 @@ const New = (props) => {
           }),
           timeout: 10000,
         };
-        // } else {
-        //   endpoint = "user/signup/";
-        //   configurationOpt = {
-        //     method: "POST",
-        //     headers: { "Content-Type": "application/json" },
-        //     body: JSON.stringify({
-        //       email: props.email,
-        //       first_name: firstName,
-        //       last_name: lastName,
-        //       password: password,
-        //     }),
-        // timeout: 10000,
-        // };
+      } else {
+        endpoint = "user/users/";
+        console.log("using mock server");
+
+        configurationOpt = {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: props.email,
+            first_name: firstName,
+            last_name: lastName,
+            password: password,
+          }),
+          timeout: 10000,
+        };
       }
       console.log("fetching data...");
       try {
