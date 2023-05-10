@@ -45,9 +45,7 @@ export default function EventTicket() {
     <>
       <HeaderTicket></HeaderTicket>
       <div className={styles["bigger-container"]}>
-        <div className={styles["creator-left-nav-container"]}>
-          <HomeNavConatiner />
-        </div>
+        <HomeNavConatiner />
         <div className={styles["structure-drawer-left-container"]}>
           <StructureDrawer />
         </div>

@@ -56,8 +56,13 @@
 }
 
 .pBasic {
-  width: 75%;
+  margin: 24px 0;
+  /* width: 75%; */
   vertical-align: top;
+}
+.pBasic input[type="file"] {
+  margin: 10px auto;
+  display: block;
 }
 
 .EventTitle {

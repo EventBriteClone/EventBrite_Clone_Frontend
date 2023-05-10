@@ -202,6 +202,48 @@ export default function Dashboard(props) {
   const [isVisibleAddOnDrawer, setIsVisibleAddOnDrawer] = useState(false);
 
   const [showPromoCodes, setShowPromoCodes] = useState(false);
+  async function submitHandler(e) {
+    console.log("2btdena");
+    e.preventDefault();
+    let endpoint,
+      configurationOpt = {};
+
+    console.log("using mock server");
+    endpoint = `dashboard/user/1536/`;
+    configurationOpt = {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+      timeout: 10000,
+    };
+
+    endpoint = `user/emailcheck/${encodeURIComponent(email)}/`;
+    configurationOpt = {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    };
+
+    try {
+      const res = await fetch(
+        await fetch(
+          `${"https://event-us.me:8000/"}${endpoint}`,
+          configurationOpt
+        )
+      );
+      const response = await res.json();
+      console.log("responseeee", response);
+
+      if (response.email_exists == true) {
+        console.log("mawgod");
+
+        navigate("/login");
+      } else {
+        props.submitHandler();
+      }
+    } catch (error) {
+      console.error(error);
+      return { error };
+    }
+  }
 
   return (
     <>

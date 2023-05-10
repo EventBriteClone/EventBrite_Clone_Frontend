@@ -57,7 +57,6 @@ function AllEvents() {
   }, []);
   if (data && Object.keys(data).length > 0) {
     const property = Object.keys(data)[3];
-    console.log(data[property]);
     ay7aga = data[property];
   }
 

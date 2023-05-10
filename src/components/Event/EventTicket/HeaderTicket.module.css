@@ -64,6 +64,10 @@
   margin: 0rem 10rem;
   color: white;
 }
+
+.name-shortcut {
+  padding: 7rem 7rem !important;
+}
 .break-line {
   border: 0.25rem solid #eeedf2;
 }

@@ -7,13 +7,16 @@ import PropTypes from "prop-types";
 // import { Chip } from "@material-ui/core";
 import Chip from "@mui/material/Chip";
 import { grey } from "@mui/material/colors";
-import { BasicInfoContext } from "../../../context/CreateEventContext";
+import { CreateEventContext } from "../../../context/CreateEventContext";
+import ImageGallery from "./ImageGallery";
 function BasicInfoComponents({
   changeButton,
   saveButton,
   isRequired,
   setIsRequired,
 }) {
+  const ctx = useContext(CreateEventContext);
+  const { createEvent, setCreateEvent } = ctx;
   const mySelectors = {
     width: 200,
     height: 50,
@@ -66,14 +69,17 @@ function BasicInfoComponents({
     "¬",
   ];
   const [color, setColor] = useState("red");
-  const [eventTileValue, setEventTitle] = useState("");
+  const [eventTitleValue, setEventTitle] = useState("");
+  const [organizerValue, setOrganizer] = useState("");
+
+  // const [organizerNameValue, setOrganizer] = useState("");
   // const [isRequired, setIsRequired] = useState(false);
   const [count, setCount] = useState(0);
   function eventTitleChange(event) {
     const length = event.target.value.length;
     setCount(length);
     if (event.target.value.length >= 75) return;
-    setEventTitle(event.target.value);
+    setCreateEvent({ type: "set", data: { eventTitle: event.target.value } });
     if (event.target.value.length === 0) {
       setColor("red");
       setIsRequired(true);
@@ -148,9 +154,8 @@ function BasicInfoComponents({
       setErrorText(false);
     }
   }
-  const [organizervalue, setOrganizer] = useState("");
-  function organizervalueChange(event) {
-    setOrganizer(event.target.value);
+  function organizerValueChange(event) {
+    setCreateEvent({ type: "set", data: { organizer: event.target.value } });
     if (event.target.value.length === 0) {
       changeButton(false);
     } else {
@@ -160,7 +165,11 @@ function BasicInfoComponents({
   const [showSubCategory, setShowSubCategory] = useState(false);
   const [hideSubCategory, setHideSubCategory] = useState(true);
 
-  function handleChange(event) {
+  function handleChange(e) {
+    setCreateEvent({
+      type: "set",
+      data: { category: e?.target.textContent.toLowerCase() },
+    });
     // setOrganizer(event.target.value);
     if (hideSubCategory) {
       setShowSubCategory(false);
@@ -170,22 +179,167 @@ function BasicInfoComponents({
       changeButton(true);
     }
   }
+  function handleChangeSubcategory(e) {
+    setCreateEvent({
+      type: "set",
+      data: { subcategory: e?.target.textContent.toLowerCase() },
+    });
+  }
 
-  const [showTypeNav, setshowTypeNav] = useState(false);
+  const [showTypeNav, setShowTypeNav] = useState(false);
   const [hideTypeNav, setHideTypeNav] = useState(true);
   function handleChangeType(event) {
+    setCreateEvent({
+      type: "set",
+      data: { type: event?.target.textContent.toLowerCase() },
+    });
     // setOrganizer(event.target.value);
     if (hideTypeNav) {
-      setshowTypeNav(false);
+      setShowTypeNav(false);
       setHideTypeNav(false);
     } else {
-      setshowTypeNav(true);
+      setShowTypeNav(true);
       changeButton(true);
     }
   }
+
+  function handleImageChange(e) {
+    if (createEvent.images.length === 4) return;
+    const [file] = e.target.files;
+    const reader = new FileReader();
+    // reader.readAsDataURL(file);
+    reader.readAsArrayBuffer(file);
+
+    reader.onload = (e) => {
+      const imageSrc = e.target.result;
+      const fileName = file.name;
+      const fileType = file.type;
+      const newFile = new File([imageSrc], fileName, { type: fileType });
+      const src = URL.createObjectURL(newFile);
+      console.log(createEvent.images);
+      setCreateEvent({
+        type: "set",
+        data: {
+          images: [...createEvent.images, { src, file: newFile }],
+        },
+      });
+    };
+  }
+
+  function summaryChange(e) {
+    setCreateEvent({ type: "set", data: { summary: e.target.value } });
+  }
+  function descriptionChange(e) {
+    setCreateEvent({ type: "set", data: { description: e.target.value } });
+  }
+
+  useEffect(() => {
+    function globalClickHandler(event) {
+      const clickedElement = event.target;
+      const computedStyle = window.getComputedStyle(clickedElement, "::before");
+      if (
+        computedStyle
+          .getPropertyValue("background")
+          .includes("TrashIcon.svg") &&
+        createEvent.images.length
+      ) {
+        const currentImg = document.querySelector(
+          ".image-gallery-slide.center"
+        );
+        const { ariaLabel } = currentImg;
+        const index = Number(ariaLabel.split(" ").at(-1)) - 1;
+        const newImages = structuredClone(createEvent.images);
+        newImages.splice(index, 1);
+        setCreateEvent({ type: "set", data: { images: newImages } });
+      }
+    }
+    document.addEventListener("click", globalClickHandler);
+    return () => document.removeEventListener("click", globalClickHandler);
+  }, [createEvent.images]);
+
   return (
     <>
       <h1 className={styles.h1}>Basic Info</h1>
+      <div className={styles.pBasic}>
+        <h2>Event Media</h2>
+        <p className={styles.text}>
+          Add photos to show what your event will be about. You can upload up to
+          5 images.
+        </p>
+        <input type="file" onChange={handleImageChange} />
+        <ImageGallery />
+        <p>Events with a summary can attract up to 75% more customers</p>
+        <TextField
+          required
+          id="outlined-required"
+          className={styles.EventTitle}
+          label="Event Summary"
+          value={createEvent.summary}
+          placeholder="Event summary."
+          onChange={summaryChange}
+          sx={{
+            padding: "1px",
+            marginBottom: "4px",
+            marginTop: "12px",
+            borderRadius: "2px",
+            fontWeight: 400,
+            "& input": {
+              fontSize: "14px",
+            },
+            "& label": {
+              fontSize: "12px",
+            },
+            "& label.Mui-focused": {
+              color: { color },
+              fontSize: "12px",
+            },
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": {
+                borderColor: { color },
+              },
+              "&.Mui-focused fieldset": {
+                borderColor: { color },
+              },
+            },
+          }}
+        />
+        <p>Write a description for your event!</p>
+        <TextField
+          required
+          id="outlined-required"
+          className={styles.EventTitle}
+          label="Event Description"
+          value={createEvent.description}
+          placeholder="Event description."
+          onChange={descriptionChange}
+          sx={{
+            padding: "1px",
+            marginBottom: "4px",
+            marginTop: "12px",
+            borderRadius: "2px",
+            fontWeight: 400,
+            "& input": {
+              fontSize: "14px",
+            },
+            "& label": {
+              fontSize: "12px",
+            },
+            "& label.Mui-focused": {
+              color: { color },
+              fontSize: "12px",
+            },
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": {
+                borderColor: { color },
+              },
+              "&.Mui-focused fieldset": {
+                borderColor: { color },
+              },
+            },
+          }}
+        />
+      </div>
+      <hr />
       <div className={styles.pBasic}>
         <p className={styles.text}>
           Name your event and tell event-goers why they should come. Add details
@@ -198,8 +352,7 @@ function BasicInfoComponents({
           id="outlined-required"
           className={styles.EventTitle}
           label="Event Title"
-          defaultValue=""
-          value={eventTileValue}
+          value={createEvent.eventTitle}
           placeholder="Be clear and descriptive."
           onChange={eventTitleChange}
           sx={{
@@ -242,9 +395,9 @@ function BasicInfoComponents({
         id="outlined-required"
         className={styles.Organizer}
         label="Organizer"
-        defaultValue=""
+        value={createEvent.organizer}
         placeholder="Tell attendees who is organizing this event."
-        onChange={organizervalueChange}
+        onChange={organizerValueChange}
         sx={{
           marginBottom: "8px",
 
@@ -263,6 +416,7 @@ function BasicInfoComponents({
           defaultValue="Type"
           placeholder="Type"
           onChange={handleChangeType}
+          value={createEvent.type}
           sx={{
             ...mySelectors,
           }}
@@ -276,10 +430,9 @@ function BasicInfoComponents({
           <Option value="concert or performance">Concert or Performance</Option>
         </Select>
         <Select
-          defaultValue="Category"
           placeholder="Category"
-          // onListboxOpenChange={handleShowSubCategory}
           onChange={handleChange}
+          value={createEvent.category}
           sx={{
             ...mySelectors,
           }}
@@ -292,20 +445,21 @@ function BasicInfoComponents({
           <Option value="community & culture">Community & Culture</Option>
           <Option value="family & education">Family & Education</Option>
         </Select>
-
-        {showSubCategory && (
+        {(showSubCategory || createEvent.subcategory) && (
           <Select
             defaultValue="Sub-category"
             placeholder="Sub-category"
+            onChange={handleChangeSubcategory}
+            value={createEvent.subcategory}
             sx={{
               ...mySelectors,
             }}
           >
             <Option value="gaming">Gaming</Option>
             <Option value="adult">Adult</Option>
-            <Option value="anime/comics">Anime/ Comics</Option>
-            <Option value="DIY">DIY</Option>
-            <Option value="drawing&painting">Drawing & Painting</Option>
+            <Option value="anime/comics">Anime/Comics</Option>
+            <Option value="diy">DIY</Option>
+            <Option value="drawing & painting">Drawing & Painting</Option>
           </Select>
         )}
       </div>
@@ -323,7 +477,6 @@ function BasicInfoComponents({
                 id="outlined-required"
                 className={styles.AddTag}
                 label="Press Enter to add a tag"
-                defaultValue=""
                 placeholder="Add search keywords to your event"
                 onChange={addNumberText}
                 inputProps={{ maxLength: 25 }}
@@ -382,4 +535,5 @@ BasicInfoComponents.propTypes = {
   setIsRequired: PropTypes.func,
   isRequired: PropTypes.bool,
 };
+
 export default BasicInfoComponents;

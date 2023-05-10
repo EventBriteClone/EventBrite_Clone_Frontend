@@ -110,3 +110,53 @@
     cursor: pointer;
     transition: all .4s cubic-bezier(.4,0,.3,1);
 }
+
+@media only screen and (max-width: 1200px) {
+    .organizer-container {
+      width: 100%;
+      margin-left: 0;
+    }
+    
+    .organizer-follow {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .organizer-container {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      height: auto;
+      margin-top: 10px;
+    }
+    
+    .organizer-profile {
+      width: 100%;
+      margin-left: 0;
+      margin-bottom: 10px;
+    }
+    
+    .simplified-organizer-info__name-by {
+      margin-top: 8px;
+    }
+    
+    .organizer-follow {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 10px;
+    }
+  }
+  
+  @media only screen and (max-width: 480px) {
+    .simplified-organizer-info__name-link {
+      width: 100%;
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+    
+    .organizer-stats {
+      margin-top: 4px;
+    }
+  }
+  

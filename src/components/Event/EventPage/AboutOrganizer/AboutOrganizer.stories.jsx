@@ -2,7 +2,14 @@ import AboutOrganizer from "./AboutOrganizer";
 
 export default {
     title: "Components/Event Page/AboutOrganizer",
-    component: AboutOrganizer
+    component: AboutOrganizer,
+    parameters: {
+        docs: {
+            description: {
+                component: 'Displays info about the organizer.'
+            }
+        }
+    }
 }
 
 export const Primary = (args) => <AboutOrganizer {...args}/>

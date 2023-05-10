@@ -4,8 +4,8 @@ import { create } from 'react-test-renderer';
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 
-describe("PriceTag", () => {
-  it("renders all buttons", () => {
+describe("AboutOrganizer", () => {
+  it("contact and follow buttons", () => {
     const component = create(
       <MemoryRouter>
         <AboutOrganizer />

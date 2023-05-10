@@ -2,8 +2,11 @@ import styles from "./HeaderTicket.module.css";
 import MainIcon from "../../Icons/MainIcon";
 import { SearchProvider } from "../../../context/SearchModalContext";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../../context/AuthContext";
 
-export default function Header() {
+export default function HeaderTicket() {
+  const { fName, lName, initials } = useContext(AuthContext).authState;
   return (
     <SearchProvider>
       <div className={styles["header-ticket"]}>
@@ -18,17 +21,19 @@ export default function Header() {
           >
             Preview Your Event
           </Link>
-          <a className={styles["header-ticket-links"]} href="#">
+          <Link className={styles["header-ticket-links"]} to="/publish">
             Publish
-          </a>
+          </Link>
           <Link className={styles["header-ticket-links"]} to="#">
             More
           </Link>
         </div>
         <div className={styles["profile-ticket"]}>
           <div className={styles["sign-in-info-ticket"]}>
-            <h2>SE</h2>
-            <h1>Shaimaa Eid</h1>
+            <h2 className={styles["name-shortcut"]}>{initials}</h2>
+            <h1>
+              {fName} {lName}
+            </h1>
             <i className={styles["ri-arrow-down-s-line"]}></i>
           </div>
         </div>

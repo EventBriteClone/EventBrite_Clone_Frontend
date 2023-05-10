@@ -17,7 +17,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { LocationContext } from "../../../context/CreateEventContext";
+import { CreateEventContext } from "../../../context/CreateEventContext";
 
 function Location({
   changeButton,
@@ -25,7 +25,7 @@ function Location({
   isLocationRequired,
   setIsLocationRequired,
 }) {
-  const LocationValues = useContext(LocationContext);
+  const { createEvent, setCreateEvent } = useContext(CreateEventContext);
   const [showHideSearchBar, setShowHideSearchBar] = useState(false);
   const [HideSearchBar, setHideSearchBar] = useState(true);
   const [showVenue, setshowVenue] = useState(true);
@@ -40,9 +40,17 @@ function Location({
   // const [HideSearchBar, setHideSearchBar] = useState(true);
   const [isToBeAnnouncedOpen, setIsToBeAnnouncedOpen] = useState(false);
   const [locationValue, setLocationValue] = useState("");
+  useEffect(() => {
+    if (createEvent.online) {
+      setshowVenue(false);
+      setshowOnlineEvent(true);
+      changeButton(true);
+      setIsLocationRequired(false);
+    }
+  }, []);
   // const [isLocationRequired, setIsLocationRequired] = useState(false);
   function locationValueChange(event) {
-    setLocationValue(event.target.value);
+    setCreateEvent({ type: "set", data: { location: event.target.value } });
     if (event.target.value.length === 0) {
       setIsLocationRequired(true);
       saveButton(false);
@@ -55,6 +63,7 @@ function Location({
   // const [showToBeAnnounced, setshowToBeAnnounced] = useState(false);
 
   function handleShowVenue(event) {
+    setCreateEvent({ type: "set", data: { online: false } });
     saveButton(false);
     setIsLocationRequired(true);
     if (
@@ -75,17 +84,6 @@ function Location({
       if (HideSearchBar) {
         setShowHideSearchBar(false);
       }
-      const child1 = event.target.parentNode.childNodes[1];
-      const child2 = event.target.parentNode.childNodes[2];
-      event.target.classList.remove(styles.OnlineEventButton);
-      event.target.classList.add(styles.VenueButton);
-      if (isOnlineEventOpen === true) {
-        child1.classList.remove(styles.VenueButton);
-        child1.classList.add(styles.OnlineEventButton);
-      } else if (isToBeAnnouncedOpen === true) {
-        child2.classList.remove(styles.VenueButton);
-        child2.classList.add(styles.TobeAnnounced);
-      }
       setIsVenueOpen(true);
       setIsOnlineEventOpen(false);
       setIsToBeAnnouncedOpen(false);
@@ -95,6 +93,7 @@ function Location({
   function handleShowOnlineEvent(event) {
     saveButton(true);
     setIsLocationRequired(false);
+    setCreateEvent({ type: "set", data: { online: true, location: "" } });
     if (
       isVenueOpen === false &&
       isOnlineEventOpen === true &&
@@ -172,12 +171,19 @@ function Location({
           where to show up.
         </p>
         <div className={styles.Buttons}>
-          <button onClick={handleShowVenue} className={styles.VenueButton}>
+          <button
+            onClick={handleShowVenue}
+            className={`${styles.VenueButton} ${
+              createEvent.online ? "" : `${styles.clicked}`
+            }`}
+          >
             Venue
           </button>
           <button
             onClick={handleShowOnlineEvent}
-            className={styles.OnlineEventButton}
+            className={`${styles.OnlineEventButton} ${
+              createEvent.online ? `${styles.clicked}` : ""
+            }`}
           >
             Online event
           </button>
@@ -226,7 +232,7 @@ function Location({
                   sx={{ ml: 1, flex: 1 }}
                   placeholder="Search for a venue or address."
                   onChange={locationValueChange}
-                  value={locationValue}
+                  value={createEvent.location}
 
                   // inputProps={{ 'aria-label': 'search google maps' }}
                 />

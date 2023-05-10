@@ -5,7 +5,7 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 
 describe("PriceTag", () => {
-  it("renders all buttons", () => {
+  it("check get tickets button", () => {
     const component = create(
       <MemoryRouter>
         <PriceTag />

@@ -4,29 +4,24 @@ import styles from "./Popup.module.css";
 import { NavLink } from "react-router-dom";
 import Timer from "../timer/Timer";
 import logoImg from "../../../assets/images/eventus.png";
+import config from "../../../utils/config";
+import { fetchDataFromAPI } from "../../../utils";
+import Cookies from "js-cookie";
 // import swal from "sweetalert";
 
 const Popup = ({ show, setShow, ...props }) => {
+  const user_token = JSON.parse(Cookies.get("authData")).token;
+  // console.log(user_token);
+
   const subTotal = props.price;
 
-  const discount = 32;
-
-  const fees = 50;
+  // let ticket_id = Math.floor(Math.random() * 100000000);
 
   const [stepOne, setStepOne] = useState(false);
 
   const [number, setNumber] = useState(1);
 
   const [subtotal, setSubTotal] = useState(subTotal);
-
-  let initTotal;
-  if (props.price) {
-    initTotal = subTotal - discount + fees;
-  } else {
-    initTotal = 0;
-  }
-
-  const [total, setTotal] = useState(initTotal);
 
   const [isValid, setIsValid] = useState({
     fname: false,
@@ -37,13 +32,74 @@ const Popup = ({ show, setShow, ...props }) => {
   });
   const [validmail, setValidmail] = useState(false);
 
-  const [data, setData] = useState({
-    fname: "",
-    lname: "",
-    email: "",
-    cmail: "",
-    promo: "",
-  });
+  // const [data, setData] = useState({
+  //   fname: "",
+  //   lname: "",
+  //   email: "",
+  //   cmail: "",
+  //   promo: "",
+  // });
+
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
+  const [email, setEmail] = useState("");
+  const [cmail, setCmail] = useState("");
+  const [promo, setPromo] = useState("");
+
+  var myHeaders = new Headers();
+  myHeaders.append("Authorization", `CustomToken ${user_token}`);
+
+  var requestOptions = {
+    method: "GET",
+    headers: myHeaders,
+    redirect: "follow",
+  };
+
+  const [discountPercentage, setDiscountPercentage] = useState(0);
+  const [discounted, setDiscount] = useState(0);
+
+  useEffect(() => {
+    if (promo === "ismail") {
+      fetch(
+        `https://event-us.me:8000/booking/events/${props.event}/promocode/?promocode=ziad`,
+        requestOptions
+      )
+        .then((response) => response.text())
+        .then((result) => {
+          const data = JSON.parse(result);
+          setDiscountPercentage(data.discount["Discountـpercentage"] / 100);
+          setDiscount(discountPercentage * props.price);
+          // console.log(discounted);
+          // console.log(discountPercentage);
+        })
+        .catch((error) => console.log("error", error));
+    } else {
+      setDiscountPercentage(0);
+    }
+  }, [promo]);
+
+  // console.log(discountPercentage);
+
+  let initTotal;
+  if (props.price) {
+    initTotal = initTotal = props.price - discounted;
+    // console.log(initTotal);
+  } else {
+    initTotal = 0;
+  }
+
+  const [total, setTotal] = useState(initTotal);
+
+  // if (results && Object.keys(results).length > 0) {
+  //   const firstPropertyName = Object.keys(results)[];
+  //   promo = results[firstPropertyName];
+  //   console.log(promo);
+  // }
+
+  function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
 
   const stay = () => {
     setStepOne(false);
@@ -53,7 +109,7 @@ const Popup = ({ show, setShow, ...props }) => {
     setStepOne(true);
   };
 
-  console.log(validmail);
+  // console.log(validmail);
 
   const handleInput = (event) => {
     const { name, value } = event.target;
@@ -72,68 +128,101 @@ const Popup = ({ show, setShow, ...props }) => {
     setShow(false);
   };
 
+  /**
+   * Handles form submission for placing an order.
+   * @async
+   * @function
+   * @param {Object} event - The event object.
+   * @returns {Promise<void>} Promise object representing the completion of this function.
+   */
   async function handleSubmit(event) {
-    console.log("data", data);
-
-    if (data.email === data.cmail) {
-      setValidmail(false);
-    } else {
-      setValidmail(true);
-    }
     event.preventDefault();
 
-    setShow(false);
+    if (fname && lname && email && cmail && isValidEmail(email)) {
+      const endpoint =
+        config.mocking === "true" ? "" : `booking/event/${props.event}/orders/`;
+      const requestData = {
+        order_items: [
+          {
+            ticket_class_id: 65161799,
+            quantity: number,
+          },
+        ],
+        promocode: promo,
+      };
 
-    swal("", "Order Placed Successfully!", "success");
+      const configurationOpt = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization:
+            "CustomToken 0742e574b81a729c36e8cb536301d876f28ea1d2aa2663de3b573f33bdc46bc4",
+        },
+        body: JSON.stringify(requestData),
+      };
 
-    // let endpoint = config.mocking === "true" ? "" : `booking/event/${props.event}/orders/`;
-    // let configurationOpt = {
-    //   method: "POST",
-    //   headers: {"Content-Type": "application/json"},
-    //   body: JSON.stringify({
-    //     order_items: [
-    //       {
-    //         ticket_class_id: 1,
-    //         quantity: number,
-    //       }
-    //     ],
-    //     promocode: "",
-    //     user_id: 1
-    //   })
-    // }
+      /**
+       * Fetches data from the API and returns a Promise that resolves with the response.
+       * @function
+       * @param {Object} options - The options object.
+       * @param {string} options.endpoint - The API endpoint to fetch data from.
+       * @param {Object} options.configurationOpt - The configuration options for the fetch request.
+       * @returns {Promise<Object>} Promise object representing the response of the fetch request.
+       */
+      const response = await fetchDataFromAPI({ endpoint, configurationOpt });
 
-    // const response = await fetchDataFromAPI({ endpoint, configurationOpt });
-    // console.log(response.text);
+      // console.log(response);
+
+      setShow(false);
+    }
   }
 
   const checkValid = (event) => {
     const { name, value } = event.target;
-    console.log(name, value);
+    // console.log(name, value);
     setIsValid((prevErrors) => ({
       ...prevErrors,
       [name]: value === "" ? true : false,
     }));
   };
 
+  /**
+
+Handles incrementing the number of tickets selected and updating the subtotal and total accordingly.
+@returns {void}
+*/
   const handleIncrement = () => {
     if (number < 10) {
       setNumber(number + 1);
-      if (props.price != "0") {
+      if (props.price !== "0") {
         setSubTotal(subtotal + props.price);
-        setTotal(total + props.price);
+        // console.log(discountPercentage);
+        setDiscount(discountPercentage * subtotal);
       }
     }
   };
 
+  /**
+
+Decrements the quantity of items in the cart and updates the subtotal and total cost
+@function
+@name handleDecrement
+@returns {void}
+*/
   const handleDecrement = () => {
     if (number > 1) {
       setNumber(number - 1);
       if (props.price != "0") {
         setSubTotal(subtotal - props.price);
-        setTotal(total - props.price);
+        setDiscount(subtotal * discountPercentage);
+        setTotal(subtotal - subtotal * discountPercentage);
       }
     }
   };
+
+  // useEffect(()=>{
+  //   setTotal(subtotal-discounted);
+  // },[subtotal,discounted])
 
   return (
     <div className={styles["model"]}>
@@ -200,6 +289,9 @@ const Popup = ({ show, setShow, ...props }) => {
                         name="fname"
                         onFocus={checkValid}
                         onBlur={checkValid}
+                        onChange={(event) => {
+                          setFname(event.target.value);
+                        }}
                       />
                       {isValid.fname ? <p>First Name is required *</p> : ""}
                     </div>
@@ -213,6 +305,9 @@ const Popup = ({ show, setShow, ...props }) => {
                         onFocus={checkValid}
                         onBlur={checkValid}
                         className={styles["custom-field"]}
+                        onChange={(event) => {
+                          setLname(event.target.value);
+                        }}
                       />
                       {isValid.lname ? <p>Last name is required *</p> : ""}
                     </div>
@@ -228,6 +323,9 @@ const Popup = ({ show, setShow, ...props }) => {
                         name="email"
                         onFocus={checkValid}
                         onBlur={checkValid}
+                        onChange={(event) => {
+                          setEmail(event.target.value);
+                        }}
                       />
                       {isValid.email ? (
                         <p>Please enter a valid email address *</p>
@@ -242,6 +340,9 @@ const Popup = ({ show, setShow, ...props }) => {
                         placeholder="Confirm email address"
                         required
                         className={styles["custom-field"]}
+                        onChange={(event) => {
+                          setCmail(event.target.value);
+                        }}
                       />
                       {validmail ? <p>Email address doesn't match </p> : ""}
                     </div>
@@ -253,6 +354,9 @@ const Popup = ({ show, setShow, ...props }) => {
                         type="text"
                         placeholder="Promo code"
                         className={styles["custom-field"]}
+                        onChange={(event) => {
+                          setPromo(event.target.value);
+                        }}
                       />
                     </div>
                   </div>
@@ -295,18 +399,8 @@ const Popup = ({ show, setShow, ...props }) => {
                       </p>
                     </div>
 
-                    <p>{props.price}</p>
+                    <p>${props.price}</p>
                   </div>
-
-                  {/* <div className="summary-item">
-                    <div>
-                      <p>Delivery</p>
-                      <p>
-                        <span>1 x eticker</span>{" "}
-                      </p>
-                    </div>
-                    <p>{props.price}</p>
-                      </div> */}
 
                   <div className={styles["number-picker"]}>
                     <button
@@ -327,18 +421,21 @@ const Popup = ({ show, setShow, ...props }) => {
                     className={`${styles["summary-item"]} ${styles["summary-subtotal"]}`}
                   >
                     <div>
-                      <p>Subtotal</p>
+                      <p>Delivery</p>
+                      <p>
+                        <span>{number} x eticket</span>{" "}
+                      </p>
                     </div>
-                    <p>{subtotal}</p>
+                    <p>$0</p>
                   </div>
 
                   <div
                     className={`${styles["summary-item"]} ${styles["summary-subtotal"]}`}
                   >
                     <div>
-                      <p>Fees</p>
+                      <p>Subtotal</p>
                     </div>
-                    <p>{fees}</p>
+                    <p>${subtotal}</p>
                   </div>
 
                   <div
@@ -347,7 +444,7 @@ const Popup = ({ show, setShow, ...props }) => {
                     <div>
                       <p>Discount</p>
                     </div>
-                    <p>-{discount}</p>
+                    <p>-${discountPercentage * subtotal}</p>
                   </div>
 
                   <div
@@ -356,7 +453,7 @@ const Popup = ({ show, setShow, ...props }) => {
                     <div>
                       <p>Total</p>
                     </div>
-                    <p>{total}</p>
+                    <p>${subtotal - subtotal * discountPercentage}</p>
                   </div>
 
                   <div

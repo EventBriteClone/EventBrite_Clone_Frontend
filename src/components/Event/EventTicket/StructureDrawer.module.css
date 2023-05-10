@@ -1,3 +1,12 @@
+.structure-drawer-left-container {
+  /* width: 30%; */
+  max-width: 200px;
+  background-color: #f8f7fa;
+  flex-direction: column;
+  display: flex;
+  /* overflow-y: scroll; */
+}
+
 .RoutingContainer {
   font-size: 12rem;
   margin-right: 15rem;

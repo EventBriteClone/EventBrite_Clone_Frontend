@@ -479,12 +479,12 @@ function DrawerTicket({
                     x="0"
                     y="0"
                     viewBox="0 0 24 24"
-                    xml:space="preserve"
+                    xmlSpace="preserve"
                   >
                     <path
                       id="chevron-down-chunky_svg__eds-icon--chevron-down-chunky_base"
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
                       d="M7 10.2l5 5 5-5-1.4-1.4-3.6 3.6-3.6-3.6z"
                     ></path>
                   </svg>

@@ -17,7 +17,7 @@ export default function EventDetails(props) {
               x="0"
               y="0"
               viewBox="0 0 24 24"
-              xml:space="preserve"
+              xmlSpace="preserve"
             >
               <path
                 id="calendar-chunky_svg__eds-icon--calendar-chunky_base"
@@ -39,7 +39,7 @@ export default function EventDetails(props) {
                   x="0"
                   y="0"
                   viewBox="0 0 24 24"
-                  xml:space="preserve"
+                  xmlSpace="preserve"
                 >
                   <path
                     id="calendar-chunky_svg__eds-icon--calendar-chunky_base"
@@ -103,7 +103,6 @@ export default function EventDetails(props) {
           <p className={styles["p"]}>
             Contact the organizer to request a refund.
           </p>
-          <p className={styles["p"]}>Eventbrite's fee is nonrefundable.</p>
         </div>
         <div className={styles["about-event"]}>
           <h2 className={styles["h2"]}>About this event</h2>
@@ -121,17 +120,17 @@ export default function EventDetails(props) {
                     x="0"
                     y="0"
                     viewBox="0 0 24 24"
-                    xml:space="preserve"
+                    xmlSpace="preserve"
                   >
                     <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
                       d="M11.001 8h1.991v4h2.64v2h-4.63V8z"
                       fill="#010101"
                     ></path>
                     <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
                       d="M17.676 10.053A6.011 6.011 0 0012 6c-3.308 0-6 2.692-6 6a6.007 6.007 0 006.888 5.934l1.055 1.828a8 8 0 115.879-9.45l-2.146-.26zm.323 2.053a5.963 5.963 0 01-.453 2.183l1.687 1.134a7.959 7.959 0 00.76-3.075l-1.994-.242zm-1.517 3.878l1.674 1.125a8.035 8.035 0 01-2.328 1.917l-1.002-1.734a6.04 6.04 0 001.656-1.308z"
                       fill="#010101"
                     ></path>
@@ -154,11 +153,11 @@ export default function EventDetails(props) {
                     x="0"
                     y="0"
                     viewBox="0 0 24 24"
-                    xml:space="preserve"
+                    xmlSpace="preserve"
                   >
                     <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
                       d="M12 5.79c3.05 0 5.523 2.403 5.523 5.368h1.84C19.364 7.205 16.068 4 12 4v1.79zm-1.768 2.702c-1.744 0-1.744-2.054-1.744-2.054H5V20h3.488s0-2.055 1.744-2.055S11.976 20 11.976 20h3.488v-6.476H13.72v4.78h-.36c-.526-1.217-1.598-2.054-3.128-2.054s-2.602.837-3.128 2.055h-.36V8.133h.36c.526 1.218 1.598 2.055 3.128 2.055V8.492zm3.609 3.087c0-.988-.824-1.79-1.841-1.79V8c2.033 0 3.682 1.602 3.682 3.579H13.84z"
                       fill="#010101"
                     ></path>

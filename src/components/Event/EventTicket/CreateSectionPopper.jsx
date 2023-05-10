@@ -69,7 +69,7 @@ function CreateSectionPopper({ createSectionButton }) {
               <svg
                 className={styles["create-section-svg"]}
                 xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
                 version="1.1"
                 id="Layer_1"
                 x="0px"
@@ -78,7 +78,7 @@ function CreateSectionPopper({ createSectionButton }) {
                 height="470px"
                 viewBox="0 0 205 340"
                 enable-background="new 0 0 205 340"
-                xml:space="preserve"
+                xmlSpace="preserve"
               >
                 {" "}
                 <image

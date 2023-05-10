@@ -18,8 +18,11 @@ import Autocomplete from "@mui/material/Autocomplete";
 import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
 import { element } from "prop-types";
+import { CreateEventContext } from "../../../context/CreateEventContext";
+import { parseDate, parseTime } from "../../../utils";
 
 function DateTime({ changeButton }) {
+  const { createEvent, setCreateEvent } = useContext(CreateEventContext);
   const timezone = [
     {
       value: "Egypt",
@@ -181,21 +184,32 @@ function DateTime({ changeButton }) {
 
   const [showStartEventNav, setshowStartEventav] = useState(false);
   function startEventChange(event) {
+    const parsedStartDate = parseDate(event.toString());
+    setCreateEvent({ type: "set", data: { startDate: parsedStartDate } });
     setshowStartEventav(true);
     changeButton(true);
   }
   const [showEndEventNav, setshowEndEventav] = useState(false);
   function endEventChange(event) {
+    const parsedEndDate = parseDate(event.toString());
+    setCreateEvent({ type: "set", data: { endDate: parsedEndDate } });
     setshowEndEventav(true);
     changeButton(true);
   }
   const [timeStart, setTimeStart] = useState(false);
   function timeStartChange(event) {
+    const timeString = event.target.textContent;
+    const dateString = parseTime(timeString);
+
+    setCreateEvent({ type: "set", data: { startTime: dateString } });
     setTimeStart(true);
     changeButton(true);
   }
   const [timeEnd, setTimeEnd] = useState(false);
   function timeEndChange(event) {
+    const timeString = event.target.textContent;
+    const dateString = parseTime(timeString);
+    setCreateEvent({ type: "set", data: { endTime: dateString } });
     setTimeEnd(true);
     changeButton(true);
   }
@@ -256,7 +270,7 @@ function DateTime({ changeButton }) {
                   <DemoContainer components={["DatePicker", "DatePicker"]}>
                     <DatePicker
                       label="Event Starts *"
-                      defaultValue={dayjs("2023-04-30")}
+                      value={dayjs(createEvent.startDate)}
                       onChange={startEventChange}
                     />
                   </DemoContainer>
@@ -266,7 +280,7 @@ function DateTime({ changeButton }) {
                 <Autocomplete
                   id="disabled-options-demo"
                   options={timeSlots}
-                  defaultValue="7:00 PM"
+                  value={createEvent.startTime}
                   onChange={timeStartChange}
                   sx={{
                     width: 275,
@@ -289,7 +303,7 @@ function DateTime({ changeButton }) {
                   <DemoContainer components={["DatePicker", "DatePicker"]}>
                     <DatePicker
                       label="Event Ends *"
-                      defaultValue={dayjs("2023-04-30")}
+                      value={dayjs(createEvent.endDate)}
                       onChange={endEventChange}
                     />
                   </DemoContainer>
@@ -299,7 +313,7 @@ function DateTime({ changeButton }) {
                 <Autocomplete
                   id="disabled-options-demo"
                   options={timeSlots}
-                  defaultValue="10:00 PM"
+                  value={createEvent.endTime}
                   onChange={timeEndChange}
                   sx={{
                     width: 275,

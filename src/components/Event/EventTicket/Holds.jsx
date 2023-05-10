@@ -13,11 +13,11 @@ function Holds() {
               <i data-spec="icon" data-testid="icon" aria-hidden="true">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xmlnsXlink="http://www.w3.org/1999/xlink"
                   className={styles["holds-image"]}
                   width="96"
                   height="93"
-                  xml:space="preserve"
+                  xmlSpace="preserve"
                   version="1.1"
                   viewBox="0 0 96 93"
                 >

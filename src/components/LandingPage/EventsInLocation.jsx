@@ -9,12 +9,11 @@ import styled from "styled-components";
 export default function EventsInLocation(props) {
   const { city } = useContext(NavigationContext);
 
-
   let data;
   const endpoint =
     config.mocking === "true"
       ? `eventsPreview?location_like=${city}`
-      : "events/ALL";
+      : "events/ALL/";
   const { response } = useFetch({ endpoint });
   if (config.mocking === "true") {
     data = response;
@@ -22,10 +21,11 @@ export default function EventsInLocation(props) {
     data =
       response &&
       response?.results?.map((ev) => {
+        // console.log(ev);
         return {
           title: ev.Title,
-          id: ev.id,
-          image: `${config.baseURL}${ev.image.slice(1)}`,
+          id: ev.ID,
+          image: `${config.baseURL}${ev.image?.slice(1)}`,
         };
       });
   }

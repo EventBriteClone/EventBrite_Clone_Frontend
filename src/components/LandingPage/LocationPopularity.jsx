@@ -11,7 +11,7 @@ export default function LocationPopularity(props) {
   const [hideInput, setHideInput] = useState(false);
   const [value, setValue] = useState("");
   const { initialCity, city, setCity, response } = ctx;
-  console.log(value);
+  // console.log(value);
   function clickHandler(e) {
     setHideDropDown(false);
     if (city === value) {
