@@ -17,41 +17,8 @@ export default function OptionsManageEventBar(props) {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  console.log("ctx", ctx);
-
-  const handleButtonClick = async (e) => {
-    setCtx(authContext);
-    if (ctx.authState.isAuthenticated == false) {
-      console.log("na fe else");
-      navigate("/login");
-    } else {
-      await submitHandler(e);
-    }
-
-    // three(ctx, e, navigate);
-    // two(ctx, e, navigate);
-  };
-  async function submitHandler(e) {
-    // console.log("2btdena");
-    e.preventDefault();
-
-    console.log("2btdena");
-
-    let endpoint,
-      configurationOpt = {};
-
-    console.log("using mock server");
-    endpoint = `dashboard/eventmanagement/sold-tickets/${1536}/ticket-classes/ `;
-    configurationOpt = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `CustomToken ${token}`,
-        //  Authorization: `CustomToken  ${ctx.authState.token}`,
-      },
-      timeout: 10000,
-    };
-  }
+  // three(ctx, e, navigate);
+  // two(ctx, e, navigate);
 
   return (
     <>
@@ -72,7 +39,7 @@ export default function OptionsManageEventBar(props) {
             >
               <Link to={`/Dashboard/${id}`} />
               <div className={styles["dashboard-list-item-name"]}>
-                <button onClick={handleButtonClick}>Dashboard</button>
+                <button>Dashboard</button>
               </div>
               <Link />
             </div>

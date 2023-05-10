@@ -85,7 +85,7 @@ export default function Dashboard(props) {
 
         try {
           const res = await fetch(
-            `https://event-us.me:8000/dashboard/eventmanagement/sold-tickets/${id}/ticket-classes/`,
+            `https://event-us.me:8000/dashboard/eventmanagement/sold-tickets/1151/ticket-classes/`,
             configurationOpt
           );
           const response = await res.json();
@@ -116,7 +116,7 @@ export default function Dashboard(props) {
 
         try {
           const res = await fetch(
-            `https://event-us.me:8000/dashboard/eventmanagement/event/${id}/order-items/`,
+            `https://event-us.me:8000/dashboard/eventmanagement/event/1151/order-items/`,
             configurationOpt
           );
           const response = await res.json();
@@ -142,7 +142,7 @@ export default function Dashboard(props) {
 
         try {
           const res = await fetch(
-            `https://event-us.me:8000/dashboard/eventmanagement/event/save/${id}/order-items/`,
+            `https://event-us.me:8000/dashboard/eventmanagement/event/save/1151/order-items/`,
             configurationOpt
           );
           const response = await res.json();
@@ -170,7 +170,7 @@ export default function Dashboard(props) {
 
         try {
           const res = await fetch(
-            `https://event-us.me:8000/dashboard/user/1151/`,
+            `https://event-us.me:8000/dashboard/user/${userid}/`,
             configurationOpt
           );
           const response = await res.json();
