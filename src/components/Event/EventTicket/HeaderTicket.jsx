@@ -25,9 +25,9 @@ export default function HeaderTicket() {
           >
             Preview Your Event
           </Link>
-          <a className={styles["header-ticket-links"]} href="#">
+          <Link className={styles["header-ticket-links"]} to="/publish">
             Publish
-          </a>
+          </Link>
           <Link className={styles["header-ticket-links"]} to="#">
             More
           </Link>

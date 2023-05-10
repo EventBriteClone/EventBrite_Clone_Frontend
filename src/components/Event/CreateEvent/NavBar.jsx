@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
 import styles from "./NavBar.module.css";
 import PropTypes from "prop-types";
-import { useNavigation } from "react-router-dom/dist";
+import { useNavigate } from "react-router-dom/dist";
 import { Link } from "react-router-dom";
+import { CreateEventContext } from "../../../context/CreateEventContext";
 
 function NavBar({
   changeButton,
@@ -12,17 +13,22 @@ function NavBar({
   showLocationErrorText,
   errorVisible,
 }) {
+  const { createEvent } = useContext(CreateEventContext);
+  const navigate = useNavigate();
   function saveAndCont(event) {
-    if (nameAvaliable === true && locationAvaliable === true) {
-      window.location.href = "/event-ticket";
-    } else if (nameAvaliable != true && locationAvaliable != true) {
+    if (
+      createEvent.eventTitle &&
+      (createEvent.location || createEvent.online)
+    ) {
+      navigate("/publish");
+    } else if (!createEvent.eventTitle && locationAvaliable !== true) {
       showErrorText(true);
       showLocationErrorText(true);
       errorVisible(true);
-    } else if (nameAvaliable != true) {
+    } else if (!createEvent.eventTitle) {
       showErrorText(true);
       errorVisible(true);
-    } else if (locationAvaliable != true) {
+    } else if (locationAvaliable !== true && !createEvent.online) {
       showLocationErrorText(true);
       errorVisible(true);
     }
@@ -49,8 +55,8 @@ NavBar.propTypes = {
   changeButton: PropTypes.func,
   nameAvaliable: PropTypes.bool,
   locationAvaliable: PropTypes.bool,
-  showErrorText: PropTypes.bool,
-  showLocationErrorText: PropTypes.bool,
+  showErrorText: PropTypes.func,
+  showLocationErrorText: PropTypes.func,
   errorVisible: PropTypes.func,
 };
 

@@ -33,8 +33,8 @@ function HomeNavConatiner() {
                     stroke="#6F7287"
                   ></path>
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M10.0001 0L0 8.19574L0.619495 8.98123L10.0001 1.49999L19.2804 8.98123L20 8.19524L10.0001 0Z"
                     fill="#6F7287"
                   ></path>
@@ -71,8 +71,8 @@ function HomeNavConatiner() {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M2 2v1h2v19l2.67-1.524L9.338 22l2.67-1.524L14.664 22l2.664-1.524L19.983 22 20 3H22V2H2zm3 1h14v17.282l-1.671-.959-2.665 1.524-2.655-1.524-2.671 1.526-2.67-1.526L5 20.282V3zm11 11H8v1h8v-1zm0-3H8v1h8v-1zm0-3H8v1h8V8z"
                     fill="#6F7287"
                   ></path>
@@ -101,8 +101,8 @@ function HomeNavConatiner() {
                     fill="#EEEDF2"
                   ></path>
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M18.003 14.12V9.88c1 .005 1.993.953 1.993 2.12 0 1.165-.993 2.114-1.993 2.118zm-1 4.565l-9-4.428v-4.64l9-4.355v13.423zM4.003 14h3v-4h-3v4zm16.993-2c0-1.717-1.493-3.115-2.993-3.12V3h-1v1.148L7.003 9h-4v6h2v3h1v-3h1.234l9.766 4.803V21h1v-5.88c1.5-.005 2.993-1.402 2.993-3.12z"
                     fill="#6F7287"
                   ></path>
@@ -127,8 +127,8 @@ function HomeNavConatiner() {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M17 22h5v-1h-1V2h-4v19h-3V6h-4v15H7V10H3v11H2v1h15zM13 7h-2v14h2V7zm5-4h2v18h-2V3zM6 11H4v10h2V11z"
                     fill="#6F7287"
                   ></path>
@@ -156,14 +156,14 @@ function HomeNavConatiner() {
                     fill="#EEEDF2"
                   ></path>
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M4.353 9.503h3.53v9.089h-3.53v-9.09Zm2.353 1.136H5.529v6.817h1.177v-6.817Z"
                     fill="#6F7287"
                   ></path>
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M2 17.456h20V22H2v-4.544Zm1.176 1.136v2.272h17.648v-2.272H3.176Z"
                     fill="#6F7287"
                   ></path>
@@ -172,8 +172,8 @@ function HomeNavConatiner() {
                     fill="#EEEDF2"
                   ></path>
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M10.235 9.503h3.53v9.089h-3.53v-9.09Zm2.353 1.136h-1.176v6.817h1.176v-6.817Z"
                     fill="#6F7287"
                   ></path>
@@ -182,14 +182,14 @@ function HomeNavConatiner() {
                     fill="#EEEDF2"
                   ></path>
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M16.118 9.503h3.53v9.089h-3.53v-9.09Zm2.353 1.136h-1.177v6.817h1.177v-6.817Z"
                     fill="#6F7287"
                   ></path>
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M2 6.507 12 2l10 4.507v4.132H2V6.507Zm10-3.253L3.176 7.23v2.273h17.648V7.23L12 3.254Z"
                     fill="#6F7287"
                   ></path>
@@ -213,8 +213,8 @@ function HomeNavConatiner() {
                 >
                   <circle cx="12" cy="12" r="3.557" fill="#EEEDF2"></circle>
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M12 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm2-13h-4v2.262a7.95 7.95 0 0 0-2.058.852l-1.599-1.6-2.829 2.829 1.6 1.6A7.95 7.95 0 0 0 4.262 10H2v4h2.262a7.95 7.95 0 0 0 .852 2.058l-1.6 1.599 2.829 2.828 1.6-1.599a7.95 7.95 0 0 0 2.057.852V22h4v-2.262a7.95 7.95 0 0 0 2.058-.852l1.599 1.6 2.828-2.829-1.599-1.6A7.95 7.95 0 0 0 19.738 14H22v-4h-2.262a7.95 7.95 0 0 0-.852-2.058l1.6-1.599-2.829-2.829-1.6 1.6A7.95 7.95 0 0 0 14 4.262V2Zm-2 14c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4Zm1-13v2.037l.75.194a6.95 6.95 0 0 1 1.799.744l.668.394.548-.548.892-.892 1.414 1.414-.892.893-.548.548.394.667c.33.56.581 1.165.745 1.798l.193.751H21v2h-2.037l-.194.75a6.95 6.95 0 0 1-.744 1.799l-.394.668.548.548.892.892-1.414 1.414-.892-.892-.549-.548-.667.394a6.95 6.95 0 0 1-1.798.745l-.751.193V21h-2v-2.037l-.75-.194a6.95 6.95 0 0 1-1.799-.744l-.668-.394-.548.548-.892.892-1.414-1.414.892-.892.548-.549-.394-.667a6.95 6.95 0 0 1-.744-1.798L5.037 13H3v-2h2.037l.194-.75a6.95 6.95 0 0 1 .744-1.799l.394-.668-.548-.548-.892-.892 1.414-1.414.893.892.548.548.667-.394a6.95 6.95 0 0 1 1.798-.744L11 5.037V3h2Z"
                     fill="#6F7287"
                   ></path>
@@ -238,8 +238,8 @@ function HomeNavConatiner() {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M4 20h6v-6H4v6zm1-5h4v4H5v-4zm-1-5h6V4H4v6zm1-5h4v4H5V5zm9 5h6V4h-6v6zm1-5h4v4h-4V5zm-1 15h6v-6h-6v6zm1-5h4v4h-4v-4z"
                     fill="#6F7287"
                   ></path>

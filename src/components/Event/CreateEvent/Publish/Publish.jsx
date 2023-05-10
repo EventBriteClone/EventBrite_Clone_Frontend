@@ -7,15 +7,71 @@ import config from "../../../../utils/config";
 import HomeNavConatiner from "../../EventTicket/HomeNavContainer";
 import StructureDrawer from "../../EventTicket/StructureDrawer";
 import HeaderTicket from "../../EventTicket/HeaderTicket";
+import { useContext } from "react";
+import { CreateEventContext } from "../../../../context/CreateEventContext";
+import { AuthContext } from "../../../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Publish() {
-  function handlePublish() {
-    const configurationOpts = {
-      method: "POST",
-    };
-    let endpoint = config.mocking === "true" ? "" : "";
+  const navigate = useNavigate();
+  const { createEvent: event, setCreateEvent } = useContext(CreateEventContext);
+  const { isAuthenticated, token } = useContext(AuthContext);
+  // if (!isAuthenticated) return navigate("/login");
+  async function handlePublishEvent() {
+    try {
+      const {
+        eventTitle: Title,
+        organizer,
+        description: Description,
+        type,
+        subcategory: sub_Category,
+        location: venue_name,
+        startDate: ST_DATE,
+        endDate: END_DATE,
+        startTime: ST_TIME,
+        endTime: END_TIME,
+        online,
+        summary: Summery,
+        status: STATUS,
+      } = event;
+      const eventBody = {
+        Title,
+        organizer,
+        Description,
+        sub_Category,
+        venue_name,
+        ST_DATE,
+        END_DATE,
+        ST_TIME,
+        END_TIME,
+        online,
+        Summery,
+        STATUS,
+        image: event.images[0]?.file,
+        image1: event.images[1]?.file,
+        image2: event.images[2]?.file,
+        image3: event.images[3]?.file,
+        image4: event.images[4]?.file,
+      };
+      const configurationOpt = {
+        method: "POST",
+        body: JSON.stringify(eventBody),
+        headers: {
+          Authorization: `customToken ${token}`,
+        },
+      };
+      const createEventEndpoint =
+        config.mocking === "true" ? "event/" : "events/create/";
+      const publicityEndpoint = "";
 
-    fetchDataFromAPI({ endpoint, configurationOpt });
+      const createEventRes = await fetchDataFromAPI({
+        endpoint: createEventEndpoint,
+        configurationOpt,
+      });
+      console.log(createEventRes);
+    } catch (error) {
+      console.error(error);
+    }
   }
   return (
     <>
@@ -62,7 +118,7 @@ export default function Publish() {
               </div>
             </div>
           </div>
-          <SubmitCard onClick={handlePublish}></SubmitCard>
+          <SubmitCard onClick={handlePublishEvent}></SubmitCard>
         </div>
       </div>
       <Footer></Footer>

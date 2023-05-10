@@ -86,7 +86,9 @@ function ManageEventBar() {
                   className={styles["list-item-component"]}
                   data-spec="eds-list-item-contents"
                 >
-                  <div className={styles["basic-info-div"]}>Publish</div>
+                  <Link to={"/publish"} className={styles["basic-info-div"]}>
+                    Publish
+                  </Link>
                 </div>
               </div>
             </Link>

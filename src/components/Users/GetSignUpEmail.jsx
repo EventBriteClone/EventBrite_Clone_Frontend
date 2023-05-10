@@ -41,27 +41,27 @@ export default function GetSignUpEmail(props) {
       } = json;
       let endpoint = "user/signup/";
 
-      const postData = await fetch(
-        `${"https://event-us.me:8000/"}${endpoint}`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            email: Email,
-            first_name: Email,
-            last_name: Email,
+      // const postData = await fetch(
+      //   `${"https://event-us.me:8000/"}${endpoint}`,
+      //   {
+      //     method: "POST",
+      //     headers: { "Content-Type": "application/json" },
+      //     body: JSON.stringify({
+      //       email: Email,
+      //       first_name: Email,
+      //       last_name: Email,
 
-            password: Email,
-          }),
-          timeout: 10000,
-        }
-      );
+      //       password: Email,
+      //     }),
+      //     timeout: 10000,
+      //   }
+      // );
 
-      const data = await postData.json();
-      console.log(data);
-      if (data.success) {
-        navigate("/login");
-      }
+      // const data = await postData.json();
+      // console.log(data);
+      // if (data.success) {
+      //   navigate("/login");
+      // }
     };
     setUser();
   }, [user]);
@@ -100,7 +100,7 @@ export default function GetSignUpEmail(props) {
 
       let endpoint,
         configurationOpt = {};
-      if (config.mocking) {
+      if (config.mocking === "true") {
         console.log("using mock server");
         endpoint = `user/emailcheck/${email}`;
         configurationOpt = {

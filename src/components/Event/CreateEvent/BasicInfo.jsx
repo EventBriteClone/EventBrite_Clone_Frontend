@@ -6,16 +6,6 @@ import styles from "./BasicInfo.module.css";
 import { Link } from "react-router-dom";
 import NavBar from "./NavBar";
 import ErrorMessage from "./ErrorMessage";
-import {
-  LocationContext,
-  LocationValues,
-  BasicInfoContext,
-  BasicInfoValues,
-} from "../../../context/CreateEventContext";
-import {
-  BasicInfoContextProvider,
-  DateTimeContextProvider,
-} from "../../../context/CreateEventContext";
 
 export default function BasicInfo() {
   useEffect(() => {
@@ -89,7 +79,7 @@ export default function BasicInfo() {
               d="M13.8 7l-5 5 5 5 1.4-1.4-3.6-3.6 3.6-3.6z"
             ></path>
           </svg>
-          <Link to="/my-events" className={styles.Routing} href="">
+          <Link to="/my-events" className={styles.Routing}>
             Events
           </Link>
         </div>
@@ -157,27 +147,21 @@ export default function BasicInfo() {
             </div>
           </div>
           <div className={styles.containerCol}>
-            <BasicInfoContextProvider>
-              <BasicInfoComponents
-                changeButton={(value) => setIsVisible(value)}
-                saveButton={(value) => setEventNameAvaliable(value)}
-                setIsRequired={(value) => setIsRequiredName(value)}
-                isRequired={isRequiredName}
-              />
-            </BasicInfoContextProvider>
+            <BasicInfoComponents
+              changeButton={(value) => setIsVisible(value)}
+              saveButton={(value) => setEventNameAvaliable(value)}
+              setIsRequired={(value) => setIsRequiredName(value)}
+              isRequired={isRequiredName}
+            />
             <hr />
-            <LocationContext.Provider value={LocationValues}>
-              <Location
-                changeButton={(value) => setIsVisible(value)}
-                saveButton={(value) => setLocationAvaliavle(value)}
-                isLocationRequired={isLocationRequired}
-                setIsLocationRequired={(value) => setIsLocationRequired(value)}
-              />
-            </LocationContext.Provider>
+            <Location
+              changeButton={(value) => setIsVisible(value)}
+              saveButton={(value) => setLocationAvaliavle(value)}
+              isLocationRequired={isLocationRequired}
+              setIsLocationRequired={(value) => setIsLocationRequired(value)}
+            />
             <hr />
-            <DateTimeContextProvider>
-              <DateTime changeButton={(value) => setIsVisible(value)} />
-            </DateTimeContextProvider>
+            <DateTime changeButton={(value) => setIsVisible(value)} />
           </div>
           {isVisible && (
             <NavBar

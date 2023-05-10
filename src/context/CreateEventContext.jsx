@@ -1,55 +1,53 @@
-import dayjs, { Dayjs } from "dayjs";
-import { createContext, useState, useContext, useReducer } from "react";
+import { createContext, useReducer } from "react";
 
-export const LocationValues = { VenueLocation: "VenueLocation" };
-export const LocationContext = createContext(LocationValues);
+const initialEvent = {
+  eventTitle: "",
+  organizer: "",
+  type: "",
+  category: "",
+  subcategory: "",
+  location: "",
+  summary: "",
+  description: "",
+  startDate: "2023-06-30",
+  endDate: "2023-06-30",
+  startTime: "7:00 PM",
+  endTime: "10:00 PM",
+  online: false,
+  capacity: 0,
+  status: "Live",
+  images: [],
+};
 
-export const BasicInfoValues = "";
-export const BasicInfoContext = createContext();
+// type imageObject = { file: string, src: string };
 
-export function BasicInfoContextProvider(props) {
-  const [eventTitleContext, setEventTitleContext] = useState("");
-  const [organizerContext, setOrganizerContext] = useState("");
+const savedEvent = localStorage.getItem("event")
+  ? JSON.parse(localStorage.getItem("event"))
+  : null;
+
+export const CreateEventContext = createContext(initialEvent);
+
+export default function CreateEventContextProvider({ children }) {
+  const [createEvent, setCreateEvent] = useReducer(
+    createEventReducer,
+    savedEvent || initialEvent
+  );
 
   return (
-    <BasicInfoContext.Provider
-      value={{
-        eventTitleContext,
-        setEventTitleContext,
-        organizerContext,
-        setOrganizerContext,
-      }}
-    >
-      {props.children}
-    </BasicInfoContext.Provider>
+    <CreateEventContext.Provider value={{ setCreateEvent, createEvent }}>
+      {children}
+    </CreateEventContext.Provider>
   );
 }
-export const DateTimeContext = createContext();
-export function DateTimeContextProvider(props) {
-  const [startDateContext, setStartDateContext] = useState("");
-  const [endDateContext, setEndDateContext] = useState("");
-  const [startTimeContext, setStartTimeContext] = useState("");
-  const [endTimeContext, setEndTimeContext] = useState("");
-  const [languageContext, setLanguageContext] = useState("");
-  const [timeZoneContext, setTimeZoneContext] = useState("");
-  return (
-    <DateTimeContext.Provider
-      value={{
-        startDateContext,
-        setStartDateContext,
-        endDateContext,
-        setEndDateContext,
-        startTimeContext,
-        setStartTimeContext,
-        endTimeContext,
-        setEndTimeContext,
-        languageContext,
-        setLanguageContext,
-        timeZoneContext,
-        setTimeZoneContext,
-      }}
-    >
-      {props.children}
-    </DateTimeContext.Provider>
-  );
+
+function createEventReducer(state, payload) {
+  if (payload.type === "set") {
+    let newState = { ...state, ...payload.data };
+    localStorage.setItem("event", JSON.stringify(newState));
+    return newState;
+  }
+  if (payload.type === "clear") {
+    localStorage.removeItem("event");
+    return { ...initialEvent };
+  }
 }

@@ -10,7 +10,7 @@ import {
 import "./index.css";
 import BasicInfo from "./Pages/BasicInfo";
 import LandingPage from "./Pages/LandingPage";
-// import EventPage from "./Pages/EventPage";
+import EventPage from "./Pages/EventPage";
 import SignUp from "./Pages/Signup";
 import EventCreator from "./Pages/CreatorEvent";
 import configuration from "./utils/config";
@@ -21,6 +21,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import ManageAttendees from "./Pages/ManageAttendees";
 import EventTicket from "./Pages/EventTicket";
 import Publish from "./components/Event/CreateEvent/Publish/Publish";
+import CreateEventContextProvider from "./context/CreateEventContext";
 
 const router = createBrowserRouter([
   {
@@ -45,7 +46,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/create-event",
-    element: <BasicInfo />,
+    element: (
+      <CreateEventContextProvider>
+        <BasicInfo />
+      </CreateEventContextProvider>
+    ),
   },
   {
     path: "/event/:id",
@@ -65,7 +70,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/publish",
-    element: <Publish />,
+    element: (
+      <CreateEventContextProvider>
+        <Publish />
+      </CreateEventContextProvider>
+    ),
   },
 ]);
 

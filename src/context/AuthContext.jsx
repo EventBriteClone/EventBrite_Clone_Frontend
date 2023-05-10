@@ -9,7 +9,6 @@ export const AuthContext = createContext(initialState);
 const savedAuthData = Cookies.get("authData")
   ? JSON.parse(Cookies.get("authData"))
   : null;
-console.log({ savedAuthData });
 
 function authReducer(_, payload) {
   let newState = {};
@@ -43,6 +42,7 @@ export default function AuthContextProvider(props) {
     dispatch({ action: "login", data: { email, password, userId, token } });
   }
   function removeAuthData() {
+    localStorage.removeItem("event");
     dispatch({ action: "logout" });
   }
 
