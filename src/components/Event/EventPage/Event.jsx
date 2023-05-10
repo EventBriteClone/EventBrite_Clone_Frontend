@@ -14,10 +14,17 @@ import useFetch from "../../../custom-hooks/useFetch";
 import BeatLoader from "react-spinners/BeatLoader";
 import PriceFetch from "./PriceFetch";
 import NotFound from "./NotFound/NotFound";
+import Cookies from "js-cookie";
 
 function Event() {
-  let data;
+
+ const user_id = JSON.parse(Cookies.get(("authData"))).userId;
+ console.log(user_id);
+
   const event_ID = window.location.href.split("/").at(-1);
+  console.log(event_ID);
+
+  let data;
 
   const endpoint =
     config.mocking === "true" ? "events" : `events/ID/${event_ID}/`;
@@ -32,7 +39,14 @@ function Event() {
   console.log(response);
   data = response?.[0];
 
-  let price = PriceFetch(event_ID);
+  let price;
+
+  if (config.mocking === "true") {
+    price = data?.price;
+  }
+  else {
+    price = PriceFetch(event_ID)
+  }
 
   const event = {
     id: window.location.href.split("/").at(-1),
@@ -78,6 +92,7 @@ function Event() {
         caption={data.Summery}
       />
       <PriceTag
+        user = {Number(data.User_id)===user_id? true : false}
         price={price}
         event={event.id}
         img={data.image}

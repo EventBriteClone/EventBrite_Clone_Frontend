@@ -1,45 +1,62 @@
-.event-info {
-  width: 1000px;
-  height:190px;
-  margin-top: 10px;
-  float: left;
+@media only screen and (max-width: 768px) {
+  .event-date {
+    font-size: 1.2rem;
+    width: 80%;
+    left: 10%;
+    top: 10px;
+  }
+
+  .event-title {
+    font-size: 3rem;
+    left: 10%;
+    top: 15%;
+  }
+
+  .caption {
+    font-size: 1.2rem;
+    margin-top: 20%;
+    margin-left: 10%;
+  }
 }
 
-.event-date {
-  position: relative;
-  left: 170px;
-  top: 5px;
-  width :720px;
-  margin-bottom: 0;
-  font-size: 16rem;
-  line-height: 1.5rem;
+@media only screen and (max-width: 992px) {
+  .event-date {
+    font-size: 1.4rem;
+    width: 80%;
+    left: 10%;
+    top: 10px;
+  }
+
+  .event-title {
+    font-size: 4rem;
+    left: 10%;
+    top: 15%;
+  }
+
+  .caption {
+    font-size: 1.4rem;
+    margin-top: 20%;
+    margin-left: 10%;
+  }
 }
 
-.event-title {
-  display: block;
-  position: relative;
-  left: 170px;
-  top: 50px;
-  font-size: 50rem;
-  line-height: 1.5rem;
-  font-weight: bold;
-  overflow-wrap: normal;
-}
-/* 
-.like {
-margin: auto;
-} */
+@media only screen and (max-width: 1200px) {
+  .event-date {
+    font-size: 1.6rem;
+    width: 80%;
+    left: 10%;
+    top: 10px;
+  }
 
-#heart-chunky_svg__eds-icon--user-chunky_svg {
-    width: 24px;
-    height: 24px;
-    overflow: hidden;
-}
+  .event-title {
+    font-size: 5rem;
+    left: 10%;
+    top: 15%;
+  }
 
-.caption {
-  font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
-  color: #39364f;
-  font-size: 16rem;
-  margin-top: 150px;
-  margin-left: 170px;
+  .caption {
+    font-size: 1.6rem;
+    margin-top: 20%;
+    margin-left: 10%;
+  }
 }

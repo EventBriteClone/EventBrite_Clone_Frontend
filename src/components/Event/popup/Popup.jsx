@@ -6,12 +6,17 @@ import Timer from "../timer/Timer";
 import logoImg from "../../../assets/images/eventus.png";
 import config from "../../../utils/config";
 import { fetchDataFromAPI } from "../../../utils";
+import Cookies from "js-cookie";
 // import swal from "sweetalert";
 
 const Popup = ({ show, setShow, ...props }) => {
+
+  const user_token = JSON.parse(Cookies.get(("authData"))).token;
+  console.log(user_token);
+
   const subTotal = props.price;
 
-  let ticket_id = Math.floor(Math.random() * 100000000);
+  // let ticket_id = Math.floor(Math.random() * 100000000);
 
   const [stepOne, setStepOne] = useState(false);
 
@@ -43,7 +48,7 @@ const Popup = ({ show, setShow, ...props }) => {
   const [promo, setPromo] = useState("");
 
   var myHeaders = new Headers();
-myHeaders.append("Authorization", "CustomToken 3743b5ecba1461fcbf9ba874653ea8dc6792bd1a58ef656133dc71321f148332");
+myHeaders.append("Authorization", `CustomToken ${user_token}`);
 
 var requestOptions = {
   method: 'GET',

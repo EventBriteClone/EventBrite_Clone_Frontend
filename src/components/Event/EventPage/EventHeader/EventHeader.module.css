@@ -16,7 +16,6 @@
 } */
 
 .event-poster-background {
-  position: absolute;
   display: flex;
   top: 120px;
   left: 160px;
@@ -45,3 +44,13 @@
 .event-poster {
   display: flex;
 } */
+
+@media (max-width: 37.5em){
+  .event-header{
+    max-width: 35em;
+  }
+
+  .event-poster-background{
+    max-width: 35em;
+  }
+}
