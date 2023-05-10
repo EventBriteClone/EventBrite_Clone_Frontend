@@ -10,7 +10,7 @@ import {
 import "./index.css";
 import BasicInfo from "./Pages/BasicInfo";
 import LandingPage from "./Pages/LandingPage";
-// import EventPage from "./Pages/EventPage";
+import EventPage from "./Pages/EventPage";
 import SignUp from "./Pages/Signup";
 import EventCreator from "./Pages/CreatorEvent";
 import configuration from "./utils/config";
@@ -21,6 +21,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import ManageAttendees from "./Pages/ManageAttendees";
 import EventTicket from "./Pages/EventTicket";
 import Publish from "./components/Event/CreateEvent/Publish/Publish";
+import NotFound from "../src/components/Event/EventPage/NotFound/NotFound"
 
 const router = createBrowserRouter([
   {
@@ -47,10 +48,10 @@ const router = createBrowserRouter([
     path: "/create-event",
     element: <BasicInfo />,
   },
-  // {
-  //   path: "/event/:id",
-  //   element: <EventPage />,
-  // },
+  {
+    path: "/event/:id",
+    element: <EventPage />,
+  },
   {
     path: "/my-events",
     element: <EventCreator />,
@@ -67,18 +68,18 @@ const router = createBrowserRouter([
     path: "/publish",
     element: <Publish />,
   },
+  {
+    path: '*',
+    element: <NotFound />,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthContextProvider>
-<<<<<<< HEAD
-      <RouterProvider router={router} />
-=======
       <GoogleOAuthProvider clientId="749417144932-40bn9j748fbhp5tciuuhd5ehhr8e5gfd.apps.googleusercontent.com">
         <RouterProvider router={router} />
       </GoogleOAuthProvider>
->>>>>>> 7aeee1dacba3ec5a7ca588a7be58bf5fca95bd16
     </AuthContextProvider>
   </React.StrictMode>
 );

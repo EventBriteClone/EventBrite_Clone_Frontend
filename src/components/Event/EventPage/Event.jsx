@@ -13,13 +13,14 @@ import config from "../../../utils/config";
 import useFetch from "../../../custom-hooks/useFetch";
 import BeatLoader from "react-spinners/BeatLoader";
 import PriceFetch from "./PriceFetch";
+import NotFound from "./NotFound/NotFound";
 
 function Event() {
   let data;
   const event_ID = window.location.href.split("/").at(-1);
 
   const endpoint =
-    config.mocking === "true" ? `events/${event_ID}` : `events/ID/${event_ID}/`;
+    config.mocking === "true" ? "events" : `events/ID/${event_ID}/`;
 
   const { response } = useFetch({
     endpoint,
@@ -63,6 +64,9 @@ function Event() {
         <BeatLoader color="#d1410c" size={30} />
       </div>
     );
+  }
+  while (response && Object.keys(response).length === 0) {
+    return <NotFound/>
   }
   return (
     <>

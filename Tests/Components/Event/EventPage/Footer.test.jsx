@@ -2,17 +2,17 @@ import { test, expect, describe } from "vitest";
 import { create } from 'react-test-renderer';
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import Organizer from "../../../../src/components/Event/EventPage/Organizer/Organizer"
+import Footer from "../../../../src/components/Event/EventPage/Footer"
 
 describe("PriceTag", () => {
-  it("check follow button", () => {
+  it("footer test", () => {
     const component = create(
       <MemoryRouter>
-        <Organizer />
+        <Footer />
       </MemoryRouter>
     );
-    const buttons = component.root.findAll((el) => el.type === 'button');
+    const a = component.root.findAll((el) => el.type === 'a');
 
-    expect(buttons.length).toBe(1);
+    expect(a.length).toBe(46);
   });
 });

@@ -10,7 +10,7 @@ export default function PriceTag(props) {
   return (
     <div>
       <div className={styles["price-tag"]}>
-        <div className={styles["price"]}>{props.price}</div>
+        <div className={styles["price"]}>${props.price}</div>
         <button
           id="eventbrite-widget-modal-trigger-588359929387"
           data-testid="checkout-link"
