@@ -23,10 +23,10 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-start",
 }));
 function CreateAddOnDrawer({ closeAddOnDrawer }) {
-  const [createAddOnNameValue, setCreateAddOnNameValue] = useState(""); // ticket name hya event name
+  const [createAddOnNameValue, setCreateAddOnNameValue] = useState("");
   const [isNameRequired, setIsNameRequired] = useState(false);
   const [isTotalQuantityRequired, setIsTotalQuantityRequired] = useState(false);
-  const [totalQuantityValue, setTotalQuantityValue] = useState(""); //
+  const [totalQuantityValue, setTotalQuantityValue] = useState("");
   const [count1, setCount1] = useState(0);
   const [isPriceRequired1, setIsPriceRequired1] = useState(false);
   const [priceValue1, setPriceValue1] = useState("");
@@ -37,10 +37,10 @@ function CreateAddOnDrawer({ closeAddOnDrawer }) {
   const [isMinRequired1, setIsMinRequired1] = useState(false);
   const [maximumValue1, setMaximumValue1] = useState("");
   const [isMaxRequired1, setIsMaxRequired1] = useState(false);
-  const [showStartDate1, setshowStartDate1] = useState(""); //
-  const [showEndDate1, setshowEndDate1] = useState(""); //
-  const [showTimeStart1, setShowTimeStart1] = useState(""); //
-  const [showTimeEnd1, setShowTimeEnd1] = useState(""); //
+  const [showStartDate1, setshowStartDate1] = useState("");
+  const [showEndDate1, setshowEndDate1] = useState("");
+  const [showTimeStart1, setShowTimeStart1] = useState("");
+  const [showTimeEnd1, setShowTimeEnd1] = useState("");
   function startTime1Change(event) {
     setShowTimeStart1(event.target.value);
   }

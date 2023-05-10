@@ -142,11 +142,11 @@ function BasicInfoComponents({
   }
   function addTagChange(event) {
     setAddTag(event.target.value);
-    console.log(event.target.value);
+    // console.log(event.target.value);
     const includesSymbols = conditions.some((word) =>
       event.target.value.includes(word)
     );
-    console.log(includesSymbols);
+    // console.log(includesSymbols);
     if (includesSymbols) {
       setColor("red");
       setErrorText(true);

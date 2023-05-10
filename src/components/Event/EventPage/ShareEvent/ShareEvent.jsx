@@ -26,13 +26,6 @@ export default function ShareEvent() {
     ${styles["eds-btn--button"]} ${styles["eds-btn--none"]} ${styles["eds-btn--icon-only"]}
   `}
                     type="button"
-                    onClick={() =>
-                      window.open(
-                        "https://www.facebook.com/Google/",
-                        "_blank",
-                        "noopener noreferrer"
-                      )
-                    }
                   >
                     <i
                       className={`${styles["eds-vector-image"]} ${styles["eds-icon--small"]} ${styles["eds-vector-image--block"]}`}
@@ -126,9 +119,6 @@ export default function ShareEvent() {
     ${styles["eds-btn--button"]} ${styles["eds-btn--none"]} ${styles["eds-btn--icon-only"]}
   `}
                     type="button"
-                    onClick={() =>
-                      window.open("https://twitter.com/Google?s=20", "_blank")
-                    }
                   >
                     <i
                       className={`${styles["eds-vector-image"]} ${styles["eds-icon--small"]} ${styles["eds-vector-image--block"]}`}

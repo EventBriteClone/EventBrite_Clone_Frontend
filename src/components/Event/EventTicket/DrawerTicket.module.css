@@ -363,6 +363,12 @@
     0 2px 4px 0 rgba(40, 44, 53, 0.1);
   overflow-y: scroll;
 }
+@media screen and (max-width: 40em) {
+  .box-container {
+    width: 100%;
+    max-width: 450rem;
+  }
+}
 .buttons-contariner {
   margin-top: 10rem;
   text-align: center;

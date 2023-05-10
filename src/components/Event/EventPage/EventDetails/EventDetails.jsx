@@ -103,7 +103,6 @@ export default function EventDetails(props) {
           <p className={styles["p"]}>
             Contact the organizer to request a refund.
           </p>
-          <p className={styles["p"]}>Eventbrite's fee is nonrefundable.</p>
         </div>
         <div className={styles["about-event"]}>
           <h2 className={styles["h2"]}>About this event</h2>

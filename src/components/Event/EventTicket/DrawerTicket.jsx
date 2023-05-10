@@ -28,9 +28,11 @@ function DrawerTicket({
   showMidTicketOnSave,
   ticketList,
   setTicketList,
+  ticketNameValue,
+  setTicketNameTitle,
 }) {
   const [color, setColor] = useState("blue");
-  const [ticketNameValue, setTicketNameTitle] = useState(""); // ticket name hya event name
+  // const [ticketNameValue, setTicketNameTitle] = useState("");
   const [isRequired, setIsRequired] = useState(false);
   const [isQuantityRequired, setIsQuantityRequired] = useState(false);
   const [availableQuantityValue, setAvailableQuantityValue] = useState(""); //
@@ -77,11 +79,11 @@ function DrawerTicket({
           End_time: showTimeEnd,
         }),
       };
-      console.log("aloooo");
     }
     const response = await fetchDataFromAPI({ endpoint, configurationOpt });
   }
   function saveData(event) {
+    // console.log(ticketNameValue);
     if (
       ticketNameValue === "" ||
       availableQuantityValue === "" ||
@@ -99,6 +101,9 @@ function DrawerTicket({
       setTicketList((ticketList) => ticketList.concat(ticket));
     }
   }
+  useEffect(() => {
+    setTicketNameTitle(ticketNameValue);
+  }, [ticketNameValue]);
   function minimumChange(event) {
     setMinimumValue(event.target.value);
     if (event.target.value.length === 0) {
@@ -661,5 +666,7 @@ DrawerTicket.propTypes = {
   showMidTicketOnSave: PropTypes.func,
   ticketList: PropTypes.func,
   setTicketList: PropTypes.func,
+  ticketNameValue: PropTypes.element,
+  setTicketNameTitle: PropTypes.func,
 };
 export default DrawerTicket;

@@ -21,7 +21,9 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import ManageAttendees from "./Pages/ManageAttendees";
 import EventTicket from "./Pages/EventTicket";
 import Publish from "./components/Event/CreateEvent/Publish/Publish";
-import CreateEventContextProvider from "./context/CreateEventContext";
+import NotFound from "../src/components/Event/EventPage/NotFound/NotFound";
+import Dashboard from "./Pages/Dashboard";
+import { SearchResultsPage } from "./Pages/SearchResultsPage";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +59,10 @@ const router = createBrowserRouter([
     element: <EventPage />,
   },
   {
+    path: "/event/:id",
+    element: <EventPage />,
+  },
+  {
     path: "/my-events",
     element: <EventCreator />,
   },
@@ -69,12 +75,24 @@ const router = createBrowserRouter([
     element: <EventTicket />,
   },
   {
+    path: "/Dashboard/:id",
+    element: <Dashboard />,
+  },
+  {
     path: "/publish",
     element: (
       <CreateEventContextProvider>
         <Publish />
       </CreateEventContextProvider>
     ),
+  },
+  {
+    path: "/search/:key",
+    element: <SearchResultsPage />,
+  },
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ]);
 

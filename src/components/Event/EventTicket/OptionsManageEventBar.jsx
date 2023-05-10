@@ -1,9 +1,46 @@
 import React, { useEffect, useState, useContext } from "react";
 import styles from "./OptionsManageEventBar.module.css";
 import { Link } from "react-router-dom";
-import { Dashboard } from "@mui/icons-material";
+import Dashboard from "./Dashboard";
 
-function OptionsManageEventBar() {
+function OptionsManageEventBar(props) {
+  async function submitHandler(e) {
+    console.log("2btdena");
+    e.preventDefault();
+    let endpoint,
+      configurationOpt = {};
+
+    console.log("using mock server");
+    endpoint = `dashboard/eventmanagement/sold-tickets/${1536}/ticket-classes/ `;
+    configurationOpt = {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+      timeout: 10000,
+    };
+
+    try {
+      const res = await fetch(
+        await fetch(
+          `${"https://event-us.me:8000/"}${endpoint}`,
+          configurationOpt
+        )
+      );
+      const response = await res.json();
+      console.log("responseeee", response);
+
+      //     if (response.email_exists == true) {
+      //       console.log("mawgod");
+
+      //       navigate("/login");
+      //     } else {
+      //       props.submitHandler();
+      //     }
+    } catch (error) {
+      console.error(error);
+      return { error };
+    }
+  }
+
   return (
     <>
       <li>
@@ -21,9 +58,11 @@ function OptionsManageEventBar() {
               className={styles["dashboard-list-item-contents"]}
               data-spec="eds-list-item-contents"
             >
-              <div className={styles["dashboard-list-item-name"]}>
-                Dashboard
-              </div>
+              <Link to="/Dashboard/:id" href="">
+                <div className={styles["dashboard-list-item-name"]}>
+                  <button onClick={submitHandler}>Dashboard</button>
+                </div>
+              </Link>
             </div>
           </div>
         </a>

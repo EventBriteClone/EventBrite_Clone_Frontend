@@ -1,68 +1,121 @@
 import styles from "./ManageAttendees.module.css";
-import TextField from "@mui/material/TextField";
 import React, { useEffect, useState } from "react";
+import config from "../../../utils/config";
+import { fetchDataFromAPI } from "../../../utils";
 
 function ManageAttendees() {
+  const [selectedTicketType, setSelectedTicketType] = useState(null);
+  const [searchEmail, setSearchEmail] = useState("");
+  const [data, setData] = useState(null);
   const [color, setColor] = useState("red");
-  const [eventTileValue, setEventTitle] = useState("");
-  const [isRequired, setIsRequired] = useState(false);
-  const [count, setCount] = useState(0);
+  const [ticketType, setTicketType] = useState("Regular");
+
+  const handleTicketTypeChange = (event) => {
+    setTicketType(event.target.textContent);
+  };
+
+  const handleSaveClick = () => {
+    console.log(`Selected ticket type: ${ticketType}`);
+    console.log(`Selected color: ${color}`);
+  };
+
+  useEffect(() => {
+    let endpoint, configurationOpt;
+    if (config.mocking === "true") {
+      endpoint = "eventsPreview";
+    } else {
+      endpoint = `user/emailcheck/${searchEmail}/`;
+      configurationOpt = {
+        method: "GET",
+        headers: { "content-type": "application/json" },
+      };
+    }
+
+    fetchDataFromAPI({ endpoint, configurationOpt })
+      .then((data) => {
+        console.log("Fetch succeeded:", data);
+        setData(data);
+      })
+      .catch((error) => {
+        console.log("Fetch failed:", error);
+      });
+  }, [searchEmail]);
+
+  const handleCheckClick = (event) => {
+    event.preventDefault();
+    if (data) {
+      const property = Object.keys(data)[0];
+      const fetchedEmail = data[property];
+      if (fetchedEmail == true) {
+        console.log("True");
+        setColor("green");
+      } else {
+        console.log("Enter another Email");
+        setColor("red");
+      }
+    }
+  };
+
+  const handleTicketTypeClick = (ticketType) => {
+    setSelectedTicketType(ticketType);
+  };
+
+  const isRegularSelected = selectedTicketType === "Regular";
+  const isVipSelected = selectedTicketType === "Vip";
+
   return (
     <>
       <div className={styles["h1"]}>
-        <h1>Manage Atendees</h1>
+        <h1>Manage Attendees</h1>
       </div>
+      <div className={styles["list"]}>
+        <div className={styles["search"]}>
+          <form>
+            <input
+              type="search"
+              placeholder="Email Address"
+              value={searchEmail}
+              onChange={(event) => setSearchEmail(event.target.value)}
+            />
+          </form>
+        </div>
 
-      <div className={styles["containerEventTitle"]}>
-        <TextField
-          required
-          id="outlined-required"
-          className={styles["EventTitle"]}
-          label="Email Address"
-          defaultValue=""
-          value={eventTileValue}
-          placeholder="Be clear."
-          sx={{
-            padding: "1px",
-            marginBottom: "4px",
-            marginTop: "12px",
-            borderRadius: "2px",
-            fontWeight: 400,
-            "& input": {
-              fontSize: "14px",
-            },
-            "& label": {
-              fontSize: "12px",
-            },
-            "& label.Mui-focused": {
-              color: { color },
-              fontSize: "12px",
-            },
-            "& .MuiOutlinedInput-root": {
-              "& fieldset": {
-                borderColor: { color },
-              },
-              "&.Mui-focused fieldset": {
-                borderColor: { color },
-              },
-            },
-          }}
-        />
-        <div className={styles["aside"]}>
-          {isRequired && (
-            <p className={styles["letterRequired"]}>This is required.</p>
-          )}
-          <div className={styles["letterNumberBorder"]}>
-            <aside className={styles["letterNumber"]}>{count}/75</aside>
-          </div>
+        <div className={styles.buttonContainer}>
+          <button className={styles.AddTagButton} onClick={handleCheckClick}>
+            Check
+          </button>
         </div>
       </div>
 
-      <div className={styles.buttonContainer}>
-        <button className={styles.AddTagButton}>Add</button>
+      <div>
+        <h1 className={styles.h1Location}>Ticket Type</h1>
+        <div className={styles.Buttons}>
+          <button
+            className={`${styles.VenueButton} ${
+              ticketType === "Regular" ? styles.SelectedButton : ""
+            }`}
+            onClick={handleTicketTypeChange}
+          >
+            Regular
+          </button>
+          <button
+            className={`${styles.OnlineEventButton} ${
+              ticketType === "VIP" ? styles.SelectedButton : ""
+            }`}
+            onClick={handleTicketTypeChange}
+          >
+            VIP
+          </button>
+        </div>
       </div>
       <div className={styles.buttonContainer}>
-        <button className={styles.AddTagButton}>Save</button>
+        <button
+          className={styles.AddTagButton}
+          onClick={handleSaveClick}
+          disabled={color === "red"}
+        >
+          Save
+        </button>
       </div>
     </>
   );

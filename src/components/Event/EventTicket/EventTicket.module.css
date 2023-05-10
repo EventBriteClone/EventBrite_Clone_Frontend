@@ -1,7 +1,6 @@
 .bigger-container {
   display: flex;
 }
-
 .mid-container {
   position: relative;
   width: 100%;
@@ -9,4 +8,17 @@
   display: flex;
   justify-content: center;
   z-index: 20;
+}
+@media screen and (max-width: 40em) {
+  .creator-left-nav-container {
+    visibility: hidden;
+    width: 0;
+  }
+  .structure-drawer-left-container {
+    visibility: hidden;
+    width: 0;
+  }
+  .mid-container {
+    width: 100%;
+  }
 }

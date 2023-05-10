@@ -39,6 +39,7 @@ export default function EventTicket() {
   const [isVisibleAddOnDrawer, setIsVisibleAddOnDrawer] = useState(false);
 
   const [showPromoCodes, setShowPromoCodes] = useState(false);
+  const [ticketNameValue, setTicketNameTitle] = useState("");
 
   return (
     <>
@@ -70,9 +71,8 @@ export default function EventTicket() {
               showAddOnDrawer={(value) => setIsVisibleAddOnDrawer(value)}
               setShowPromoCodesAvailable={(value) => setShowPromoCodes(value)}
               ShowPromoCodesAvailable={showPromoCodes}
-              // closePromoCodeDrawer={(value) =>
-              //   setIsVisiblePromoCodeDrawer(value)
-              // }
+              setTicketList={(value) => setAddTicketList(value)}
+              setTicketNameTitle={(value) => setTicketNameTitle(value)}
             />
           )}
 
@@ -82,6 +82,8 @@ export default function EventTicket() {
               showMidTicketOnSave={(value) => setShowMidTicket(value)}
               ticketList={addTicketList}
               setTicketList={(value) => setAddTicketList(value)}
+              setTicketNameTitle={(value) => setTicketNameTitle(value)}
+              ticketNameValue={ticketNameValue}
             />
           )}
 

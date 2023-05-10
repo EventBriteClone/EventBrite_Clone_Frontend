@@ -54,53 +54,6 @@ const New = (props) => {
     onSuccess: (codeResponse) => setUser(codeResponse),
     onError: (error) => console.log("Login Failed:", error),
   });
-  useEffect(() => {
-    const setUser = async () => {
-      const response = await fetch(
-        `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
-        {
-          headers: {
-            Authorization: `Bearer ${user.access_token}`,
-            Accept: "application/json",
-          },
-        }
-      );
-
-      const json = await response.json();
-      console.log(json);
-
-      // const {
-      //   email: Email,
-      //   given_name: firstname,
-      //   family_name: lastname,
-      //   id,
-      // } = json;
-      // let endpoint = "user/signup/";
-
-      // // const postData = await fetch(
-      // //   `${"https://event-us.me:8000/"}${endpoint}`,
-      // //   {
-      // //     method: "POST",
-      // //     headers: {
-      // //       "Content-Type": "application/json",
-      // //     },
-      // //     body: JSON.stringify({
-      // //       email: Email,
-      // //       first_name: Email,
-      // //       last_name: Email,
-      // //       password: Email,
-      // //     }),
-      // //   }
-      // // );
-
-      // // const data = await postData.json();
-      // // console.log(data);
-      // // if (data.success) {
-      // //   navigate("/");
-      // // }
-    };
-    setUser();
-  }, [user]);
 
   // const getInputValue = (event) => {
   //   // show the user input value to console
@@ -181,24 +134,53 @@ const New = (props) => {
         timeout: 10000,
       };
     } else {
-      endpoint = "user/signup/";
-      configurationOpt = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: props.email,
-          first_name: firstName,
-          last_name: lastName,
-          password: password,
-        }),
-        timeout: 10000,
-      };
-      const res = await fetch(
-        `${"https://event-us.me:8000/"}${endpoint}`,
-        configurationOpt
-      );
-      if (!res.ok) {
-        return;
+      let endpoint,
+        configurationOpt = {};
+      if (config.mocking === "false") {
+        endpoint = "user/signup/";
+        console.log("using mock server");
+
+        configurationOpt = {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: props.email,
+            first_name: firstName,
+            last_name: lastName,
+            password: password,
+          }),
+          timeout: 10000,
+        };
+        // } else {
+        //   endpoint = "user/signup/";
+        //   configurationOpt = {
+        //     method: "POST",
+        //     headers: { "Content-Type": "application/json" },
+        //     body: JSON.stringify({
+        //       email: props.email,
+        //       first_name: firstName,
+        //       last_name: lastName,
+        //       password: password,
+        //     }),
+        // timeout: 10000,
+        // };
+      }
+      console.log("fetching data...");
+      try {
+        const res = await fetch(
+          `${"https://event-us.me:8000/"}${endpoint}`,
+          configurationOpt
+        );
+        const response = await res.json();
+        console.log("response", response);
+        setAuthData(response);
+        navigate("/login");
+      } catch (error) {
+        console.error(error);
+        alert("you already signed up");
+
+        navigate("/login");
+        return { error };
       }
       const response = await res.json();
       console.log("response", response);

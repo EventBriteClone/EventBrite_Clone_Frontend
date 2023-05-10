@@ -9,6 +9,7 @@ import config from "../../../../utils/config";
 function AllEvents() {
   const [data, setData] = useState(null);
   const [selectedOption, setSelectedOption] = useState("All Events");
+  let ay7aga;
   // const eventsList = Array.isArray(data) && data.map();
   const events = [
     { date: new Date("3/4/2024") },
@@ -43,16 +44,22 @@ function AllEvents() {
     if (config.mocking === "true") {
       endpoint = "eventsPreview";
     } else {
-      let user_id = "";
-      endpoint = `eventmanagement/userevents ${user_id}`;
+      // let user_id = "";
+      endpoint = "events/ALL/";
       configurationOpt = {
         method: "GET",
+        header: { "content-type": "application/json" },
       };
     }
     fetchDataFromAPI({ endpoint, configurationOpt }).then((data) =>
       setData(data)
     );
   }, []);
+  if (data && Object.keys(data).length > 0) {
+    const property = Object.keys(data)[3];
+    console.log(data[property]);
+    ay7aga = data[property];
+  }
 
   return (
     <>
@@ -101,7 +108,12 @@ function AllEvents() {
             <div className={styles["span"]}>
               <div className={styles["hr"]} />
             </div>
-            <div className={styles["Create-Event"]}>
+            <div
+              className={styles["Create-Event"]}
+              onClick={() =>
+                (window.location.href = "http://localhost:5173/create-event")
+              }
+            >
               <div className={styles["create-event"]}>
                 <h1>Create Event</h1>
               </div>
@@ -114,6 +126,10 @@ function AllEvents() {
           {data &&
             Array.isArray(data) &&
             data.map((e) => <EventCard event={e} />)}
+
+          {/* {ay7aga &&
+            Array.isArray(ay7aga) &&
+            ay7aga.map((e) => <EventCard event={e} />)} */}
 
           {filteredEvents.map((event, index) => (
             <EventCard
