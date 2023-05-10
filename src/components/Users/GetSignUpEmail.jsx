@@ -51,12 +51,12 @@ export default function GetSignUpEmail(props) {
 
     if (invalidEmail) return;
     else {
-      console.log("email", email);
+      // console.log("email", email);
 
       let endpoint,
         configurationOpt = {};
       if (config.mocking === "true") {
-        console.log("using mock server");
+        // console.log("using mock server");
         endpoint = `user/emailcheck/${email}`;
         configurationOpt = {
           method: "GET",
@@ -79,10 +79,10 @@ export default function GetSignUpEmail(props) {
           configurationOpt
         );
         const response = await res.json();
-        console.log("response", response);
+        // console.log("response", response);
 
         if (response.email_exists == true) {
-          console.log("mawgod");
+          // console.log("mawgod");
 
           navigate("/login");
         } else {
@@ -238,7 +238,7 @@ export default function GetSignUpEmail(props) {
 
 async function googleLoginSuccess(googleData, navigate) {
   try {
-    console.log(googleData);
+    // console.log(googleData);
     const response = await fetch(
       `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${googleData.access_token}`,
       {
@@ -250,12 +250,12 @@ async function googleLoginSuccess(googleData, navigate) {
     );
 
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
 
     const { email } = json;
 
     let endpoint = "user/signup/";
-    console.log(email);
+    // console.log(email);
     const postData = await fetchDataFromAPI({
       endpoint,
       configurationOpt: {
@@ -269,7 +269,7 @@ async function googleLoginSuccess(googleData, navigate) {
         }),
       },
     });
-    console.log(postData);
+    // console.log(postData);
     if (postData) {
       navigate("/login");
     }

@@ -267,7 +267,7 @@ function HomeNavConatiner() {
                     cy="12"
                     r="8"
                     stroke="#EEEDF2"
-                    stroke-width="2"
+                    strokeWidth="2"
                   ></circle>
                   <circle cx="12" cy="12" r="9.5" stroke="#6F7287"></circle>
                   <path

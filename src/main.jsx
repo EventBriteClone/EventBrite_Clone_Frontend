@@ -24,6 +24,7 @@ import Publish from "./components/Event/CreateEvent/Publish/Publish";
 import NotFound from "../src/components/Event/EventPage/NotFound/NotFound";
 import Dashboard from "./Pages/Dashboard";
 import { SearchResultsPage } from "./Pages/SearchResultsPage";
+import CreateEventContextProvider from "./context/CreateEventContext";
 
 const router = createBrowserRouter([
   {

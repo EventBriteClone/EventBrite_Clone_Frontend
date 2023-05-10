@@ -10,9 +10,8 @@ import Cookies from "js-cookie";
 // import swal from "sweetalert";
 
 const Popup = ({ show, setShow, ...props }) => {
-
-  const user_token = JSON.parse(Cookies.get(("authData"))).token;
-  console.log(user_token);
+  const user_token = JSON.parse(Cookies.get("authData")).token;
+  // console.log(user_token);
 
   const subTotal = props.price;
 
@@ -48,48 +47,49 @@ const Popup = ({ show, setShow, ...props }) => {
   const [promo, setPromo] = useState("");
 
   var myHeaders = new Headers();
-myHeaders.append("Authorization", `CustomToken ${user_token}`);
+  myHeaders.append("Authorization", `CustomToken ${user_token}`);
 
-var requestOptions = {
-  method: 'GET',
-  headers: myHeaders,
-  redirect: 'follow'
-};
+  var requestOptions = {
+    method: "GET",
+    headers: myHeaders,
+    redirect: "follow",
+  };
 
-const [discountPercentage, setDiscountPercentage] = useState(0);
-const [discounted, setDiscount] = useState(0);
+  const [discountPercentage, setDiscountPercentage] = useState(0);
+  const [discounted, setDiscount] = useState(0);
 
-useEffect(()=> {
-  if(promo==="ismail") {
-fetch(`https://event-us.me:8000/booking/events/${props.event}/promocode/?promocode=ziad`, requestOptions)
-  .then(response => response.text())
-  .then(result => {
-    const data = JSON.parse(result);
-    setDiscountPercentage(data.discount["Discountـpercentage"] / 100);
-    setDiscount(discountPercentage*props.price);
-    console.log(discounted);
-    console.log(discountPercentage);
-  })
-  .catch(error => console.log('error', error));
-}
-else {
-  setDiscountPercentage(0);
-}
-},[promo])
+  useEffect(() => {
+    if (promo === "ismail") {
+      fetch(
+        `https://event-us.me:8000/booking/events/${props.event}/promocode/?promocode=ziad`,
+        requestOptions
+      )
+        .then((response) => response.text())
+        .then((result) => {
+          const data = JSON.parse(result);
+          setDiscountPercentage(data.discount["Discountـpercentage"] / 100);
+          setDiscount(discountPercentage * props.price);
+          // console.log(discounted);
+          // console.log(discountPercentage);
+        })
+        .catch((error) => console.log("error", error));
+    } else {
+      setDiscountPercentage(0);
+    }
+  }, [promo]);
 
-  console.log(discountPercentage);
+  // console.log(discountPercentage);
 
   let initTotal;
   if (props.price) {
     initTotal = initTotal = props.price - discounted;
-    console.log(initTotal);
-    ;
+    // console.log(initTotal);
   } else {
     initTotal = 0;
   }
 
   const [total, setTotal] = useState(initTotal);
-  
+
   // if (results && Object.keys(results).length > 0) {
   //   const firstPropertyName = Object.keys(results)[];
   //   promo = results[firstPropertyName];
@@ -153,9 +153,11 @@ else {
 
       const configurationOpt = {
         method: "POST",
-        headers: { "Content-Type": "application/json" ,
-        "Authorization": "CustomToken 0742e574b81a729c36e8cb536301d876f28ea1d2aa2663de3b573f33bdc46bc4"
-      },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization:
+            "CustomToken 0742e574b81a729c36e8cb536301d876f28ea1d2aa2663de3b573f33bdc46bc4",
+        },
         body: JSON.stringify(requestData),
       };
 
@@ -169,7 +171,7 @@ else {
        */
       const response = await fetchDataFromAPI({ endpoint, configurationOpt });
 
-      console.log(response);
+      // console.log(response);
 
       setShow(false);
     }
@@ -177,7 +179,7 @@ else {
 
   const checkValid = (event) => {
     const { name, value } = event.target;
-    console.log(name, value);
+    // console.log(name, value);
     setIsValid((prevErrors) => ({
       ...prevErrors,
       [name]: value === "" ? true : false,
@@ -194,8 +196,8 @@ Handles incrementing the number of tickets selected and updating the subtotal an
       setNumber(number + 1);
       if (props.price !== "0") {
         setSubTotal(subtotal + props.price);
-        console.log(discountPercentage);
-        setDiscount(discountPercentage*subtotal);
+        // console.log(discountPercentage);
+        setDiscount(discountPercentage * subtotal);
       }
     }
   };
@@ -212,8 +214,8 @@ Decrements the quantity of items in the cart and updates the subtotal and total 
       setNumber(number - 1);
       if (props.price != "0") {
         setSubTotal(subtotal - props.price);
-        setDiscount(subtotal*discountPercentage);
-        setTotal(subtotal-subtotal*discountPercentage)
+        setDiscount(subtotal * discountPercentage);
+        setTotal(subtotal - subtotal * discountPercentage);
       }
     }
   };
@@ -426,7 +428,7 @@ Decrements the quantity of items in the cart and updates the subtotal and total 
                     </div>
                     <p>$0</p>
                   </div>
-                  
+
                   <div
                     className={`${styles["summary-item"]} ${styles["summary-subtotal"]}`}
                   >
@@ -442,7 +444,7 @@ Decrements the quantity of items in the cart and updates the subtotal and total 
                     <div>
                       <p>Discount</p>
                     </div>
-                    <p>-${discountPercentage*subtotal}</p>
+                    <p>-${discountPercentage * subtotal}</p>
                   </div>
 
                   <div
@@ -451,7 +453,7 @@ Decrements the quantity of items in the cart and updates the subtotal and total 
                     <div>
                       <p>Total</p>
                     </div>
-                    <p>${subtotal-subtotal*discountPercentage}</p>
+                    <p>${subtotal - subtotal * discountPercentage}</p>
                   </div>
 
                   <div

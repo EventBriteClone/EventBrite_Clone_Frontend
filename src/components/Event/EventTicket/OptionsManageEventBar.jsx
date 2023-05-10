@@ -5,12 +5,11 @@ import Dashboard from "./Dashboard";
 
 function OptionsManageEventBar(props) {
   async function submitHandler(e) {
-    console.log("2btdena");
+    // console.log("2btdena");
     e.preventDefault();
     let endpoint,
       configurationOpt = {};
 
-    console.log("using mock server");
     endpoint = `dashboard/eventmanagement/sold-tickets/${1536}/ticket-classes/ `;
     configurationOpt = {
       method: "GET",
@@ -97,12 +96,12 @@ function OptionsManageEventBar(props) {
                       x="0"
                       y="0"
                       viewBox="0 0 24 24"
-                      xml:space="preserve"
+                      xmlSpace="preserve"
                     >
                       <path
                         id="chevron-down-chunky_svg__eds-icon--chevron-down-chunky_base"
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
+                        fillRule="evenodd"
+                        clipRule="evenodd"
                         d="M7 10.2l5 5 5-5-1.4-1.4-3.6 3.6-3.6-3.6z"
                       ></path>
                     </svg>
@@ -143,12 +142,12 @@ function OptionsManageEventBar(props) {
                       x="0"
                       y="0"
                       viewBox="0 0 24 24"
-                      xml:space="preserve"
+                      xmlSpace="preserve"
                     >
                       <path
                         id="chevron-down-chunky_svg__eds-icon--chevron-down-chunky_base"
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
+                        fillRule="evenodd"
+                        clipRule="evenodd"
                         d="M7 10.2l5 5 5-5-1.4-1.4-3.6 3.6-3.6-3.6z"
                       ></path>
                     </svg>
@@ -189,12 +188,12 @@ function OptionsManageEventBar(props) {
                       x="0"
                       y="0"
                       viewBox="0 0 24 24"
-                      xml:space="preserve"
+                      xmlSpace="preserve"
                     >
                       <path
                         id="chevron-down-chunky_svg__eds-icon--chevron-down-chunky_base"
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
+                        fillRule="evenodd"
+                        clipRule="evenodd"
                         d="M7 10.2l5 5 5-5-1.4-1.4-3.6 3.6-3.6-3.6z"
                       ></path>
                     </svg>

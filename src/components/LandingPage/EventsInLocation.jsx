@@ -9,7 +9,6 @@ import styled from "styled-components";
 export default function EventsInLocation(props) {
   const { city } = useContext(NavigationContext);
 
-
   let data;
   const endpoint =
     config.mocking === "true"
@@ -22,11 +21,11 @@ export default function EventsInLocation(props) {
     data =
       response &&
       response?.results?.map((ev) => {
-        console.log(ev);
+        // console.log(ev);
         return {
           title: ev.Title,
           id: ev.ID,
-          image: `${config.baseURL}${ev.image.slice(1)}`,
+          image: `${config.baseURL}${ev.image?.slice(1)}`,
         };
       });
   }

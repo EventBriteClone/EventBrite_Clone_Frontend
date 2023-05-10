@@ -52,7 +52,7 @@ function MyCard({
                           x="0"
                           y="0"
                           viewBox="0 0 24 24"
-                          xml:space="preserve"
+                          xmlSpace="preserve"
                         >
                           <path
                             fill="#45494E"
@@ -78,7 +78,7 @@ function MyCard({
                             x="0"
                             y="0"
                             viewBox="0 0 24 24"
-                            xml:space="preserve"
+                            xmlSpace="preserve"
                           >
                             <circle cx="12" cy="12" r="3"></circle>
                           </svg>

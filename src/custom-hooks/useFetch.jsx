@@ -53,7 +53,6 @@ export default function useFetch({
   const [fetchState, dispatch] = useReducer(reducerFunction, initialState);
   let modifiedFetchState;
   useEffect(() => {
-    console.log(endpoint);
     const controller = new AbortController();
     const signal = controller.signal;
     fetchData({ endpoint, configurationOpt, dispatch, signal });

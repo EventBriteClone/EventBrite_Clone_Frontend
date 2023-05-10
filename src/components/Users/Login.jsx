@@ -46,7 +46,7 @@ const Login = (props) => {
       );
 
       const json = await response.json();
-      console.log(json);
+      // console.log(json);
 
       const {
         email: Email,
@@ -71,7 +71,7 @@ const Login = (props) => {
       );
 
       const data = await postData.json();
-      console.log(data);
+      // console.log(data);
       if (data.success) {
         navigate("/");
       }
@@ -97,18 +97,18 @@ const Login = (props) => {
     // perform email validation here
 
     if (email.match(validRegex)) {
-      console.log(email);
+      // console.log(email);
 
       setInvalid(false);
 
-      console.log("d5lt");
-      console.log("email m4 valid");
+      // console.log("d5lt");
+      // console.log("email m4 valid");
     } else {
       setInvalid(true);
     }
     if (password.match(passwordRegex) == null) {
       setInvalidpassword(true);
-      console.log("error");
+      // console.log("error");
     } else {
       setInvalidpassword(false);
     }
@@ -120,11 +120,11 @@ const Login = (props) => {
     if (forgetemail.match(validRegex) == null || !forgetemail) {
       setinvalidforgetEmail(true);
 
-      console.log("d5lt");
+      // console.log("d5lt");
       return;
     } else {
       setinvalidforgetEmail(false);
-      console.log("forgetemail", forgetemail);
+      // console.log("forgetemail", forgetemail);
       let endpoint = "user/reset-password/",
         configurationOpt = {};
 
@@ -136,15 +136,15 @@ const Login = (props) => {
         }),
         timeout: 10000,
       };
-      console.log("fetching data...");
+      // console.log("fetching data...");
       try {
         const res = await fetch(
           `${"https://event-us.me:8000/"}${endpoint}`,
           configurationOpt
         );
-        console.log(res);
+        // console.log(res);
         const response = await res.json();
-        console.log("response", response);
+        // console.log("response", response);
 
         if (
           response.email != undefined ||
@@ -157,18 +157,18 @@ const Login = (props) => {
             navigate("/");
           } else {
             if (response.length) {
-              console.log("api");
+              // console.log("api");
               setAuthData(response);
               navigate("/");
             }
           }
         } else if (response.error) {
-          console.log("na hna");
+          // console.log("na hna");
           setShowNoAccount(true);
         }
       } catch (error) {
-        console.log("2lmfrod tt8ir");
-        console.log(error);
+        // console.log("2lmfrod tt8ir");
+        console.error(error);
 
         setShowNoAccount(true);
         return;
@@ -180,12 +180,12 @@ const Login = (props) => {
     try {
       e.preventDefault();
       if (invalidEmail || invalidpassword) return;
-      console.log(email, password);
+      // console.log(email, password);
       let endpoint,
         configurationOpt = {};
       if (config.mocking === "true") {
         endpoint = `users?email=${email}&password=${password}`;
-        console.log("2zay");
+        // console.log("2zay");
       } else {
         endpoint = "user/login/";
         configurationOpt = {
@@ -197,17 +197,17 @@ const Login = (props) => {
           }),
           timeout: 10000,
         };
-        console.log("fetching data...");
+        // console.log("fetching data...");
         const res = await fetch(
           `${"https://event-us.me:8000/"}${endpoint}`,
           configurationOpt
         );
-        console.log(res);
+        // console.log(res);
         if (!res.ok) {
           setShowNoAccount(true);
         }
         const response = await res.json();
-        console.log("responseeeeeee", response);
+        // console.log("responseeeeeee", response);
 
         setShowNoAccount(false);
 
@@ -402,7 +402,7 @@ const Login = (props) => {
 export default Login;
 async function googleLoginSuccess(googleData, navigate) {
   try {
-    console.log(googleData);
+    // console.log(googleData);
     const response = await fetch(
       `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${googleData.access_token}`,
       {
@@ -414,12 +414,12 @@ async function googleLoginSuccess(googleData, navigate) {
     );
 
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
 
     const { email } = json;
 
     let endpoint = "user/signup/";
-    console.log(email);
+    // console.log(email);
     const postData = await fetchDataFromAPI({
       endpoint,
       configurationOpt: {
@@ -433,7 +433,7 @@ async function googleLoginSuccess(googleData, navigate) {
         }),
       },
     });
-    console.log(postData);
+    // console.log(postData);
     if (postData) {
       navigate("/login");
     }

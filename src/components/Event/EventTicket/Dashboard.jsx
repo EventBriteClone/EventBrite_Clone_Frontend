@@ -54,12 +54,10 @@ export default function Dashboard(props) {
 
   const [showPromoCodes, setShowPromoCodes] = useState(false);
   async function submitHandler(e) {
-    console.log("2btdena");
     e.preventDefault();
     let endpoint,
       configurationOpt = {};
 
-    console.log("using mock server");
     endpoint = `dashboard/user/1536/`;
     configurationOpt = {
       method: "GET",
@@ -81,11 +79,8 @@ export default function Dashboard(props) {
         )
       );
       const response = await res.json();
-      console.log("responseeee", response);
 
       if (response.email_exists == true) {
-        console.log("mawgod");
-
         navigate("/login");
       } else {
         props.submitHandler();

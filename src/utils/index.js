@@ -42,7 +42,6 @@ export function filterMockDataByCity(events, city) {
 export async function fetchDataFromAPI({ endpoint, configurationOpt = {} }) {
   try {
     const res = await fetch(`${config.baseURL}${endpoint}`, configurationOpt);
-    console.log(res);
     const data = await res.json();
     return data;
   } catch (error) {
@@ -74,7 +73,7 @@ export function parseTime(timeString) {
   });
 }
 
-function convertTimeTo24HourFormat(time) {
+export function convertTimeTo24HourFormat(time) {
   const [rawTime, meridiem] = time.split(" ");
 
   let [hours, minutes] = rawTime.split(":");
@@ -90,6 +89,5 @@ function convertTimeTo24HourFormat(time) {
   const formattedHours = String(hours).padStart(2, "0");
   const formattedMinutes = String(minutes).padStart(2, "0");
 
-  return `${formattedHours}:${formattedMinutes}`;
+  return `${formattedHours}:${formattedMinutes}:00`;
 }
-

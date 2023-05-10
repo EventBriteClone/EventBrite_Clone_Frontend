@@ -1,7 +1,6 @@
 import styles from "./EventHeader.module.css";
 export default function EventHeader(props) {
   const image = props.img;
-  console.log(image);
   return (
     <div className={styles["event-header"]}>
       {/* <div className={styles["event-background"]}>
@@ -31,10 +30,9 @@ export default function EventHeader(props) {
           // msFilter: "blur(5px)",
           flexDirection: "row",
           alignItems: "center",
-          justifyContent: "center"
+          justifyContent: "center",
         }}
-      >
-      </div>
+      ></div>
       {/* <div className={styles["event-poster"]}>
           <img
             className="poster"

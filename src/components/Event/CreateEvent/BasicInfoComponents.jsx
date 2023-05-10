@@ -17,7 +17,6 @@ function BasicInfoComponents({
 }) {
   const ctx = useContext(CreateEventContext);
   const { createEvent, setCreateEvent } = ctx;
-  console.log(createEvent);
   const mySelectors = {
     width: 200,
     height: 50,
@@ -167,7 +166,6 @@ function BasicInfoComponents({
   const [hideSubCategory, setHideSubCategory] = useState(true);
 
   function handleChange(e) {
-    console.log(e);
     setCreateEvent({
       type: "set",
       data: { category: e?.target.textContent.toLowerCase() },
@@ -209,14 +207,21 @@ function BasicInfoComponents({
     if (createEvent.images.length === 4) return;
     const [file] = e.target.files;
     const reader = new FileReader();
-    reader.readAsDataURL(file);
+    // reader.readAsDataURL(file);
+    reader.readAsArrayBuffer(file);
 
     reader.onload = (e) => {
       const imageSrc = e.target.result;
-      console.log(imageSrc);
+      const fileName = file.name;
+      const fileType = file.type;
+      const newFile = new File([imageSrc], fileName, { type: fileType });
+      const src = URL.createObjectURL(newFile);
+      console.log(createEvent.images);
       setCreateEvent({
         type: "set",
-        data: { images: [...createEvent.images, { src: imageSrc, file }] },
+        data: {
+          images: [...createEvent.images, { src, file: newFile }],
+        },
       });
     };
   }
@@ -232,21 +237,25 @@ function BasicInfoComponents({
     function globalClickHandler(event) {
       const clickedElement = event.target;
       const computedStyle = window.getComputedStyle(clickedElement, "::before");
-
-      if (computedStyle.getPropertyValue("content") !== "none") {
+      if (
+        computedStyle
+          .getPropertyValue("background")
+          .includes("TrashIcon.svg") &&
+        createEvent.images.length
+      ) {
         const currentImg = document.querySelector(
           ".image-gallery-slide.center"
         );
         const { ariaLabel } = currentImg;
         const index = Number(ariaLabel.split(" ").at(-1)) - 1;
-        const newImages = [...createEvent.images];
+        const newImages = structuredClone(createEvent.images);
         newImages.splice(index, 1);
         setCreateEvent({ type: "set", data: { images: newImages } });
       }
     }
     document.addEventListener("click", globalClickHandler);
     return () => document.removeEventListener("click", globalClickHandler);
-  }, []);
+  }, [createEvent.images]);
 
   return (
     <>
@@ -436,7 +445,6 @@ function BasicInfoComponents({
           <Option value="community & culture">Community & Culture</Option>
           <Option value="family & education">Family & Education</Option>
         </Select>
-        {console.log(createEvent.subcategory)}
         {(showSubCategory || createEvent.subcategory) && (
           <Select
             defaultValue="Sub-category"

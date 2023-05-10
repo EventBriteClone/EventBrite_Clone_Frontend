@@ -3,7 +3,6 @@ import Popup from "../../popup/Popup";
 import { useState } from "react";
 
 export default function PriceTag(props) {
-  console.log(props.user);
   const creator = props.user;
   const [show, setShow] = useState(false);
   const eventid = props.event;

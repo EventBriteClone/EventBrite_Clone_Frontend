@@ -7,5 +7,4 @@ const env = {
   locationIQAPIKey: envObj.VITE_NAVIGATION_API_KEY,
 };
 
-console.log(env.baseURL);
 export default Object.freeze(env);

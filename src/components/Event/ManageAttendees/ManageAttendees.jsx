@@ -15,8 +15,8 @@ function ManageAttendees() {
   };
 
   const handleSaveClick = () => {
-    console.log(`Selected ticket type: ${ticketType}`);
-    console.log(`Selected color: ${color}`);
+    // console.log(`Selected ticket type: ${ticketType}`);
+    // console.log(`Selected color: ${color}`);
   };
 
   useEffect(() => {
@@ -33,11 +33,11 @@ function ManageAttendees() {
 
     fetchDataFromAPI({ endpoint, configurationOpt })
       .then((data) => {
-        console.log("Fetch succeeded:", data);
+        // console.log("Fetch succeeded:", data);
         setData(data);
       })
       .catch((error) => {
-        console.log("Fetch failed:", error);
+        // console.log("Fetch failed:", error);
       });
   }, [searchEmail]);
 
@@ -47,10 +47,10 @@ function ManageAttendees() {
       const property = Object.keys(data)[0];
       const fetchedEmail = data[property];
       if (fetchedEmail == true) {
-        console.log("True");
+        // console.log("True");
         setColor("green");
       } else {
-        console.log("Enter another Email");
+        // console.log("Enter another Email");
         setColor("red");
       }
     }

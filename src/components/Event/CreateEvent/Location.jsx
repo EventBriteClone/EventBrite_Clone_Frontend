@@ -48,7 +48,6 @@ function Location({
       setIsLocationRequired(false);
     }
   }, []);
-  console.log(isLocationRequired);
   // const [isLocationRequired, setIsLocationRequired] = useState(false);
   function locationValueChange(event) {
     setCreateEvent({ type: "set", data: { location: event.target.value } });

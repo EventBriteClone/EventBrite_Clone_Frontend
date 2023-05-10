@@ -2,12 +2,12 @@ import styles from "./Publish.module.css";
 import EventPreview from "./EventPreview";
 import Footer from "../../EventPage/Footer";
 import SubmitCard from "./SubmitCard";
-import { fetchDataFromAPI } from "../../../../utils";
+import { convertTimeTo24HourFormat, fetchDataFromAPI } from "../../../../utils";
 import config from "../../../../utils/config";
 import HomeNavConatiner from "../../EventTicket/HomeNavContainer";
 import StructureDrawer from "../../EventTicket/StructureDrawer";
 import HeaderTicket from "../../EventTicket/HeaderTicket";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { CreateEventContext } from "../../../../context/CreateEventContext";
 import { AuthContext } from "../../../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -15,8 +15,10 @@ import { useNavigate } from "react-router-dom";
 export default function Publish() {
   const navigate = useNavigate();
   const { createEvent: event, setCreateEvent } = useContext(CreateEventContext);
-  const { isAuthenticated, token } = useContext(AuthContext);
-  // if (!isAuthenticated) return navigate("/login");
+  const { isAuthenticated, token } = useContext(AuthContext).authState;
+  useEffect(() => {
+    if (!isAuthenticated) return navigate("/login");
+  }, []);
   async function handlePublishEvent() {
     try {
       const {
@@ -33,7 +35,9 @@ export default function Publish() {
         online,
         summary: Summery,
         status: STATUS,
+        capacity: CAPACITY,
       } = event;
+      console.log(CAPACITY);
       const eventBody = {
         Title,
         organizer,
@@ -42,33 +46,42 @@ export default function Publish() {
         venue_name,
         ST_DATE,
         END_DATE,
-        ST_TIME,
-        END_TIME,
-        online,
+        ST_TIME: convertTimeTo24HourFormat(ST_TIME),
+        END_TIME: convertTimeTo24HourFormat(END_TIME),
+        online: online === true ? "True" : "False",
         Summery,
         STATUS,
+        CAPACITY,
         image: event.images[0]?.file,
         image1: event.images[1]?.file,
         image2: event.images[2]?.file,
         image3: event.images[3]?.file,
         image4: event.images[4]?.file,
       };
+      const formData = new FormData();
+      for (const key in eventBody) {
+        if (eventBody[key]) formData.append(key, eventBody[key]);
+      }
       const configurationOpt = {
         method: "POST",
-        body: JSON.stringify(eventBody),
+        body: formData,
         headers: {
           Authorization: `customToken ${token}`,
         },
       };
       const createEventEndpoint =
         config.mocking === "true" ? "event/" : "events/create/";
-      const publicityEndpoint = "";
 
       const createEventRes = await fetchDataFromAPI({
         endpoint: createEventEndpoint,
         configurationOpt,
       });
-      console.log(createEventRes);
+      const { ID } = createEventRes;
+      if (ID) {
+        setCreateEvent({ type: "clear" });
+        return navigate("/my-events");
+        // const publicityEndpoint = `eventmanagement/${ID}/publish`;
+      }
     } catch (error) {
       console.error(error);
     }
@@ -89,7 +102,7 @@ export default function Publish() {
                 <div className={styles["radio-container"]}>
                   <input
                     type="radio"
-                    checked
+                    defaultChecked
                     name="privacy"
                     id="public-privacy"
                   />

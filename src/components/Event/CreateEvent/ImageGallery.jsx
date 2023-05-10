@@ -5,7 +5,6 @@ import { CreateEventContext } from "../../../context/CreateEventContext";
 
 export default function ImageGallery() {
   const { createEvent: event } = useContext(CreateEventContext);
-  console.log(event);
   const items = event.images.map((imgObj) => {
     return {
       original: imgObj.src,

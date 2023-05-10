@@ -13,9 +13,9 @@ import { fetchDataFromAPI } from "../../../../utils";
 const Popup = ({ show, setShow, ...props }) => {
   const subTotal = props.price;
 
-  const discount = `${subTotal[0]}`+32;
+  const discount = `${subTotal[0]}` + 32;
 
-  const fees = `${subTotal[0]}`+50;
+  const fees = `${subTotal[0]}` + 50;
 
   const [stepOne, setStepOne] = useState(false);
 
@@ -23,7 +23,12 @@ const Popup = ({ show, setShow, ...props }) => {
 
   const [subtotal, setSubTotal] = useState(subTotal);
 
-  const [total, setTotal] = useState(subtotal[0] + Number(subTotal.slice(1) - Number(discount.slice(1)) + Number(fees.slice(1))));
+  const [total, setTotal] = useState(
+    subtotal[0] +
+      Number(
+        subTotal.slice(1) - Number(discount.slice(1)) + Number(fees.slice(1))
+      )
+  );
 
   const [isValid, setIsValid] = useState({
     fname: false,
@@ -50,8 +55,6 @@ const Popup = ({ show, setShow, ...props }) => {
     setStepOne(true);
   };
 
-  console.log(validmail);
-
   const handleInput = (event) => {
     const { name, value } = event.target;
     setData((prevFormData) => ({
@@ -70,20 +73,16 @@ const Popup = ({ show, setShow, ...props }) => {
   };
 
   const handleSubmit = (event) => {
-    console.log("data", data);
-
     if (data.email === data.cmail) {
       setValidmail(false);
     } else {
       setValidmail(true);
     }
     event.preventDefault();
-    
 
     setShow(false);
 
     swal("", "Order Placed Successfully!", "success");
-
 
     // let endpoint, configurationOpt = {};
     // if (config.mocking === "true") {
@@ -105,7 +104,6 @@ const Popup = ({ show, setShow, ...props }) => {
 
   const checkValid = (event) => {
     const { name, value } = event.target;
-    console.log(name, value);
     setIsValid((prevErrors) => ({
       ...prevErrors,
       [name]: value === "" ? true : false,
@@ -116,8 +114,13 @@ const Popup = ({ show, setShow, ...props }) => {
     if (number < 10) {
       setNumber(number + 1);
       if (props.price != "0") {
-        setSubTotal(subtotal[0] + (Number(subtotal.slice(1)) + Number(props.price.slice(1))));
-        setTotal(total[0] + (Number(total.slice(1)) + Number(props.price.slice(1))));
+        setSubTotal(
+          subtotal[0] +
+            (Number(subtotal.slice(1)) + Number(props.price.slice(1)))
+        );
+        setTotal(
+          total[0] + (Number(total.slice(1)) + Number(props.price.slice(1)))
+        );
       }
     }
   };
@@ -126,12 +129,17 @@ const Popup = ({ show, setShow, ...props }) => {
     if (number > 1) {
       setNumber(number - 1);
       if (props.price != "0") {
-        setSubTotal(subtotal[0] + (Number(subtotal.slice(1)) - Number(props.price.slice(1))));
-        setTotal(total[0] + (Number(total.slice(1)) - Number(props.price.slice(1))));
+        setSubTotal(
+          subtotal[0] +
+            (Number(subtotal.slice(1)) - Number(props.price.slice(1)))
+        );
+        setTotal(
+          total[0] + (Number(total.slice(1)) - Number(props.price.slice(1)))
+        );
       }
     }
   };
-  
+
   return (
     <div className={styles["model"]}>
       <div className={styles["model-inner"]}>

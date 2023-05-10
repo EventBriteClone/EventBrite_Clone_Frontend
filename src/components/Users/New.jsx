@@ -28,31 +28,31 @@ const New = (props) => {
   const [confirmEmail, setConfirmEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  console.log(confirmEmail);
+  // console.log(confirmEmail);
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
-    console.log("email", email);
+    // console.log("email", email);
   };
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
-    console.log(password);
+    // console.log(password);
   };
   const handleFirstnameChange = (event) => {
     setFirstName(event.target.value);
-    console.log(firstName);
+    // console.log(firstName);
   };
   const handleLastnameChange = (event) => {
     setLastName(event.target.value);
-    console.log(lastName);
+    // console.log(lastName);
   };
   const handleConfirmEmailChange = (event) => {
     setConfirmEmail(event.target.value);
-    console.log(confirmEmail);
+    // console.log(confirmEmail);
   };
   const google = useGoogleLogin({
     onSuccess: (codeResponse) => setUser(codeResponse),
-    onError: (error) => console.log("Login Failed:", error),
+    onError: (error) => console.error("Login Failed:", error),
   });
 
   // const getInputValue = (event) => {
@@ -67,8 +67,8 @@ const New = (props) => {
       /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     var passwordRegex = /^(?=.*\d)(?=(.*\W))(?=.*[a-zA-Z])(?!.*\s).{8,20}$/;
     // perform email validation here
-    console.log("email", email);
-    console.log("props.email", props.email);
+    // console.log("email", email);
+    // console.log("props.email", props.email);
     if (props.email) {
       setInvalidemail(false);
     } else {
@@ -101,7 +101,7 @@ const New = (props) => {
       setInvalidpassword(true);
     } else {
       setInvalidpassword(false);
-      console.log("sa7 ya ba4a");
+      // console.log("sa7 ya ba4a");
     }
   };
 
@@ -120,7 +120,7 @@ const New = (props) => {
       configurationOpt = {};
     if (config.mocking === "true") {
       endpoint = "user/";
-      console.log("using mock server");
+      // console.log("using mock server");
 
       configurationOpt = {
         method: "POST",
@@ -138,7 +138,7 @@ const New = (props) => {
         configurationOpt = {};
       if (config.mocking === "false") {
         endpoint = "user/signup/";
-        console.log("using mock server");
+        // console.log("using mock server");
 
         configurationOpt = {
           method: "POST",
@@ -165,14 +165,14 @@ const New = (props) => {
         // timeout: 10000,
         // };
       }
-      console.log("fetching data...");
+      // console.log("fetching data...");
       try {
         const res = await fetch(
           `${"https://event-us.me:8000/"}${endpoint}`,
           configurationOpt
         );
         const response = await res.json();
-        console.log("response", response);
+        // console.log("response", response);
         setAuthData(response);
         navigate("/login");
       } catch (error) {
@@ -183,12 +183,12 @@ const New = (props) => {
         return { error };
       }
       const response = await res.json();
-      console.log("response", response);
+      // console.log("response", response);
       setAuthData(response);
       // navigate("/login");
     }
 
-    console.log("fetching data...");
+    // console.log("fetching data...");
   }
 
   return (

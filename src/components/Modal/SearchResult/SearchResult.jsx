@@ -6,7 +6,6 @@ import "./SearchResult.css";
 import { FaClock, FaLevelUpAlt } from "react-icons/fa";
 
 function SearchResult({ recent, trends, char }) {
-  console.log(recent);
   trends = trends.filter((t) => t.term.includes(char));
   return (
     <div className="container">
@@ -21,10 +20,7 @@ function SearchResult({ recent, trends, char }) {
           ))}
         {trends.slice(0, 4).map((t, i) => (
           <div key={i} data-testid="tranding-results">
-             <ResultItem
-                title={t.term}
-                icon={<FaLevelUpAlt />}
-              ></ResultItem>
+            <ResultItem title={t.term} icon={<FaLevelUpAlt />}></ResultItem>
           </div>
         ))}
       </ResultList>
