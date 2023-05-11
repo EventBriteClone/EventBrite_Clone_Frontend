@@ -1,19 +1,19 @@
 import styles from "./Publish.module.css";
 import EventPreview from "./EventPreview";
 import Footer from "../../EventPage/Footer";
-import SubmitCard from "./SubmitCard";
 import { convertTimeTo24HourFormat, fetchDataFromAPI } from "../../../../utils";
 import config from "../../../../utils/config";
 import HomeNavConatiner from "../../EventTicket/HomeNavContainer";
 import StructureDrawer from "../../EventTicket/StructureDrawer";
 import HeaderTicket from "../../EventTicket/HeaderTicket";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CreateEventContext } from "../../../../context/CreateEventContext";
 import { AuthContext } from "../../../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 export default function Publish() {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
   const { createEvent: event, setCreateEvent } = useContext(CreateEventContext);
   const { isAuthenticated, token } = useContext(AuthContext).authState;
   useEffect(() => {
@@ -21,6 +21,7 @@ export default function Publish() {
   }, []);
   async function handlePublishEvent() {
     try {
+      setIsLoading(true);
       const {
         eventTitle: Title,
         organizer,
@@ -37,7 +38,6 @@ export default function Publish() {
         status: STATUS,
         capacity: CAPACITY,
       } = event;
-      console.log(CAPACITY);
       const eventBody = {
         Title,
         organizer,
@@ -76,13 +76,16 @@ export default function Publish() {
         endpoint: createEventEndpoint,
         configurationOpt,
       });
+      console.log(createEventRes);
       const { ID } = createEventRes;
       if (ID) {
         setCreateEvent({ type: "clear" });
-        return navigate("/my-events");
+        setIsLoading(false);
+        navigate(`/event-ticket/${ID}`);
         // const publicityEndpoint = `eventmanagement/${ID}/publish`;
       }
     } catch (error) {
+      setIsLoading(false);
       console.error(error);
     }
   }
@@ -131,7 +134,11 @@ export default function Publish() {
               </div>
             </div>
           </div>
-          <SubmitCard onClick={handlePublishEvent}></SubmitCard>
+          <div className={styles["submit-card__container"]}>
+            <button onClick={handlePublishEvent} disabled={isLoading}>
+              {isLoading ? "Loading..." : "Publish Event"}
+            </button>
+          </div>
         </div>
       </div>
       <Footer></Footer>

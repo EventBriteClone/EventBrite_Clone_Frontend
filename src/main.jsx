@@ -65,10 +65,6 @@ const router = createBrowserRouter([
     element: <EventPage />,
   },
   {
-    path: "/event/:id",
-    element: <EventPage />,
-  },
-  {
     path: "/my-events",
     element: <EventCreator />,
   },
@@ -77,11 +73,15 @@ const router = createBrowserRouter([
     element: <ManageAttendees />,
   },
   {
-    path: "/event-ticket",
-    element: <EventTicket />,
+    path: "/event-ticket/:id",
+    element: (
+      <CreateEventContextProvider>
+        <EventTicket />
+      </CreateEventContextProvider>
+    ),
   },
   {
-    path: `/Dashboard/id`,
+    path: `/Dashboard/:id`,
     element: <Dashboard />,
   },
   {
