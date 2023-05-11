@@ -29,7 +29,7 @@ import AuthContextProvider from "./context/AuthContext";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import ManageAttendees from "./Pages/ManageAttendees";
 import EventTicket from "./Pages/EventTicket";
-import Publish from "./components/Event/CreateEvent/Publish/Publish";
+import Publish from "./Pages/Publish";
 import Dashboard from "./Pages/Dashboard";
 
 const router = createBrowserRouter([

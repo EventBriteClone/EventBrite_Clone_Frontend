@@ -5,7 +5,6 @@ const initialEvent = {
   organizer: "",
   type: "",
   category: "",
-  capacity: 100,
   subcategory: "",
   location: "",
   summary: "",
@@ -16,7 +15,7 @@ const initialEvent = {
   endTime: "10:00 PM",
   online: false,
   capacity: 1000,
-  status: "Live",
+  status: "Draft",
   images: [],
 };
 
