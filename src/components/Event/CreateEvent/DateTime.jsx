@@ -239,6 +239,7 @@ function DateTime({ changeButton }) {
             <button
               onClick={handleShowSingleEvent}
               className={styles.SingleEventButton}
+              id="single event button"
             >
               Single Event
             </button>
@@ -247,6 +248,7 @@ function DateTime({ changeButton }) {
               onClick={handleShowRecurringEvent}
               className={styles.RecurringEventButton}
               aria-label="RecurringEventButton"
+              id="recurring event button"
             >
               Recurring Event
             </button>
@@ -272,6 +274,7 @@ function DateTime({ changeButton }) {
                       label="Event Starts *"
                       value={dayjs(createEvent.startDate)}
                       onChange={startEventChange}
+                      id="event start date picker"
                     />
                   </DemoContainer>
                 </LocalizationProvider>
@@ -305,6 +308,7 @@ function DateTime({ changeButton }) {
                       label="Event Ends *"
                       value={dayjs(createEvent.endDate)}
                       onChange={endEventChange}
+                      id="event ends date picker"
                     />
                   </DemoContainer>
                 </LocalizationProvider>
@@ -337,6 +341,7 @@ function DateTime({ changeButton }) {
                 <Checkbox
                   checked={checkedOne}
                   onChange={handleChangeOne}
+                  id="checkbox 1"
                   inputProps={{ "aria-label": "timeStart" }}
                   className={styles.Checkbox}
                 ></Checkbox>
@@ -358,6 +363,7 @@ function DateTime({ changeButton }) {
                 // defaultChecked
                 checked={checkedTwo}
                 onChange={handleChangeTwo}
+                id="checkbox 2"
                 inputProps={{ "aria-label": "timeEnd" }}
                 // aria-label="timeEnd"
                 className={styles.Checkbox}

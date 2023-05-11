@@ -66,12 +66,14 @@ function MidTicketContainer({ showDrawerButton, createSectionButton }) {
           <button
             onClick={() => createSectionButton(true)}
             className={styles["create-section-button"]}
+            id="create-section-mid-ticket"
           >
             Create a section
           </button>
           <button
             className={styles["add-tickets-button"]}
             onClick={() => showDrawerButton(true)}
+            id="add-tickets-mid-ticket"
           >
             Add tickets
           </button>

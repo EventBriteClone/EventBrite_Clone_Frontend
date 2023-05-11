@@ -79,7 +79,7 @@ export default function Publish() {
       const { ID } = createEventRes;
       if (ID) {
         setCreateEvent({ type: "clear" });
-        return navigate("/my-events");
+        return navigate("/event-ticket");
         // const publicityEndpoint = `eventmanagement/${ID}/publish`;
       }
     } catch (error) {

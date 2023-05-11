@@ -229,6 +229,7 @@ function PromoCodeDrawer({
             <label>
               <input
                 type="checkbox"
+                id="checkbox7"
                 // checked={checkedOne}
                 // onChange={handleChangeOne}
                 className={styles["checkbox-checkmarket"]}
@@ -289,6 +290,7 @@ function PromoCodeDrawer({
                   type="radio"
                   name="options1"
                   value="radio1"
+                  id="radio01"
                   className={styles["radio1"]}
                   checked={selectedValue === "radio1"}
                   onChange={handleRadioChange}
@@ -301,6 +303,7 @@ function PromoCodeDrawer({
                     type="radio"
                     name="options2"
                     value="radio2"
+                    id="radio02"
                     className={styles["radio1"]}
                     checked={selectedValue === "radio2"}
                     onChange={handleRadioChange}
@@ -354,6 +357,7 @@ function PromoCodeDrawer({
                   type="radio"
                   name="options3"
                   className={styles["radio1"]}
+                  id="radio03"
                   value="radio3"
                   checked={selectedValue2 === "radio3"}
                   onChange={handleRadioChange2}
@@ -365,6 +369,7 @@ function PromoCodeDrawer({
                   <input
                     type="radio"
                     name="options4"
+                    id="radio04"
                     className={styles["radio1"]}
                     value="radio4"
                     checked={selectedValue2 === "radio4"}
@@ -418,6 +423,7 @@ function PromoCodeDrawer({
                 <input
                   type="radio"
                   name="options5"
+                  id="radio05"
                   className={styles["radio1"]}
                   value="radio5"
                   checked={selectedValue3 === "radio5"}
@@ -430,6 +436,7 @@ function PromoCodeDrawer({
                   <input
                     type="radio"
                     name="options6"
+                    id="radio06"
                     className={styles["radio1"]}
                     value="radio6"
                     checked={selectedValue3 === "radio6"}
@@ -447,10 +454,15 @@ function PromoCodeDrawer({
             <button
               onClick={() => closePromoCodeDrawer(false)}
               className={styles["cancel-button"]}
+              id="cancel-button-promo-code-drawer"
             >
               Cancel
             </button>
-            <button onClick={saveData} className={styles["save-button"]}>
+            <button
+              onClick={saveData}
+              id="save-button-promo-code-drawer"
+              className={styles["save-button"]}
+            >
               Save
             </button>
           </div>

@@ -24,6 +24,7 @@ function ManageEventBar() {
                       xmlnsXlink="http://www.w3.org/1999/xlink"
                       x="0px"
                       y="0px"
+                      id="basic-info-icon-image"
                       viewBox="0 0 28 28"
                       xmlSpace="preserve"
                     >
@@ -63,6 +64,7 @@ function ManageEventBar() {
                       xmlnsXlink="http://www.w3.org/1999/xlink"
                       x="0px"
                       y="0px"
+                      id="publish-icon-image"
                       viewBox="0 0 28 28"
                       xmlSpace="preserve"
                     >
@@ -107,6 +109,7 @@ function ManageEventBar() {
                       className={styles["navigation-icon"]}
                       xmlns="http://www.w3.org/2000/svg"
                       xmlnsXlink="http://www.w3.org/1999/xlink"
+                      id="navigation-icon-image"
                       x="0px"
                       y="0px"
                       viewBox="0 0 28 28"

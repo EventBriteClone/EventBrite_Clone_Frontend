@@ -22,7 +22,10 @@ function PromoCodeList({ promoCodeList }) {
                   // onChange={onChange}
                   placeholder="Search code"
                 />
-                <button className={styles["add-tickets-button"]}>
+                <button
+                  id="add-code-button-promo-code-list"
+                  className={styles["add-tickets-button"]}
+                >
                   Add a code
                 </button>
               </div>
@@ -31,27 +34,42 @@ function PromoCodeList({ promoCodeList }) {
               <thead>
                 <tr key={key} className={styles["header-tr"]}>
                   <th className={styles["name-th"]}>
-                    <button className={styles["list-buttons"]}>
+                    <button
+                      id="name-button-promo-code-list"
+                      className={styles["list-buttons"]}
+                    >
                       <span>Name</span>
                     </button>
                   </th>
                   <th className={styles["name-th"]}>
-                    <button className={styles["list-buttons"]}>
+                    <button
+                      id="code-type-button-promo-code-list"
+                      className={styles["list-buttons"]}
+                    >
                       <span>Code type</span>
                     </button>
                   </th>
                   <th className={styles["name-th"]}>
-                    <button className={styles["list-buttons"]}>
+                    <button
+                      id="discount-button-promo-code-list"
+                      className={styles["list-buttons"]}
+                    >
                       <span>Discount</span>
                     </button>
                   </th>
                   <th className={styles["name-th"]}>
-                    <button className={styles["list-buttons"]}>
+                    <button
+                      id="users-button-promo-code-list"
+                      className={styles["list-buttons"]}
+                    >
                       <span>Uses</span>
                     </button>
                   </th>
                   <th className={styles["name-th"]}>
-                    <button className={styles["list-buttons"]}>
+                    <button
+                      id="status-button-promo-code-list"
+                      className={styles["list-buttons"]}
+                    >
                       <span>Status</span>
                     </button>
                   </th>

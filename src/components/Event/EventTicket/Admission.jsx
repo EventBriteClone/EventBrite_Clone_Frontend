@@ -20,6 +20,7 @@ function Admission({
         <button
           className={styles["add-tickets-button"]}
           onClick={admissionAddButton}
+          id="admission-button"
         >
           Add tickets
         </button>

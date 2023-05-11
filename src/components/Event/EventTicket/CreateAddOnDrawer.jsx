@@ -121,6 +121,7 @@ function CreateAddOnDrawer({ closeAddOnDrawer }) {
               <label>
                 <input
                   type="checkbox"
+                  id="checkbox 3"
                   className={styles["checkbox-checkmarket"]}
                   fill="#3659e3"
                 />
@@ -356,6 +357,7 @@ function CreateAddOnDrawer({ closeAddOnDrawer }) {
               <input
                 type="checkbox"
                 // checked={checkedOne}
+                id="checkbox 4"
                 // onChange={handleChangeOne}
                 className={styles["checkbox-checkmarket"]}
                 fill="#3659e3"
@@ -438,12 +440,14 @@ function CreateAddOnDrawer({ closeAddOnDrawer }) {
             <button
               onClick={() => closeAddOnDrawer(false)}
               className={styles["cancel-button"]}
+              id="cancel-button-create-add-on"
             >
               Cancel
             </button>
             <button
               // onClick={saveData}
               className={styles["save-button"]}
+              id="save-button-create-add-on"
             >
               Save
             </button>

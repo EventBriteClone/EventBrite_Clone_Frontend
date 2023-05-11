@@ -266,7 +266,11 @@ function BasicInfoComponents({
           Add photos to show what your event will be about. You can upload up to
           5 images.
         </p>
-        <input type="file" onChange={handleImageChange} />
+        <input
+          id="input-image-change"
+          type="file"
+          onChange={handleImageChange}
+        />
         <ImageGallery />
         <p>Events with a summary can attract up to 75% more customers</p>
         <TextField
@@ -415,6 +419,7 @@ function BasicInfoComponents({
         <Select
           defaultValue="Type"
           placeholder="Type"
+          id="type selector"
           onChange={handleChangeType}
           value={createEvent.type}
           sx={{
@@ -432,6 +437,7 @@ function BasicInfoComponents({
         <Select
           placeholder="Category"
           onChange={handleChange}
+          id="category selector"
           value={createEvent.category}
           sx={{
             ...mySelectors,
@@ -449,6 +455,7 @@ function BasicInfoComponents({
           <Select
             defaultValue="Sub-category"
             placeholder="Sub-category"
+            id="sub-category selector"
             onChange={handleChangeSubcategory}
             value={createEvent.subcategory}
             sx={{
@@ -508,7 +515,11 @@ function BasicInfoComponents({
               </div>
             </div>
             <div className={styles.buttonContainer}>
-              <button className={styles.AddTagButton} onClick={handleClick}>
+              <button
+                id="add tag"
+                className={styles.AddTagButton}
+                onClick={handleClick}
+              >
                 Add
               </button>
             </div>
@@ -517,6 +528,7 @@ function BasicInfoComponents({
                 <Chip
                   key={tag}
                   label={tag}
+                  id="chip tag"
                   onDelete={() => handleDeleteTag(tag)}
                   variant="outlined"
                   className={styles.chip}

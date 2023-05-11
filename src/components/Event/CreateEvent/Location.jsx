@@ -173,6 +173,7 @@ function Location({
         <div className={styles.Buttons}>
           <button
             onClick={handleShowVenue}
+            id="venue button"
             className={`${styles.VenueButton} ${
               createEvent.online ? "" : `${styles.clicked}`
             }`}
@@ -181,6 +182,7 @@ function Location({
           </button>
           <button
             onClick={handleShowOnlineEvent}
+            id="online event button"
             className={`${styles.OnlineEventButton} ${
               createEvent.online ? `${styles.clicked}` : ""
             }`}
@@ -189,6 +191,7 @@ function Location({
           </button>
           <button
             onClick={handleShowToBeAnnounced}
+            id="to be announced button"
             className={styles.TobeAnnounced}
           >
             To be announced
@@ -206,6 +209,7 @@ function Location({
             {showVenue && (
               <Paper
                 component="form"
+                id="search input"
                 sx={{
                   p: "2px 4px",
                   display: "flex",
@@ -225,12 +229,14 @@ function Location({
                 <IconButton
                   sx={{ p: "14px", marginLeft: "12px", height: "24px" }}
                   aria-label="menu"
+                  id="search icon"
                 >
                   <SearchIcon />
                 </IconButton>
                 <InputBase
                   sx={{ ml: 1, flex: 1 }}
                   placeholder="Search for a venue or address."
+                  id="search input base"
                   onChange={locationValueChange}
                   value={createEvent.location}
 

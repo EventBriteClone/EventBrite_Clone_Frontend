@@ -60,8 +60,8 @@
   flex-grow: 1;
 }
 .mapImage {
-  margin-top: 750px;
-  margin-bottom: 275px;
+  margin-top: 980px;
+  margin-bottom: 260px;
 }
 @media screen and (max-width: 64em) {
   .mapImage {

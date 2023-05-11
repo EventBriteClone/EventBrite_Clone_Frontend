@@ -148,6 +148,7 @@ function CreateSectionPopper({ createSectionButton }) {
                 <button
                   className={styles["cancel-button"]}
                   onClick={closePopper}
+                  id="cancel-button-create-section"
                 >
                   Cancel
                 </button>

@@ -11,7 +11,10 @@ function ErrorBanner(props) {
 function ErrorText() {
   return (
     <div>
-      <ErrorBanner message="Please fill out all of the required fields correctly" />
+      <ErrorBanner
+        id="error-text"
+        message="Please fill out all of the required fields correctly"
+      />
     </div>
   );
 }

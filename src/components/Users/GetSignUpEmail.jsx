@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Input from "../UI/Input";
 import Style from "./Style.module.css";
 import { fetchDataFromAPI } from "../../utils";
@@ -14,6 +14,7 @@ import {
 
 export default function GetSignUpEmail(props) {
   const [user, setUser] = useState([]);
+  const { setAuthData } = useContext(AuthContext);
   let [email, setEmail] = useState("");
   let [invalidEmail, setInvalid] = useState(false);
 
@@ -271,7 +272,8 @@ async function googleLoginSuccess(googleData, navigate) {
     });
     // console.log(postData);
     if (postData) {
-      navigate("/login");
+      setAuthData(response);
+      navigate("/");
     }
   } catch (error) {
     console.error(error);
