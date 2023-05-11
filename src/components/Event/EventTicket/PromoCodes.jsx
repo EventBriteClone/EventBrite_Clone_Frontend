@@ -52,12 +52,14 @@ function PromoCodes({ showPromoCodeDrawer, showUploadCSVDrawer }) {
               </p>
               <div className={styles["buttons-contariner"]}>
                 <button
+                  id="create-promo-code-button-promo-code"
                   className={styles["create-promo-code-button"]}
                   onClick={() => showPromoCodeDrawer(true)}
                 >
                   Create promo code
                 </button>
                 <button
+                  id="upload-csv-code-button-promo-code"
                   className={styles["upload-csv-button"]}
                   onClick={() => showUploadCSVDrawer(true)}
                 >
@@ -67,6 +69,7 @@ function PromoCodes({ showPromoCodeDrawer, showUploadCSVDrawer }) {
             </div>
           </div>
           <img
+            id="promo-code-image"
             src="https://cdn.evbstatic.com/s3-build/fe/build/images/379badca6639dc1c5a14473fe52ab756-PromotionsCallToActionIllustrationSvg.svg"
             className={styles["promo-codes-empty-state-illustration"]}
           ></img>

@@ -305,13 +305,22 @@ function DrawerTicket({
         <Divider />
         <List>
           <div className={styles.AddTicketsButtons}>
-            <button className={styles.PaidButton} onClick={handleShowPaid}>
+            <button
+              id="paid-button"
+              className={styles.PaidButton}
+              onClick={handleShowPaid}
+            >
               Paid
             </button>
-            <button className={styles.FreeButton} onClick={handleShowFree}>
+            <button
+              id="free-button"
+              className={styles.FreeButton}
+              onClick={handleShowFree}
+            >
               Free
             </button>
             <button
+              id="donation-button"
               className={styles.DonationButton}
               onClick={handleShowDonation}
             >
@@ -497,6 +506,7 @@ function DrawerTicket({
             <label>
               <input
                 type="checkbox"
+                id="checkbox 5"
                 checked={checkedOne}
                 onChange={handleChangeOne}
                 className={styles["checkbox-checkmarket"]}
@@ -610,7 +620,7 @@ function DrawerTicket({
                 checked={checkedTwo}
                 onChange={handleChangeTwo}
                 inputProps={{ "aria-labelledby": "eTicket" }}
-                // id="eTicket"
+                id="checkbox6"
                 fill="#3659e3"
                 className={styles["checkbox-checkmarket"]}
               />
@@ -649,10 +659,15 @@ function DrawerTicket({
             <button
               onClick={() => showDrawerButton(false)}
               className={styles["cancel-button"]}
+              id="cancel-button-drawer-ticket"
             >
               Cancel
             </button>
-            <button onClick={saveData} className={styles["save-button"]}>
+            <button
+              onClick={saveData}
+              id="save-button-drawer-ticket"
+              className={styles["save-button"]}
+            >
               Save
             </button>
           </div>

@@ -170,17 +170,20 @@ const Login = (props) => {
           configurationOpt
         );
         console.log(res);
-        if (!res.ok) {
-          setShowNoAccount(true);
-        }
         const response = await res.json();
         console.log("responseeeeeee", response);
+        if (!response.id) {
+          setShowNoAccount(true);
+          // alert("you have no account!");
+        } else {
+          setShowNoAccount(false);
 
-        setShowNoAccount(false);
-
-        setAuthData(response);
-        navigate("/");
+          setAuthData(response);
+          navigate("/");
+          // console.log("shaimaa");
+        }
       }
+
       // if (config.mocking) {
       //   // } else {
       //   //   if (response.length) {

@@ -14,6 +14,7 @@ export default function ImageGallery() {
   return (
     <ReactImageGallery
       showPlayButton={false}
+      id="react image gallery"
       autoPlay={false}
       showBullets
       items={items}

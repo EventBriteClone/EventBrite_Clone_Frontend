@@ -18,6 +18,7 @@ function HomeNavConatiner() {
                 data-spec="icon"
                 data-testid="icon"
                 aria-hidden="true"
+                id="home-icon"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -25,6 +26,7 @@ function HomeNavConatiner() {
                   height="20"
                   viewBox="0 0 20 20"
                   fill="none"
+                  id="home-icon-image"
                   className={styles["home-icon-display-default"]}
                 >
                   <path
@@ -66,6 +68,7 @@ function HomeNavConatiner() {
                   className={styles["order-icon-default"]}
                   width="24"
                   height="24"
+                  id="home-icon-image"
                   fill="none"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -94,6 +97,7 @@ function HomeNavConatiner() {
                   height="24"
                   viewBox="0 0 24 24"
                   fill="none"
+                  id="marketing-icon-image"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
@@ -123,6 +127,7 @@ function HomeNavConatiner() {
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
+                  id="reports-icon-image"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -149,6 +154,7 @@ function HomeNavConatiner() {
                   width="24"
                   height="24"
                   fill="none"
+                  id="finance-icon-image"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
@@ -209,6 +215,7 @@ function HomeNavConatiner() {
                   width="24"
                   height="24"
                   fill="none"
+                  id="organization-icon-image"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <circle cx="12" cy="12" r="3.557" fill="#EEEDF2"></circle>
@@ -234,6 +241,7 @@ function HomeNavConatiner() {
                   height="24"
                   viewBox="0 0 24 24"
                   fill="none"
+                  id="app-icon-image"
                   className={styles["app-marketplace-display-default"]}
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -259,6 +267,7 @@ function HomeNavConatiner() {
                   width="24"
                   height="24"
                   fill="none"
+                  id="help-center-icon-image"
                   xmlns="http://www.w3.org/2000/svg"
                   className={styles["help-center-display-default"]}
                 >

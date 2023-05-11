@@ -39,11 +39,16 @@ function NavBar({
         <button
           className={styles.discardButtom}
           onClick={() => changeButton(false)}
+          id="discard id"
         >
           Discard
         </button>
         <Link to="" href="">
-          <button className={styles.saveButtom} onClick={saveAndCont}>
+          <button
+            className={styles.saveButtom}
+            onClick={saveAndCont}
+            id="save and continue button"
+          >
             Save & Continue
           </button>
         </Link>

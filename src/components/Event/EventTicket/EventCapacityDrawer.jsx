@@ -77,13 +77,14 @@ function EventCapacityDrawer() {
         <List>
           <div className={styles["buttons-contariner"]}>
             <button
-              // onClick={() => showDrawerButton(false)}
+              id="cancel-button-event-capacity"
               className={styles["cancel-button"]}
             >
               Cancel
             </button>
             <button
               // onClick={saveData}
+              id="save-button-event-capacity"
               className={styles["save-button"]}
             >
               Save

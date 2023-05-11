@@ -15,6 +15,7 @@ function AddOns({ showAddOnDrawer }) {
                 data-spec="icon"
                 data-testid="icon"
                 aria-hidden="true"
+                id="add-on-icon"
               >
                 <svg viewBox="0 0 144 144">
                   <defs>
@@ -124,6 +125,7 @@ function AddOns({ showAddOnDrawer }) {
         </p>
         <div className={styles["button-contariner"]}>
           <button
+            id="create-add-on-button"
             className={styles["add-ons-button"]}
             onClick={() => showAddOnDrawer(true)}
           >

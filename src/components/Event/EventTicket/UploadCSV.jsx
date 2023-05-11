@@ -241,6 +241,7 @@ function UploadCSV({
             <label>
               <input
                 type="checkbox"
+                id="radio13"
                 // checked={checkedOne}
                 // onChange={handleChangeOne}
                 className={styles["checkbox-checkmarket"]}
@@ -301,6 +302,7 @@ function UploadCSV({
                   type="radio"
                   name="options1"
                   value="radio1"
+                  id="radio14"
                   className={styles["radio1"]}
                   checked={selectedValue === "radio1"}
                   onChange={handleRadioChange}
@@ -312,6 +314,7 @@ function UploadCSV({
                   <input
                     type="radio"
                     name="options2"
+                    id="radio15"
                     className={styles["radio1"]}
                     checked={selectedValue === "radio2"}
                     onChange={handleRadioChange}
@@ -366,6 +369,7 @@ function UploadCSV({
                   type="radio"
                   name="options3"
                   className={styles["radio1"]}
+                  id="radio16"
                   value="radio3"
                   checked={selectedValue2 === "radio3"}
                   onChange={handleRadioChange2}
@@ -378,6 +382,7 @@ function UploadCSV({
                     type="radio"
                     name="options4"
                     className={styles["radio1"]}
+                    id="radio17"
                     value="radio4"
                     checked={selectedValue2 === "radio4"}
                     onChange={handleRadioChange2}
@@ -431,6 +436,7 @@ function UploadCSV({
                   type="radio"
                   name="options5"
                   className={styles["radio1"]}
+                  id="radio17"
                   value="radio5"
                   checked={selectedValue3 === "radio5"}
                   onChange={handleRadioChange3}
@@ -442,6 +448,7 @@ function UploadCSV({
                   <input
                     type="radio"
                     name="options6"
+                    id="radio18"
                     className={styles["radio1"]}
                     value="radio6"
                     checked={selectedValue3 === "radio6"}
@@ -459,10 +466,15 @@ function UploadCSV({
             <button
               onClick={() => closeUploadCSVDrawer(false)}
               className={styles["cancel-button"]}
+              id="cancel-button-upload-csv"
             >
               Cancel
             </button>
-            <button onClick={saveData} className={styles["save-button"]}>
+            <button
+              onClick={saveData}
+              id="save-button-upload-csv"
+              className={styles["save-button"]}
+            >
               Save
             </button>
           </div>

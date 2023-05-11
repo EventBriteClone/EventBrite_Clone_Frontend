@@ -41,6 +41,7 @@ function Settings() {
               <label>
                 <input
                   type="checkbox"
+                  id="radio10"
                   // checked={checkedOne}
                   // onChange={handleChangeOne}
                   className={styles["checkbox2"]}
@@ -68,6 +69,7 @@ function Settings() {
               <input
                 type="radio"
                 name="options1"
+                id="radio11"
                 // value="option1"
                 // checked={selectedOption === "option1"}
                 // onChange={handleOptionChange}
@@ -82,6 +84,7 @@ function Settings() {
               <input
                 type="radio"
                 name="options2"
+                id="radio12"
                 // value="option1"
                 // checked={selectedOption === "option1"}
                 // onChange={handleOptionChange}
