@@ -5,6 +5,7 @@ export default function SearchBarInput() {
       className={styles["search-bar__input"]}
       type="text"
       placeholder="Search events"
+      id="search-bar__input"
     />
   );
 }

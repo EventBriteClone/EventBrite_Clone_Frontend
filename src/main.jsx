@@ -9,7 +9,6 @@ import NotFound from "./components/Event/EventPage/NotFound/NotFound";
 import SearchResultsPage from "./components/Event/SearchResults/SearchResults";
 import SearchResultpage from "./components/Modal/SearchResult/SearchResult";
 import { useLocation } from "react-router-dom";
-import { useParams } from "react-router-dom";
 import {
   createBrowserRouter,
   RouterProvider,

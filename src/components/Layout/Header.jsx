@@ -14,7 +14,6 @@ import Arrow from "../Icons/Arrow";
 export default function Header() {
   const { authState, removeAuthData } = useContext(AuthContext);
   const { isAuthenticated } = authState;
-  console.log(authState);
 
   const HeaderLinks = isAuthenticated ? (
     <AuthHeaderLinks email={authState.email} logoutHandler={removeAuthData} />
@@ -47,13 +46,14 @@ function UnAuthHeaderLinks() {
         className={styles["header-links"]}
         style={{ color: "rgb(61, 100, 255)" }}
         to="/create-event"
+        id="create-event"
       >
         Create an event
       </Link>
-      <Link className={styles["header-links"]} to="/login">
+      <Link className={styles["header-links"]} id="login" to="/login">
         Log In
       </Link>
-      <Link className={styles["header-links"]} to="/signup">
+      <Link className={styles["header-links"]} id="signup" to="/signup">
         Sign Up
       </Link>
     </>
@@ -67,15 +67,16 @@ function AuthHeaderLinks(props) {
         className={styles["header-links"]}
         style={{ color: "rgb(61, 100, 255)" }}
         to="/create-event"
+        id="create-event"
       >
         <PlusIcon color="rgb(61, 100, 255)" />
         <span>Create an event</span>
       </Link>
-      <Link className={styles["header-links"]} to="/login">
+      <Link id="likes" className={styles["header-links"]} to="#">
         <LikeIcon />
         <span>Likes</span>
       </Link>
-      <Link className={styles["header-links"]} to="/signup">
+      <Link id="tickets" className={styles["header-links"]} to="#">
         <TicketIcon />
         <span>Tickets</span>
       </Link>
@@ -112,11 +113,14 @@ function EmailDisplay(props) {
           <ul>
             <li>Browse events</li>
             <li>
-              <Link to="my-events">Manage my events</Link>
+              <Link id="my-events" to="my-events">
+                Manage my events
+              </Link>
             </li>
-            <li>Tickets</li>
-            <li>Liked</li>
+            <li id="tickets">Tickets</li>
+            <li id="likes">Liked</li>
             <li
+              id="logout"
               onClick={() => {
                 props.logoutHandler();
                 navigate("/");
