@@ -48,6 +48,7 @@ export default function useFetch({
   endpoint,
   configurationOpt = {},
   callback,
+  notMockingCallback,
   dependOn = [],
 }) {
   const [fetchState, dispatch] = useReducer(reducerFunction, initialState);
@@ -59,11 +60,14 @@ export default function useFetch({
     return () => controller.abort();
   }, [endpoint]);
 
-  if (callback && fetchState.response) {
+  if (callback && fetchState.response && fetchState.response.length) {
+    console.log(fetchState.response);
     const newData = callback(fetchState.response);
-    if (newData) {
-      modifiedFetchState = { ...fetchState, response: newData };
-    }
+    modifiedFetchState = { ...fetchState, response: newData || null };
+  }
+  if (config.mocking === "false" && notMockingCallback) {
+    const newData = notMockingCallback(fetchState.response);
+    modifiedFetchState = { ...fetchState, response: newData || null };
   }
   return modifiedFetchState || fetchState;
 }

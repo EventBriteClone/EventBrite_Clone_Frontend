@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
 import EventCardContainer from "../EventCardContainer/EventCardContainer";
 import EventCard from "../EventCardContainer/EventCard";
 import "./SearchResults.css";
+import { parseDateFromAPI } from "../../../utils";
+import config from "../../../utils/config";
 function SearchResults() {
   const params = useParams();
   const endpoint = `events/search/${params.key}`;
@@ -21,8 +23,19 @@ function SearchResults() {
 
       {response?.length ? (
         <EventCardContainer>
-          {response.map((r) => {
-            return <EventCard key={r.ID} event={r}></EventCard>;
+          {response.map((ev) => {
+            const data = {
+              title: ev.Title,
+              id: ev.ID,
+              image: ev.image,
+              organizer: ev.organizer,
+              location: ev.venue_name,
+              startDate: parseDateFromAPI(ev.ST_DATE),
+              startTime: ev.ST_TIME,
+              endTime: ev.END_TIME,
+            };
+
+            return <EventCard key={data.id} event={data}></EventCard>;
           })}
         </EventCardContainer>
       ) : !response ? (

@@ -70,7 +70,7 @@ export default function Publish() {
         },
       };
       const createEventEndpoint =
-        config.mocking === "true" ? "event/" : "events/create/";
+        config.mocking === "true" ? "events/" : "events/create/";
 
       const createEventRes = await fetchDataFromAPI({
         endpoint: createEventEndpoint,

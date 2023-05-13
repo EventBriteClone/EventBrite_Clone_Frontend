@@ -15,10 +15,13 @@ import BeatLoader from "react-spinners/BeatLoader";
 import PriceFetch from "./PriceFetch";
 import NotFound from "./NotFound/NotFound";
 import Cookies from "js-cookie";
+import { AuthContext } from "../../../context/AuthContext";
+import { useContext } from "react";
 
 function Event() {
-  const user_id = JSON.parse(Cookies.get("authData")).userId;
-
+  // const user_id = JSON.parse(Cookies.get("authData")).userId;
+  const { authState } = useContext(AuthContext);
+  const { userId: user_id } = authState;
   const event_ID = window.location.href.split("/").at(-1);
 
   let data;
@@ -80,14 +83,14 @@ function Event() {
   return (
     <>
       <Header></Header>
-      <EventHeader img={data.image} />
+      <EventHeader img={data?.image} />
       <EventInfo
-        date={data.ST_DATE}
-        title={data.Title}
-        caption={data.Summery}
+        date={data?.ST_DATE}
+        title={data?.Title}
+        caption={data?.Summery}
       />
       <PriceTag
-        user={Number(data.User_id) === user_id ? true : false}
+        user={Number(data?.user_id) === user_id ? true : false}
         price={price}
         event={event.id}
         img={data.image}
@@ -114,7 +117,7 @@ function Event() {
         organizerFollowers={event.organizerFollowers}
       />
       <ShareButton />
-      <LikeButton />
+      <LikeButton eventId={event_ID} />
       <Footer />
     </>
   );

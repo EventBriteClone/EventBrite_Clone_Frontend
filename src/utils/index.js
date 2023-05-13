@@ -91,3 +91,41 @@ export function convertTimeTo24HourFormat(time) {
 
   return `${formattedHours}:${formattedMinutes}:00`;
 }
+
+export function parseDateFromAPI(dateString) {
+  // Split the date string into year, day, and month components
+  const dateComponents = dateString.split("-");
+
+  // Extract the year, day, and month from the components
+  const year = dateComponents[0];
+  const day = dateComponents[2];
+  const month = dateComponents[1];
+
+  // Create a new Date object using the extracted components
+  const dateObj = new Date(year, month - 1, day);
+
+  // Get the current date
+  const currentDate = new Date();
+
+  // Compare the dates to determine the day value
+  let dayString = "";
+  if (dateObj.toDateString() === currentDate.toDateString()) {
+    dayString = "today";
+  } else if (
+    dateObj.toDateString() ===
+    new Date(currentDate.getTime() + 24 * 60 * 60 * 1000).toDateString()
+  ) {
+    dayString = "tomorrow";
+  } else {
+    dayString = dateObj.toLocaleDateString("en-US", { weekday: "long" });
+  }
+
+  // Get the month name
+  const monthString = dateObj.toLocaleDateString("en-US", { month: "long" });
+
+  // Format the date string as a template string
+  const formattedDate = `${dayString}, ${monthString}, ${day}, ${year}`;
+
+  // Return the formatted date
+  return formattedDate;
+}

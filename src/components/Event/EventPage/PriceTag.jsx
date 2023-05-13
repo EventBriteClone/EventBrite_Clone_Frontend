@@ -1,9 +1,9 @@
 import styles from "./PriceTag.css";
 import LikeButton from "../../UI/LikeButton";
-export default function PriceTag() {
+export default function PriceTag({ event }) {
   return (
     <div>
-      <LikeButton />
+      <LikeButton eventId={event} />
       <div className="price-tag">
         <div className="price">€549 – €699</div>
         <button

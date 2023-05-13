@@ -14,6 +14,7 @@
   right: 8px;
   transform: translateY(-50%);
   background: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .like-button i {

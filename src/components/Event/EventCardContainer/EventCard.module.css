@@ -12,6 +12,9 @@
   box-shadow: rgb(0 0 0 / 16%) 0px 10px 30px 0px,
     rgb(0 0 0 / 6%) 0px 0px 0px 1px;
 }
+.event-card__container a {
+  width: 100%;
+}
 
 .event-card__container a {
   display: inline-block;
@@ -61,4 +64,10 @@
   display: flex;
   align-items: center;
   gap: 8rem;
+}
+
+.imgPlaceHolder {
+  min-height: 160px;
+  width: 100%;
+  background-color: #fdf7f5;
 }

@@ -10,10 +10,12 @@ export default function MainContent(props) {
       <Section>
         <LocationPopularity />
         <AvailableTabs />
-        <TrendingCategories />
       </Section>
       <Section>
         <EventsInLocation />
+      </Section>
+      <Section>
+        <TrendingCategories />
       </Section>
     </>
   );
