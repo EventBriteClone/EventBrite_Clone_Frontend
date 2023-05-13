@@ -23,5 +23,8 @@ export default function PriceFetch(event_ID) {
     price = response[firstPropertyName];
   }
 
+  console.log(response);
+
+  console.log(price);
   return price;
 }
