@@ -20,12 +20,14 @@ function ErrorMessage({ showAlertMessage }) {
       <Stack spacing={1} sx={{ width: "100%" }}>
         <Snackbar
           open={open}
+          id="error-message-bar"
           autoHideDuration={6000}
           onClose={handleClose}
           anchorOrigin={{ vertical: "top", horizontal: "center" }}
         >
           <MuiAlert
             onClose={handleClose}
+            id="error-alert"
             severity="error"
             sx={{ width: "100%" }}
           >

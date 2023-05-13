@@ -23,11 +23,12 @@ function Event() {
   const { authState } = useContext(AuthContext);
   const { userId: user_id } = authState;
   const event_ID = window.location.href.split("/").at(-1);
+  console.log(event_ID);
 
   let data;
 
   const endpoint =
-    config.mocking === "true" ? "events" : `events/ID/${event_ID}/`;
+    config.mocking === "true" ? `event/${event_ID}` : `events/ID/${event_ID}/`;
 
   const { response } = useFetch({
     endpoint,
@@ -36,7 +37,9 @@ function Event() {
       headers: { "Content-Type": "application/json" },
     },
   });
-  data = response?.[0];
+  if (response) data = response;
+  console.log(response);
+  console.log(data);
 
   let price;
 

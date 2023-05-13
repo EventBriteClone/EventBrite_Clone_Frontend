@@ -281,7 +281,7 @@ function DateTime({ changeButton }) {
               )}
               {showSingleEvent && (
                 <Autocomplete
-                  id="disabled-options-demo"
+                  id="start-time-input"
                   options={timeSlots}
                   value={createEvent.startTime}
                   onChange={timeStartChange}
@@ -315,7 +315,7 @@ function DateTime({ changeButton }) {
               )}
               {showSingleEvent && (
                 <Autocomplete
-                  id="disabled-options-demo"
+                  id="end-time-input"
                   options={timeSlots}
                   value={createEvent.endTime}
                   onChange={timeEndChange}

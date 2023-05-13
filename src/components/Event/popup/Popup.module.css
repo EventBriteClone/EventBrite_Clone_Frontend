@@ -367,3 +367,8 @@ flex-direction: column;
 .minus:hover {
   opacity: 0.98;
 }
+
+.unauthorized {
+  color:red;
+  margin-left: 1125px;
+}
