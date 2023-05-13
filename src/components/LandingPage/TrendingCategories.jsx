@@ -1,6 +1,19 @@
+import { useEffect } from "react";
 import styles from "./TrendingCategories.module.css";
 
-export default function TrendingCategories(props) {
+export default function TrendingCategories({ setCategory }) {
+  useEffect(() => {
+    function clickHandler(e) {
+      const categoryContainer = e.target.closest(`.${styles.category}`);
+      if (categoryContainer) {
+        const categoryName =
+          categoryContainer.querySelector("[data-title]").textContent;
+        setCategory(categoryName);
+      }
+    }
+    document.addEventListener("click", clickHandler);
+    return () => document.removeEventListener("click", clickHandler);
+  }, []);
   return (
     <div>
       <h3 className={styles.h3}>Check out trending categories</h3>
@@ -23,7 +36,7 @@ export default function TrendingCategories(props) {
               </svg>
             </i>
           </aside>
-          <div data-title>Music</div>
+          <div data-title>Auto, Boat & Air</div>
         </div>
         <div className={styles.category}>
           <aside>
@@ -43,7 +56,7 @@ export default function TrendingCategories(props) {
               </svg>
             </i>
           </aside>
-          <div data-title>Health</div>
+          <div data-title>Business & Professional</div>
         </div>
         <div className={styles.category}>
           <aside>
@@ -63,7 +76,7 @@ export default function TrendingCategories(props) {
               </svg>
             </i>
           </aside>
-          <div data-title>Holiday</div>
+          <div data-title>Charity & Causes</div>
         </div>
         <div className={styles.category}>
           <aside>
@@ -83,7 +96,7 @@ export default function TrendingCategories(props) {
               </svg>
             </i>
           </aside>
-          <div data-title>Hobbies</div>
+          <div data-title>Community & Culture</div>
         </div>
         <div className={styles.category}>
           <aside>
@@ -103,7 +116,7 @@ export default function TrendingCategories(props) {
               </svg>
             </i>
           </aside>
-          <div data-title>Business</div>
+          <div data-title>Family & Education</div>
         </div>
         <div className={styles.category}>
           <aside>

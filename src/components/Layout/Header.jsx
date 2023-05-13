@@ -72,7 +72,7 @@ function AuthHeaderLinks(props) {
         <PlusIcon color="rgb(61, 100, 255)" />
         <span>Create an event</span>
       </Link>
-      <Link id="likes" className={styles["header-links"]} to="#">
+      <Link id="likes" className={styles["header-links"]} to="/likes">
         <LikeIcon />
         <span>Likes</span>
       </Link>

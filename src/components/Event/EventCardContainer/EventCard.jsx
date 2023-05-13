@@ -8,7 +8,11 @@ import { fetchDataFromAPI } from "../../../utils";
 
 export default function EventCard(props) {
   const [price, setPrice] = useState("Free");
-  console.log(props.event);
+  console.log(props.event.image);
+  let imageSrc = props.event.image;
+  if (imageSrc && !imageSrc.includes("https://event-us")) {
+    imageSrc = `https://event-us.me:8000${imageSrc}`;
+  }
   useEffect(() => {
     if (config.mocking === "false") {
       getEventsTicketPrice(props.event.id).then((p) => setPrice(p));
@@ -34,10 +38,10 @@ export default function EventCard(props) {
       <article className={styles["event-card__container"]}>
         <aside>
           <Link to={`/event/${event.id}`}>
-            {event.image ? (
+            {imageSrc ? (
               <img
                 loading="lazy"
-                src={event.image}
+                src={imageSrc}
                 alt="Title"
                 style={{ width: "512", height: "256" }}
               />
@@ -59,9 +63,7 @@ export default function EventCard(props) {
             </p>
           </div>
           <div className={styles["event-card__secondary-info"]}>
-            <p className=" truncate-text">
-              {event?.location || "City • City, City Full"}
-            </p>
+            <p className=" truncate-text">{event?.location || "Online"}</p>
             <p>{price}</p>
           </div>
           <div className={styles["event-card__organizer-info"]}>

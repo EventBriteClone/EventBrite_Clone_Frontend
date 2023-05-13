@@ -12,10 +12,14 @@ export default function EventsInLocation(props) {
   const { city } = useContext(NavigationContext);
   console.log(city);
 
-  const endpoint =
+  let endpoint =
     config.mocking === "true"
       ? `eventsPreview?location_like=${city}`
       : `events/venue/${city.toLowerCase()}/`;
+
+  if (city === "online" && config.mocking !== "true") {
+    endpoint = "events/online/";
+  }
   const { response } = useFetch({
     endpoint,
     callback: parseEventDataFromAPI,
@@ -26,21 +30,21 @@ export default function EventsInLocation(props) {
         <EventCard key={event.id} event={event} />
       ))
     ) : (
-      <h3>No Events found</h3>
+      <h3>No Events found in {city}</h3>
     );
 
   return (
-    <>
+    <div style={{ marginBottom: "20px" }}>
       {city && (
         <h3 className={styles.h3} style={{ paddingTop: "40px" }}>
           {city === "online" ? "Online Events" : `Events in ${city}`}
         </h3>
       )}
       <EventCardContainer key="1">{eventsList}</EventCardContainer>
-    </>
+    </div>
   );
 }
-function parseEventDataFromAPI(response) {
+export function parseEventDataFromAPI(response) {
   console.log(response);
   if (!response || !response?.length) return null;
   let parsedEvents = [];

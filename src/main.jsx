@@ -30,6 +30,7 @@ import ManageAttendees from "./Pages/ManageAttendees";
 import EventTicket from "./Pages/EventTicket";
 import Publish from "./Pages/Publish";
 import Dashboard from "./Pages/Dashboard";
+import LikedEvents from "./components/Event/LikedEvents/LikedEvents";
 
 const router = createBrowserRouter([
   {
@@ -95,6 +96,10 @@ const router = createBrowserRouter([
   {
     path: "/search/:key",
     element: <SearchResultsPage />,
+  },
+  {
+    path: "/likes",
+    element: <LikedEvents />,
   },
   {
     path: "*",
