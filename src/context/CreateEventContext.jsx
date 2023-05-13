@@ -42,12 +42,12 @@ export default function CreateEventContextProvider({ children }) {
 
 function createEventReducer(state, payload) {
   if (payload.type === "set") {
-    let newState = { ...state, ...payload.data };
+    const newState = { ...state, ...payload.data };
     localStorage.setItem("event", JSON.stringify(newState));
     return newState;
   }
   if (payload.type === "clear") {
-    localStorage.removeItem("event");
+    localStorage.setItem("event", JSON.stringify({ ...initialEvent }));
     return { ...initialEvent };
   }
 }
