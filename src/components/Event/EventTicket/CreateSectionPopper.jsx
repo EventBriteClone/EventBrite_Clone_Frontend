@@ -152,7 +152,12 @@ function CreateSectionPopper({ createSectionButton }) {
                 >
                   Cancel
                 </button>
-                <button className={styles["create-button"]}>Create</button>
+                <button
+                  id="create-button-create-section"
+                  className={styles["create-button"]}
+                >
+                  Create
+                </button>
               </div>
             </div>
           </div>

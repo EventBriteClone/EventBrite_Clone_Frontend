@@ -39,7 +39,7 @@ function NavBar({
         <button
           className={styles.discardButtom}
           onClick={() => changeButton(false)}
-          id="discard id"
+          id="discard button"
         >
           Discard
         </button>

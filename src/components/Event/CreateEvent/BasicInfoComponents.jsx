@@ -275,7 +275,7 @@ function BasicInfoComponents({
         <p>Events with a summary can attract up to 75% more customers</p>
         <TextField
           required
-          id="outlined-required"
+          id="event-summary-input"
           className={styles.EventTitle}
           label="Event Summary"
           value={createEvent.summary}
@@ -310,7 +310,7 @@ function BasicInfoComponents({
         <p>Write a description for your event!</p>
         <TextField
           required
-          id="outlined-required"
+          id="event-description-input"
           className={styles.EventTitle}
           label="Event Description"
           value={createEvent.description}
@@ -353,7 +353,7 @@ function BasicInfoComponents({
       <div className={styles.containerEventTitle}>
         <TextField
           required
-          id="outlined-required"
+          id="event-title-required"
           className={styles.EventTitle}
           label="Event Title"
           value={createEvent.eventTitle}
@@ -396,7 +396,7 @@ function BasicInfoComponents({
       </div>
       <TextField
         required
-        id="outlined-required"
+        id="organizer-required"
         className={styles.Organizer}
         label="Organizer"
         value={createEvent.organizer}
@@ -481,7 +481,7 @@ function BasicInfoComponents({
             <div className={styles.tagTextContainer}>
               <TextField
                 required
-                id="outlined-required"
+                id="tags-input"
                 className={styles.AddTag}
                 label="Press Enter to add a tag"
                 placeholder="Add search keywords to your event"
