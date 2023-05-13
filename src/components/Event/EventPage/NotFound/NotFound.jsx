@@ -12,7 +12,7 @@ export default function NotFound() {
       </h1>
       <h2 class={styles["error"]}>
         If you feel this message is in error, please{" "}
-        <a href="https://www.eventbrite.com/support/contact-us">let us know</a>.
+        <a href="#">let us know</a>.
       </h2>
       <Footer />
     </div>

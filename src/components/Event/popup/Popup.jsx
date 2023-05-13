@@ -7,15 +7,27 @@ import logoImg from "../../../assets/images/eventus.png";
 import config from "../../../utils/config";
 import { fetchDataFromAPI } from "../../../utils";
 import Cookies from "js-cookie";
+import { AuthContext } from "../../../context/AuthContext";
+import { useContext } from "react";
 // import swal from "sweetalert";
 
 const Popup = ({ show, setShow, ...props }) => {
+  const ctx = useContext(AuthContext);
+  console.log(ctx);
+  const is_Authenticated = ctx.authState.isAuthenticated;
+  console.log(is_Authenticated);
   const user_token = JSON.parse(Cookies.get("authData")).token;
   // console.log(user_token);
 
   const subTotal = props.price;
 
   // let ticket_id = Math.floor(Math.random() * 100000000);
+
+  while (!is_Authenticated) {
+    return (
+        <div className={styles["unauthorized"]}>You need to log in!</div>
+    );
+  }
 
   const [stepOne, setStepOne] = useState(false);
 
@@ -138,7 +150,14 @@ const Popup = ({ show, setShow, ...props }) => {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    if (fname && lname && email && cmail && isValidEmail(email)) {
+    if (
+      fname &&
+      lname &&
+      email &&
+      cmail &&
+      isValidEmail(email) &&
+      is_Authenticated
+    ) {
       const endpoint =
         config.mocking === "true" ? "" : `booking/event/${props.event}/orders/`;
       const requestData = {
@@ -171,7 +190,7 @@ const Popup = ({ show, setShow, ...props }) => {
        */
       const response = await fetchDataFromAPI({ endpoint, configurationOpt });
 
-      // console.log(response);
+      console.log(response);
 
       setShow(false);
     }
