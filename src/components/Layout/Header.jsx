@@ -80,7 +80,11 @@ function AuthHeaderLinks(props) {
         <TicketIcon />
         <span>Tickets</span>
       </Link>
-      <EmailDisplay email={props.email} logoutHandler={props.logoutHandler} />
+      <EmailDisplay
+        id="display-email-landpage"
+        email={props.email}
+        logoutHandler={props.logoutHandler}
+      />
     </>
   );
 }
@@ -98,6 +102,7 @@ function EmailDisplay(props) {
     <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      id="email-display-header"
       className={`${styles["email-display"]} ${styles["header-links"]}`}
     >
       <span className={styles["person-icon__container"]}>

@@ -135,7 +135,11 @@ export default function Publish() {
             </div>
           </div>
           <div className={styles["submit-card__container"]}>
-            <button onClick={handlePublishEvent} disabled={isLoading}>
+            <button
+              onClick={handlePublishEvent}
+              id="publish-event-button"
+              disabled={isLoading}
+            >
               {isLoading ? "Loading..." : "Publish Event"}
             </button>
           </div>
