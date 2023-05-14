@@ -1,15 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./AllEvents.module.css";
 import EventCard from "../../EventCardContainer/EventCard";
 import "remixicon/fonts/remixicon.css";
 import EventCardContainer from "../../EventCardContainer/EventCardContainer";
 import { fetchDataFromAPI } from "../../../../utils";
 import config from "../../../../utils/config";
+import { AuthContext } from "../../../../context/AuthContext";
+import { parseEventDataFromAPI } from "../../../LandingPage/EventsInLocation";
+import { useNavigate } from "react-router-dom";
 
 function AllEvents() {
+  const navigate = useNavigate();
   const [data, setData] = useState(null);
   const [selectedOption, setSelectedOption] = useState("All Events");
-  let ay7aga;
+  const { authState } = useContext(AuthContext);
+  if (!authState.isAuthenticated) return;
   // const eventsList = Array.isArray(data) && data.map();
   const events = [
     { date: new Date("3/4/2024") },
@@ -45,20 +50,21 @@ function AllEvents() {
       endpoint = "eventsPreview";
     } else {
       // let user_id = "";
-      endpoint = "events/ALL/";
+      endpoint = "eventmanagement/creatorevents/";
       configurationOpt = {
         method: "GET",
-        header: { "content-type": "application/json" },
+        headers: { authorization: `customToken ${authState.token}` },
       };
     }
-    fetchDataFromAPI({ endpoint, configurationOpt }).then((data) =>
-      setData(data)
-    );
+    fetchDataFromAPI({ endpoint, configurationOpt }).then((data) => {
+      if (config.mocking === "false") data = parseEventDataFromAPI(data);
+      setData(data);
+    });
   }, []);
-  if (data && Object.keys(data).length > 0) {
-    const property = Object.keys(data)[3];
-    ay7aga = data[property];
-  }
+  // if (data && Object.keys(data).length > 0) {
+  //   const property = Object.keys(data)[3];
+  //   ay7aga = data[property];
+  // }
 
   return (
     <>
@@ -109,9 +115,7 @@ function AllEvents() {
             </div>
             <div
               className={styles["Create-Event"]}
-              onClick={() =>
-                (window.location.href = "http://localhost:5173/create-event")
-              }
+              onClick={() => navigate("/create-event")}
             >
               <div className={styles["create-event"]}>
                 <h1>Create Event</h1>
@@ -120,11 +124,14 @@ function AllEvents() {
           </div>
         </div>
       </div>
-      <div className={styles["section"]}>
+      <div className={styles["section"]} style={{ padding: "0 60px" }}>
         <EventCardContainer>
           {data &&
             Array.isArray(data) &&
-            data.map((e) => <EventCard event={e} />)}
+            data.map((e) => {
+              console.log(e);
+              return <EventCard event={e} key={e.id} />;
+            })}
 
           {/* {ay7aga &&
             Array.isArray(ay7aga) &&
@@ -136,6 +143,7 @@ function AllEvents() {
               startDate={
                 event.date ? event.date.toLocaleDateString("en-US") : ""
               }
+              event={event}
             />
           ))}
         </EventCardContainer>

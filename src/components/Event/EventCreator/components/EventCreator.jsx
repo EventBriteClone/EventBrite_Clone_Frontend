@@ -1,11 +1,11 @@
 import "remixicon/fonts/remixicon.css";
-import EventHeader from "./EventHeader";
 import AllEvents from "./AllEvents";
+import HeaderTicket from "../../EventTicket/HeaderTicket";
 
 function EventCreator() {
   return (
     <>
-      <EventHeader />
+      <HeaderTicket></HeaderTicket>
       <AllEvents />
     </>
   );

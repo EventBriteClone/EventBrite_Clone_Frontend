@@ -6,6 +6,7 @@
   line-height: 24rem;
   transition: 0.25s linear;
   cursor: default;
+  max-width: 400px;
   /* padding: 16rem; */
 }
 .event-card__container:hover {
